@@ -152,10 +152,10 @@ public class ClientEngine extends TimerTask{
 		}
 
 		if (lastServerTurn < actualEngineTurn){
-			if (arrivedNewTurn)
+			//if (arrivedNewTurn)
 				copyWorldForPaint( crateAndUpdateAsincroniusWorld(actualEngineTurn-lastServerTurn, true) );
-			else
-				copyWorldForPaint( crateAndUpdateAsincroniusWorld(1, false) ); //just 1 step
+			//else
+				//copyWorldForPaint( crateAndUpdateAsincroniusWorld(1, false) ); //just 1 step
 		}else{
 			copyWorldForPaint( allOggetto2D.values() );
 			crateAndUpdateAsincroniusWorld(0, true);
