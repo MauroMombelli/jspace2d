@@ -39,16 +39,14 @@ public class SetNode extends GuiAction{
 			myself.setLocalTranslation( new Vector3f(position.x, position.y, 0) );
 			myself.setLocalRotation(rotation);
 		}else{
-			//myself = ModelLoaderXML.loadModelXML(modelName);
-			myself = (Node)ModelLoaderOBJ.loadModel("test5");
+			myself = ModelLoaderXML.loadModelXML(modelName);
+			//myself = (Node)ModelLoaderOBJ.loadModel("test5");
 			myself.setLocalTranslation( new Vector3f(position.x, position.y, 0) );
 			myself.setLocalRotation(rotation);
 			visibleObject.put(ID, myself);
 			rootNode.attachChild(myself);
 			System.out.println("New model created, ID:"+ID);
 		}
-		myself.updateModelBound();
-		
 	}
 	
 

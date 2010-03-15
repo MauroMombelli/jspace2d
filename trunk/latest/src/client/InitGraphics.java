@@ -4,6 +4,7 @@ import client.gameState.WorldGameState;
 
 import com.jme.app.AbstractGame.ConfigShowMode;
 import com.jme.input.MouseInput;
+import com.jme.renderer.ColorRGBA;
 
 import com.jmex.editors.swing.settings.GameSettingsPanel;
 import com.jmex.game.StandardGame;
@@ -12,10 +13,12 @@ import com.jmex.game.state.GameStateManager;
 public class InitGraphics {
 	
 	WorldGameState guiWorld;
-	
+	InputReader in;
 	public InitGraphics(){
+		in = new InputReader();
+		
 		StandardGame game = new StandardGame("Client test");
-
+		game.setBackgroundColor(ColorRGBA.white);
 		try {
 			GameSettingsPanel.prompt(game.getSettings());
 		} catch (InterruptedException e) {
@@ -32,6 +35,7 @@ public class InitGraphics {
 		
 		guiWorld.setActive(true);
 		game.setConfigShowMode(ConfigShowMode.AlwaysShow);
+		
 		
 		//guiWorld.addAction( new SetNode(100, "sfera.xml", new Vec2(0,0), 0) );
 		//guiWorld.addAction( new SetNode(101, "sfera.xml", new Vec2(5,0), 0) );

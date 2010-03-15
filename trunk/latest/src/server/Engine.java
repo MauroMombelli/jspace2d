@@ -135,7 +135,7 @@ public class Engine extends TimerTask{
 		
 		//send NewTurn to all observer, if there are changes
 		for (Player p:observerPlayer){
-			if (n.actionsSize() != 0 || n.newObjSize() != 0)
+			if (n.actionsSize() != 0 || n.newObjSize() != 0 || actualTurn%100==0)
 				p.write(n);
 		}
 		

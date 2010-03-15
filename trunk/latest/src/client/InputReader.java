@@ -17,6 +17,11 @@ public class InputReader implements MouseInputListener{
 		keyboard.set("move_down", KeyInput.KEY_NUMPAD2);
 		keyboard.set("move_left", KeyInput.KEY_NUMPAD4);
 		keyboard.set("move_right", KeyInput.KEY_NUMPAD6);
+		
+		keyboard.set("more_zoom", KeyInput.KEY_MINUS);
+		keyboard.set("less_zoom", KeyInput.KEY_ADD);
+		
+		keyboard.set("escape", KeyInput.KEY_ESCAPE);
 		/*
 		keyboard.set("roll_left", KeyInput.KEY_NUMPAD7); //rollio sx
 		keyboard.set("roll_right", KeyInput.KEY_NUMPAD9); //rollio dx

@@ -136,11 +136,13 @@ public class ClientEngine extends TimerTask{
 							if (diffSum != 0){
 								System.out.println("ERROR IN DEBUG, PHYSIC IS NOT PERFECTLY SYNCRONIZED!");
 								System.exit(0);
+							}else{
+								System.out.println("DEBUG: EVERY LITTLE THINGS, IS GONNA BE ALL RIGHT :-)");
 							}
 							mapsAtTurn.remove(clientData);
 						//}
 					}else{
-						System.out.println("DEBUG SERVER IS FASTER");
+						System.out.println("DEBUG SERVER IS FASTER: "+tempAM.turn+" "+lastServerTurn);
 					}
 				}else{
 					System.out.println("Wrong packet!");
@@ -204,7 +206,7 @@ public class ClientEngine extends TimerTask{
 		
 		if (tempTurn.actualTurn > lastServerTurn){
 			System.out.println( "FastElaboration from: "+lastServerTurn+" to: "+tempTurn.actualTurn );
-			while (lastServerTurn<tempTurn.actualTurn-1){
+			while (lastServerTurn<tempTurn.actualTurn){
 				execute();
 			}
 			execute(tempTurn);
@@ -241,17 +243,19 @@ public class ClientEngine extends TimerTask{
 		
 		world.update();
 		
+		
+		
 		System.out.println( "Executing:"+lastServerTurn);
-		if (lastServerTurn%100==0){
+		//if (lastServerTurn%100==0){
 			System.out.println( "Saving for debug: "+lastServerTurn);
 			HashMap<Integer, InfoBody> data = new HashMap<Integer, InfoBody>();
 			for ( Oggetto2D obj:allOggetto2D.values() ){
 				data.put(obj.ID, obj.getInfoPosition());
 			}
 			mapsAtTurn.put(lastServerTurn, data);
-		}
-		
+		//}
 		lastServerTurn++;
+		
 	}
 
 }

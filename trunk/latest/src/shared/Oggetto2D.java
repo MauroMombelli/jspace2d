@@ -25,7 +25,7 @@ public class Oggetto2D implements Serializable {
 	public int ID;
 	LinkedList<Action> allChanges;
 	
-	String modelName="sfera.xml";
+	String modelName="astronave 2.xml";
 	
 	public Oggetto2D(int id, LinkedList<Action> allChanges){
 		this.ID = id;

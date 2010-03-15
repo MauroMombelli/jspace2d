@@ -23,7 +23,7 @@ public class WorldGameState extends BasicGameState{
 	PointLight light;
 	private Camera camera;
 
-	private float cameraZoom;
+	private float cameraZoom=20;
 	
 	public WorldGameState(String arg0) {
 		super(arg0);
@@ -47,7 +47,7 @@ public class WorldGameState extends BasicGameState{
         rootNode.updateGeometricState(0.0f, true);
         
         camera=DisplaySystem.getDisplaySystem().getRenderer().getCamera();
-        camera.setLocation( new Vector3f(20, 0, 50) );
+        camera.setLocation( new Vector3f(20, 0, cameraZoom) );
 	}
 	
 	public void addAction(GuiAction a){
@@ -78,6 +78,9 @@ public class WorldGameState extends BasicGameState{
 			if (cameraZoom<10)
 				cameraZoom=10;
 			camera.setLocation( new Vector3f(0, 0, cameraZoom) );
+        }
+		if (KeyBindingManager.getKeyBindingManager().isValidCommand("escape", true)) {
+			System.exit(0);
         }
 		
 		rootNode.updateRenderState();
