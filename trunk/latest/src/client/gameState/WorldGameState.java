@@ -58,7 +58,7 @@ public class WorldGameState extends BasicGameState{
 
 	@Override
 	public void update(float tpf) {
-		System.out.println( "GUI update");
+		//System.out.println( "GUI update");
 		synchronized (objMod) {
 			super.update(tpf);
 			GuiAction currentAction;
@@ -71,13 +71,13 @@ public class WorldGameState extends BasicGameState{
 			cameraZoom++;
 			if (cameraZoom>100)
 				cameraZoom=100;
-			camera.setLocation( new Vector3f(0, 0, cameraZoom) );
+			camera.setLocation( new Vector3f(20, 0, cameraZoom) );
         }
 		if (KeyBindingManager.getKeyBindingManager().isValidCommand("more_zoom", true)) {
 			cameraZoom--;
 			if (cameraZoom<10)
 				cameraZoom=10;
-			camera.setLocation( new Vector3f(0, 0, cameraZoom) );
+			camera.setLocation( new Vector3f(20, 0, cameraZoom) );
         }
 		if (KeyBindingManager.getKeyBindingManager().isValidCommand("escape", true)) {
 			System.exit(0);
@@ -94,10 +94,16 @@ public class WorldGameState extends BasicGameState{
 		}
 	}
 */
-
+/*
 	public void addGuiActions(LinkedList<GuiAction> listaAzioni) {
 		synchronized (objMod) {
 			objMod.addAll(listaAzioni);
+		}
+	}
+*/
+	public void setGuiActions(LinkedList<GuiAction> listaAzioni) {
+		synchronized (objMod) {
+			objMod = listaAzioni;
 		}
 	}
 }

@@ -6,6 +6,8 @@ import java.net.Socket;
 import shared.InputReader;
 import shared.Login;
 import shared.OutputWriter;
+import shared.Ship;
+import shared.azioni.ShipRequest;
 
 public class Player {
 	Socket giocatore;
@@ -13,6 +15,8 @@ public class Player {
 	OutputWriter outW;
 	
 	Login myself=null;
+	
+	ShipRequest activeShip;
 	
 	int update= 0;
 	
@@ -47,6 +51,15 @@ public class Player {
 				}else{
 					//error first input wasn't a login
 					close();
+				}
+				if (t instanceof ShipRequest){
+					ShipRequest ship = (ShipRequest)t;
+					if ( ship.isValid() ){
+						activeShip = ship;
+					}else{
+						//Probable hacking
+						close();
+					}
 				}
 			}else{
 				//TODO: read and execute action
@@ -87,6 +100,10 @@ public class Player {
 	public void write(Object obj) {
 		if (obj!=null)
 			outW.write(obj);
+	}
+	
+	public ShipRequest getActiveShip(){
+		return activeShip;
 	}
 
 }

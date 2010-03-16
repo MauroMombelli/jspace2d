@@ -24,6 +24,8 @@ public class Engine extends TimerTask{
 	LinkedList<Player> unloggedPlayer = new LinkedList<Player>();
 	ArrayList<Player> observerPlayer = new ArrayList<Player>();
 
+	ArrayList<Player> players = new ArrayList<Player>();
+	
 	LinkedList<Player> newObserver = new LinkedList<Player>();
 	LinkedList<Player> removedObserver = new LinkedList<Player>();
 	
@@ -35,14 +37,18 @@ public class Engine extends TimerTask{
 	LinkedList<Action> allChanges = new LinkedList<Action>();
 	int objIndex;
 	
+	EngineListener collListener = new EngineListener();
+	
 	public Engine(PortListener serverMain) {
 		this.serverMain = serverMain;
+		
+		world.setCollisionListener(collListener);
 		
 		//put 10 obj in world
 		Oggetto2D t;
 		for (int i=0; i < 10; i++){
 			t = new Oggetto2D(objIndex++, allChanges);
-			allOggetto2D.put(t.ID, t);
+			newOggetti2D.add(t);
 			world.addNew( t, i*10, 0, 0 );
 		}
 	}
@@ -91,7 +97,7 @@ public class Engine extends TimerTask{
 			//step
 			world.update();
 			
-			//every 100 turn send all maps, actually for debug purpoise
+			//every 100 turn send all maps, actually for debug purpose
 			if (actualTurn%100==0)
 				writeAllMaps();
 		}
@@ -147,9 +153,14 @@ public class Engine extends TimerTask{
 		//add the new observer to observerPlayer
 		observerPlayer.addAll(newObserver);
 		newObserver.clear();
+		
+		//add the new object to the object
+		for (Oggetto2D o:newOggetti2D){
+			allOggetto2D.put(o.ID, o);
+		}
 		newOggetti2D.clear();
 		
-		//clear sended actions
+		//clear send actions
 		allChanges.clear();
 	}
 
@@ -187,15 +198,21 @@ public class Engine extends TimerTask{
 				removedObserver.add(t);
 			}else{
 				t.update();
-				//TODO: if observer request a ship and everything is right, set him as player
+				if (t.getActiveShip() != null){
+					players.add(t);
+					removedObserver.add(t);
+				}
 			}
 		}
-		// remove disconnected player
+		// remove disconnected or player from observer
 		observerPlayer.removeAll(removedObserver);
 		
 		/*
 		 * TODO: control if action requests is arrived for the player (all handled by update() method.
 		 */
+		for (Player t:players){
+			t.update();
+		}
 	}
 
 	/*

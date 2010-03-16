@@ -5,6 +5,7 @@ import org.jbox2d.collision.shapes.PolygonDef;
 import org.jbox2d.common.Vec2;
 import org.jbox2d.dynamics.Body;
 import org.jbox2d.dynamics.BodyDef;
+import org.jbox2d.dynamics.ContactListener;
 import org.jbox2d.dynamics.World;
 
 
@@ -116,6 +117,11 @@ public class PhysicWorld {
 			return copy;
 		}
 		return null;
+	}
+	
+	public void setCollisionListener(ContactListener l){
+		//Used by server
+		physicWorld.setContactListener(l);
 	}
 	
 }

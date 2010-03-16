@@ -7,7 +7,6 @@ import java.util.HashMap;
 
 import com.jme.bounding.BoundingBox;
 import com.jme.scene.Node;
-import com.jme.scene.SharedNode;
 import com.jme.util.export.xml.XMLImporter;
 
 public class ModelLoaderXML {
@@ -19,7 +18,7 @@ public class ModelLoaderXML {
 	
 	public static Node loadModelXML(String name){
 		
-		Node loadedNode=loadedModel.get(name);
+		Node loadedNode=null;//loadedModel.get(name);
 		
 		if (loadedNode == null){
 			
@@ -51,8 +50,8 @@ public class ModelLoaderXML {
 			
 			
 		}
-		SharedNode shaNode = new SharedNode(name+" model:"+i, loadedNode);
+		//SharedNode shaNode = new SharedNode(name+" model:"+i, loadedNode);
 
-		return shaNode;
+		return loadedNode;
 	}
 }

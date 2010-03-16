@@ -25,7 +25,7 @@ public class Oggetto2D implements Serializable {
 	public int ID;
 	LinkedList<Action> allChanges;
 	
-	String modelName="astronave 2.xml";
+	String modelName="sfera.xml";
 	
 	public Oggetto2D(int id, LinkedList<Action> allChanges){
 		this.ID = id;
@@ -64,6 +64,31 @@ public class Oggetto2D implements Serializable {
 
 	public String getModelName() {
 		return modelName;
+	}
+
+	public void see(Oggetto2D obj1) {
+		// TODO Vedo obj1
+		
+	}
+	
+	public void isSee(Oggetto2D obj1) {
+		// TODO Sono visto da obj1
+		
+	}
+
+	public void notSee(Oggetto2D obj1) {
+		// TODO Non vedo più obj1
+		
+	}
+	
+	public void isNotSee(Oggetto2D obj1) {
+		// TODO Non sono più visto da obj1
+		
+	}
+
+	public void collide(Oggetto2D obj1) {
+		// TODO Collido con obj1
+		
 	}
 
 }

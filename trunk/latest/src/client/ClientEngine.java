@@ -82,7 +82,7 @@ public class ClientEngine extends TimerTask{
 			listaAzioni.add( new SetNode(t.ID, t.getModelName(), new Vec2( t.getBody().getPosition() ) , t.getBody().getAngle()) );
 		}
 		System.out.println( "GUIActions:"+listaAzioni.size() );
-		gui.getWorldGUI().addGuiActions(listaAzioni);
+		gui.getWorldGUI().setGuiActions(listaAzioni);
 	}
 
 	private void synchronizePhysic() {
@@ -177,6 +177,7 @@ public class ClientEngine extends TimerTask{
 	private LinkedList<Oggetto2D> crateAndUpdateAsincroniusWorld(long l, boolean clear) {
 		if (clear){
 			asincroniusWorld.clear();
+			asincronousOggetto2D.clear();
 			Oggetto2D tempCopy;
 			for (Oggetto2D o:allOggetto2D.values()){
 				tempCopy = asincroniusWorld.addCopy(o, o.getInfoPosition().getPos().x, o.getInfoPosition().getPos().y);
@@ -246,14 +247,14 @@ public class ClientEngine extends TimerTask{
 		
 		
 		System.out.println( "Executing:"+lastServerTurn);
-		//if (lastServerTurn%100==0){
+		if (lastServerTurn%100==0){
 			System.out.println( "Saving for debug: "+lastServerTurn);
 			HashMap<Integer, InfoBody> data = new HashMap<Integer, InfoBody>();
 			for ( Oggetto2D obj:allOggetto2D.values() ){
 				data.put(obj.ID, obj.getInfoPosition());
 			}
 			mapsAtTurn.put(lastServerTurn, data);
-		//}
+		}
 		lastServerTurn++;
 		
 	}
