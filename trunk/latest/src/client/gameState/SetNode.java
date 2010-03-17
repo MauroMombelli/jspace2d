@@ -4,7 +4,6 @@ import java.util.HashMap;
 
 import org.jbox2d.common.Vec2;
 
-import client.ModelLoaderOBJ;
 import client.ModelLoaderXML;
 
 import com.jme.math.Quaternion;

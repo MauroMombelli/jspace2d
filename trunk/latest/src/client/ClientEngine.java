@@ -24,7 +24,7 @@ public class ClientEngine extends TimerTask{
 	long actualEngineTurn;
 	long MAX_TURN_DURATION;
 	
-	long lastServerTurn;
+	long nextServerTurn;
 	
 	PhysicWorld world = new PhysicWorld();
 	HashMap<Integer, Oggetto2D> allOggetto2D = new HashMap<Integer, Oggetto2D>();
@@ -34,15 +34,14 @@ public class ClientEngine extends TimerTask{
 	
 	//START: Actually for debug purpose, take a shot of the world every 100° turn
 	HashMap< Long, HashMap<Integer, InfoBody> > mapsAtTurn = new HashMap< Long, HashMap<Integer,InfoBody>>();
-
-	private InitGraphics gui;
-	//LinkedList< AllMap > allMapNotElaborated = new LinkedList< AllMap >();
 	//END
+	
+	private InitGraphics gui;
 	
 	public ClientEngine(ServerListener serverListener, long actualTurn, long turnDuration) {
 		server = serverListener;
 		this.actualEngineTurn = actualTurn;
-		this.lastServerTurn = actualTurn;
+		this.nextServerTurn = actualTurn;
 		MAX_TURN_DURATION = turnDuration;
 		gui = new InitGraphics();
 		try {
@@ -87,35 +86,30 @@ public class ClientEngine extends TimerTask{
 
 	private void synchronizePhysic() {
 		Object o;
-		//LinkedList<NewTurn> n = new LinkedList<NewTurn>();
-		boolean arrivedNewTurn = false; 
+		
 		NewTurn temp;
-		//boolean elaborated = false;
 		while ( (o=server.poll())!=null ){
 			if (o instanceof NewTurn){
 				temp =(NewTurn)o; 
-				//n.add(temp);
+
 				System.out.println( "New turn received: "+ temp.actualTurn );
 				System.out.println( "Contains "+temp.actionsSize()+" actions and "+temp.newObjSize()+" new obj" );
-				//if (elaborated && temp.actualTurn>=actualTurn && server.inputSize() <= 1){
-				//	System.out.println( "NewTurn is for the next turn" );
-				//	server.addFirst(o);
-				//	break;
-				//}else{
-				arrivedNewTurn = true;
-					elaborate(temp);
-					
-					//System.out.println( "executed" );
-				//	elaborated = true;
-				//}
-				//execute();
-				//actualTurn--;
+
+				elaborate(temp);
+
 				
 			}else{
 				if (o instanceof AllMap){
-					//allMapNotElaborated.add((AllMap)o);
 					
 					AllMap tempAM = (AllMap)o;
+					
+					//There was no actions, so we can update synchronous world to tempAM.turn
+					System.out.println( "DEBUG FastElaboration from: "+nextServerTurn+" to: "+tempAM.turn );
+					while (nextServerTurn<=tempAM.turn){
+						execute();
+					}
+					//System.out.println( " lastServerTurn:"+nextServerTurn);
+					
 					HashMap<Integer, InfoBody> clientData = mapsAtTurn.get(tempAM.turn);
 					if (clientData!=null){
 						//if (clientData.){
@@ -131,6 +125,7 @@ public class ClientEngine extends TimerTask{
 									if (a.compare(b)!=0)
 										System.out.println("DEBUG difference obj: "+a.ID+"\n\tdiff: "+a.compare(b)+"\n"+a+"\n"+b+"\n" );
 									diffSum+=a.compare(b);
+									System.out.println("DEBUG no difference: "+a.ID);
 								}
 							}
 							if (diffSum != 0){
@@ -142,7 +137,7 @@ public class ClientEngine extends TimerTask{
 							mapsAtTurn.remove(clientData);
 						//}
 					}else{
-						System.out.println("DEBUG SERVER IS FASTER: "+tempAM.turn+" "+lastServerTurn);
+						System.out.println("DEBUG SERVER IS FASTER: "+tempAM.turn+" "+nextServerTurn);
 					}
 				}else{
 					System.out.println("Wrong packet!");
@@ -151,9 +146,9 @@ public class ClientEngine extends TimerTask{
 			}
 		}
 
-		if (lastServerTurn < actualEngineTurn){
+		if (nextServerTurn < actualEngineTurn){
 			//if (arrivedNewTurn)
-				copyWorldForPaint( crateAndUpdateAsincroniusWorld(actualEngineTurn-lastServerTurn, true) );
+				copyWorldForPaint( crateAndUpdateAsincroniusWorld(actualEngineTurn-nextServerTurn, true) );
 			//else
 				//copyWorldForPaint( crateAndUpdateAsincroniusWorld(1, false) ); //just 1 step
 		}else{
@@ -161,14 +156,14 @@ public class ClientEngine extends TimerTask{
 			crateAndUpdateAsincroniusWorld(0, true);
 		}
 		
-		if (lastServerTurn < actualEngineTurn){
-			System.out.println( "Server is slow! I'm "+ (actualEngineTurn - lastServerTurn) +" turn ahead, ms:"+((actualEngineTurn - lastServerTurn)*MAX_TURN_DURATION) );
+		if (nextServerTurn < actualEngineTurn){
+			System.out.println( "Server is slow! I'm "+ (actualEngineTurn - nextServerTurn) +" turn ahead, ms:"+((actualEngineTurn - nextServerTurn)*MAX_TURN_DURATION) );
 			//System.exit(0);// FOR DEBUG PURPOISE
 		}
 
-		if (lastServerTurn > actualEngineTurn){
-			System.out.println( "Server is faster! jumped "+ (lastServerTurn - actualEngineTurn) +" turn, ms:"+((lastServerTurn-actualEngineTurn)*MAX_TURN_DURATION) );
-			actualEngineTurn=lastServerTurn;
+		if (nextServerTurn > actualEngineTurn){
+			System.out.println( "Server is faster! jumped "+ (nextServerTurn - actualEngineTurn) +" turn, ms:"+((nextServerTurn-actualEngineTurn)*MAX_TURN_DURATION) );
+			actualEngineTurn=nextServerTurn;
 		}
 	}
 	
@@ -193,25 +188,25 @@ public class ClientEngine extends TimerTask{
 	}
 
 	private void elaborate(NewTurn tempTurn) {
-		if (tempTurn.actualTurn < lastServerTurn){
-			System.out.println( "Error, arrived a packed already sincronized: "+tempTurn.actualTurn+" "+lastServerTurn);
+		if (tempTurn.actualTurn < nextServerTurn){
+			System.out.println( "Error, arrived a packed already sincronized: "+tempTurn.actualTurn+" "+nextServerTurn);
 			System.exit(0);
 		}
 		
-		if (tempTurn.actualTurn == lastServerTurn){
+		if (tempTurn.actualTurn == nextServerTurn){
 			//ready to elaborate!
 			execute(tempTurn);
-			System.out.println( "Elaborated: "+tempTurn.actualTurn+" "+lastServerTurn);
+			System.out.println( "Elaborated: "+tempTurn.actualTurn+" "+nextServerTurn);
 			return;
 		}
 		
-		if (tempTurn.actualTurn > lastServerTurn){
-			System.out.println( "FastElaboration from: "+lastServerTurn+" to: "+tempTurn.actualTurn );
-			while (lastServerTurn<tempTurn.actualTurn){
+		if (tempTurn.actualTurn > nextServerTurn){
+			System.out.println( "FastElaboration from: "+nextServerTurn+" to: "+tempTurn.actualTurn );
+			while (nextServerTurn<tempTurn.actualTurn){
 				execute();
 			}
 			execute(tempTurn);
-			System.out.println( " lastServerTurn:"+lastServerTurn);
+			System.out.println( " lastServerTurn:"+nextServerTurn);
 		}
 	}
 
@@ -243,19 +238,17 @@ public class ClientEngine extends TimerTask{
 	public void execute(){
 		
 		world.update();
-		
-		
-		
-		System.out.println( "Executing:"+lastServerTurn);
-		if (lastServerTurn%100==0){
-			System.out.println( "Saving for debug: "+lastServerTurn);
+
+		//System.out.println( "Executing:"+nextServerTurn);
+		if (nextServerTurn%100==0){
+			System.out.println( "Saving for debug: "+nextServerTurn);
 			HashMap<Integer, InfoBody> data = new HashMap<Integer, InfoBody>();
 			for ( Oggetto2D obj:allOggetto2D.values() ){
 				data.put(obj.ID, obj.getInfoPosition());
 			}
-			mapsAtTurn.put(lastServerTurn, data);
+			mapsAtTurn.put(nextServerTurn, data);
 		}
-		lastServerTurn++;
+		nextServerTurn++;
 		
 	}
 

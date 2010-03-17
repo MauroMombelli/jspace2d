@@ -35,7 +35,7 @@ public class Engine extends TimerTask{
 	HashMap<Integer, Oggetto2D> allOggetto2D = new HashMap<Integer, Oggetto2D>();
 	ArrayList<Oggetto2D> newOggetti2D = new ArrayList<Oggetto2D>();
 	LinkedList<Action> allChanges = new LinkedList<Action>();
-	int objIndex;
+	int objIndex=0;
 	
 	EngineListener collListener = new EngineListener();
 	
@@ -75,7 +75,7 @@ public class Engine extends TimerTask{
 		*/
 		actualTurn++;
 		
-		if (actualTurn==100 ){//&& allOggetto2D.get(0).getBody().getLinearVelocity().y==0){
+		if (actualTurn%200==0 ){//&& allOggetto2D.get(0).getBody().getLinearVelocity().y==0){
 			Oggetto2D t=allOggetto2D.get(0);
 			Action a = new ActionEngine(t.ID, 1, 0, 0.01f);
 			a.run(allOggetto2D.get(0));
@@ -141,7 +141,7 @@ public class Engine extends TimerTask{
 		
 		//send NewTurn to all observer, if there are changes
 		for (Player p:observerPlayer){
-			if (n.actionsSize() != 0 || n.newObjSize() != 0 || actualTurn%100==0)
+			if (n.actionsSize() != 0 || n.newObjSize() != 0)
 				p.write(n);
 		}
 		

@@ -6,7 +6,6 @@ import java.net.Socket;
 import shared.InputReader;
 import shared.Login;
 import shared.OutputWriter;
-import shared.Ship;
 import shared.azioni.ShipRequest;
 
 public class Player {
