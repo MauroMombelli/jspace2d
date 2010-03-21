@@ -209,7 +209,7 @@ public class ClientEngine extends TimerTask{
 						}
 						if (diffSum != 0){
 							System.out.println("ERROR IN DEBUG, PHYSIC IS NOT PERFECTLY SYNCRONIZED!");
-							errorFound=true;
+							//errorFound=true;
 							recreateSyncronousWorld(map, tempAM.turn);
 						}else{
 							System.out.println("DEBUG: EVERY LITTLE THINGS, IS GONNA BE ALL RIGHT :-): "+tested);
