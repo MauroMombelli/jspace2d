@@ -3,6 +3,7 @@ package client;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.TimerTask;
+import java.util.TreeMap;
 
 import org.jbox2d.common.Vec2;
 
@@ -33,7 +34,7 @@ public class ClientEngine extends TimerTask{
 	double biggestPositionError=0;
 	
 	PhysicWorld world = new PhysicWorld();
-	HashMap<Integer, Oggetto2D> allOggetto2D = new HashMap<Integer, Oggetto2D>();
+	TreeMap<Integer, Oggetto2D> allOggetto2D = new TreeMap<Integer, Oggetto2D>();
 	
 	PhysicWorld asincroniusWorld = new PhysicWorld();
 	LinkedList<Oggetto2D> asincronousOggetto2D = new LinkedList<Oggetto2D>();
@@ -228,7 +229,7 @@ public class ClientEngine extends TimerTask{
 				server.close();
 			}
 			
-			if ( System.nanoTime()-time2 > 10000000 ) // if there is too much time for input take a break
+			if ( System.nanoTime()-time2 > 1000000 ) // if there is too much time for input take a break
 				break;
 		}
 		time2 = System.nanoTime()-time2;
@@ -352,10 +353,11 @@ public class ClientEngine extends TimerTask{
 	
 		//set the actions
 		while ( (newAct=toDo.pollActions())!=null ){
-			System.out.println( "action after: "+allOggetto2D.get(newAct.ID).getInfoPosition().getPosVel() );
+			//System.out.println( "action after: "+allOggetto2D.get(newAct.ID).getInfoPosition().getPosVel() );
 			newAct.run( allOggetto2D.get(newAct.ID), world );
-			System.out.println( "action before: "+allOggetto2D.get(newAct.ID).getInfoPosition().getPosVel() );
-			System.out.println( "data: "+newAct.ID+" "+allOggetto2D.get(newAct.ID).getInfoPosition() );
+			System.out.println( "action setted for object:"+newAct.ID );
+			//System.out.println( "action before: "+allOggetto2D.get(newAct.ID).getInfoPosition().getPosVel() );
+			//System.out.println( "data: "+newAct.ID+" "+allOggetto2D.get(newAct.ID).getInfoPosition() );
 		}
 		
 		execute();
