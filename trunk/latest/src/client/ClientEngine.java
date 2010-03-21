@@ -62,7 +62,7 @@ public class ClientEngine extends TimerTask{
 		};
 		
 		server.write( new ShipRequest(0) );
-		System.out.println("Ship request send");
+		System.out.println("Ship request send, starting turn:"+actualTurn);
 	}
 
 	@Override

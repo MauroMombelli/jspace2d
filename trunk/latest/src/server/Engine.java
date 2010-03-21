@@ -78,13 +78,14 @@ public class Engine extends TimerTask{
 		*/
 		actualTurn++;
 		System.out.println( "Turn "+actualTurn);
-		
-		if ( actualTurn%500==0 ){//&& allOggetto2D.get(0).getBody().getLinearVelocity().y==0){
-			for (int i=0; i < objIndex; i++){
-				Oggetto2D t=allOggetto2D.get(i);
-				Action a = new ActionEngine(t.ID, GLOBAL_VARIABLE.convertToPhysicEngineUnit( (float)Math.random()*6-3 ), GLOBAL_VARIABLE.convertToPhysicEngineUnit( (float)Math.random()*6-3 ), 0);
-				a.run(t, world);
-				allChanges.add(a);
+		if (actualTurn>=2000){
+			if ( actualTurn%500==0 ){//&& allOggetto2D.get(0).getBody().getLinearVelocity().y==0){
+				for (int i=0; i < 50; i++){
+					Oggetto2D t=allOggetto2D.get(i);
+					Action a = new ActionEngine(t.ID, GLOBAL_VARIABLE.convertToPhysicEngineUnit( (float)Math.random()*6-3 ), GLOBAL_VARIABLE.convertToPhysicEngineUnit( (float)Math.random()*6-3 ), 0);
+					a.run(t, world);
+					allChanges.add(a);
+				}
 			}
 		}
 		
