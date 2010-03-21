@@ -2,11 +2,18 @@ package server;
 
 import java.io.IOException;
 import java.net.Socket;
+import java.util.HashMap;
+import java.util.LinkedList;
 
 import shared.InputReader;
 import shared.Login;
+import shared.NewTurn;
+import shared.Oggetto2D;
 import shared.OutputWriter;
-import shared.azioni.ShipRequest;
+import shared.Ship;
+import shared.azioni.Action;
+import shared.specialActions.RemoveShip;
+import shared.specialActions.ShipRequest;
 
 public class Player {
 	Socket giocatore;
@@ -15,9 +22,15 @@ public class Player {
 	
 	Login myself=null;
 	
-	ShipRequest activeShip;
+	int activeShip = -1;
 	
 	int update= 0;
+	
+	HashMap<Integer, Oggetto2D> myPossessoin = new HashMap<Integer, Oggetto2D>();
+	
+	LinkedList<Action> myActions = new LinkedList<Action>();
+	LinkedList<RemoveShip> removeOggettiActions = new LinkedList<RemoveShip>();
+	LinkedList<ShipRequest> createOggettiActions = new LinkedList<ShipRequest>();
 	
 	public Player(Socket t) {
 		giocatore = t;
@@ -49,15 +62,26 @@ public class Player {
 					myself = (Login)t;
 				}else{
 					//error first input wasn't a login
-					System.out.println("Not a login");
+					System.out.println("PLAYER ERROR: Not a login, ip:"+giocatore.getRemoteSocketAddress() );
 					close();
 				}
 			}else{
-				//TODO: no accept action without ship 
+				
 				if (t instanceof ShipRequest){
-					ShipRequest ship = (ShipRequest)t;
+					//ShipRequest ship = (ShipRequest)t;
 					System.out.println("Ship request arrived");
-					activeShip = ship;
+					//activeShip = ship;
+					createOggettiActions.add( (ShipRequest)t );
+					break; //Don't try to execute any action before shipRequest has been accepted
+				}
+				if (activeShip != -1){ //don't accept action without ship
+					if (t instanceof Action){
+						
+					}
+				}else{
+					//Action without a ship, probably an hacking attempt
+					System.out.print("PLAYER ERROR: Player:"+myself+" send action without ship selected, ip:"+giocatore.getRemoteSocketAddress() );
+					close();
 				}
 			}
 		}
@@ -100,8 +124,29 @@ public class Player {
 			outW.write(obj);
 	}
 	
-	public ShipRequest getActiveShip(){
+	public int getActiveShip(){
 		return activeShip;
+	}
+
+	public void addShip(Ship s) {
+		Oggetto2D old = myPossessoin.put(s.ID, s);
+		if (old!=null){
+			System.out.println("PLAYER ERROR: creating a new existent ship");
+			removeOggettiActions.add( new RemoveShip(old.ID) );
+			close();
+		}
+	}
+
+	public Oggetto2D getShip(int iD) {
+		return myPossessoin.get(iD);
+	}
+
+	public void setActiveShip(int iD) {
+		activeShip = iD;
+	}
+
+	public void removeOggetto(int id) {
+		myPossessoin.remove(id);
 	}
 
 }

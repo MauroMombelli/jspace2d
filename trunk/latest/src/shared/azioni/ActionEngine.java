@@ -1,6 +1,7 @@
 package shared.azioni;
 
 import java.io.Serializable;
+import java.util.HashMap;
 
 import org.jbox2d.common.Vec2;
 

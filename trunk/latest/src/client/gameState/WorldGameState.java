@@ -97,7 +97,7 @@ public class WorldGameState extends BasicGameState{
 			}
 				
 		}
-		
+		/* THIS KEYBINDING IS USED IN THE ENGINE!!
 		if (KeyBindingManager.getKeyBindingManager().isValidCommand("move_up", true)) {
 			cameraY++;
 			camera.setLocation( new Vector3f(cameraX, cameraY, cameraZoom) );
@@ -117,7 +117,7 @@ public class WorldGameState extends BasicGameState{
 			cameraX++;
 			camera.setLocation( new Vector3f(cameraX, cameraY, cameraZoom) );
         }
-		
+		*/
 		if (KeyBindingManager.getKeyBindingManager().isValidCommand("less_zoom", true)) {
 			cameraZoom++;
 			camera.setLocation( new Vector3f(cameraX, cameraY, cameraZoom) );

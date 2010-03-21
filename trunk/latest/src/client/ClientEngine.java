@@ -18,7 +18,7 @@ import shared.Oggetto2D;
 import shared.PhysicWorld;
 import shared.azioni.Action;
 import shared.azioni.ActionEngine;
-import shared.azioni.ShipRequest;
+import shared.specialActions.ShipRequest;
 
 public class ClientEngine extends TimerTask{
 
@@ -144,7 +144,7 @@ public class ClientEngine extends TimerTask{
 			used = false;
 			if (o instanceof ShipRequest){
 				used = true;
-				IDmyShip = ( (ShipRequest)o ).ID;
+				IDmyShip = ( (ShipRequest)o ).getID();
 				gui.setCameraID(IDmyShip);
 				System.out.println( "Using ship: "+ IDmyShip );
 			}

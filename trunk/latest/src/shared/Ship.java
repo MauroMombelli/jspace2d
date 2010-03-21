@@ -1,12 +1,9 @@
 package shared;
 
 import java.io.Serializable;
-import java.util.LinkedList;
 
 import org.jbox2d.collision.shapes.CircleDef;
 import org.jbox2d.dynamics.Body;
-
-import shared.azioni.Action;
 
 public class Ship extends Oggetto2D implements Serializable{
 
@@ -15,8 +12,8 @@ public class Ship extends Oggetto2D implements Serializable{
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	public Ship(int id, LinkedList<Action> allChanges) {
-		super(id, allChanges);
+	public Ship(int id) {
+		super(id);
 		modelName="astronave 2.xml";
 	}
 	

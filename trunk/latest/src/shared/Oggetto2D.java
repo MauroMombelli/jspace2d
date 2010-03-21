@@ -4,12 +4,9 @@ import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
-import java.util.LinkedList;
 
 import org.jbox2d.collision.shapes.CircleDef;
 import org.jbox2d.dynamics.Body;
-
-import shared.azioni.Action;
 
 
 public class Oggetto2D implements Serializable {
@@ -23,17 +20,14 @@ public class Oggetto2D implements Serializable {
 	UniqueData bodyContainer = new UniqueData();//this class will not be synchronized
 	
 	public int ID;
-	LinkedList<Action> allChanges;
 	String modelName="sfera.xml";
 	
-	public Oggetto2D(int id, LinkedList<Action> allChanges){
+	public Oggetto2D(int id){
 		this.ID = id;
-		this.allChanges = allChanges;
 	}
 	
 	public Oggetto2D(Oggetto2D obj){
 		this.ID = obj.ID;
-		this.allChanges = obj.allChanges;
 		this.modelName = obj.modelName;
 	}
 	

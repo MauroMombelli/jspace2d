@@ -122,5 +122,9 @@ public class PhysicWorld {
 		//Used by server
 		physicWorld.setContactListener(l);
 	}
+
+	public void removeBody(Body body) {
+		physicWorld.destroyBody(body);
+	}
 	
 }

@@ -10,11 +10,9 @@ import shared.GLOBAL_VARIABLE;
 import shared.NewTurn;
 import shared.Oggetto2D;
 import shared.PhysicWorld;
-import shared.Ship;
 import shared.TurnDuration;
 import shared.azioni.Action;
 import shared.azioni.ActionEngine;
-import shared.azioni.ShipRequest;
 
 public class Engine extends TimerTask{
 
@@ -51,7 +49,7 @@ public class Engine extends TimerTask{
 		Oggetto2D t;
 		for (int i=0; i < 5; i++){
 			for (int a=0; a < 5; a++){
-				t = new Oggetto2D(objIndex++, allChanges);
+				t = new Oggetto2D(objIndex++);
 				newOggetti2D.add(t);
 				world.addNew( t, GLOBAL_VARIABLE.convertToPhysicEngineUnit( i*10 ), GLOBAL_VARIABLE.convertToPhysicEngineUnit( a*10 ), 0 );
 			}
@@ -217,15 +215,12 @@ public class Engine extends TimerTask{
 				removedObserver.add(t);
 			}else{
 				t.update();
-				if (t.getActiveShip() != null){
-					players.add(t);
-					removedObserver.add(t);
-					Ship s = new Ship(objIndex++, allChanges);
-					newOggetti2D.add(s);
-					world.addNew( s, GLOBAL_VARIABLE.convertToPhysicEngineUnit( 25 ), 0, 0 );
-					System.out.println("Created ship "+s.ID+" for player: "+t.toString());
-					//notify client of ship creation
-					t.write( new ShipRequest(s.ID) );
+				if (t.getActiveShip() != -1){ //if ship has been assigned
+					if ( allOggetto2D.get(t.getActiveShip())!=null ){ //and is valid
+						//set the observer as player
+						players.add(t);
+						removedObserver.add(t);
+					}
 				}
 			}
 		}

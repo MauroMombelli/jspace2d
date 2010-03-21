@@ -1,6 +1,7 @@
 package shared.azioni;
 
 import java.io.Serializable;
+import java.util.HashMap;
 
 import shared.Oggetto2D;
 import shared.PhysicWorld;
