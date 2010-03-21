@@ -3,6 +3,7 @@ package shared.azioni;
 import java.io.Serializable;
 
 import shared.Oggetto2D;
+import shared.PhysicWorld;
 
 public abstract class Action implements Serializable {
 
@@ -13,6 +14,10 @@ public abstract class Action implements Serializable {
 
 	public int ID;
 	
-	public abstract void run(Oggetto2D p);
+	public Action(int ID){
+		this.ID = ID;
+	}
+	
+	public abstract void run(Oggetto2D p, PhysicWorld w);
 	
 }

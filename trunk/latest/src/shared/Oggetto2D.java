@@ -20,16 +20,21 @@ public class Oggetto2D implements Serializable {
 	private static final long serialVersionUID = -6591598803708118223L;
 	
 	//private Body myBody;
-	Test t = new Test();
+	UniqueData bodyContainer = new UniqueData();//this class will not be synchronized
 	
 	public int ID;
 	LinkedList<Action> allChanges;
-	
 	String modelName="sfera.xml";
 	
 	public Oggetto2D(int id, LinkedList<Action> allChanges){
 		this.ID = id;
 		this.allChanges = allChanges;
+	}
+	
+	public Oggetto2D(Oggetto2D obj){
+		this.ID = obj.ID;
+		this.allChanges = obj.allChanges;
+		this.modelName = obj.modelName;
 	}
 	
 	public boolean isValid() {
@@ -38,28 +43,28 @@ public class Oggetto2D implements Serializable {
 	}
 
 	public void createBody(Body body) {
-		t.myBody = body;
+		bodyContainer.myBody = body;
 		CircleDef sd = new CircleDef();
         sd.restitution = 0.8f;
         sd.friction = 0.2f;
-        sd.radius = GLOBAL_VARIABLE.convertToPhysicEngineUnit( 10 );
+        sd.radius = GLOBAL_VARIABLE.convertToPhysicEngineUnit( 4 );
         sd.density = 1;
         sd.userData = this;
-        t.myBody.createShape(sd);
+        bodyContainer.myBody.createShape(sd);
 	}
 
 	public Body getBody() {
-		return t.myBody;
+		return bodyContainer.myBody;
 	}
 	
 	public InfoBody getInfoPosition() {
-		return new InfoBody( ID, t.myBody.getXForm(), t.myBody.getLinearVelocity(), t.myBody.getAngle(), t.myBody.getAngularVelocity() );
+		return new InfoBody( ID, bodyContainer.myBody.getXForm(), bodyContainer.myBody.getLinearVelocity(), bodyContainer.myBody.getAngle(), bodyContainer.myBody.getAngularVelocity() );
 	}
 	
 	public void setInfoPosition(InfoBody ad){
-		t.myBody.setXForm( ad.getPos(), ad.getAngle() );
-		t.myBody.setAngularVelocity( ad.getAngAcc() );
-		t.myBody.setLinearVelocity( ad.getPosVel() );
+		bodyContainer.myBody.setXForm( ad.getPos(), ad.getAngle() );
+		bodyContainer.myBody.setAngularVelocity( ad.getAngAcc() );
+		bodyContainer.myBody.setLinearVelocity( ad.getPosVel() );
 	}
 
 	public String getModelName() {
@@ -93,7 +98,7 @@ public class Oggetto2D implements Serializable {
 
 }
 
-class Test implements Serializable{
+class UniqueData implements Serializable{
 	/**
 	 * 
 	 */

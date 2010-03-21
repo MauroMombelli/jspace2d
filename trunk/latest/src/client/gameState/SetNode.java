@@ -35,16 +35,21 @@ public class SetNode extends GuiAction{
 		
 		Node myself = visibleObject.get(ID);
 		if (myself!=null){
-			myself.setLocalTranslation( new Vector3f(position.x, position.y, 0) );
+			//myself.setLocalTranslation( new Vector3f(GLOBAL_VARIABLE.convertFromPhysicEngineUnit( position.x ), GLOBAL_VARIABLE.convertFromPhysicEngineUnit( position.y ), 0) );
+			myself.setLocalTranslation( new Vector3f( position.x, position.y, 0) );
 			myself.setLocalRotation(rotation);
 		}else{
 			myself = ModelLoaderXML.loadModelXML(modelName);
 			//myself = (Node)ModelLoaderOBJ.loadModel("test5");
-			myself.setLocalTranslation( new Vector3f(position.x, position.y, 0) );
+			//myself.setLocalTranslation( new Vector3f( GLOBAL_VARIABLE.convertFromPhysicEngineUnit( position.x ), GLOBAL_VARIABLE.convertFromPhysicEngineUnit( position.y ), 0) );
+			myself.setLocalTranslation( new Vector3f( position.x, position.y, 0) );
 			myself.setLocalRotation(rotation);
 			visibleObject.put(ID, myself);
 			rootNode.attachChild(myself);
-			System.out.println("New model created, ID:"+ID);
+			System.out.println("New model created, ID:"+ID+" "+modelName);
+			//if (ID==10){
+			//	System.exit(0);
+			//}
 		}
 	}
 	

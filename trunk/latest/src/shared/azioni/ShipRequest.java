@@ -1,25 +1,28 @@
 package shared.azioni;
 
 import java.io.Serializable;
-import java.util.LinkedList;
 
-import shared.Ship;
+import shared.Oggetto2D;
+import shared.PhysicWorld;
 
-
-public class ShipRequest implements Serializable {
+public class ShipRequest extends Action implements Serializable{
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-
-	public Ship getShip(int id, LinkedList<Action>allChanges) {
-		return new Ship(id, allChanges);
+	
+	public ShipRequest(int ID) {
+		super(ID);
+		// TODO Auto-generated constructor stub
 	}
 
-	public boolean isValid() {
-		// TODO check if this constructor is ok
-		return true;
+	@Override
+	public void run(Oggetto2D p, PhysicWorld w) {
+		// TODO Auto-generated method stub
+		
 	}
 
+	
+	
 }

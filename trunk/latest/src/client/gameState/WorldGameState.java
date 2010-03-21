@@ -9,6 +9,7 @@ import com.jme.math.Vector3f;
 import com.jme.renderer.Camera;
 import com.jme.renderer.ColorRGBA;
 import com.jme.scene.Node;
+import com.jme.scene.shape.Box;
 import com.jme.scene.state.LightState;
 import com.jme.system.DisplaySystem;
 import com.jmex.game.state.BasicGameState;
@@ -22,8 +23,10 @@ public class WorldGameState extends BasicGameState{
 	LightState lightState;
 	PointLight light;
 	private Camera camera;
+	
+	private float cameraZoom=20, cameraX=0, cameraY=0;
 
-	private float cameraZoom=20;
+	private Integer cameraID=-1;
 	
 	public WorldGameState(String arg0) {
 		super(arg0);
@@ -42,17 +45,35 @@ public class WorldGameState extends BasicGameState{
         lightState.attach( light );
         rootNode.setRenderState( lightState );
         
+        camera=DisplaySystem.getDisplaySystem().getRenderer().getCamera();
+        camera.setLocation( new Vector3f(cameraX, cameraY, cameraZoom) );
+        
+        Box borderLeft = new Box("Left", new Vector3f(-41,0,0), 1, 50, 1);
+        rootNode.attachChild(borderLeft);
+        
+        Box borderRight = new Box("Right", new Vector3f(41,0,0), 1, 50, 1);
+        rootNode.attachChild(borderRight);
+        
+        Box borderUp = new Box("Up", new Vector3f(0,41,0), 50, 1, 1);
+        rootNode.attachChild(borderUp);
+        
+        Box borderDown = new Box("Down", new Vector3f(0,-41,0), 50, 1, 1);
+        rootNode.attachChild(borderDown);
+        
         rootNode.updateRenderState();
         rootNode.updateWorldBound();
         rootNode.updateGeometricState(0.0f, true);
-        
-        camera=DisplaySystem.getDisplaySystem().getRenderer().getCamera();
-        camera.setLocation( new Vector3f(20, 0, cameraZoom) );
 	}
 	
 	public void addAction(GuiAction a){
 		synchronized (objMod) {
 			objMod.add(a);
+		}
+	}
+	
+	public void setCameraID(int id){
+		synchronized (cameraID) {
+			cameraID = id;
 		}
 	}
 
@@ -65,20 +86,50 @@ public class WorldGameState extends BasicGameState{
 			while( (currentAction=objMod.poll())!=null ){
 				currentAction.run( visibleObject, rootNode );
 			}
+			Node t=null;
+			synchronized (cameraID) {
+				t = visibleObject.get(cameraID);
+			}
+			if (t!=null){
+				cameraX = t.getLocalTranslation().x;
+				cameraY = t.getLocalTranslation().y;
+				camera.setLocation( new Vector3f(cameraX, cameraY, cameraZoom) );
+			}
+				
 		}
+		
+		if (KeyBindingManager.getKeyBindingManager().isValidCommand("move_up", true)) {
+			cameraY++;
+			camera.setLocation( new Vector3f(cameraX, cameraY, cameraZoom) );
+        }
+		
+		if (KeyBindingManager.getKeyBindingManager().isValidCommand("move_down", true)) {
+			cameraY--;
+			camera.setLocation( new Vector3f(cameraX, cameraY, cameraZoom) );
+        }
+		
+		if (KeyBindingManager.getKeyBindingManager().isValidCommand("move_left", true)) {
+			cameraX--;
+			camera.setLocation( new Vector3f(cameraX, cameraY, cameraZoom) );
+        }
+		
+		if (KeyBindingManager.getKeyBindingManager().isValidCommand("move_right", true)) {
+			cameraX++;
+			camera.setLocation( new Vector3f(cameraX, cameraY, cameraZoom) );
+        }
 		
 		if (KeyBindingManager.getKeyBindingManager().isValidCommand("less_zoom", true)) {
 			cameraZoom++;
-			if (cameraZoom>100)
-				cameraZoom=100;
-			camera.setLocation( new Vector3f(20, 0, cameraZoom) );
+			camera.setLocation( new Vector3f(cameraX, cameraY, cameraZoom) );
         }
+		
 		if (KeyBindingManager.getKeyBindingManager().isValidCommand("more_zoom", true)) {
 			cameraZoom--;
 			if (cameraZoom<10)
-				cameraZoom=10;
-			camera.setLocation( new Vector3f(20, 0, cameraZoom) );
+				cameraZoom = 10;
+			camera.setLocation( new Vector3f(cameraX, cameraY, cameraZoom) );
         }
+		
 		if (KeyBindingManager.getKeyBindingManager().isValidCommand("escape", true)) {
 			System.exit(0);
         }

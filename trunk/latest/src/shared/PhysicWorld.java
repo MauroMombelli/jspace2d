@@ -10,15 +10,14 @@ import org.jbox2d.dynamics.World;
 
 
 public class PhysicWorld {
-	private static final float TIMESTEP = 1.0f/60f;
+	private static final float TIMESTEP = 1.0f/60.0f;
 	World physicWorld;
 	
 	public PhysicWorld(){
-		float minX =-10000, minY=-10000, maxX=10000, maxY=10000;
+		float minX =-50, minY=-50, maxX=50, maxY=50;
 		AABB worldSize = new AABB(new Vec2(minX, minY), new Vec2(maxX,maxY));
 		Vec2 worldGravity = new Vec2();
 		physicWorld = new World(worldSize, worldGravity, true);
-	
 		//create border
 		Body ground = null;
 		
@@ -100,7 +99,7 @@ public class PhysicWorld {
 	}
 
 	public Oggetto2D addCopy(Oggetto2D o, float x, float y) {
-		Oggetto2D copy = new Oggetto2D(o.ID, null);
+		Oggetto2D copy = new Oggetto2D(o);
 		if ( copy.isValid() ){
 			
 			BodyDef bd = new BodyDef();

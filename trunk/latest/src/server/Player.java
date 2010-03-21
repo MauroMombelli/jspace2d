@@ -39,7 +39,7 @@ public class Player {
 	
 	public void update(){
 		update++;
-		
+
 		//read and execute client request
 		Object t;
 		while( ( t=inR.poll() )!=null){ //until there is input
@@ -49,19 +49,16 @@ public class Player {
 					myself = (Login)t;
 				}else{
 					//error first input wasn't a login
+					System.out.println("Not a login");
 					close();
 				}
+			}else{
+				//TODO: no accept action without ship 
 				if (t instanceof ShipRequest){
 					ShipRequest ship = (ShipRequest)t;
-					if ( ship.isValid() ){
-						activeShip = ship;
-					}else{
-						//Probable hacking
-						close();
-					}
+					System.out.println("Ship request arrived");
+					activeShip = ship;
 				}
-			}else{
-				//TODO: read and execute action
 			}
 		}
 	}
@@ -71,6 +68,8 @@ public class Player {
 	}
 
 	public void close() {
+		//TODO: for every ship create a delete action 
+		
 		System.out.println( "Connection closed with: "+giocatore.getRemoteSocketAddress() );
 		
 		if (inR!= null)

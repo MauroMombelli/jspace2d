@@ -14,26 +14,38 @@ public class EngineListener implements ContactListener {
 			//radar della shape 1 vede shape 2
 			Oggetto2D obj1 = (Oggetto2D)point.shape1.getUserData();
 			Oggetto2D obj2 = (Oggetto2D)point.shape2.getUserData();
-			obj1.see(obj2);
-			obj2.isSee(obj1);
-			System.out.println(obj1.ID+" see "+obj2.ID);
+			if (obj1!=null && obj2!=null){
+				obj1.see(obj2);
+				obj2.isSee(obj1);
+				System.out.println(obj1.ID+" see "+obj2.ID);
+			}else{
+				//wall collision
+			}
 		}
 		if ( point.shape2.isSensor() && !point.shape1.isSensor() ){
 			//radar della shape 2 vede shape 1
 			Oggetto2D obj1 = (Oggetto2D)point.shape1.getUserData();
 			Oggetto2D obj2 = (Oggetto2D)point.shape2.getUserData();
-			obj2.see(obj1);
-			obj1.isSee(obj2);
-			System.out.println(obj2.ID+" see "+obj1.ID);
+			if (obj1!=null && obj2!=null){
+				obj2.see(obj1);
+				obj1.isSee(obj2);
+				System.out.println(obj2.ID+" see "+obj1.ID);
+			}else{
+				//wall collision
+			}
 		}
 		
 		if ( !point.shape1.isSensor() && !point.shape2.isSensor() ){
 			//collisione tra shape1 e shape2
 			Oggetto2D obj1 = (Oggetto2D)point.shape1.getUserData();
 			Oggetto2D obj2 = (Oggetto2D)point.shape2.getUserData();
-			obj1.collide(obj2);
-			obj2.collide(obj1);
-			System.out.println(obj1.ID+" collide "+obj2.ID);
+			if (obj1!=null && obj2!=null){
+				obj1.collide(obj2);
+				obj2.collide(obj1);
+				System.out.println(obj1.ID+" collide "+obj2.ID);
+			}else{
+				//wall collision
+			}
 		}
 	}
 
@@ -43,9 +55,13 @@ public class EngineListener implements ContactListener {
 			//continua la collisione tra shape1 e shape2
 			Oggetto2D obj1 = (Oggetto2D)point.shape1.getUserData();
 			Oggetto2D obj2 = (Oggetto2D)point.shape2.getUserData();
-			obj1.collide(obj2);
-			obj2.collide(obj1);
-			System.out.println(obj1.ID+" continue to collide "+obj2.ID);
+			if (obj1!=null && obj2!=null){
+				obj1.collide(obj2);
+				obj2.collide(obj1);
+				System.out.println(obj1.ID+" continue to collide "+obj2.ID);
+			}else{
+				//wall collision
+			}
 		}
 	}
 
@@ -55,17 +71,25 @@ public class EngineListener implements ContactListener {
 			//radar della shape 1 non vede più shape 2
 			Oggetto2D obj1 = (Oggetto2D)point.shape1.getUserData();
 			Oggetto2D obj2 = (Oggetto2D)point.shape2.getUserData();
-			obj1.notSee(obj2);
-			obj2.isNotSee(obj1);
-			System.out.println(obj1.ID+" not see "+obj2.ID);
+			if (obj1!=null && obj2!=null){
+				obj1.notSee(obj2);
+				obj2.isNotSee(obj1);
+				System.out.println(obj1.ID+" not see "+obj2.ID);
+			}else{
+				//end wall collision
+			}
 		}
 		if ( point.shape2.isSensor() && !point.shape1.isSensor() ){
 			//radar della shape 2 non vede più shape 1
 			Oggetto2D obj1 = (Oggetto2D)point.shape1.getUserData();
 			Oggetto2D obj2 = (Oggetto2D)point.shape2.getUserData();
-			obj2.notSee(obj1);
-			obj1.isNotSee(obj2);
-			System.out.println(obj2.ID+" not see "+obj1.ID);
+			if (obj1!=null && obj2!=null){
+				obj2.notSee(obj1);
+				obj1.isNotSee(obj2);
+				System.out.println(obj2.ID+" not see "+obj1.ID);
+			}else{
+				//end wall collision
+			}
 		}
 		/* NON CI INTERESSA
 		if ( !point.shape1.isSensor() && !point.shape2.isSensor() ){

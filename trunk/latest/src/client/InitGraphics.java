@@ -58,5 +58,9 @@ public class InitGraphics {
 	public WorldGameState getWorldGUI(){
 		return guiWorld;
 	}
+
+	public void setCameraID(int iDmyShip) {
+		guiWorld.setCameraID(iDmyShip);
+	}
 	
 }

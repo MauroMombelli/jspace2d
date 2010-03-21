@@ -6,6 +6,8 @@ import java.net.URL;
 import java.util.HashMap;
 
 import com.jme.bounding.BoundingBox;
+import com.jme.math.Quaternion;
+import com.jme.math.Vector3f;
 import com.jme.scene.Node;
 import com.jme.util.export.xml.XMLImporter;
 
@@ -32,9 +34,12 @@ public class ModelLoaderXML {
 			System.out.println("loading: "+name+" "+f);
 			try {
 				loadedNode=(Node) xmlImporter.load( f );
-				loadedNode.setLocalScale(0.5f); //to box2d scale
+				loadedNode.setLocalScale(0.25f); //to box2d scale
 				loadedNode.setName(name);
+				Quaternion m4 = new Quaternion();
+				m4.fromAngleAxis( (float)(Math.PI/2), new Vector3f(1, 0, 0));
 				loadedNode.setLocalTranslation(0, 0, 0);
+				loadedNode.setLocalRotation(m4);
 				loadedNode.setModelBound( new BoundingBox() );
 				loadedNode.updateModelBound();
 				loadedNode.updateRenderState();
@@ -47,11 +52,11 @@ public class ModelLoaderXML {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
-			
+
 		}
 		//SharedNode shaNode = new SharedNode(name+" model:"+i, loadedNode);
-
-		return loadedNode;
+		Node ris = new Node("copy");
+		ris.attachChild(loadedNode);
+		return ris;
 	}
 }

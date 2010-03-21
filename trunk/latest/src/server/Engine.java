@@ -6,12 +6,15 @@ import java.util.LinkedList;
 import java.util.TimerTask;
 
 import shared.AllMap;
+import shared.GLOBAL_VARIABLE;
 import shared.NewTurn;
 import shared.Oggetto2D;
 import shared.PhysicWorld;
+import shared.Ship;
 import shared.TurnDuration;
 import shared.azioni.Action;
 import shared.azioni.ActionEngine;
+import shared.azioni.ShipRequest;
 
 public class Engine extends TimerTask{
 
@@ -46,10 +49,12 @@ public class Engine extends TimerTask{
 		
 		//put 10 obj in world
 		Oggetto2D t;
-		for (int i=0; i < 10; i++){
-			t = new Oggetto2D(objIndex++, allChanges);
-			newOggetti2D.add(t);
-			world.addNew( t, i*10, 0, 0 );
+		for (int i=0; i < 5; i++){
+			for (int a=0; a < 5; a++){
+				t = new Oggetto2D(objIndex++, allChanges);
+				newOggetti2D.add(t);
+				world.addNew( t, GLOBAL_VARIABLE.convertToPhysicEngineUnit( i*10 ), GLOBAL_VARIABLE.convertToPhysicEngineUnit( a*10 ), 0 );
+			}
 		}
 	}
 
@@ -74,12 +79,15 @@ public class Engine extends TimerTask{
 		}
 		*/
 		actualTurn++;
+		System.out.println( "Turn "+actualTurn);
 		
-		if (actualTurn%200==0 ){//&& allOggetto2D.get(0).getBody().getLinearVelocity().y==0){
-			Oggetto2D t=allOggetto2D.get(0);
-			Action a = new ActionEngine(t.ID, 1, 0, 0.01f);
-			a.run(allOggetto2D.get(0));
-			allChanges.add(a);
+		if ( actualTurn%500==0 ){//&& allOggetto2D.get(0).getBody().getLinearVelocity().y==0){
+			for (int i=0; i < objIndex; i++){
+				Oggetto2D t=allOggetto2D.get(i);
+				Action a = new ActionEngine(t.ID, GLOBAL_VARIABLE.convertToPhysicEngineUnit( (float)Math.random()*6-3 ), GLOBAL_VARIABLE.convertToPhysicEngineUnit( (float)Math.random()*6-3 ), 0);
+				a.run(t, world);
+				allChanges.add(a);
+			}
 		}
 		
 		{
@@ -97,15 +105,15 @@ public class Engine extends TimerTask{
 			//step
 			world.update();
 			
-			//every 100 turn send all maps, actually for debug purpose
-			if (actualTurn%100==0)
+			//every 1000 turn send all maps, actually for debug purpose
+			if (actualTurn%1000==0)
 				writeAllMaps();
 		}
 		
 		time = System.currentTimeMillis() - time;
 		if ( time > ServerMain.TURN_DURATION ){
 			System.out.println( "WARNING: engine turn take more execution time than requested!!! This can cause serius error/data corruption!! duration: "+time );
-			System.out.println( "unlogged player: "+unloggedPlayer.size()+" observer Player: "+observerPlayer.size() );
+			System.out.println( "unlogged player: "+unloggedPlayer.size()+" observer Player: "+observerPlayer.size()+" players: "+players.size() );
 		}
 	}
 
@@ -116,6 +124,10 @@ public class Engine extends TimerTask{
 		}
 		
 		for (Player p:observerPlayer){
+			p.write(n);
+		}
+		
+		for (Player p:players){
 			p.write(n);
 		}
 	}
@@ -145,10 +157,17 @@ public class Engine extends TimerTask{
 				p.write(n);
 		}
 		
-		//send NewTurn to all new observer
+		//send NewTurn + allWorld to all new observer
 		for (Player p:newObserver){
 			p.write(nNewObserver);
 		}
+		
+		///* THIS IS NOT NECESSARY, PLAYER USE RADAR OF THEIR SHIP
+		//send NewTurn to all player
+		for (Player p:players){
+			p.write(n);
+		}
+		//*/
 		
 		//add the new observer to observerPlayer
 		observerPlayer.addAll(newObserver);
@@ -201,18 +220,32 @@ public class Engine extends TimerTask{
 				if (t.getActiveShip() != null){
 					players.add(t);
 					removedObserver.add(t);
+					Ship s = new Ship(objIndex++, allChanges);
+					newOggetti2D.add(s);
+					world.addNew( s, GLOBAL_VARIABLE.convertToPhysicEngineUnit( 25 ), 0, 0 );
+					System.out.println("Created ship "+s.ID+" for player: "+t.toString());
+					//notify client of ship creation
+					t.write( new ShipRequest(s.ID) );
 				}
 			}
 		}
 		// remove disconnected or player from observer
 		observerPlayer.removeAll(removedObserver);
 		
+		
 		/*
-		 * TODO: control if action requests is arrived for the player (all handled by update() method.
+		 * TODO: control if action requests is arrived for the player (all handled by update() method). Also delete disconnected player
 		 */
+		LinkedList<Player> removedPlayer = new LinkedList<Player>();
 		for (Player t:players){
-			t.update();
+			if ( t.isClosed() ){
+				t.close();
+				removedPlayer.add(t);
+			}else{
+				t.update();
+			}
 		}
+		players.removeAll(removedPlayer);
 	}
 
 	/*
@@ -229,7 +262,7 @@ public class Engine extends TimerTask{
 	
 	private int getTotalConnectedPlayerSize(){
 		//TODO: add player when they will be added
-		return unloggedPlayer.size()+observerPlayer.size();
+		return unloggedPlayer.size()+observerPlayer.size()+players.size();
 	}
 
 }

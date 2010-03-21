@@ -97,4 +97,8 @@ public class ServerListener extends Thread{
 		return inR.size();
 	}
 
+	public void write(Object obj) {
+		outW.write(obj);
+	}
+
 }
