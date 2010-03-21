@@ -141,6 +141,7 @@ public class ClientEngine extends TimerTask{
 		boolean arrivedNewTurn = false;
 		
 		while ( (o=server.poll())!=null ){
+			
 			used = false;
 			if (o instanceof ShipRequest){
 				used = true;
@@ -163,7 +164,6 @@ public class ClientEngine extends TimerTask{
 			
 			if (o instanceof AllMap){
 				used = true;
-				
 				
 				AllMap tempAM = (AllMap)o;
 				
@@ -227,6 +227,9 @@ public class ClientEngine extends TimerTask{
 				System.out.println("Wrong packet!: "+o);
 				server.close();
 			}
+			
+			if ( System.nanoTime()-time2 > 10000000 ) // if there is too much time for input take a break
+				break;
 		}
 		time2 = System.nanoTime()-time2;
 		System.out.println( "Reading input time: "+time2);
