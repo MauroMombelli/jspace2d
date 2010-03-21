@@ -256,7 +256,7 @@ public class ClientEngine extends TimerTask{
 
 		if (nextServerTurn > actualEngineTurn){
 			System.out.println( "Server is faster! jumped "+ (nextServerTurn - actualEngineTurn) +" turn, ms:"+((nextServerTurn-actualEngineTurn)*MAX_TURN_DURATION) );
-			//actualEngineTurn=nextServerTurn;
+			actualEngineTurn=nextServerTurn;
 		}
 	}
 
