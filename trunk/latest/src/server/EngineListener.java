@@ -1,13 +1,18 @@
 package server;
 
+import java.util.LinkedList;
+
 import org.jbox2d.dynamics.ContactListener;
 import org.jbox2d.dynamics.contacts.ContactPoint;
 import org.jbox2d.dynamics.contacts.ContactResult;
 
+import shared.InfoBody;
 import shared.Oggetto2D;
 
 public class EngineListener implements ContactListener {
 
+	LinkedList<InfoBody> allPhisicCollision = new LinkedList<InfoBody>();
+	
 	@Override
 	public void add(ContactPoint point) {
 		if ( point.shape1.isSensor() && !point.shape2.isSensor() ){
@@ -43,6 +48,8 @@ public class EngineListener implements ContactListener {
 				obj1.collide(obj2);
 				obj2.collide(obj1);
 				System.out.println(obj1.ID+" collide "+obj2.ID);
+				allPhisicCollision.add(obj1.getInfoPosition());
+				allPhisicCollision.add(obj2.getInfoPosition());
 			}else{
 				//wall collision
 			}
@@ -59,6 +66,8 @@ public class EngineListener implements ContactListener {
 				obj1.continueCollide(obj2);
 				obj2.continueCollide(obj1);
 				//System.out.println(obj1.ID+" continue to collide "+obj2.ID);
+				allPhisicCollision.add(obj1.getInfoPosition());
+				allPhisicCollision.add(obj2.getInfoPosition());
 			}else{
 				//wall collision
 			}
@@ -102,6 +111,14 @@ public class EngineListener implements ContactListener {
 	public void result(ContactResult point) {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	public LinkedList<InfoBody> getAllPhysicCollision(){
+		return allPhisicCollision;
+	}
+	
+	public void clearAllPhysicCollision(){
+		allPhisicCollision.clear();
 	}
 
 }

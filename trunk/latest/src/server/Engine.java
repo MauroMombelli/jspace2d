@@ -12,7 +12,6 @@ import shared.Oggetto2D;
 import shared.PhysicWorld;
 import shared.TurnDuration;
 import shared.azioni.Action;
-import shared.azioni.ActionEngine;
 import shared.specialActions.ShipRequest;
 
 public class Engine extends TimerTask{
@@ -152,9 +151,14 @@ public class Engine extends TimerTask{
 		nNewObserver.addAll( allChanges );
 		n.addAll( allChanges );
 		
+		//add all collision to observer and new observer
+		nNewObserver.addAllCollision( collListener.getAllPhysicCollision() );
+		n.addAllCollision( collListener.getAllPhysicCollision() );
+		collListener.clearAllPhysicCollision();
+		
 		//send NewTurn to all observer, if there are changes
 		for (Player p:observerPlayer){
-			if (n.actionsSize() != 0 || n.newObjSize() != 0)
+			if (n.actionsSize() != 0 || n.newObjSize() != 0 || n.newCollisionSize() != 0)
 				p.write(n);
 		}
 		

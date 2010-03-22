@@ -166,7 +166,7 @@ public class ClientEngine extends TimerTask{
 			
 			if (o instanceof AllMap){
 				used = true;
-				
+				arrivedNewTurn=true;
 				AllMap tempAM = (AllMap)o;
 				
 				//There was no actions, so we can update synchronous world to tempAM.turn
