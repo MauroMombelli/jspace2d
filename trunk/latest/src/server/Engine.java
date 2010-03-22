@@ -48,8 +48,8 @@ public class Engine extends TimerTask{
 		
 		//put 10 obj in world
 		Oggetto2D t;
-		for (int i=0; i < 10; i++){
-			for (int a=0; a < 10; a++){
+		for (int i=0; i < 1; i++){
+			for (int a=0; a < 1; a++){
 				t = new Oggetto2D(objIndex++);
 				newOggetti2D.add(t);
 				world.addNew( t, GLOBAL_VARIABLE.convertToPhysicEngineUnit( i*10 ), GLOBAL_VARIABLE.convertToPhysicEngineUnit( a*10 ), 0 );
@@ -79,6 +79,8 @@ public class Engine extends TimerTask{
 		*/
 		actualTurn++;
 		System.out.println( "Turn "+actualTurn);
+		
+		/*
 		if (actualTurn>=2000){
 			if ( actualTurn%500==0 ){//&& allOggetto2D.get(0).getBody().getLinearVelocity().y==0){
 				for (int i=0; i < 50; i++){
@@ -89,6 +91,7 @@ public class Engine extends TimerTask{
 				}
 			}
 		}
+		*/
 		
 		{
 			//accept MAX_NEW new client
@@ -104,7 +107,7 @@ public class Engine extends TimerTask{
 			world.update();
 			
 			//every 1000 turn send all maps, actually for debug purpose
-			if (actualTurn%1000==0)
+			if (actualTurn%100==0)
 				writeAllMaps();
 		}
 		

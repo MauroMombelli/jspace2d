@@ -211,7 +211,7 @@ public class ClientEngine extends TimerTask{
 						}
 						if (diffSum != 0){
 							System.out.println("ERROR IN DEBUG, PHYSIC IS NOT PERFECTLY SYNCRONIZED!");
-							//errorFound=true;
+							errorFound=true;
 							recreateSyncronousWorld(map, tempAM.turn);
 						}else{
 							System.out.println("DEBUG: EVERY LITTLE THINGS, IS GONNA BE ALL RIGHT :-): "+tested);
@@ -262,6 +262,7 @@ public class ClientEngine extends TimerTask{
 	}
 
 	private void recreateSyncronousWorld(LinkedList<InfoBody> map, long turn) {
+		System.out.println( "I'm rebulding the syncronous world!!" ); 
 		for (InfoBody o:map){
 			allOggetto2D.get(o.ID).setInfoPosition(o);
 			if (o.compare(allOggetto2D.get(o.ID).getInfoPosition())!=0){
@@ -370,7 +371,7 @@ public class ClientEngine extends TimerTask{
 		world.update();
 
 		//System.out.println( "Executing:"+nextServerTurn);
-		if (nextServerTurn%1000==0){
+		if (nextServerTurn%100==0){
 			System.out.println( "Saving for debug: "+nextServerTurn);
 			HashMap<Integer, InfoBody> data = new HashMap<Integer, InfoBody>();
 			for ( Oggetto2D obj:allOggetto2D.values() ){
