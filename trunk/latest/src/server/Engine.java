@@ -48,8 +48,8 @@ public class Engine extends TimerTask{
 		
 		//put 10 obj in world
 		Oggetto2D t;
-		for (int i=0; i < 1; i++){
-			for (int a=0; a < 1; a++){
+		for (int i=0; i < 10; i++){
+			for (int a=0; a < 10; a++){
 				t = new Oggetto2D(objIndex++);
 				newOggetti2D.add(t);
 				world.addNew( t, GLOBAL_VARIABLE.convertToPhysicEngineUnit( i*10 ), GLOBAL_VARIABLE.convertToPhysicEngineUnit( a*10 ), 0 );
