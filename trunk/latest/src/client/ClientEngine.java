@@ -61,7 +61,7 @@ public class ClientEngine extends TimerTask{
 			e.printStackTrace();
 		};
 		
-		server.write( new ShipRequest(0) );
+		server.write( new ShipRequest() );
 		System.out.println("Ship request send, starting turn:"+actualTurn);
 	}
 
@@ -103,18 +103,19 @@ public class ClientEngine extends TimerTask{
 		
 		float strenght=0, angle=0;
 		if (KeyBindingManager.getKeyBindingManager().isValidCommand("move_up", false)) {
-			strenght += 1;
-        }
-		if (KeyBindingManager.getKeyBindingManager().isValidCommand("move_down", false)) {
 			strenght -= 1;
         }
+		if (KeyBindingManager.getKeyBindingManager().isValidCommand("move_down", false)) {
+			strenght += 1;
+        }
 		if (KeyBindingManager.getKeyBindingManager().isValidCommand("move_left", false)) {
-			angle -= 1;
+			angle -= 10;
         }
 		if (KeyBindingManager.getKeyBindingManager().isValidCommand("move_right", false)) {
-			angle += 1;
+			angle += 10;
         }
 		if (strenght != 0 || angle != 0){
+			System.out.println( "Writing action" );
 			double x = strenght*Math.sin( myShip.getBody().getAngle() );
 			double y = strenght*Math.cos( myShip.getBody().getAngle() );
 			server.write( new ActionEngine(myShip.ID, (float)x, (float)y, angle) );
@@ -354,7 +355,7 @@ public class ClientEngine extends TimerTask{
 		//set the actions
 		while ( (newAct=toDo.pollActions())!=null ){
 			//System.out.println( "action after: "+allOggetto2D.get(newAct.ID).getInfoPosition().getPosVel() );
-			newAct.run( allOggetto2D.get(newAct.ID), world );
+			newAct.run( allOggetto2D.get(newAct.ID) );
 			System.out.println( "action setted for object:"+newAct.ID );
 			//System.out.println( "action before: "+allOggetto2D.get(newAct.ID).getInfoPosition().getPosVel() );
 			//System.out.println( "data: "+newAct.ID+" "+allOggetto2D.get(newAct.ID).getInfoPosition() );

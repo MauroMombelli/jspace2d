@@ -2,12 +2,12 @@ package server;
 
 import java.io.IOException;
 import java.net.Socket;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.LinkedList;
 
 import shared.InputReader;
 import shared.Login;
-import shared.NewTurn;
 import shared.Oggetto2D;
 import shared.OutputWriter;
 import shared.Ship;
@@ -53,6 +53,9 @@ public class Player {
 	public void update(){
 		update++;
 
+		myActions.clear();
+		createOggettiActions.clear();
+		removeOggettiActions.clear();
 		//read and execute client request
 		Object t;
 		while( ( t=inR.poll() )!=null){ //until there is input
@@ -67,21 +70,23 @@ public class Player {
 				}
 			}else{
 				
-				if (t instanceof ShipRequest){
-					//ShipRequest ship = (ShipRequest)t;
-					System.out.println("Ship request arrived");
-					//activeShip = ship;
-					createOggettiActions.add( (ShipRequest)t );
-					break; //Don't try to execute any action before shipRequest has been accepted
-				}
 				if (activeShip != -1){ //don't accept action without ship
 					if (t instanceof Action){
-						
+						System.out.println("Executing action");
+						Action a = ((Action)t);
+						if ( a.run( myPossessoin.get(a.ID) ) )
+							myActions.add(a);
 					}
 				}else{
-					//Action without a ship, probably an hacking attempt
-					System.out.print("PLAYER ERROR: Player:"+myself+" send action without ship selected, ip:"+giocatore.getRemoteSocketAddress() );
-					close();
+					if (t instanceof ShipRequest){
+						System.out.println("Ship request arrived");
+						createOggettiActions.add( (ShipRequest)t );
+						break; //SPECIAL CASE: Don't try to execute any other action before shipRequest has been accepted
+					}else{
+						//Action without a ship, probably an hacking attempt
+						System.out.print("PLAYER ERROR: Player:"+myself+" send action without ship selected, ip:"+giocatore.getRemoteSocketAddress() );
+						close();
+					}
 				}
 			}
 		}
@@ -147,6 +152,14 @@ public class Player {
 
 	public void removeOggetto(int id) {
 		myPossessoin.remove(id);
+	}
+
+	public ShipRequest getCreateShip() {
+		return createOggettiActions.poll();
+	}
+
+	public LinkedList<Action> getMyActions() {
+		return myActions;
 	}
 
 }

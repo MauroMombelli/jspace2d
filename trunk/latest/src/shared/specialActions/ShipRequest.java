@@ -1,7 +1,7 @@
 package shared.specialActions;
 
 import java.io.Serializable;
-import java.util.LinkedList;
+import java.util.ArrayList;
 
 import server.Player;
 import shared.GLOBAL_VARIABLE;
@@ -26,7 +26,7 @@ public class ShipRequest implements Serializable{
 		this.setID(ID);
 	}
 
-	public void run(PhysicWorld w, int objIndex, LinkedList<Oggetto2D> newOggetti2D, Player p) {
+	public void run(PhysicWorld w, int objIndex, ArrayList<Oggetto2D> newOggetti2D, Player p) {
 		if (getID()==-1){
 			Ship s = new Ship(objIndex);
 			newOggetti2D.add(s);
@@ -41,6 +41,7 @@ public class ShipRequest implements Serializable{
 				p.setActiveShip(getID());
 			}else{
 				//player is trying to take control over an Oggetto2d not possessed, sure hacking
+				System.out.println( "Ship "+ID+" is not owned by player: "+p.getLogin().toString() );
 				p.close();
 			}
 		}

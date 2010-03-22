@@ -13,6 +13,7 @@ import shared.PhysicWorld;
 import shared.TurnDuration;
 import shared.azioni.Action;
 import shared.azioni.ActionEngine;
+import shared.specialActions.ShipRequest;
 
 public class Engine extends TimerTask{
 
@@ -83,15 +84,13 @@ public class Engine extends TimerTask{
 				for (int i=0; i < 50; i++){
 					Oggetto2D t=allOggetto2D.get(i);
 					Action a = new ActionEngine(t.ID, GLOBAL_VARIABLE.convertToPhysicEngineUnit( (float)Math.random()*6-3 ), GLOBAL_VARIABLE.convertToPhysicEngineUnit( (float)Math.random()*6-3 ), 0);
-					a.run(t, world);
+					a.run(t);
 					allChanges.add(a);
 				}
 			}
 		}
 		
 		{
-			
-		
 			//accept MAX_NEW new client
 			acceptNewPlayer();
 		
@@ -210,18 +209,18 @@ public class Engine extends TimerTask{
 		/*
 		 * control if a ship request is arrived for the unlogged player.
 		 */
+		ShipRequest objToCreate;
 		for (Player t:observerPlayer){
 			if ( t.isClosed() ){
 				t.close();
 				removedObserver.add(t);
 			}else{
 				t.update();
-				if (t.getActiveShip() != -1){ //if ship has been assigned
-					if ( allOggetto2D.get(t.getActiveShip())!=null ){ //and is valid
-						//set the observer as player
-						players.add(t);
-						removedObserver.add(t);
-					}
+				if ( (objToCreate=t.getCreateShip()) != null ){
+					System.out.println("creating ship1");
+					players.add(t);
+					removedObserver.add(t);
+					objToCreate.run(world, objIndex++, newOggetti2D, t);
 				}
 			}
 		}
@@ -239,6 +238,7 @@ public class Engine extends TimerTask{
 				removedPlayer.add(t);
 			}else{
 				t.update();
+				allChanges.addAll( t.getMyActions() );
 			}
 		}
 		players.removeAll(removedPlayer);

@@ -1,12 +1,10 @@
 package shared.azioni;
 
 import java.io.Serializable;
-import java.util.HashMap;
 
 import org.jbox2d.common.Vec2;
 
 import shared.Oggetto2D;
-import shared.PhysicWorld;
 
 public class ActionEngine extends Action implements Serializable{
 	
@@ -25,16 +23,18 @@ public class ActionEngine extends Action implements Serializable{
 	}
 	
 	@Override
-	public void run(Oggetto2D p, PhysicWorld w){
+	public boolean run(Oggetto2D p){
 		if (p != null){
 			if (p.getBody() != null){
 				p.getBody().applyImpulse( new Vec2(x,y), p.getBody().getWorldCenter() );
 				p.getBody().applyTorque( alpha );
+				return true;
 			}else{
 				System.out.println("error executing action, null body");
 			}
 		}else{
 			System.out.println("error executing action, null object");			
 		}
+		return false;
 	}
 }

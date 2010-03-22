@@ -24,7 +24,7 @@ public class SetNode extends GuiAction{
 		modelName = name;
 		
 		rotation = new Quaternion();
-		rotation.fromAngleAxis(rotZ, new Vector3f(0,0,1));
+		rotation.fromAngleAxis(-rotZ, new Vector3f(0,0,1));
 		
 		position = pos;
 		

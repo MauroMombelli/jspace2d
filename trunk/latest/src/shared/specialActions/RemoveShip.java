@@ -1,5 +1,6 @@
 package shared.specialActions;
 
+import java.io.Serializable;
 import java.util.HashMap;
 import java.util.LinkedList;
 
@@ -7,7 +8,7 @@ import server.Player;
 import shared.Oggetto2D;
 import shared.PhysicWorld;
 
-public class RemoveShip {
+public class RemoveShip implements Serializable{
 
 	/**
 	 * 

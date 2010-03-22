@@ -90,6 +90,11 @@ public class Oggetto2D implements Serializable {
 		
 	}
 
+	public void continueCollide(Oggetto2D obj1) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
 
 class UniqueData implements Serializable{

@@ -1,10 +1,8 @@
 package shared.azioni;
 
 import java.io.Serializable;
-import java.util.HashMap;
 
 import shared.Oggetto2D;
-import shared.PhysicWorld;
 
 public abstract class Action implements Serializable {
 
@@ -19,6 +17,6 @@ public abstract class Action implements Serializable {
 		this.ID = ID;
 	}
 	
-	public abstract void run(Oggetto2D p, PhysicWorld w);
+	public abstract boolean run(Oggetto2D p); //return true if action is executed with success
 	
 }
