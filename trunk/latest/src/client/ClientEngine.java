@@ -141,6 +141,7 @@ public class ClientEngine extends TimerTask{
 		boolean used = false;
 		long time2 = System.nanoTime();
 		boolean arrivedNewTurn = false;
+		boolean arrivedAllMap = false;
 		
 		while ( (o=server.poll())!=null ){
 			
@@ -161,12 +162,12 @@ public class ClientEngine extends TimerTask{
 
 				elaborate(temp);
 
-				
 			}
 			
 			if (o instanceof AllMap){
 				used = true;
-				arrivedNewTurn=true;
+				
+				arrivedAllMap=true;
 				AllMap tempAM = (AllMap)o;
 				
 				//There was no actions, so we can update synchronous world to tempAM.turn
@@ -223,6 +224,7 @@ public class ClientEngine extends TimerTask{
 				}
 				if (errorFound)
 					System.exit(0);
+				
 			}
 			
 			if (!used){
@@ -238,9 +240,12 @@ public class ClientEngine extends TimerTask{
 		
 		time2 = System.nanoTime();
 		//if (nextServerTurn < actualEngineTurn){
+		if (arrivedAllMap)
+			copyWorldForPaint( crateAndUpdateAsincroniusWorld(actualEngineTurn-nextServerTurn, true) );
+		else
 			if (arrivedNewTurn)
-				copyWorldForPaint( crateAndUpdateAsincroniusWorld(0, true) );
-				//copyWorldForPaint( crateAndUpdateAsincroniusWorld(actualEngineTurn-nextServerTurn, true) );
+				//copyWorldForPaint( crateAndUpdateAsincroniusWorld(0, true) );
+				copyWorldForPaint( crateAndUpdateAsincroniusWorld(actualEngineTurn-nextServerTurn, true) );
 			else
 				copyWorldForPaint( crateAndUpdateAsincroniusWorld(1, false) ); //just 1 step
 		//}else{
@@ -257,7 +262,7 @@ public class ClientEngine extends TimerTask{
 
 		if (nextServerTurn > actualEngineTurn){
 			System.out.println( "Server is faster! jumped "+ (nextServerTurn - actualEngineTurn) +" turn, ms:"+((nextServerTurn-actualEngineTurn)*MAX_TURN_DURATION) );
-			actualEngineTurn=nextServerTurn;
+			//actualEngineTurn=nextServerTurn;
 		}
 	}
 
@@ -360,6 +365,11 @@ public class ClientEngine extends TimerTask{
 			System.out.println( "action setted for object:"+newAct.ID );
 			//System.out.println( "action before: "+allOggetto2D.get(newAct.ID).getInfoPosition().getPosVel() );
 			//System.out.println( "data: "+newAct.ID+" "+allOggetto2D.get(newAct.ID).getInfoPosition() );
+		}
+		
+		//set the collision
+		while ( (newObjPos=toDo.pollCollision())!=null ){
+			allOggetto2D.get(newObjPos.ID).setInfoPosition(newObjPos);
 		}
 		
 		execute();
