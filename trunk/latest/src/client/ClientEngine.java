@@ -48,6 +48,8 @@ public class ClientEngine extends TimerTask{
 	int IDmyShip=-1;
 	Oggetto2D myShip;//In the asynchronous world
 	
+	int turnAsincCalculated=0;
+	
 	public ClientEngine(ServerListener serverListener, long actualTurn, long turnDuration) {
 		server = serverListener;
 		this.actualEngineTurn = actualTurn;
@@ -240,20 +242,24 @@ public class ClientEngine extends TimerTask{
 		
 		time2 = System.nanoTime();
 		//if (nextServerTurn < actualEngineTurn){
-		if (arrivedAllMap)
-			copyWorldForPaint( crateAndUpdateAsincroniusWorld(1, true) );
-		else
-			if (arrivedNewTurn)
+		if (arrivedAllMap){
+			copyWorldForPaint( crateAndUpdateAsincroniusWorld(turnAsincCalculated, true) );
+			turnAsincCalculated=0;
+		}else
+			if (arrivedNewTurn){
 				//copyWorldForPaint( crateAndUpdateAsincroniusWorld(0, true) );
-				copyWorldForPaint( crateAndUpdateAsincroniusWorld(1, true) );
-			else
+				copyWorldForPaint( crateAndUpdateAsincroniusWorld(turnAsincCalculated, true) );
+				turnAsincCalculated=0;
+			}else{
 				copyWorldForPaint( crateAndUpdateAsincroniusWorld(1, false) ); //just 1 step
+				turnAsincCalculated++;
+			}
 		//}else{
 		//	copyWorldForPaint( allOggetto2D.values() );
 		//	crateAndUpdateAsincroniusWorld(0, true);
 		//}
 		time2 = System.nanoTime()-time2;
-		System.out.println( "Paint copy time: "+time2);
+		System.out.println( "Paint copy time: "+time2+" ainc calculated: "+turnAsincCalculated);
 				
 		if (nextServerTurn < actualEngineTurn){
 			System.out.println( "Server is slow! I'm "+ (actualEngineTurn - nextServerTurn) +" turn ahead, ms:"+((actualEngineTurn - nextServerTurn)*MAX_TURN_DURATION) );
