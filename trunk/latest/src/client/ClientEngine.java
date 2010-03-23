@@ -142,7 +142,7 @@ public class ClientEngine extends TimerTask{
 		long time2 = System.nanoTime();
 		boolean arrivedNewTurn = false;
 		boolean arrivedAllMap = false;
-		
+		System.out.println( "Waiting input: "+ server.inputSize() );
 		while ( (o=server.poll())!=null ){
 			
 			used = false;
@@ -158,7 +158,7 @@ public class ClientEngine extends TimerTask{
 				temp =(NewTurn)o; 
 
 				System.out.println( "New turn received: "+ temp.actualTurn );
-				System.out.println( "Contains "+temp.actionsSize()+" actions and "+temp.newObjSize()+" new obj" );
+				System.out.println( "Contains "+temp.actionsSize()+" actions, "+temp.newObjSize()+" new obj and "+temp.newCollisionSize()+" collision" );
 
 				elaborate(temp);
 
@@ -232,8 +232,8 @@ public class ClientEngine extends TimerTask{
 				server.close();
 			}
 			
-			if ( System.nanoTime()-time2 > 1000000 ) // if there is too much time for input take a break
-				break;
+			//if ( System.nanoTime()-time2 > 10000000 ) // if there is too much time for input take a break
+			//	break;
 		}
 		time2 = System.nanoTime()-time2;
 		System.out.println( "Reading input time: "+time2);
@@ -241,11 +241,11 @@ public class ClientEngine extends TimerTask{
 		time2 = System.nanoTime();
 		//if (nextServerTurn < actualEngineTurn){
 		if (arrivedAllMap)
-			copyWorldForPaint( crateAndUpdateAsincroniusWorld(actualEngineTurn-nextServerTurn, true) );
+			copyWorldForPaint( crateAndUpdateAsincroniusWorld(1, true) );
 		else
 			if (arrivedNewTurn)
 				//copyWorldForPaint( crateAndUpdateAsincroniusWorld(0, true) );
-				copyWorldForPaint( crateAndUpdateAsincroniusWorld(actualEngineTurn-nextServerTurn, true) );
+				copyWorldForPaint( crateAndUpdateAsincroniusWorld(1, true) );
 			else
 				copyWorldForPaint( crateAndUpdateAsincroniusWorld(1, false) ); //just 1 step
 		//}else{
@@ -262,7 +262,7 @@ public class ClientEngine extends TimerTask{
 
 		if (nextServerTurn > actualEngineTurn){
 			System.out.println( "Server is faster! jumped "+ (nextServerTurn - actualEngineTurn) +" turn, ms:"+((nextServerTurn-actualEngineTurn)*MAX_TURN_DURATION) );
-			//actualEngineTurn=nextServerTurn;
+			actualEngineTurn=nextServerTurn-1;
 		}
 	}
 

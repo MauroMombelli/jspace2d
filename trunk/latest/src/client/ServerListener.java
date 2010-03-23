@@ -19,8 +19,8 @@ public class ServerListener extends Thread{
 	ClientEngine engine;
 	
 	public ServerListener(String ip, int port) {
-		//InetSocketAddress proxy = new InetSocketAddress("81.22.90.226", 1080);
-		//Proxy p = new Proxy(Proxy.Type.SOCKS, proxy);
+		InetSocketAddress proxy = new InetSocketAddress("217.160.200.51", 1080);
+		Proxy p = new Proxy(Proxy.Type.SOCKS, proxy);
 		//s = new Socket(p);
 		
 		s = new Socket();
