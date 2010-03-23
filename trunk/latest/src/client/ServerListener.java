@@ -2,7 +2,6 @@ package client;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
-import java.net.Proxy;
 import java.net.Socket;
 import java.net.UnknownHostException;
 import java.util.Timer;
@@ -19,8 +18,8 @@ public class ServerListener extends Thread{
 	ClientEngine engine;
 	
 	public ServerListener(String ip, int port) {
-		InetSocketAddress proxy = new InetSocketAddress("217.160.200.51", 1080);
-		Proxy p = new Proxy(Proxy.Type.SOCKS, proxy);
+		//InetSocketAddress proxy = new InetSocketAddress("217.160.200.51", 1080);
+		//Proxy p = new Proxy(Proxy.Type.SOCKS, proxy);
 		//s = new Socket(p);
 		
 		s = new Socket();

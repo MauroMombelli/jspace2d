@@ -111,15 +111,17 @@ public class ClientEngine extends TimerTask{
 			strenght += 1;
         }
 		if (KeyBindingManager.getKeyBindingManager().isValidCommand("move_left", true)) {
-			angle += 1;
+			angle -= 1;
         }
 		if (KeyBindingManager.getKeyBindingManager().isValidCommand("move_right", true)) {
-			angle -= 1;
+			angle += 1;
         }
 		if (strenght != 0 || angle != 0){
 			System.out.println( "Writing action" );
-			double x = strenght*Math.sin( myShip.getBody().getAngle() );
-			double y = strenght*Math.cos( myShip.getBody().getAngle() );
+			//double x = strenght*Math.sin( myShip.getBody().getAngle() );
+			//double y = strenght*Math.cos( myShip.getBody().getAngle() );
+			double x = strenght*Math.cos( myShip.getBody().getAngle() + Math.PI/2);
+			double y = strenght*Math.sin( myShip.getBody().getAngle() + Math.PI/2);
 			server.write( new ActionEngine(myShip.ID, (float)x, (float)y, angle) );
 		}
 	}
