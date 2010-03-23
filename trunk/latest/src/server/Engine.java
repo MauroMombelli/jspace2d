@@ -47,7 +47,7 @@ public class Engine extends TimerTask{
 		
 		//put 10 obj in world
 		Oggetto2D t;
-		for (int i=0; i < 10; i++){
+		for (int i=0; i < 0; i++){
 			for (int a=0; a < 10; a++){
 				t = new Oggetto2D(objIndex++);
 				newOggetti2D.add(t);

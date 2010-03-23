@@ -104,17 +104,17 @@ public class ClientEngine extends TimerTask{
 		
 		
 		float strenght=0, angle=0;
-		if (KeyBindingManager.getKeyBindingManager().isValidCommand("move_up", false)) {
+		if (KeyBindingManager.getKeyBindingManager().isValidCommand("move_up", true)) {
 			strenght -= 1;
         }
-		if (KeyBindingManager.getKeyBindingManager().isValidCommand("move_down", false)) {
+		if (KeyBindingManager.getKeyBindingManager().isValidCommand("move_down", true)) {
 			strenght += 1;
         }
-		if (KeyBindingManager.getKeyBindingManager().isValidCommand("move_left", false)) {
-			angle -= 10;
+		if (KeyBindingManager.getKeyBindingManager().isValidCommand("move_left", true)) {
+			angle -= 1;
         }
-		if (KeyBindingManager.getKeyBindingManager().isValidCommand("move_right", false)) {
-			angle += 10;
+		if (KeyBindingManager.getKeyBindingManager().isValidCommand("move_right", true)) {
+			angle += 1;
         }
 		if (strenght != 0 || angle != 0){
 			System.out.println( "Writing action" );
