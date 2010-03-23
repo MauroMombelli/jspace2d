@@ -28,6 +28,7 @@ public class PhysicWorld {
 
 		PolygonDef sd = new PolygonDef();
 		sd.setAsBox(maxX-minX, 10);
+		sd.friction=0.02f;
 		ground.createShape(sd);
 		
 		//down
@@ -37,11 +38,13 @@ public class PhysicWorld {
 
 		sd = new PolygonDef();
 		sd.setAsBox(maxX-minX, 10);
+		sd.friction=0.02f;
 		ground.createShape(sd);
 		
 		//left
 		bd = new BodyDef();
 		bd.position.set(minX, minY);
+		sd.friction=0.02f;
 		ground = physicWorld.createBody(bd);
 
 		sd = new PolygonDef();
@@ -51,6 +54,7 @@ public class PhysicWorld {
 		//right
 		bd = new BodyDef();
 		bd.position.set(maxX, minY);
+		sd.friction=0.02f;
 		ground = physicWorld.createBody(bd);
 
 		sd = new PolygonDef();

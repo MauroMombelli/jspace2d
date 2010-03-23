@@ -40,7 +40,7 @@ public class Oggetto2D implements Serializable {
 		bodyContainer.myBody = body;
 		CircleDef sd = new CircleDef();
         sd.restitution = 0.8f;
-        sd.friction = 0.2f;
+        sd.friction = 0.02f;
         sd.radius = GLOBAL_VARIABLE.convertToPhysicEngineUnit( 4 );
         sd.density = 1;
         sd.userData = this;
