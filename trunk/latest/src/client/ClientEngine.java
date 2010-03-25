@@ -146,6 +146,9 @@ public class ClientEngine extends TimerTask{
 		long time2 = System.nanoTime();
 		boolean arrivedNewTurn = false;
 		boolean arrivedAllMap = false;
+		
+		long lastServerTurn = nextServerTurn;
+		
 		System.out.println( "Waiting input: "+ server.inputSize() );
 		while ( (o=server.poll())!=null ){
 			
@@ -245,13 +248,13 @@ public class ClientEngine extends TimerTask{
 		time2 = System.nanoTime();
 		//if (nextServerTurn < actualEngineTurn){
 		if (arrivedAllMap){
+			turnAsincCalculated-=nextServerTurn-lastServerTurn;
 			copyWorldForPaint( crateAndUpdateAsincroniusWorld(turnAsincCalculated, true) );
-			turnAsincCalculated=0;
 		}else
 			if (arrivedNewTurn){
 				//copyWorldForPaint( crateAndUpdateAsincroniusWorld(0, true) );
+				turnAsincCalculated-=nextServerTurn-lastServerTurn;
 				copyWorldForPaint( crateAndUpdateAsincroniusWorld(turnAsincCalculated, true) );
-				turnAsincCalculated=0;
 			}else{
 				copyWorldForPaint( crateAndUpdateAsincroniusWorld(1, false) ); //just 1 step
 				turnAsincCalculated++;
@@ -283,6 +286,7 @@ public class ClientEngine extends TimerTask{
 				System.exit(0);
 			}
 		}
+		System.out.println("Recreating syncronous world at turn: "+turn+" was at turn: "+ (nextServerTurn-1) );
 		nextServerTurn=turn+1;
 	}
 
