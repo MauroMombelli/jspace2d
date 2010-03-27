@@ -110,16 +110,16 @@ public class ClientEngine extends TimerTask{
 		
 		float strenght=0, angle=0;
 		if (KeyBindingManager.getKeyBindingManager().isValidCommand("move_up", true)) {
-			strenght -= 0.1f;
+			strenght -= 0.01f;
         }
 		if (KeyBindingManager.getKeyBindingManager().isValidCommand("move_down", true)) {
-			strenght += 0.1f;
+			strenght += 0.01f;
         }
 		if (KeyBindingManager.getKeyBindingManager().isValidCommand("move_left", true)) {
-			angle += 0.1f;
+			angle += 0.001f;
         }
 		if (KeyBindingManager.getKeyBindingManager().isValidCommand("move_right", true)) {
-			angle -= 0.1f;
+			angle -= 0.001f;
         }
 		if (strenght != 0 || angle != 0){
 			System.out.println( "Writing action" );
@@ -285,7 +285,9 @@ public class ClientEngine extends TimerTask{
 
 	private void recreateSyncronousWorld(LinkedList<InfoBody> map, long turn) {
 		System.out.println( "I'm rebuilding the syncronous world!!" ); 
+		world.clear();
 		for (InfoBody o:map){
+			world.addNew( allOggetto2D.get(o.ID), o.getPos().x, o.getPos().y, o.getAngle() );
 			allOggetto2D.get(o.ID).setInfoPosition(o);
 			if (o.compare(allOggetto2D.get(o.ID).getInfoPosition())!=0){
 				System.out.println( "Error adjusting world");
