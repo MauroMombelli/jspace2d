@@ -14,7 +14,7 @@ public class Ship extends Oggetto2D implements Serializable{
 	
 	public Ship(int id) {
 		super(id);
-		modelName="astronave 2.xml";
+		modelName="Cone";
 	}
 	
 	@Override
@@ -23,7 +23,7 @@ public class Ship extends Oggetto2D implements Serializable{
 		CircleDef hull = new CircleDef();
         hull.restitution = 0.8f;
         hull.friction = 0.2f;
-        hull.radius = GLOBAL_VARIABLE.convertToPhysicEngineUnit( 12 );
+        hull.radius = GLOBAL_VARIABLE.convertToPhysicEngineUnit( 4 );
         hull.density = 1;
         hull.userData = this;
         bodyContainer.myBody.createShape(hull);

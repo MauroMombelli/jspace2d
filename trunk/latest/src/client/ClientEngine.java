@@ -110,16 +110,16 @@ public class ClientEngine extends TimerTask{
 		
 		float strenght=0, angle=0;
 		if (KeyBindingManager.getKeyBindingManager().isValidCommand("move_up", true)) {
-			strenght -= 1;
+			strenght -= 0.1f;
         }
 		if (KeyBindingManager.getKeyBindingManager().isValidCommand("move_down", true)) {
-			strenght += 1;
+			strenght += 0.1f;
         }
 		if (KeyBindingManager.getKeyBindingManager().isValidCommand("move_left", true)) {
-			angle += 1;
+			angle += 0.1f;
         }
 		if (KeyBindingManager.getKeyBindingManager().isValidCommand("move_right", true)) {
-			angle -= 1;
+			angle -= 0.1f;
         }
 		if (strenght != 0 || angle != 0){
 			System.out.println( "Writing action" );
@@ -302,7 +302,7 @@ public class ClientEngine extends TimerTask{
 			
 			long time3 = System.nanoTime();
 			//asincroniusWorld.clear();
-			asincroniusWorld = new PhysicWorld();
+			asincroniusWorld.clear();
 			asincronousOggetto2D.clear();
 			time3 = System.nanoTime()-time3;
 			System.out.println( "Asinc clearing time: "+time3);

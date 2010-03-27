@@ -20,7 +20,7 @@ public class Oggetto2D implements Serializable {
 	UniqueData bodyContainer = new UniqueData();//this class will not be synchronized
 	
 	public int ID;
-	String modelName="sfera.xml";
+	String modelName="Sphere";
 	
 	public Oggetto2D(int id){
 		this.ID = id;

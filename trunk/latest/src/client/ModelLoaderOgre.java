@@ -4,9 +4,10 @@ import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.util.HashMap;
 
 import com.jme.bounding.BoundingBox;
+import com.jme.math.Quaternion;
+import com.jme.math.Vector3f;
 import com.jme.scene.Node;
 import com.jmex.model.ModelFormatException;
 import com.jmex.model.ogrexml.MaterialLoader;
@@ -16,12 +17,11 @@ public class ModelLoaderOgre {
 	static OgreLoader loader = new OgreLoader();
 	static MaterialLoader matLoader = new MaterialLoader();
 	
-	static HashMap<String, Node> loadedModel = new HashMap<String, Node>();
+	//static HashMap<String, Node> loadedModel = new HashMap<String, Node>();
 	
 	static int i=0;
 	
 	public static Node loadModelOgre(String name){
-		name = "Cube";
 		
 		Node loadedNode=null;//loadedModel.get(name);
 		
@@ -44,18 +44,19 @@ public class ModelLoaderOgre {
             try {
 
 				loadedNode = (Node) loader.loadModel(meshURL);
-				/*
+				
+				loadedNode.setLocalScale(0.2f);
+				
+				loadedNode.setLocalTranslation(0, 0, 0);
+				
 				Quaternion m4 = new Quaternion();
 				m4.fromAngleAxis( (float)(Math.PI/2), new Vector3f(1, 0, 0));
 				loadedNode.setLocalRotation(m4);
 				
-				loadedNode.setLocalScale(0.5f);
-				*/
-				loadedNode.setLocalTranslation(0, 0, 0);
 				loadedNode.setModelBound( new BoundingBox() );
 				loadedNode.updateModelBound();
 				loadedNode.updateRenderState();
-				loadedModel.put(name, loadedNode);
+				//loadedModel.put(name, loadedNode);
 
 			}  catch (ModelFormatException e) {
 				// TODO Auto-generated catch block
@@ -74,6 +75,8 @@ public class ModelLoaderOgre {
 			throw new RuntimeException("Oggetto caricato nullo");
 		}
 		*/
-		return loadedNode;
+		Node mod = new Node();
+		mod.attachChild(loadedNode);
+		return mod;
 	}
 }

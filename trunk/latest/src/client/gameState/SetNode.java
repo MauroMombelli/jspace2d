@@ -43,17 +43,17 @@ public class SetNode extends GuiAction{
 			myself.setLocalRotation(rotation);
 			
 			if (ID ==0 ){
-				//for (Spatial s:myself.getChildren()){
-					System.out.println( "\t controller:"+myself.getControllerCount() );
-					for (int i=0; i<myself.getControllerCount();i++){
-						MeshAnimationController animControl = (MeshAnimationController) myself.getController(i);
+				for (Spatial s:myself.getChildren()){
+					System.out.println( "\t controller:"+s.getControllerCount() );
+					for (int i=0; i<s.getControllerCount();i++){
+						MeshAnimationController animControl = (MeshAnimationController) s.getController(i);
 						animControl.setAnimation("<bind>");
 						AnimationChannel lower = animControl.getAnimationChannel();
 						lower.addFromRootBone("Bone_L");
 						animControl.setAnimation(lower, "Left Cube");
 						System.out.println( "\t azone eseguita" );
 					}
-				//}
+				}
 			}
 			
 		}else{
