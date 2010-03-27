@@ -30,7 +30,7 @@ public class InitGraphics {
 			e.printStackTrace();
 		}
 		
-		DisplaySystem.getDisplaySystem().setMinSamples(64);
+		//DisplaySystem.getDisplaySystem().setMinSamples(64);
 		
 		// Start StandardGame, it will block until it has initialized successfully, then return
 		game.start();

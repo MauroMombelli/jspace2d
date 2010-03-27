@@ -12,12 +12,16 @@ import org.jbox2d.dynamics.World;
 public class PhysicWorld {
 	private static final float TIMESTEP = 1.0f/60.0f;
 	World physicWorld;
+	float minX =-50, minY=-50, maxX=50, maxY=50;
 	
 	public PhysicWorld(){
-		float minX =-50, minY=-50, maxX=50, maxY=50;
 		AABB worldSize = new AABB(new Vec2(minX, minY), new Vec2(maxX,maxY));
 		Vec2 worldGravity = new Vec2();
 		physicWorld = new World(worldSize, worldGravity, true);
+		createBorder();
+	}
+	
+	private void createBorder(){
 		//create border
 		Body ground = null;
 		
@@ -94,12 +98,19 @@ public class PhysicWorld {
 
 	public void clear() {
 		Body t = physicWorld.getBodyList();
+		while (t!=null){
+			physicWorld.destroyBody(t);
+			t = t.getNext();
+		}
+		createBorder();
+		/*
 		Body next;
 		for (int i = 0; i < physicWorld.getBodyCount();i++){
 			next = t.getNext();
 			physicWorld.destroyBody(t);
 			t = next;
 		}
+		*/
 	}
 
 	public Oggetto2D addCopy(Oggetto2D o, float x, float y) {

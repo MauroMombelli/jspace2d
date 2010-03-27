@@ -306,8 +306,8 @@ public class ClientEngine extends TimerTask{
 		if (clear){
 			
 			long time3 = System.nanoTime();
-			//asincroniusWorld.clear();
 			asincroniusWorld.clear();
+			//asincroniusWorld = new PhysicWorld();
 			asincronousOggetto2D.clear();
 			time3 = System.nanoTime()-time3;
 			System.out.println( "Asinc clearing time: "+time3);
