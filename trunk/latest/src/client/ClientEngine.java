@@ -236,7 +236,7 @@ public class ClientEngine extends TimerTask{
 				}
 				if (errorFound)
 					System.exit(0);
-				
+			
 			}
 			
 			if (!used){
@@ -246,6 +246,7 @@ public class ClientEngine extends TimerTask{
 			
 			//if ( System.nanoTime()-time2 > 10000000 ) // if there is too much time for input take a break
 			//	break;
+			
 		}
 		time2 = System.nanoTime()-time2;
 		System.out.println( "Reading input time: "+time2);
@@ -284,10 +285,11 @@ public class ClientEngine extends TimerTask{
 	}
 
 	private void recreateSyncronousWorld(LinkedList<InfoBody> map, long turn) {
+		
 		System.out.println( "I'm rebuilding the syncronous world!!" ); 
-		world.clear();
+		//world.clear();
 		for (InfoBody o:map){
-			world.addNew( allOggetto2D.get(o.ID), o.getPos().x, o.getPos().y, o.getAngle() );
+			//world.addNew( allOggetto2D.get(o.ID), o.getPos().x, o.getPos().y, o.getAngle() );
 			allOggetto2D.get(o.ID).setInfoPosition(o);
 			if (o.compare(allOggetto2D.get(o.ID).getInfoPosition())!=0){
 				System.out.println( "Error adjusting world");
@@ -296,6 +298,7 @@ public class ClientEngine extends TimerTask{
 		}
 		System.out.println("Recreating syncronous world at turn: "+turn+" was at turn: "+ (nextServerTurn-1) );
 		nextServerTurn=turn+1;
+		
 	}
 
 	private LinkedList<Oggetto2D> crateAndUpdateAsincroniusWorld(long l, boolean clear) {

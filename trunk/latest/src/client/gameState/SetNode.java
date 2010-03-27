@@ -41,7 +41,7 @@ public class SetNode extends GuiAction{
 			//myself.setLocalTranslation( new Vector3f(GLOBAL_VARIABLE.convertFromPhysicEngineUnit( position.x ), GLOBAL_VARIABLE.convertFromPhysicEngineUnit( position.y ), 0) );
 			myself.setLocalTranslation( new Vector3f( position.x, position.y, 0) );
 			myself.setLocalRotation(rotation);
-			
+			/*
 			if (ID ==0 ){
 				for (Spatial s:myself.getChildren()){
 					System.out.println( "\t controller:"+s.getControllerCount() );
@@ -55,7 +55,7 @@ public class SetNode extends GuiAction{
 					}
 				}
 			}
-			
+			*/
 		}else{
 			myself = ModelLoaderOgre.loadModelOgre(modelName);
 			//myself = (Node)ModelLoaderOBJ.loadModel("test5");
