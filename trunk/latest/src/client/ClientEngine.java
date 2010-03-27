@@ -48,7 +48,7 @@ public class ClientEngine extends TimerTask{
 	int IDmyShip=-1;
 	Oggetto2D myShip;//In the asynchronous world
 	
-	int turnAsincCalculated=0;
+	long turnAsincCalculated=0;
 	
 	public ClientEngine(ServerListener serverListener, long actualTurn, long turnDuration) {
 		server = serverListener;
@@ -99,9 +99,14 @@ public class ClientEngine extends TimerTask{
 	}
 
 	private void sendActions() {
+		
+		if (KeyBindingManager.getKeyBindingManager().isValidCommand("escape", true)) {
+			gui.close();
+			System.exit(0);
+        }
+		
 		if (myShip == null)
 			return;
-		
 		
 		float strenght=0, angle=0;
 		if (KeyBindingManager.getKeyBindingManager().isValidCommand("move_up", true)) {
@@ -250,6 +255,7 @@ public class ClientEngine extends TimerTask{
 		if (arrivedAllMap){
 			turnAsincCalculated-=nextServerTurn-lastServerTurn;
 			copyWorldForPaint( crateAndUpdateAsincroniusWorld(turnAsincCalculated, true) );
+			System.out.println( "Asinc turn: "+turnAsincCalculated+" "+nextServerTurn+" "+lastServerTurn);
 		}else
 			if (arrivedNewTurn){
 				//copyWorldForPaint( crateAndUpdateAsincroniusWorld(0, true) );
@@ -264,7 +270,7 @@ public class ClientEngine extends TimerTask{
 		//	crateAndUpdateAsincroniusWorld(0, true);
 		//}
 		time2 = System.nanoTime()-time2;
-		System.out.println( "Paint copy time: "+time2+" ainc calculated: "+turnAsincCalculated);
+		System.out.println( "Paint copy time: "+time2);
 				
 		if (nextServerTurn < actualEngineTurn){
 			System.out.println( "Server is slow! I'm "+ (actualEngineTurn - nextServerTurn) +" turn ahead, ms:"+((actualEngineTurn - nextServerTurn)*MAX_TURN_DURATION) );
@@ -272,7 +278,7 @@ public class ClientEngine extends TimerTask{
 		}
 
 		if (nextServerTurn > actualEngineTurn){
-			System.out.println( "Server is faster! jumped "+ (nextServerTurn - actualEngineTurn) +" turn, ms:"+((nextServerTurn-actualEngineTurn)*MAX_TURN_DURATION) );
+			System.out.println( "Server is faster! "+ (nextServerTurn - actualEngineTurn) +" turn, ms:"+((nextServerTurn-actualEngineTurn)*MAX_TURN_DURATION) );
 			actualEngineTurn=nextServerTurn-1;
 		}
 	}

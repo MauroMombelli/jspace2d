@@ -128,11 +128,7 @@ public class WorldGameState extends BasicGameState{
 			if (cameraZoom<10)
 				cameraZoom = 10;
 			camera.setLocation( new Vector3f(cameraX, cameraY, cameraZoom) );
-        }
-		
-		if (KeyBindingManager.getKeyBindingManager().isValidCommand("escape", true)) {
-			System.exit(0);
-        }
+		}
 		
 		rootNode.updateRenderState();
 		rootNode.updateGeometricState(tpf, true);

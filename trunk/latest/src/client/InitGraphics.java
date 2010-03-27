@@ -17,9 +17,10 @@ public class InitGraphics {
 	WorldGameState guiWorld;
 	PosFPSGameState gameFPS;
 	InputReader in;
+	StandardGame game;
 	public InitGraphics(){
 		
-		StandardGame game = new StandardGame("Client test");
+		game = new StandardGame("Client test");
 		game.setBackgroundColor(ColorRGBA.white);
 		
 		//game.setConfigShowMode(ConfigShowMode.AlwaysShow);
@@ -61,6 +62,10 @@ public class InitGraphics {
 
 	public void setCameraID(int iDmyShip) {
 		guiWorld.setCameraID(iDmyShip);
+	}
+	
+	public void close(){
+		game.shutdown();
 	}
 	
 }
