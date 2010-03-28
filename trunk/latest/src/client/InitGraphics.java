@@ -6,7 +6,6 @@ import client.gameState.WorldGameState;
 import com.jme.app.AbstractGame.ConfigShowMode;
 import com.jme.input.MouseInput;
 import com.jme.renderer.ColorRGBA;
-import com.jme.system.DisplaySystem;
 
 import com.jmex.editors.swing.settings.GameSettingsPanel;
 import com.jmex.game.StandardGame;
