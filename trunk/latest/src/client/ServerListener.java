@@ -26,8 +26,8 @@ public class ServerListener extends Thread{
 		try {
 			InetSocketAddress ind = new InetSocketAddress(ip, port);
 			s.setKeepAlive(true);
-			s.setTcpNoDelay(true);
 			s.setPerformancePreferences(0, 2, 1);
+			s.setTcpNoDelay(true);
 			s.connect(ind);
 			
 			inR = new InputReader( s.getInputStream() );

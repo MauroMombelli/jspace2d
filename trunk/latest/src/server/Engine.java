@@ -106,8 +106,8 @@ public class Engine extends TimerTask{
 			world.update();
 			
 			//every 1000 turn send all maps, actually for debug purpose
-			if (actualTurn%100==0)
-				writeAllMaps();
+			//if (actualTurn%100==0)
+			//	writeAllMaps();
 		}
 		
 		time = System.currentTimeMillis() - time;

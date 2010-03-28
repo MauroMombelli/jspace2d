@@ -262,6 +262,7 @@ public class ClientEngine extends TimerTask{
 				//copyWorldForPaint( crateAndUpdateAsincroniusWorld(0, true) );
 				turnAsincCalculated-=nextServerTurn-lastServerTurn;
 				copyWorldForPaint( crateAndUpdateAsincroniusWorld(turnAsincCalculated, true) );
+				System.out.println( "Asinc turn: "+turnAsincCalculated+" "+nextServerTurn+" "+lastServerTurn);
 			}else{
 				copyWorldForPaint( crateAndUpdateAsincroniusWorld(1, false) ); //just 1 step
 				turnAsincCalculated++;
