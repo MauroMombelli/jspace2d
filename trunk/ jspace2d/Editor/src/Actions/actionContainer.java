@@ -13,6 +13,8 @@ public class actionContainer {
 	public refresh refresh;
 	private main Main;
 	public Camera_Container cam;
+	public shine shine;
+	public diffuseColor diffusecolor;
 	
 	public actionContainer(main m){
 		Main = m;
@@ -21,8 +23,9 @@ public class actionContainer {
 		testmode = new testMode(m);
 		load = new load(m);
 		refresh = new refresh(m);
-		
+		shine = new shine(m);
 		cam = new Camera_Container(m);
+		diffusecolor = new diffuseColor(m);
 	}
 
 	public void Intersecate() {	

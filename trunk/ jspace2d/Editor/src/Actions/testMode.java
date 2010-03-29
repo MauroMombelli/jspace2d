@@ -28,5 +28,6 @@ public class testMode extends AbstractAction{
 		mod.setEnabled(true);
 		Main.finestra.testMode();
 		Main.testMode();
+		Main.GLCanvas.impl.root.detachChild(Main.GLCanvas.impl.grid);
 	}
 }

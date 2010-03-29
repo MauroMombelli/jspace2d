@@ -92,8 +92,9 @@ public class Model {
 		
 		for(int i = 0; i<body_mesh.getTriangleCount();i++){
 			PolygonDef shape = new PolygonDef();
-			shape.density = 1;
-			shape.friction = 0;
+			shape.density = 0.9f;
+			shape.friction = 0.1f
+			;
 			shape.restitution = 1;
 			verts = new Triangle[body_mesh.getTriangleCount()];
 			System.out.println(body_mesh.getColorBuffer());

@@ -199,7 +199,7 @@ public class window implements WindowListener,KeyListener{
 			if(arg0.getKeyChar()=='k'){
 				
 				if(!leftturret&&arg0.getID()==arg0.KEY_PRESSED){
-					System.out.println("animating l");
+					System.out.println("animating left");
 					MeshAnimationController animControl = (MeshAnimationController) Main.GLCanvas.impl.object.model.getController(0);			
 					AnimationChannel left = animControl.getAnimationChannel("Left");	        
 					left.addFromRootBone("Turret_L");
@@ -218,7 +218,7 @@ public class window implements WindowListener,KeyListener{
 			if(arg0.getKeyChar()=='l'){
 
 				if(!rightturret&&arg0.getID()==arg0.KEY_PRESSED ){
-					System.out.println("animating r");
+					System.out.println("animating right");
 					MeshAnimationController animControl = (MeshAnimationController) Main.GLCanvas.impl.object.model.getController(0);			
 					AnimationChannel right = animControl.getAnimationChannel("Right");
 			        right.addFromRootBone("Turret_R");

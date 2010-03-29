@@ -68,7 +68,7 @@ public class MyImplementor extends SimpleCanvasImpl {
 
 	public Node root;
 
-	private Spatial grid;
+	public Spatial grid;
 	
 	private Spatial bounds;
 
@@ -133,18 +133,17 @@ public class MyImplementor extends SimpleCanvasImpl {
     public void simpleSetup() {    	
  
     	/** Set up a basic, default light. */
-        PointLight light = new PointLight();
+        DirectionalLight light = new DirectionalLight();
         light.setDiffuse(new ColorRGBA(1.0f, 1.0f, 1.0f, 1.0f));
-        light.setSpecular(new ColorRGBA(1.0f, 1.0f, 1.0f, 1.0f));
-        light.setAmbient(new ColorRGBA(0.5f, 0.5f, 0.5f, 0.0f));
-        light.setLocation(new Vector3f(10,10,0));
+        light.setAmbient(new ColorRGBA(0.5f, 0.5f, 0.5f, .5f));
+        light.setDirection(new Vector3f(1,-1,0));
         light.setShadowCaster(true);
         light.setEnabled(true);
 
           /** Attach the light to a lightState and the lightState to rootNode. */
         LightState lightState = getRenderer().createLightState();
         lightState.setEnabled(true);
-        lightState.setGlobalAmbient(new ColorRGBA(.2f, .2f, .2f, 0.0f));
+        lightState.setGlobalAmbient(new ColorRGBA(.2f, .2f, .2f, 1f));
         lightState.attach(light);
         root = rootNode;
         root.setRenderState(lightState);	     
@@ -201,11 +200,14 @@ public class MyImplementor extends SimpleCanvasImpl {
     
     private void buildPassManager() {
         passManager = new BasicPassManager();
+
+        
+        shadowPass.add(root);
         shadowPass.addOccluder(object.model);
-        shadowPass.addOccluder(object.bodymodel);
-      shadowPass.setRenderShadows(true);
-      shadowPass.setLightingMethod(ShadowedRenderPass.LightingMethod.Modulative);
-      passManager.add(shadowPass);
+//        shadowPass.addOccluder(flag);
+        shadowPass.setRenderShadows(true);
+        shadowPass.setLightingMethod(ShadowedRenderPass.LightingMethod.Modulative);
+        passManager.add(shadowPass);
     }
     
     private Spatial createBounds() {
@@ -266,9 +268,10 @@ public class MyImplementor extends SimpleCanvasImpl {
 
 	@Override
     public void simpleRender() {
-		passManager.renderPasses(getRenderer());
+		//getRenderer().clearBuffers();
+		
 		statNode.draw(renderer);   
-        
+		passManager.renderPasses(renderer);
     }
 
     /**

@@ -40,8 +40,10 @@ public class materialMode extends AbstractAction{
 				mod.setEnabled(true);
 				Main.finestra.materialMode();		
 				Main.GLCanvas.impl.setPhys_World(null);
-				if(Main.GLCanvas.impl.object!=null)
+				if(Main.GLCanvas.impl.object!=null){
 					Main.GLCanvas.impl.object.reset();
+					Main.GLCanvas.impl.root.attachChild(Main.GLCanvas.impl.grid);
+				}
 				
 	}
 
