@@ -20,8 +20,10 @@ public class InfoBody implements Serializable{
 	private float x;
 
 	private float alfa;
+	Oggetto2D o;
 	
-	public InfoBody(int id, XForm xForm, Vec2 linearVelocity, float angle, float angularVelocity) {
+	public InfoBody(Oggetto2D o, int id, XForm xForm, Vec2 linearVelocity, float angle, float angularVelocity) {
+		this.o = o;
 		this.ID = id;
 		x = xForm.position.x;
 		y = xForm.position.y;
@@ -29,6 +31,10 @@ public class InfoBody implements Serializable{
 		yV = linearVelocity.y;
 		alfa = angle;
 		alfaV = angularVelocity;
+	}
+	
+	public Oggetto2D getOggetto2D(){
+		return o;
 	}
 
 	public Vec2 getPos() {

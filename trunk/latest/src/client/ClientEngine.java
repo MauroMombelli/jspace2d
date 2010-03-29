@@ -3,7 +3,6 @@ package client;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.TimerTask;
-import java.util.TreeMap;
 
 import org.jbox2d.common.Vec2;
 
@@ -25,43 +24,34 @@ public class ClientEngine extends TimerTask{
 
 	ServerListener server;
 	
-	long actualEngineTurn;
 	long MAX_TURN_DURATION;
 	
-	long nextServerTurn;
-	
-	int objectInWrongPos=0;
-	double biggestPositionError=0;
-	
 	PhysicWorld world = new PhysicWorld();
-	TreeMap<Integer, Oggetto2D> allOggetto2D = new TreeMap<Integer, Oggetto2D>();
 	
 	PhysicWorld asincroniusWorld = new PhysicWorld();
-	LinkedList<Oggetto2D> asincronousOggetto2D = new LinkedList<Oggetto2D>();
 	
-	//START: Actually for debug purpose, take a shot of the world every 100° turn
+	//START: Actually for debug purpose, take a shot of the world every 100 turn
 	HashMap< Long, HashMap<Integer, InfoBody> > mapsAtTurn = new HashMap< Long, HashMap<Integer,InfoBody>>();
 	//END
+	
+	//TreeMap< Long, ArrayList<Action> > myActions = new TreeMap<Long, ArrayList<Action> >();
 	
 	private InitGraphics gui;
 	
 	int IDmyShip=-1;
 	Oggetto2D myShip;//In the asynchronous world
 	
-	long turnAsincCalculated=0;
+	double turnLag=-1;
 	
 	public ClientEngine(ServerListener serverListener, long actualTurn, long turnDuration) {
 		server = serverListener;
-		this.actualEngineTurn = actualTurn;
-		this.nextServerTurn = actualTurn;
+		
+		world.actualTurn = actualTurn;
+		asincroniusWorld.actualTurn=actualTurn;
+		
 		MAX_TURN_DURATION = turnDuration;
+		
 		gui = new InitGraphics();
-		try {
-			Thread.sleep(10);
-		} catch (InterruptedException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		};
 		
 		server.write( new ShipRequest() );
 		System.out.println("Ship request send, starting turn:"+actualTurn);
@@ -72,19 +62,19 @@ public class ClientEngine extends TimerTask{
 		long time = System.currentTimeMillis();
 		
 		{
-			actualEngineTurn++;
-			System.out.println("Turn: "+actualEngineTurn);
+			System.out.println("\n\nClient Sincronous Turn: "+world.actualTurn+" Asinc: "+asincroniusWorld.actualTurn);
+			
 			if ( server.isClosed() ){
-				System.out.println("Disconnecting");
-				server.close();
-				this.cancel();
+				System.out.println("Server is down, closing");
+				close();
 			}else{
-				//	Synchronize box2d with server 
+				//Synchronize box2d with server 
 				long time2 = System.nanoTime();
 				synchronizePhysic();
 				time2 = System.nanoTime()-time2;
 				System.out.println( "Physic time: "+time2);
 				
+				//Send client action at server
 				time2 = System.nanoTime();
 				sendActions();
 				time2 = System.nanoTime()-time2;
@@ -94,10 +84,27 @@ public class ClientEngine extends TimerTask{
 		
 		time = System.currentTimeMillis() - time;
 		if ( time > MAX_TURN_DURATION ){
-			System.out.println( "WARNING: engine turn take more execution time than requested!!! This can cause serius error/data corruption!! duration: "+time );
+			System.out.println( "WARNING: engine turn take more execution time than requested!!! This can cause serius error/data corruption!! ms duration: "+time );
 		}
 	}
 
+	//CLIENT PURPOISE
+	private void copyWorldForPaint() {
+		long time2 = System.nanoTime();
+		LinkedList<GuiAction> listaAzioniGUI = new LinkedList<GuiAction>();
+		for ( Oggetto2D t:asincroniusWorld.getOggetti().values() ){
+			listaAzioniGUI.add( new SetNode(t.ID, t.getModelName(), new Vec2( t.getBody().getPosition() ) , t.getBody().getAngle()) );
+		}
+		for ( Oggetto2D t:asincroniusWorld.getNewOggetti().values() ){
+			listaAzioniGUI.add( new SetNode(t.ID, t.getModelName(), new Vec2( t.getBody().getPosition() ) , t.getBody().getAngle()) );
+		}
+		System.out.println( "GUIActions:"+listaAzioniGUI.size() );
+		gui.getWorldGUI().setGuiActions(listaAzioniGUI);
+		time2 = System.nanoTime()-time2;
+		System.out.println( "GUI copy time: "+time2);
+	}
+	
+	//GUI PURPOISE
 	private void sendActions() {
 		
 		if (KeyBindingManager.getKeyBindingManager().isValidCommand("escape", true)) {
@@ -109,312 +116,278 @@ public class ClientEngine extends TimerTask{
 			return;
 		
 		float strenght=0, angle=0;
-		if (KeyBindingManager.getKeyBindingManager().isValidCommand("move_up", true)) {
+		if (KeyBindingManager.getKeyBindingManager().isValidCommand("move_up", false)) {
 			strenght -= 0.01f;
         }
-		if (KeyBindingManager.getKeyBindingManager().isValidCommand("move_down", true)) {
+		if (KeyBindingManager.getKeyBindingManager().isValidCommand("move_down", false)) {
 			strenght += 0.01f;
         }
-		if (KeyBindingManager.getKeyBindingManager().isValidCommand("move_left", true)) {
+		if (KeyBindingManager.getKeyBindingManager().isValidCommand("move_left", false)) {
 			angle += 0.001f;
         }
-		if (KeyBindingManager.getKeyBindingManager().isValidCommand("move_right", true)) {
+		if (KeyBindingManager.getKeyBindingManager().isValidCommand("move_right", false)) {
 			angle -= 0.001f;
         }
 		if (strenght != 0 || angle != 0){
 			System.out.println( "Writing action" );
-			//double x = strenght*Math.sin( myShip.getBody().getAngle() );
-			//double y = strenght*Math.cos( myShip.getBody().getAngle() );
 			double x = strenght*Math.cos( myShip.getBody().getAngle() + Math.PI/2);
 			double y = strenght*Math.sin( myShip.getBody().getAngle() + Math.PI/2);
 			server.write( new ActionEngine(myShip.ID, (float)x, (float)y, angle) );
 		}
 	}
 
-	private void copyWorldForPaint(LinkedList<Oggetto2D> collection) {
-		long time2 = System.nanoTime();
-		LinkedList<GuiAction> listaAzioni = new LinkedList<GuiAction>();
-		for (Oggetto2D t:collection){
-			listaAzioni.add( new SetNode(t.ID, t.getModelName(), new Vec2( t.getBody().getPosition() ) , t.getBody().getAngle()) );
-		}
-		System.out.println( "GUIActions:"+listaAzioni.size() );
-		gui.getWorldGUI().setGuiActions(listaAzioni);
-		time2 = System.nanoTime()-time2;
-		System.out.println( "GUI copy time: "+time2);
-	}
-
+	//PHYSIC PURPOISE
 	private void synchronizePhysic() {
+		
+		boolean used;
 		Object o;
 		
-		NewTurn temp;
-		boolean used = false;
-		long time2 = System.nanoTime();
-		boolean arrivedNewTurn = false;
-		boolean arrivedAllMap = false;
-		
-		long lastServerTurn = nextServerTurn;
-		
 		System.out.println( "Waiting input: "+ server.inputSize() );
+		long time = System.nanoTime();
+		
+		LinkedList<NewTurn> newTurnToElaborate = new LinkedList<NewTurn>();
+		AllMap lastAllMap = null;
+		
 		while ( (o=server.poll())!=null ){
 			
 			used = false;
+			
 			if (o instanceof ShipRequest){
 				used = true;
 				IDmyShip = ( (ShipRequest)o ).getID();
 				gui.setCameraID(IDmyShip);
 				System.out.println( "Using ship: "+ IDmyShip );
 			}
-			if (o instanceof NewTurn){
-				used = true;
-				arrivedNewTurn = true;
-				temp =(NewTurn)o; 
-
-				System.out.println( "New turn received: "+ temp.actualTurn );
-				System.out.println( "Contains "+temp.actionsSize()+" actions, "+temp.newObjSize()+" new obj and "+temp.newCollisionSize()+" collision" );
-
-				elaborate(temp);
-
-			}
 			
 			if (o instanceof AllMap){
 				used = true;
 				
-				arrivedAllMap=true;
-				AllMap tempAM = (AllMap)o;
+				if (lastAllMap==null)
+					lastAllMap = (AllMap)o;
 				
-				//There was no actions, so we can update synchronous world to tempAM.turn
-				System.out.println( "DEBUG FastElaboration from: "+nextServerTurn+" to: "+tempAM.turn );
-				while (nextServerTurn<=tempAM.turn){
-					execute();
-				}
-				//System.out.println( " lastServerTurn:"+nextServerTurn);
-				boolean errorFound = false;
-				HashMap<Integer, InfoBody> clientData = mapsAtTurn.get(tempAM.turn);
-				if (clientData!=null){
-					//if (clientData.){
-						System.out.println("\n\nI'm debuggin turn: "+tempAM.turn);
-						InfoBody a;
-						InfoBody b;
-						double diffSum=0;
-						int tested=0;
-						
-						LinkedList<InfoBody> map = new LinkedList<InfoBody>();
-						while ( (a=tempAM.poll())!=null ){
-							b = clientData.get(a.ID);
-							if (b == null){
-								System.out.println("DEBUG client dosn't have obj: "+a.ID);
-							}else{
-								if (a.compare(b)!=0){
-									objectInWrongPos++;
-									System.out.println("DEBUG difference obj: "+a.ID+"\n\tdiff: "+a.compare(b)+"\n"+a+"\n"+b+"\nwrong obj:"+objectInWrongPos );
-									if (a.compare(b)>biggestPositionError)
-										biggestPositionError=a.compare(b);
-									
-									//allOggetto2D.get(a.ID).setInfoPosition(a);
-								}
-								//else
-									//System.out.println("DEBUG no difference: "+a.ID);
-								diffSum+=a.compare(b);
-							}
-							map.add(a);
-							tested++;
-							if (objectInWrongPos>100){
-								System.out.println("Too much error, biggest:"+biggestPositionError);
-							}
-						}
-						if (diffSum != 0){
-							System.out.println("ERROR IN DEBUG, PHYSIC IS NOT PERFECTLY SYNCRONIZED!");
-							//errorFound=true;
-							recreateSyncronousWorld(map, tempAM.turn);
-						}else{
-							System.out.println("DEBUG: EVERY LITTLE THINGS, IS GONNA BE ALL RIGHT :-): "+tested);
-						}
-						mapsAtTurn.remove(clientData);
-					//}
-				}else{
-					System.out.println("DEBUG SERVER IS FASTER: "+tempAM.turn+" "+nextServerTurn);
-				}
-				if (errorFound)
-					System.exit(0);
+				newTurnToElaborate.clear();
+				System.out.println( "AllMap received" );
+			}
 			
+			if (o instanceof NewTurn){
+				used = true;
+				newTurnToElaborate.add( (NewTurn)o );
+				System.out.println( "New turn received");
 			}
 			
 			if (!used){
 				System.out.println("Wrong packet!: "+o);
-				server.close();
+				close();
 			}
-			
-			//if ( System.nanoTime()-time2 > 10000000 ) // if there is too much time for input take a break
-			//	break;
-			
-		}
-		time2 = System.nanoTime()-time2;
-		System.out.println( "Reading input time: "+time2);
-		
-		time2 = System.nanoTime();
-		//if (nextServerTurn < actualEngineTurn){
-		if (arrivedAllMap){
-			turnAsincCalculated-=nextServerTurn-lastServerTurn;
-			copyWorldForPaint( crateAndUpdateAsincroniusWorld(turnAsincCalculated, true) );
-			System.out.println( "Asinc turn: "+turnAsincCalculated+" "+nextServerTurn+" "+lastServerTurn);
-		}else
-			if (arrivedNewTurn){
-				//copyWorldForPaint( crateAndUpdateAsincroniusWorld(0, true) );
-				turnAsincCalculated-=nextServerTurn-lastServerTurn;
-				copyWorldForPaint( crateAndUpdateAsincroniusWorld(turnAsincCalculated, true) );
-				System.out.println( "Asinc turn: "+turnAsincCalculated+" "+nextServerTurn+" "+lastServerTurn);
-			}else{
-				copyWorldForPaint( crateAndUpdateAsincroniusWorld(1, false) ); //just 1 step
-				turnAsincCalculated++;
-			}
-		//}else{
-		//	copyWorldForPaint( allOggetto2D.values() );
-		//	crateAndUpdateAsincroniusWorld(0, true);
-		//}
-		time2 = System.nanoTime()-time2;
-		System.out.println( "Paint copy time: "+time2);
-				
-		if (nextServerTurn < actualEngineTurn){
-			System.out.println( "Server is slow! I'm "+ (actualEngineTurn - nextServerTurn) +" turn ahead, ms:"+((actualEngineTurn - nextServerTurn)*MAX_TURN_DURATION) );
-			//System.exit(0);// FOR DEBUG PURPOISE
-		}
 
-		if (nextServerTurn > actualEngineTurn){
-			System.out.println( "Server is faster! "+ (nextServerTurn - actualEngineTurn) +" turn, ms:"+((nextServerTurn-actualEngineTurn)*MAX_TURN_DURATION) );
-			actualEngineTurn=nextServerTurn-1;
 		}
+		
+		time = System.nanoTime()-time;
+		System.out.println( "Reading input time: "+time);
+		
+		time = System.nanoTime();
+		boolean synchronousChanged = false;
+		long asincTurn = asincroniusWorld.actualTurn;
+		
+		if (lastAllMap!=null){
+			//we have to rebuild the synchronous world
+			synchronousChanged = true;
+			
+			if (lastAllMap.turn < world.actualTurn){
+				System.out.println("Wrong allmap");
+				close();
+			}
+			
+			testWorldPrecision(lastAllMap);
+			
+			rebuildWorld(lastAllMap);
+			
+			System.out.println( "Rebuilding world from turn: "+lastAllMap.turn );
+			System.out.println( "NewTurn to elaborate: "+newTurnToElaborate.size() );
+			
+			if (turnLag==-1)
+				turnLag = asincTurn-lastAllMap.turn;
+			else
+				turnLag = (turnLag+asincTurn-lastAllMap.turn)/2;
+			System.out.println( "Rilevated turn LAG: "+turnLag+" to ms: "+(turnLag*MAX_TURN_DURATION) );
+		}else{
+			if (newTurnToElaborate.size()>0){
+				//execute NewTurn on synchronous world
+				synchronousChanged = true;
+				for (NewTurn t:newTurnToElaborate){
+					if (t.actualTurn<world.actualTurn){
+						System.out.println("Wrong NewTurn");
+						close();
+					}
+					updateWorld(t);
+				}
+			}
+		}
+		
+		time = System.nanoTime()-time;
+		System.out.println( "Updating syncronous time: "+time);
+		
+		time = System.nanoTime();
+		if (synchronousChanged){
+			rebuildAsichronousWorld();
+		}
+		time = System.nanoTime()-time;
+		System.out.println( "Rebuilding asyncronous time: "+time);
+		
+		time = System.nanoTime();
+		
+		
+		if (asincTurn<world.actualTurn){
+			System.out.println( "Asinc turn was less than sync turn:"+asincTurn+" "+ world.actualTurn);
+			asincTurn = world.actualTurn;
+		}
+		
+		updateAsincronousWorld(asincTurn);
+		
+		time = System.nanoTime()-time;
+		System.out.println( "Update asyncronous time: "+time);
+		
+		time = System.nanoTime();
+		copyWorldForPaint();
+		time = System.nanoTime()-time;
+		System.out.println( "Paint copy time: "+time);
+
 	}
 
-	private void recreateSyncronousWorld(LinkedList<InfoBody> map, long turn) {
-		
-		System.out.println( "I'm rebuilding the syncronous world!!" ); 
-		//world.clear();
-		for (InfoBody o:map){
-			//world.addNew( allOggetto2D.get(o.ID), o.getPos().x, o.getPos().y, o.getAngle() );
-			allOggetto2D.get(o.ID).setInfoPosition(o);
-			if (o.compare(allOggetto2D.get(o.ID).getInfoPosition())!=0){
+	private void rebuildWorld(AllMap lastAllMap) {
+		System.out.println( "I'm rebuilding the synchronous world!! Was "+world.actualTurn +" will be "+lastAllMap.turn );
+		world.clear();
+		InfoBody o;
+		Oggetto2D nuovo;
+		while ( (o=lastAllMap.poll()) != null){
+			System.out.println( "Creating id: "+o.ID);
+			nuovo = world.addNew( o.getOggetto2D(), o.getPos().x, o.getPos().y, o.getAngle() );
+			nuovo.setInfoPosition(o);
+			if (o.compare(nuovo.getInfoPosition())!=0){
 				System.out.println( "Error adjusting world");
-				System.exit(0);
+				close();
 			}
 		}
-		System.out.println("Recreating syncronous world at turn: "+turn+" was at turn: "+ (nextServerTurn-1) );
-		nextServerTurn=turn+1;
+		world.actualTurn = lastAllMap.turn;
+	}
+	
+	private void rebuildAsichronousWorld() {
+		System.out.println( "I'm rebuilding the asynchronous world!! Was "+asincroniusWorld.actualTurn +" will be "+world.actualTurn );
+		asincroniusWorld.clear();
 		
+		Oggetto2D tempCopy;
+		for (Oggetto2D o:world.getOggetti().values()){
+			tempCopy = asincroniusWorld.addCopy(o, o.getInfoPosition().getPos().x, o.getInfoPosition().getPos().y);
+			tempCopy.setInfoPosition( o.getInfoPosition() );
+			System.out.println( tempCopy.getInfoPosition() );
+			if (IDmyShip==tempCopy.ID)
+				myShip = tempCopy;
+		}
+		for ( Oggetto2D o:world.getNewOggetti().values() ){
+			tempCopy = asincroniusWorld.addCopy(o, o.getInfoPosition().getPos().x, o.getInfoPosition().getPos().y);
+			tempCopy.setInfoPosition( o.getInfoPosition() );
+			System.out.println( tempCopy.getInfoPosition() );
+			if (IDmyShip==tempCopy.ID)
+				myShip = tempCopy;
+		}
+		
+		asincroniusWorld.actualTurn = world.actualTurn;
 	}
 
-	private LinkedList<Oggetto2D> crateAndUpdateAsincroniusWorld(long l, boolean clear) {
-		long time2 = System.nanoTime();
-		if (clear){
-			
-			long time3 = System.nanoTime();
-			asincroniusWorld.clear();
-			//asincroniusWorld = new PhysicWorld();
-			asincronousOggetto2D.clear();
-			time3 = System.nanoTime()-time3;
-			System.out.println( "Asinc clearing time: "+time3);
-			
-			Oggetto2D tempCopy;
-			for (Oggetto2D o:allOggetto2D.values()){
-				tempCopy = asincroniusWorld.addCopy(o, o.getInfoPosition().getPos().x, o.getInfoPosition().getPos().y);
-				tempCopy.setInfoPosition( o.getInfoPosition() );
-				asincronousOggetto2D.add(tempCopy);
-				if (IDmyShip==tempCopy.ID)
-					myShip = tempCopy;
-			}
-		}
-		time2 = System.nanoTime()-time2;
-		System.out.println( "Asinc creation time: "+time2);
+	private void updateWorld(NewTurn t) {
+		System.out.println( "I'm updating the synchronous world!! Was "+world.actualTurn +" will be "+t.actualTurn );
 		
-		time2 = System.nanoTime();
-		for (int i =0; i < l; i++){
-			asincroniusWorld.update();
+		while (world.actualTurn<t.actualTurn){
+			world.update();
 		}
-		System.out.println( "Asincronous turn calculated: "+l+" cleared: "+clear);
-		time2 = System.nanoTime()-time2;
-		System.out.println( "Asinc update time: "+time2);
-		
-		return asincronousOggetto2D;
-	}
-
-	private void elaborate(NewTurn tempTurn) {
-		if (tempTurn.actualTurn < nextServerTurn){
-			System.out.println( "Error, arrived a packed already sincronized: "+tempTurn.actualTurn+" "+nextServerTurn);
-			System.exit(0);
-		}
-		
-		if (tempTurn.actualTurn == nextServerTurn){
-			//ready to elaborate!
-			execute(tempTurn);
-			System.out.println( "Elaborated: "+tempTurn.actualTurn+" "+nextServerTurn);
-			return;
-		}
-		
-		if (tempTurn.actualTurn > nextServerTurn){
-			System.out.println( "FastElaboration from: "+nextServerTurn+" to: "+tempTurn.actualTurn );
-			while (nextServerTurn<tempTurn.actualTurn){
-				execute();
-			}
-			execute(tempTurn);
-			System.out.println( " lastServerTurn:"+nextServerTurn);
-		}
-	}
-
-	public void execute(NewTurn toDo){
 		Oggetto2D newObj;
 		InfoBody newObjPos;
 		Action newAct;
 		
 		//add the new obj and set their position
-		while ( (newObj=toDo.pollNewObj())!=null ){
-			newObjPos = toDo.pollPosObj();
+		while ( (newObj=t.pollNewObj())!=null ){
+			newObjPos = t.pollPosObj();
 			world.addNew(newObj, newObjPos.getPos().x, newObjPos.getPos().y, newObjPos.getAngle() );
 			newObj.setInfoPosition(newObjPos);
-			allOggetto2D.put(newObj.ID, newObj);
-			System.out.println( "created object:"+newObj.getInfoPosition().compare(newObjPos)+"\n"+newObj.getInfoPosition()+"\n"+newObjPos );
+			System.out.println( "created object:"+newObj.getInfoPosition().compare(newObjPos)+" ID "+newObj.ID );
 			if (newObj.getInfoPosition().compare(newObjPos) != 0){
 				System.out.println( "Error creation isn't perfect");
 				System.exit(0);
 			}
-			/*if (newObj.ID == 10){
-				System.out.println( "created object model:"+newObj.getModelName());
-				System.exit(0);
-			}*/
 			
 		}
 	
 		//set the actions
-		while ( (newAct=toDo.pollActions())!=null ){
-			//System.out.println( "action after: "+allOggetto2D.get(newAct.ID).getInfoPosition().getPosVel() );
-			newAct.run( allOggetto2D.get(newAct.ID) );
-			System.out.println( "action setted for object:"+newAct.ID );
-			//System.out.println( "action before: "+allOggetto2D.get(newAct.ID).getInfoPosition().getPosVel() );
-			//System.out.println( "data: "+newAct.ID+" "+allOggetto2D.get(newAct.ID).getInfoPosition() );
+		while ( (newAct=t.pollActions())!=null ){
+			newAct.run( world.get(newAct.ID) );
+			System.out.println( "action setted for object:"+newAct.ID+" "+world.get(newAct.ID).getInfoPosition() );
 		}
+		
 		
 		//set the collision
-		while ( (newObjPos=toDo.pollCollision())!=null ){
-			allOggetto2D.get(newObjPos.ID).setInfoPosition(newObjPos);
+		while ( (newObjPos=t.pollCollision())!=null ){
+			if ( world.get(newObjPos.ID)!=null )
+				world.get(newObjPos.ID).setInfoPosition(newObjPos);
+			else{
+				System.out.println("Error: cannot find "+newObjPos.ID);
+				close();
+			}
 		}
 		
-		execute();
+		//world.update();
+		
+	}
 
+	private void updateAsincronousWorld(long asincTurn) {
+		System.out.println( "I'm updating the asynchronous world!! Was "+asincroniusWorld.actualTurn +" will be "+asincTurn );
+		while (asincroniusWorld.actualTurn < asincTurn){
+			//update world
+			asincroniusWorld.update();
+		
+			//execute client actions
+			/*
+			ArrayList<Action> actions = myActions.get(asincroniusWorld.actualTurn);
+			for( Action a:actions ){
+				a.run( asincroniusWorld.get(a.ID) );
+			}
+			*/
+		}
+	}
+
+	private void close() {
+		System.out.println( "Closing...");
+		server.close();
+		gui.close();
+		System.out.println( "...closing done");
+		System.exit(0);
 	}
 	
-	public void execute(){
-		
-		world.update();
 
-		//System.out.println( "Executing:"+nextServerTurn);
-		if (nextServerTurn%100==0){
-			System.out.println( "Saving for debug: "+nextServerTurn);
-			HashMap<Integer, InfoBody> data = new HashMap<Integer, InfoBody>();
-			for ( Oggetto2D obj:allOggetto2D.values() ){
-				data.put(obj.ID, obj.getInfoPosition());
-			}
-			mapsAtTurn.put(nextServerTurn, data);
+	private void testWorldPrecision(AllMap lastAllMap) {
+		System.out.println("Testin precision of map");
+		rebuildAsichronousWorld();
+		if (lastAllMap.turn > world.actualTurn){
+			System.out.println( "test require "+(lastAllMap.turn-world.actualTurn)+" step" );
+			updateAsincronousWorld(lastAllMap.turn-1);
 		}
-		nextServerTurn++;
-		
+		LinkedList<InfoBody> ris = new LinkedList<InfoBody>();
+		InfoBody a;
+		while ( (a=lastAllMap.poll())!=null ){
+			ris.add(a);
+			if ( asincroniusWorld.get(a.ID)!=null ){
+				System.out.println( a.ID+" error: "+ asincroniusWorld.get(a.ID).getInfoPosition().compare(a) );
+				if ( asincroniusWorld.get(a.ID).getInfoPosition().compare(a)!=0 ){
+					System.out.println( "has to be: "+a+"\nis "+asincroniusWorld.get(a.ID).getInfoPosition() );
+					close();
+				}
+			}else{
+				System.out.println( a.ID+" dosn't exist!" );
+				//close();
+			}
+		}
+		while ( (a=ris.poll())!=null ){
+			lastAllMap.add(a);
+		}
 	}
 
 }

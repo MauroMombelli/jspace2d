@@ -52,7 +52,7 @@ public class Oggetto2D implements Serializable {
 	}
 	
 	public InfoBody getInfoPosition() {
-		return new InfoBody( ID, bodyContainer.myBody.getXForm(), bodyContainer.myBody.getLinearVelocity(), bodyContainer.myBody.getAngle(), bodyContainer.myBody.getAngularVelocity() );
+		return new InfoBody(this, ID, bodyContainer.myBody.getXForm(), bodyContainer.myBody.getLinearVelocity(), bodyContainer.myBody.getAngle(), bodyContainer.myBody.getAngularVelocity() );
 	}
 	
 	public void setInfoPosition(InfoBody ad){

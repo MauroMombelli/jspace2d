@@ -1,11 +1,9 @@
 package shared.specialActions;
 
 import java.io.Serializable;
-import java.util.ArrayList;
 
 import server.Player;
 import shared.GLOBAL_VARIABLE;
-import shared.Oggetto2D;
 import shared.PhysicWorld;
 import shared.Ship;
 
@@ -26,11 +24,10 @@ public class ShipRequest implements Serializable{
 		this.setID(ID);
 	}
 
-	public void run(PhysicWorld w, int objIndex, ArrayList<Oggetto2D> newOggetti2D, Player p) {
+	public void run(PhysicWorld w, int objIndex, Player p) {
 		if (getID()==-1){
 			Ship s = new Ship(objIndex);
-			newOggetti2D.add(s);
-			w.addNew( s, GLOBAL_VARIABLE.convertToPhysicEngineUnit( 25 ), 0, 0 );
+			w.addNew( s, 0, -10, 0 );
 			p.addShip(s);
 			System.out.println("Created ship "+s.ID+" for player: "+p.getLogin().toString());
 			//notify client of ship creation

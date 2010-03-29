@@ -48,8 +48,8 @@ public class EngineListener implements ContactListener {
 				obj1.collide(obj2);
 				obj2.collide(obj1);
 				System.out.println(obj1.ID+" collide "+obj2.ID);
-				allPhisicCollision.add(obj1.getInfoPosition());
-				allPhisicCollision.add(obj2.getInfoPosition());
+				//allPhisicCollision.add(obj1.getInfoPosition());
+				//allPhisicCollision.add(obj2.getInfoPosition());
 			}else{
 				//wall collision
 			}
@@ -66,8 +66,8 @@ public class EngineListener implements ContactListener {
 				obj1.continueCollide(obj2);
 				obj2.continueCollide(obj1);
 				//System.out.println(obj1.ID+" continue to collide "+obj2.ID);
-				allPhisicCollision.add(obj1.getInfoPosition());
-				allPhisicCollision.add(obj2.getInfoPosition());
+				//allPhisicCollision.add(obj1.getInfoPosition());
+				//allPhisicCollision.add(obj2.getInfoPosition());
 			}else{
 				//wall collision
 			}

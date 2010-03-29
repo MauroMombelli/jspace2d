@@ -9,9 +9,6 @@ import client.ModelLoaderOgre;
 import com.jme.math.Quaternion;
 import com.jme.math.Vector3f;
 import com.jme.scene.Node;
-import com.jme.scene.Spatial;
-import com.jmex.model.ogrexml.anim.AnimationChannel;
-import com.jmex.model.ogrexml.anim.MeshAnimationController;
 
 public class SetNode extends GuiAction{
 

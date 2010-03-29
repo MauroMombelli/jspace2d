@@ -66,6 +66,15 @@ public class ServerListener extends Thread{
 			Timer t = new Timer();
 			TurnDuration td = (TurnDuration)in;
 			engine = new ClientEngine(this, td.actualTurn, td.turnDuration);
+			
+			//Wait some time for initialization
+			try {
+				Thread.sleep(1000);
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
 			t.scheduleAtFixedRate(engine, 0, td.turnDuration );
 		}else{
 			close();

@@ -1,7 +1,6 @@
 package server;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.TimerTask;
 
@@ -30,11 +29,13 @@ public class Engine extends TimerTask{
 	LinkedList<Player> newObserver = new LinkedList<Player>();
 	LinkedList<Player> removedObserver = new LinkedList<Player>();
 	
-	long actualTurn;
+	//long actualTurn;
 	
 	PhysicWorld world = new PhysicWorld();
-	HashMap<Integer, Oggetto2D> allOggetto2D = new HashMap<Integer, Oggetto2D>();
-	ArrayList<Oggetto2D> newOggetti2D = new ArrayList<Oggetto2D>();
+	//HashMap<Integer, Oggetto2D> allOggetto2D = new HashMap<Integer, Oggetto2D>();
+	//ArrayList<Oggetto2D> newOggetti2D = new ArrayList<Oggetto2D>();
+	
+	
 	LinkedList<Action> allChanges = new LinkedList<Action>();
 	int objIndex=0;
 	
@@ -47,10 +48,10 @@ public class Engine extends TimerTask{
 		
 		//put 10 obj in world
 		Oggetto2D t;
-		for (int i=0; i < 10; i++){
+		for (int i=0; i < 1; i++){
 			for (int a=0; a < 10; a++){
 				t = new Oggetto2D(objIndex++);
-				newOggetti2D.add(t);
+				//newOggetti2D.add(t);
 				world.addNew( t, GLOBAL_VARIABLE.convertToPhysicEngineUnit( i*10 ), GLOBAL_VARIABLE.convertToPhysicEngineUnit( a*10 ), 0 );
 			}
 		}
@@ -67,18 +68,13 @@ public class Engine extends TimerTask{
 	public void run() { //new turn
 		long time = System.currentTimeMillis();
 		
+		world.actualTurn++;
+		System.out.println( "Turn "+world.actualTurn);
+		
 		/*
 		 * DEBUG PURPOISE
 		 */
 		/*
-		int r = (int)(Math.random()*100);
-		for (int i=0; i < r; i++){
-			allChanges.add( new ActionEngine(-1, 0, 0, 0) );
-		}
-		*/
-		actualTurn++;
-		System.out.println( "Turn "+actualTurn);
-		
 		/*
 		if (actualTurn>=2000){
 			if ( actualTurn%500==0 ){//&& allOggetto2D.get(0).getBody().getLinearVelocity().y==0){
@@ -95,31 +91,38 @@ public class Engine extends TimerTask{
 		{
 			//accept MAX_NEW new client
 			acceptNewPlayer();
-		
-			//read and execute new action
-			updatePlayer();
-			
-			//send new turn
-			writeNewTurn();
 			
 			//step
 			world.update();
 			
-			//every 1000 turn send all maps, actually for debug purpose
-			//if (actualTurn%100==0)
-			//	writeAllMaps();
+			//read and execute new action
+			updatePlayer();
+			
+			//write the executed action and collision
+			writeNewTurn();
+			
+			//every 1000 turn send all maps, otherwise send NewTurn
+			if (world.actualTurn%100==0)
+				writeAllMaps();
+			
+			//add the new observer to observerPlayer
+			observerPlayer.addAll(newObserver);
+			newObserver.clear();
+			
+			//clear actual turn actions
+			allChanges.clear();
 		}
 		
 		time = System.currentTimeMillis() - time;
 		if ( time > ServerMain.TURN_DURATION ){
 			System.out.println( "WARNING: engine turn take more execution time than requested!!! This can cause serius error/data corruption!! duration: "+time );
-			System.out.println( "unlogged player: "+unloggedPlayer.size()+" observer Player: "+observerPlayer.size()+" players: "+players.size() );
+			System.out.println( "unlogged player: "+unloggedPlayer.size()+" observer Player: "+observerPlayer.size()+" new observer:"+newObserver.size()+" players: "+players.size() );
 		}
 	}
 
 	private void writeAllMaps() {
-		AllMap n = new AllMap(actualTurn);
-		for ( Oggetto2D t:allOggetto2D.values() ){
+		AllMap n = new AllMap(world.actualTurn);
+		for ( Oggetto2D t:world.getOggetti().values() ){
 			n.add( t.getInfoPosition() );
 		}
 		
@@ -127,6 +130,7 @@ public class Engine extends TimerTask{
 			p.write(n);
 		}
 		
+		//re-elaborate to send only radar map
 		for (Player p:players){
 			p.write(n);
 		}
@@ -134,15 +138,15 @@ public class Engine extends TimerTask{
 
 	private void writeNewTurn() {
 		//add all map to new observer NewTurn
-		NewTurn nNewObserver = new NewTurn(actualTurn);
+		NewTurn nNewObserver = new NewTurn(world.actualTurn);
 		
-		for ( Oggetto2D t:allOggetto2D.values() ){
+		for ( Oggetto2D t:world.getOggetti().values() ){
 			nNewObserver.add( t, t.getInfoPosition() );
 		}
 		
 		//add all new object to observer and new observer NewTurn
-		NewTurn n = new NewTurn(actualTurn);
-		for ( Oggetto2D t:newOggetti2D ){
+		NewTurn n = new NewTurn(world.actualTurn);
+		for ( Oggetto2D t:world.getNewOggetti().values() ){
 			nNewObserver.add( t, t.getInfoPosition() );
 			n.add( t, t.getInfoPosition() );
 		}
@@ -156,10 +160,19 @@ public class Engine extends TimerTask{
 		n.addAllCollision( collListener.getAllPhysicCollision() );
 		collListener.clearAllPhysicCollision();
 		
-		//send NewTurn to all observer, if there are changes
-		for (Player p:observerPlayer){
-			if (n.actionsSize() != 0 || n.newObjSize() != 0 || n.newCollisionSize() != 0)
+		if (n.actionsSize() != 0 || n.newObjSize() != 0 || n.newCollisionSize() != 0){
+		
+			//send NewTurn to all observer, if there are changes
+			for (Player p:observerPlayer){
 				p.write(n);
+			}
+			
+			///* THIS IS NOT NECESSARY, PLAYER USE RADAR OF THEIR SHIP
+			//send NewTurn to all player
+			for (Player p:players){
+				p.write(n);
+			}
+			//*/
 		}
 		
 		//send NewTurn + allWorld to all new observer
@@ -167,25 +180,6 @@ public class Engine extends TimerTask{
 			p.write(nNewObserver);
 		}
 		
-		///* THIS IS NOT NECESSARY, PLAYER USE RADAR OF THEIR SHIP
-		//send NewTurn to all player
-		for (Player p:players){
-			p.write(n);
-		}
-		//*/
-		
-		//add the new observer to observerPlayer
-		observerPlayer.addAll(newObserver);
-		newObserver.clear();
-		
-		//add the new object to the object
-		for (Oggetto2D o:newOggetti2D){
-			allOggetto2D.put(o.ID, o);
-		}
-		newOggetti2D.clear();
-		
-		//clear send actions
-		allChanges.clear();
 	}
 
 	private void updatePlayer() {
@@ -205,7 +199,7 @@ public class Engine extends TimerTask{
 						tP.close();
 				}else{
 					System.out.println("new player logged: "+tP.myself);
-					tP.write( new TurnDuration(ServerMain.TURN_DURATION, actualTurn) );
+					tP.write( new TurnDuration(ServerMain.TURN_DURATION, world.actualTurn) );
 					newObserver.add(tP);
 				}
 			}else{
@@ -227,7 +221,7 @@ public class Engine extends TimerTask{
 					System.out.println("creating ship1");
 					players.add(t);
 					removedObserver.add(t);
-					objToCreate.run(world, objIndex++, newOggetti2D, t);
+					objToCreate.run(world, objIndex++, t);
 				}
 			}
 		}
@@ -236,7 +230,7 @@ public class Engine extends TimerTask{
 		
 		
 		/*
-		 * TODO: control if action requests is arrived for the player (all handled by update() method). Also delete disconnected player
+		 * control if action requests is arrived for the player (all handled by update() method). Also delete disconnected player
 		 */
 		LinkedList<Player> removedPlayer = new LinkedList<Player>();
 		for (Player t:players){
@@ -264,8 +258,7 @@ public class Engine extends TimerTask{
 	}
 	
 	private int getTotalConnectedPlayerSize(){
-		//TODO: add player when they will be added
-		return unloggedPlayer.size()+observerPlayer.size()+players.size();
+		return unloggedPlayer.size()+observerPlayer.size()+newObserver.size()+players.size();
 	}
 
 }

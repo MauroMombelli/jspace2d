@@ -1,5 +1,8 @@
 package shared;
 
+import java.util.ArrayList;
+import java.util.TreeMap;
+
 import org.jbox2d.collision.AABB;
 import org.jbox2d.collision.shapes.PolygonDef;
 import org.jbox2d.common.Vec2;
@@ -13,6 +16,11 @@ public class PhysicWorld {
 	private static final float TIMESTEP = 1.0f/60.0f;
 	World physicWorld;
 	float minX =-50, minY=-50, maxX=50, maxY=50;
+	
+	TreeMap<Integer, Oggetto2D> allOggetto2D = new TreeMap<Integer, Oggetto2D>();
+	TreeMap<Integer, Oggetto2D> newOggetti2D = new TreeMap<Integer, Oggetto2D>();
+	
+	public long actualTurn=0;
 	
 	public PhysicWorld(){
 		AABB worldSize = new AABB(new Vec2(minX, minY), new Vec2(maxX,maxY));
@@ -67,14 +75,19 @@ public class PhysicWorld {
 	}
 	
 	public void update() {
+		actualTurn++;
 		physicWorld.step(TIMESTEP, 10);
+		
+		//add the new object to the object
+		allOggetto2D.putAll(newOggetti2D);
+		newOggetti2D.clear();
 	}
 	
 	public void addNew(Oggetto2D t) {
 		addNew(t, 0, 0, 0);
 	}
 	
-	public void addNew(Oggetto2D t, float x, float y, float rotation) {
+	public Oggetto2D addNew(Oggetto2D t, float x, float y, float rotation) {
 		if ( t.isValid() ){
 			
 			BodyDef bd = new BodyDef();
@@ -88,8 +101,12 @@ public class PhysicWorld {
 			
 			t.getBody().setMassFromShapes();
 			
+			newOggetti2D.put(t.ID, t);
+			
 			System.out.println("elements in world:"+physicWorld.getBodyCount());
+			return t;
 		}
+		return null;
 	}
 
 	public void addNew(Oggetto2D newObj, float x, float y) {
@@ -97,20 +114,15 @@ public class PhysicWorld {
 	}
 
 	public void clear() {
+		allOggetto2D.clear();
+		newOggetti2D.clear();
+		
 		Body t = physicWorld.getBodyList();
 		while (t!=null){
 			physicWorld.destroyBody(t);
 			t = t.getNext();
 		}
 		createBorder();
-		/*
-		Body next;
-		for (int i = 0; i < physicWorld.getBodyCount();i++){
-			next = t.getNext();
-			physicWorld.destroyBody(t);
-			t = next;
-		}
-		*/
 	}
 
 	public Oggetto2D addCopy(Oggetto2D o, float x, float y) {
@@ -127,6 +139,8 @@ public class PhysicWorld {
 			
 			copy.getBody().setMassFromShapes();
 			
+			newOggetti2D.put(copy.ID, copy);
+			
 			//System.out.println("elements in world:"+physicWorld.getBodyCount());
 			return copy;
 		}
@@ -140,6 +154,22 @@ public class PhysicWorld {
 
 	public void removeBody(Body body) {
 		physicWorld.destroyBody(body);
+	}
+
+	public TreeMap<Integer, Oggetto2D> getOggetti() {
+		return allOggetto2D;
+	}
+
+	public TreeMap<Integer, Oggetto2D> getNewOggetti() {
+		// TODO Auto-generated method stub
+		return newOggetti2D;
+	}
+
+	public Oggetto2D get(int iD) {
+		Oggetto2D ris =allOggetto2D.get(iD);
+		if (ris == null)
+			ris = newOggetti2D.get(iD);
+		return ris;
 	}
 	
 }
