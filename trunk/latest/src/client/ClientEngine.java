@@ -210,17 +210,16 @@ public class ClientEngine extends TimerTask{
 			else
 				turnLag = (turnLag+asincTurn-lastAllMap.turn)/2;
 			System.out.println( "Rilevated turn LAG: "+turnLag+" to ms: "+(turnLag*MAX_TURN_DURATION) );
-		}else{
-			if (newTurnToElaborate.size()>0){
-				//execute NewTurn on synchronous world
-				synchronousChanged = true;
-				for (NewTurn t:newTurnToElaborate){
-					if (t.actualTurn<world.actualTurn){
-						System.out.println("Wrong NewTurn");
-						close();
-					}
-					updateWorld(t);
+		}
+		if (newTurnToElaborate.size()>0){
+			//execute NewTurn on synchronous world
+			synchronousChanged = true;
+			for (NewTurn t:newTurnToElaborate){
+				if (t.actualTurn<world.actualTurn){
+					System.out.println("Wrong NewTurn");
+					close();
 				}
+				updateWorld(t);
 			}
 		}
 		

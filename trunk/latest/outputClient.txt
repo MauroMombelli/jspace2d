@@ -1,23 +1,23 @@
 Input ok
 Output ok
-30-mar-2010 3.17.16 com.jme.input.joystick.DummyJoystickInput <init>
+30-mar-2010 3.20.37 com.jme.input.joystick.DummyJoystickInput <init>
 INFO: Joystick support is disabled
-30-mar-2010 3.17.16 com.jme.system.lwjgl.LWJGLDisplaySystem <init>
+30-mar-2010 3.20.37 com.jme.system.lwjgl.LWJGLDisplaySystem <init>
 INFO: LWJGL Display System created.
-30-mar-2010 3.17.16 com.jme.renderer.lwjgl.LWJGLRenderer <init>
+30-mar-2010 3.20.37 com.jme.renderer.lwjgl.LWJGLRenderer <init>
 INFO: LWJGLRenderer created. W: 800 H: 600	Version: 2.3
-30-mar-2010 3.17.16 com.jme.renderer.AbstractCamera <init>
+30-mar-2010 3.20.37 com.jme.renderer.AbstractCamera <init>
 INFO: Camera created.
-30-mar-2010 3.17.16 com.jmex.audio.openal.OpenALSystem setupSourcePool
+30-mar-2010 3.20.37 com.jmex.audio.openal.OpenALSystem setupSourcePool
 INFO: max source channels: 32
-30-mar-2010 3.17.16 com.jmex.game.state.GameStateManager create
+30-mar-2010 3.20.37 com.jmex.game.state.GameStateManager create
 INFO: Created GameStateManager
-30-mar-2010 3.17.16 com.jme.util.lwjgl.LWJGLTimer <init>
+30-mar-2010 3.20.37 com.jme.util.lwjgl.LWJGLTimer <init>
 INFO: Timer resolution: 1000 ticks per second
-Ship request send, starting turn:150
+Ship request send, starting turn:142
 
 
-Client Sincronous Turn: 150 Asinc: 150
+Client Sincronous Turn: 142 Asinc: 142
 Waiting input: 7
 New turn received
 AllMap received
@@ -26,11 +26,11 @@ Using ship: 10
 New turn received
 AllMap received
 AllMap received
-Reading input time: 454630
+Reading input time: 472873
 Testin precision of map
-I'm rebuilding the asynchronous world!! Was 150 will be 150
-test require 50 step
-I'm updating the asynchronous world!! Was 150 will be 199
+I'm rebuilding the asynchronous world!! Was 142 will be 142
+test require 58 step
+I'm updating the asynchronous world!! Was 142 will be 199
 0 dosn't exist!
 1 dosn't exist!
 2 dosn't exist!
@@ -41,7 +41,7 @@ I'm updating the asynchronous world!! Was 150 will be 199
 7 dosn't exist!
 8 dosn't exist!
 9 dosn't exist!
-I'm rebuilding the synchronous world!! Was 150 will be 200
+I'm rebuilding the synchronous world!! Was 142 will be 200
 Creating id: 0
 elements in world:5
 Creating id: 1
@@ -64,8 +64,8 @@ Creating id: 9
 elements in world:14
 Rebuilding world from turn: 200
 NewTurn to elaborate: 0
-Rilevated turn LAG: -50.0 to ms: -750.0
-Updating syncronous time: 24141403
+Rilevated turn LAG: -58.0 to ms: -870.0
+Updating syncronous time: 14506346
 I'm rebuilding the asynchronous world!! Was 199 will be 200
 x: 0.0 y: 0.0 xV: 0.0 yV: 0.0 aV: 0.0 a: 0.0
 x: 0.0 y: 0.5 xV: 0.0 yV: 0.0 aV: 0.0 a: 0.0
@@ -77,53 +77,39 @@ x: 0.0 y: 3.0 xV: 0.0 yV: 0.0 aV: 0.0 a: 0.0
 x: 0.0 y: 3.5 xV: 0.0 yV: 0.0 aV: 0.0 a: 0.0
 x: 0.0 y: 4.0 xV: 0.0 yV: 0.0 aV: 0.0 a: 0.0
 x: 0.0 y: 4.5 xV: 0.0 yV: 0.0 aV: 0.0 a: 0.0
-Rebuilding asyncronous time: 2527389
-Asinc turn was less than sync turn:150 200
+Rebuilding asyncronous time: 1905037
+Asinc turn was less than sync turn:142 200
 I'm updating the asynchronous world!! Was 200 will be 200
-Update asyncronous time: 42640
+Update asyncronous time: 40792
 GUIActions:10
-GUI copy time: 704484
-Paint copy time: 729224
-Physic time: 28145832
-Send action time: 12457
-WARNING: engine turn take more execution time than requested!!! This can cause serius error/data corruption!! ms duration: 28
+GUI copy time: 675836
+Paint copy time: 700490
+Physic time: 17884159
+Send action time: 12576
+WARNING: engine turn take more execution time than requested!!! This can cause serius error/data corruption!! ms duration: 18
 
 
 Client Sincronous Turn: 200 Asinc: 200
 Waiting input: 0
-Reading input time: 2469
-Updating syncronous time: 648
-Rebuilding asyncronous time: 396
+Reading input time: 2321
+Updating syncronous time: 599
+Rebuilding asyncronous time: 390
 I'm updating the asynchronous world!! Was 200 will be 200
-Update asyncronous time: 18644
+Update asyncronous time: 18960
 GUIActions:10
-GUI copy time: 662940
-Paint copy time: 690516
-Physic time: 816636
-Send action time: 3900
+GUI copy time: 550189
+Paint copy time: 571817
+Physic time: 698597
+Send action time: 4420
 
 
 Client Sincronous Turn: 200 Asinc: 200
 Waiting input: 0
-Reading input time: 2442
-Updating syncronous time: 598
-Rebuilding asyncronous time: 412
+Reading input time: 2310
+Updating syncronous time: 574
+Rebuilding asyncronous time: 389
 I'm updating the asynchronous world!! Was 200 will be 200
-Update asyncronous time: 17693
-GUIActions:10
-GUI copy time: 66222
-Paint copy time: 83894
-Physic time: 207618
-Send action time: 3907
-
-
-Client Sincronous Turn: 200 Asinc: 200
-Waiting input: 0
-Reading input time: 7064
-Updating syncronous time: 2013
-Rebuilding asyncronous time: 1411
-I'm updating the asynchronous world!! Was 200 will be 200
-Update asyncronous time: 77651
+Update asyncronous time: 18199
 GUIActions:10
 loading: Sphere
 loading from filesystem: Sphere
@@ -146,507 +132,535 @@ loading: Sphere
 New model created, ID:8 Sphere
 loading: Sphere
 New model created, ID:9 Sphere
-GUI copy time: 317582766
-Paint copy time: 317707321
-Physic time: 318128056
-Send action time: 7995
-WARNING: engine turn take more execution time than requested!!! This can cause serius error/data corruption!! ms duration: 318
+GUI copy time: 328901282
+Paint copy time: 328929476
+Physic time: 329058727
+Send action time: 6332
+WARNING: engine turn take more execution time than requested!!! This can cause serius error/data corruption!! ms duration: 329
 
 
 Client Sincronous Turn: 200 Asinc: 200
 Waiting input: 0
-Reading input time: 4114
-Updating syncronous time: 759
-Rebuilding asyncronous time: 421
+Reading input time: 3246
+Updating syncronous time: 797
+Rebuilding asyncronous time: 389
 I'm updating the asynchronous world!! Was 200 will be 200
-Update asyncronous time: 18012
+Update asyncronous time: 20449
 GUIActions:10
-GUI copy time: 79083
-Paint copy time: 96105
-Physic time: 230231
-Send action time: 2532
+GUI copy time: 72940
+Paint copy time: 89973
+Physic time: 215414
+Send action time: 2357
 
 
 Client Sincronous Turn: 200 Asinc: 200
 Waiting input: 0
-Reading input time: 1899
-Updating syncronous time: 557
-Rebuilding asyncronous time: 403
+Reading input time: 1695
+Updating syncronous time: 553
+Rebuilding asyncronous time: 389
 I'm updating the asynchronous world!! Was 200 will be 200
-Update asyncronous time: 19183
+Update asyncronous time: 19645
 GUIActions:10
-GUI copy time: 61694
-Paint copy time: 78277
-Physic time: 198039
-Send action time: 2320
+GUI copy time: 62096
+Paint copy time: 78963
+Physic time: 200146
+Send action time: 2305
 
 
 Client Sincronous Turn: 200 Asinc: 200
 Waiting input: 0
-Reading input time: 1932
-Updating syncronous time: 576
-Rebuilding asyncronous time: 427
+Reading input time: 1606
+Updating syncronous time: 537
+Rebuilding asyncronous time: 380
 I'm updating the asynchronous world!! Was 200 will be 200
-Update asyncronous time: 19266
+Update asyncronous time: 19349
 GUIActions:10
-GUI copy time: 60538
-Paint copy time: 77031
-Physic time: 197278
-Send action time: 2142
+GUI copy time: 61936
+Paint copy time: 78662
+Physic time: 198518
+Send action time: 2210
 
 
 Client Sincronous Turn: 200 Asinc: 200
 Waiting input: 0
-Reading input time: 1657
-Updating syncronous time: 567
-Rebuilding asyncronous time: 434
+Reading input time: 1623
+Updating syncronous time: 522
+Rebuilding asyncronous time: 382
 I'm updating the asynchronous world!! Was 200 will be 200
-Update asyncronous time: 19012
+Update asyncronous time: 22119
 GUIActions:10
-GUI copy time: 60890
-Paint copy time: 77562
-Physic time: 197023
-Send action time: 2179
+GUI copy time: 62522
+Paint copy time: 79375
+Physic time: 204358
+Send action time: 2182
 
 
 Client Sincronous Turn: 200 Asinc: 200
 Waiting input: 0
-Reading input time: 1673
-Updating syncronous time: 570
-Rebuilding asyncronous time: 415
+Reading input time: 1624
+Updating syncronous time: 515
+Rebuilding asyncronous time: 384
 I'm updating the asynchronous world!! Was 200 will be 200
-Update asyncronous time: 19097
+Update asyncronous time: 17288
 GUIActions:10
-GUI copy time: 61085
-Paint copy time: 77681
-Physic time: 200792
-Send action time: 2246
+GUI copy time: 62433
+Paint copy time: 79107
+Physic time: 199853
+Send action time: 2210
 
 
 Client Sincronous Turn: 200 Asinc: 200
 Waiting input: 0
-Reading input time: 1664
-Updating syncronous time: 569
-Rebuilding asyncronous time: 405
+Reading input time: 1653
+Updating syncronous time: 643
+Rebuilding asyncronous time: 379
 I'm updating the asynchronous world!! Was 200 will be 200
-Update asyncronous time: 19198
+Update asyncronous time: 17231
 GUIActions:10
-GUI copy time: 61154
-Paint copy time: 77808
-Physic time: 197458
-Send action time: 2179
+GUI copy time: 61952
+Paint copy time: 78736
+Physic time: 199092
+Send action time: 2178
 
 
 Client Sincronous Turn: 200 Asinc: 200
 Waiting input: 0
-Reading input time: 1677
-Updating syncronous time: 617
-Rebuilding asyncronous time: 415
+Reading input time: 1618
+Updating syncronous time: 541
+Rebuilding asyncronous time: 381
 I'm updating the asynchronous world!! Was 200 will be 200
-Update asyncronous time: 16979
+Update asyncronous time: 19188
 GUIActions:10
-GUI copy time: 159973
-Paint copy time: 178235
-Physic time: 300276
-Send action time: 2547
+GUI copy time: 62066
+Paint copy time: 78875
+Physic time: 198971
+Send action time: 2248
 
 
 Client Sincronous Turn: 200 Asinc: 200
 Waiting input: 0
-Reading input time: 1803
-Updating syncronous time: 575
-Rebuilding asyncronous time: 418
+Reading input time: 1600
+Updating syncronous time: 519
+Rebuilding asyncronous time: 387
 I'm updating the asynchronous world!! Was 200 will be 200
-Update asyncronous time: 19263
+Update asyncronous time: 17717
 GUIActions:10
-GUI copy time: 66572
-Paint copy time: 83509
-Physic time: 204796
-Send action time: 2218
+GUI copy time: 62507
+Paint copy time: 79270
+Physic time: 209853
+Send action time: 2198
 
 
 Client Sincronous Turn: 200 Asinc: 200
 Waiting input: 0
-Reading input time: 1720
-Updating syncronous time: 565
-Rebuilding asyncronous time: 416
+Reading input time: 1683
+Updating syncronous time: 539
+Rebuilding asyncronous time: 378
 I'm updating the asynchronous world!! Was 200 will be 200
-Update asyncronous time: 17250
+Update asyncronous time: 19375
 GUIActions:10
-GUI copy time: 62049
-Paint copy time: 78709
-Physic time: 199811
-Send action time: 2175
+GUI copy time: 62134
+Paint copy time: 79098
+Physic time: 199111
+Send action time: 2186
 
 
 Client Sincronous Turn: 200 Asinc: 200
 Waiting input: 0
-Reading input time: 1651
-Updating syncronous time: 569
-Rebuilding asyncronous time: 417
+Reading input time: 1601
+Updating syncronous time: 526
+Rebuilding asyncronous time: 379
 I'm updating the asynchronous world!! Was 200 will be 200
-Update asyncronous time: 19051
+Update asyncronous time: 17204
 GUIActions:10
-GUI copy time: 61705
-Paint copy time: 78916
-Physic time: 201624
-Send action time: 2239
+GUI copy time: 61742
+Paint copy time: 78399
+Physic time: 199408
+Send action time: 2170
 
 
 Client Sincronous Turn: 200 Asinc: 200
 Waiting input: 0
-Reading input time: 1679
-Updating syncronous time: 573
-Rebuilding asyncronous time: 440
+Reading input time: 1613
+Updating syncronous time: 527
+Rebuilding asyncronous time: 379
 I'm updating the asynchronous world!! Was 200 will be 200
-Update asyncronous time: 19039
+Update asyncronous time: 17241
 GUIActions:10
-GUI copy time: 62925
-Paint copy time: 79787
-Physic time: 201948
-Send action time: 2244
+GUI copy time: 62110
+Paint copy time: 79170
+Physic time: 199781
+Send action time: 2176
 
 
 Client Sincronous Turn: 200 Asinc: 200
 Waiting input: 0
-Reading input time: 1687
-Updating syncronous time: 565
-Rebuilding asyncronous time: 435
+Reading input time: 1628
+Updating syncronous time: 528
+Rebuilding asyncronous time: 379
 I'm updating the asynchronous world!! Was 200 will be 200
-Update asyncronous time: 21961
+Update asyncronous time: 17449
 GUIActions:10
-GUI copy time: 63795
-Paint copy time: 81070
-Physic time: 206214
-Send action time: 2255
+GUI copy time: 62064
+Paint copy time: 78821
+Physic time: 202100
+Send action time: 2202
 
 
 Client Sincronous Turn: 200 Asinc: 200
 Waiting input: 0
-Reading input time: 1665
-Updating syncronous time: 567
-Rebuilding asyncronous time: 417
+Reading input time: 1617
+Updating syncronous time: 544
+Rebuilding asyncronous time: 379
 I'm updating the asynchronous world!! Was 200 will be 200
-Update asyncronous time: 19106
+Update asyncronous time: 19451
 GUIActions:10
-GUI copy time: 63422
-Paint copy time: 80032
-Physic time: 200080
-Send action time: 2161
-
-
-Client Sincronous Turn: 200 Asinc: 200
-Waiting input: 0
-Reading input time: 1644
-Updating syncronous time: 571
-Rebuilding asyncronous time: 425
-I'm updating the asynchronous world!! Was 200 will be 200
-Update asyncronous time: 17439
-GUIActions:10
-GUI copy time: 63166
-Paint copy time: 79905
-Physic time: 204321
-Send action time: 2232
-
-
-Client Sincronous Turn: 200 Asinc: 200
-Waiting input: 0
-Reading input time: 1671
-Updating syncronous time: 563
-Rebuilding asyncronous time: 409
-I'm updating the asynchronous world!! Was 200 will be 200
-Update asyncronous time: 19069
-GUIActions:10
-GUI copy time: 222510
-Paint copy time: 240272
-Physic time: 362614
-Send action time: 3018
-
-
-Client Sincronous Turn: 200 Asinc: 200
-Waiting input: 0
-Reading input time: 1905
-Updating syncronous time: 550
-Rebuilding asyncronous time: 413
-I'm updating the asynchronous world!! Was 200 will be 200
-Update asyncronous time: 16881
-GUIActions:10
-GUI copy time: 62925
-Paint copy time: 79703
-Physic time: 199615
-Send action time: 2189
+GUI copy time: 62079
+Paint copy time: 78797
+Physic time: 199447
+Send action time: 2195
 
 
 Client Sincronous Turn: 200 Asinc: 200
 Waiting input: 0
 Reading input time: 1627
-Updating syncronous time: 558
-Rebuilding asyncronous time: 411
+Updating syncronous time: 524
+Rebuilding asyncronous time: 377
 I'm updating the asynchronous world!! Was 200 will be 200
-Update asyncronous time: 17014
+Update asyncronous time: 17098
 GUIActions:10
-GUI copy time: 61582
-Paint copy time: 78368
-Physic time: 202445
-Send action time: 2183
+GUI copy time: 62067
+Paint copy time: 79072
+Physic time: 202227
+Send action time: 2199
 
 
 Client Sincronous Turn: 200 Asinc: 200
 Waiting input: 0
-Reading input time: 1645
-Updating syncronous time: 561
-Rebuilding asyncronous time: 397
+Reading input time: 1586
+Updating syncronous time: 544
+Rebuilding asyncronous time: 379
 I'm updating the asynchronous world!! Was 200 will be 200
-Update asyncronous time: 19363
+Update asyncronous time: 19494
 GUIActions:10
-GUI copy time: 61426
-Paint copy time: 78129
-Physic time: 199788
-Send action time: 2261
+GUI copy time: 62710
+Paint copy time: 79789
+Physic time: 200021
+Send action time: 2222
 
 
 Client Sincronous Turn: 200 Asinc: 200
 Waiting input: 0
-Reading input time: 1587
-Updating syncronous time: 565
-Rebuilding asyncronous time: 422
+Reading input time: 1640
+Updating syncronous time: 592
+Rebuilding asyncronous time: 380
 I'm updating the asynchronous world!! Was 200 will be 200
-Update asyncronous time: 16888
+Update asyncronous time: 17201
 GUIActions:10
-GUI copy time: 3780835
-Paint copy time: 3801597
-Physic time: 3927177
-Send action time: 3314
+GUI copy time: 61788
+Paint copy time: 78132
+Physic time: 197948
+Send action time: 2151
 
 
 Client Sincronous Turn: 200 Asinc: 200
 Waiting input: 0
-Reading input time: 2430
-Updating syncronous time: 590
-Rebuilding asyncronous time: 414
+Reading input time: 1685
+Updating syncronous time: 528
+Rebuilding asyncronous time: 375
 I'm updating the asynchronous world!! Was 200 will be 200
-Update asyncronous time: 17170
+Update asyncronous time: 17268
 GUIActions:10
-GUI copy time: 65681
-Paint copy time: 82401
-Physic time: 198689
-Send action time: 2377
+GUI copy time: 62196
+Paint copy time: 79154
+Physic time: 199667
+Send action time: 2223
 
 
 Client Sincronous Turn: 200 Asinc: 200
 Waiting input: 0
-Reading input time: 1675
-Updating syncronous time: 596
-Rebuilding asyncronous time: 402
+Reading input time: 1719
+Updating syncronous time: 533
+Rebuilding asyncronous time: 380
 I'm updating the asynchronous world!! Was 200 will be 200
-Update asyncronous time: 17194
+Update asyncronous time: 19413
 GUIActions:10
-GUI copy time: 59312
-Paint copy time: 75739
-Physic time: 198707
-Send action time: 2255
+GUI copy time: 62545
+Paint copy time: 79271
+Physic time: 202174
+Send action time: 2149
 
 
 Client Sincronous Turn: 200 Asinc: 200
 Waiting input: 0
-Reading input time: 2440
-Updating syncronous time: 585
-Rebuilding asyncronous time: 408
+Reading input time: 1605
+Updating syncronous time: 545
+Rebuilding asyncronous time: 381
 I'm updating the asynchronous world!! Was 200 will be 200
-Update asyncronous time: 16854
+Update asyncronous time: 19926
 GUIActions:10
-GUI copy time: 65844
-Paint copy time: 82505
-Physic time: 197552
-Send action time: 3860
+GUI copy time: 65002
+Paint copy time: 82347
+Physic time: 206205
+Send action time: 2186
 
 
 Client Sincronous Turn: 200 Asinc: 200
 Waiting input: 0
-Reading input time: 4933
-Updating syncronous time: 993
-Rebuilding asyncronous time: 689
+Reading input time: 1630
+Updating syncronous time: 523
+Rebuilding asyncronous time: 382
 I'm updating the asynchronous world!! Was 200 will be 200
-Update asyncronous time: 33313
+Update asyncronous time: 17203
 GUIActions:10
-GUI copy time: 412304
-Paint copy time: 448575
-Physic time: 664607
-Send action time: 6005
+GUI copy time: 62281
+Paint copy time: 79128
+Physic time: 199573
+Send action time: 2168
 
 
 Client Sincronous Turn: 200 Asinc: 200
 Waiting input: 0
-Reading input time: 8599
-Updating syncronous time: 1930
-Rebuilding asyncronous time: 1354
+Reading input time: 1635
+Updating syncronous time: 525
+Rebuilding asyncronous time: 380
 I'm updating the asynchronous world!! Was 200 will be 200
-Update asyncronous time: 57312
+Update asyncronous time: 17207
 GUIActions:10
-GUI copy time: 239259
-Paint copy time: 296978
-Physic time: 691754
-Send action time: 13199
+GUI copy time: 62143
+Paint copy time: 78951
+Physic time: 202710
+Send action time: 2177
 
 
 Client Sincronous Turn: 200 Asinc: 200
 Waiting input: 0
-Reading input time: 5037
-Updating syncronous time: 1065
-Rebuilding asyncronous time: 703
+Reading input time: 1641
+Updating syncronous time: 519
+Rebuilding asyncronous time: 379
 I'm updating the asynchronous world!! Was 200 will be 200
-Update asyncronous time: 29562
+Update asyncronous time: 20732
 GUIActions:10
-GUI copy time: 134515
-Paint copy time: 164198
-Physic time: 370669
-Send action time: 7931
+GUI copy time: 63449
+Paint copy time: 80190
+Physic time: 996598
+Send action time: 3504
 
 
 Client Sincronous Turn: 200 Asinc: 200
 Waiting input: 0
-Reading input time: 8176
-Updating syncronous time: 1908
-Rebuilding asyncronous time: 1367
+Reading input time: 3530
+Updating syncronous time: 686
+Rebuilding asyncronous time: 377
 I'm updating the asynchronous world!! Was 200 will be 200
-Update asyncronous time: 63726
+Update asyncronous time: 17326
 GUIActions:10
-GUI copy time: 227780
-Paint copy time: 303761
-Physic time: 719511
-Send action time: 12258
+GUI copy time: 70003
+Paint copy time: 87218
+Physic time: 205970
+Send action time: 5002
 
 
 Client Sincronous Turn: 200 Asinc: 200
 Waiting input: 0
-Reading input time: 8466
-Updating syncronous time: 1957
-Rebuilding asyncronous time: 1388
+Reading input time: 3987
+Updating syncronous time: 765
+Rebuilding asyncronous time: 373
 I'm updating the asynchronous world!! Was 200 will be 200
-Update asyncronous time: 63791
+Update asyncronous time: 17938
 GUIActions:10
-GUI copy time: 244781
-Paint copy time: 303923
-Physic time: 733079
-Send action time: 11776
+GUI copy time: 75378
+Paint copy time: 93056
+Physic time: 216364
+Send action time: 5709
+
+
+Client Sincronous Turn: 200 Asinc: 200
+Waiting input: 0
+Reading input time: 8585
+Updating syncronous time: 2149
+Rebuilding asyncronous time: 1306
+I'm updating the asynchronous world!! Was 200 will be 200
+Update asyncronous time: 74317
+GUIActions:10
+GUI copy time: 228664
+Paint copy time: 293020
+Physic time: 729258
+Send action time: 12053
+
+
+Client Sincronous Turn: 200 Asinc: 200
+Waiting input: 0
+Reading input time: 8032
+Updating syncronous time: 2054
+Rebuilding asyncronous time: 1338
+I'm updating the asynchronous world!! Was 200 will be 200
+Update asyncronous time: 60173
+GUIActions:10
+GUI copy time: 225277
+Paint copy time: 284919
+Physic time: 708592
+Send action time: 12101
+
+
+Client Sincronous Turn: 200 Asinc: 200
+Waiting input: 0
+Reading input time: 4668
+Updating syncronous time: 930
+Rebuilding asyncronous time: 485
+I'm updating the asynchronous world!! Was 200 will be 200
+Update asyncronous time: 25562
+GUIActions:10
+GUI copy time: 102836
+Paint copy time: 128695
+Physic time: 304800
+Send action time: 5374
+
+
+Client Sincronous Turn: 200 Asinc: 200
+Waiting input: 0
+Reading input time: 8161
+Updating syncronous time: 2191
+Rebuilding asyncronous time: 1312
+I'm updating the asynchronous world!! Was 200 will be 200
+Update asyncronous time: 68526
+GUIActions:10
+GUI copy time: 240178
+Paint copy time: 302574
+Physic time: 754851
+Send action time: 11099
 
 
 Client Sincronous Turn: 200 Asinc: 200
 Waiting input: 0
 Reading input time: 7620
-Updating syncronous time: 2009
-Rebuilding asyncronous time: 1355
+Updating syncronous time: 2096
+Rebuilding asyncronous time: 1338
 I'm updating the asynchronous world!! Was 200 will be 200
-Update asyncronous time: 63412
+Update asyncronous time: 65856
 GUIActions:10
-GUI copy time: 240148
-Paint copy time: 305147
-Physic time: 719704
-Send action time: 11775
+GUI copy time: 237285
+Paint copy time: 296364
+Physic time: 731754
+Send action time: 10707
 
 
 Client Sincronous Turn: 200 Asinc: 200
 Waiting input: 0
-Reading input time: 9338
-Updating syncronous time: 2601
-Rebuilding asyncronous time: 1465
+Reading input time: 7559
+Updating syncronous time: 2289
+Rebuilding asyncronous time: 1298
 I'm updating the asynchronous world!! Was 200 will be 200
-Update asyncronous time: 182420
+Update asyncronous time: 67845
 GUIActions:10
-GUI copy time: 449552
-Paint copy time: 634864
-Physic time: 1945593
-Send action time: 13311
+GUI copy time: 235202
+Paint copy time: 295189
+Physic time: 728797
+Send action time: 8734
 
 
 Client Sincronous Turn: 200 Asinc: 200
 Waiting input: 0
-Reading input time: 8544
-Updating syncronous time: 2079
-Rebuilding asyncronous time: 1384
+Reading input time: 7519
+Updating syncronous time: 1951
+Rebuilding asyncronous time: 1264
 I'm updating the asynchronous world!! Was 200 will be 200
-Update asyncronous time: 63681
+Update asyncronous time: 58187
 GUIActions:10
-GUI copy time: 231953
-Paint copy time: 298618
-Physic time: 726234
-Send action time: 12641
+GUI copy time: 235355
+Paint copy time: 294131
+Physic time: 707047
+Send action time: 11442
 
 
 Client Sincronous Turn: 200 Asinc: 200
 Waiting input: 0
-Reading input time: 7801
-Updating syncronous time: 1970
-Rebuilding asyncronous time: 1394
+Reading input time: 9029
+Updating syncronous time: 2125
+Rebuilding asyncronous time: 1273
 I'm updating the asynchronous world!! Was 200 will be 200
-Update asyncronous time: 59009
+Update asyncronous time: 78954
 GUIActions:10
-GUI copy time: 229695
-Paint copy time: 301543
-Physic time: 705276
-Send action time: 10871
+GUI copy time: 232695
+Paint copy time: 297490
+Physic time: 749102
+Send action time: 13073
 
 
 Client Sincronous Turn: 200 Asinc: 200
 Waiting input: 0
-Reading input time: 8541
-Updating syncronous time: 2069
-Rebuilding asyncronous time: 1368
+Reading input time: 8433
+Updating syncronous time: 2047
+Rebuilding asyncronous time: 1335
 I'm updating the asynchronous world!! Was 200 will be 200
-Update asyncronous time: 57812
+Update asyncronous time: 65633
 GUIActions:10
-GUI copy time: 236711
-Paint copy time: 294629
-Physic time: 689368
-Send action time: 11850
+GUI copy time: 229428
+Paint copy time: 288775
+Physic time: 718499
+Send action time: 12366
 
 
 Client Sincronous Turn: 200 Asinc: 200
 Waiting input: 0
-Reading input time: 7931
-Updating syncronous time: 1976
-Rebuilding asyncronous time: 1436
+Reading input time: 7820
+Updating syncronous time: 2059
+Rebuilding asyncronous time: 1298
 I'm updating the asynchronous world!! Was 200 will be 200
-Update asyncronous time: 58138
+Update asyncronous time: 65945
 GUIActions:10
-GUI copy time: 771216
-Paint copy time: 895112
-Physic time: 1295380
-Send action time: 10916
+GUI copy time: 227341
+Paint copy time: 291494
+Physic time: 723159
+Send action time: 11587
 
 
 Client Sincronous Turn: 200 Asinc: 200
 Waiting input: 0
-Reading input time: 8468
-Updating syncronous time: 2000
-Rebuilding asyncronous time: 1396
+Reading input time: 7561
+Updating syncronous time: 2068
+Rebuilding asyncronous time: 1341
 I'm updating the asynchronous world!! Was 200 will be 200
-Update asyncronous time: 67038
+Update asyncronous time: 65624
 GUIActions:10
-GUI copy time: 699556
-Paint copy time: 762671
-Physic time: 1330473
-Send action time: 12715
+GUI copy time: 221895
+Paint copy time: 286018
+Physic time: 722802
+Send action time: 11569
 
 
 Client Sincronous Turn: 200 Asinc: 200
 Waiting input: 0
-Reading input time: 7584
-Updating syncronous time: 1928
-Rebuilding asyncronous time: 1383
+Reading input time: 9291
+Updating syncronous time: 2305
+Rebuilding asyncronous time: 1399
 I'm updating the asynchronous world!! Was 200 will be 200
-Update asyncronous time: 64255
+Update asyncronous time: 65629
 GUIActions:10
-GUI copy time: 223336
-Paint copy time: 287176
-Physic time: 713006
-Send action time: 11909
+GUI copy time: 246126
+Paint copy time: 305519
+Physic time: 754605
+Send action time: 12658
+
+
+Client Sincronous Turn: 200 Asinc: 200
+Waiting input: 0
+Reading input time: 8976
+Updating syncronous time: 2185
+Rebuilding asyncronous time: 1350
+I'm updating the asynchronous world!! Was 200 will be 200
+Update asyncronous time: 65994
+GUIActions:10
+GUI copy time: 252845
+Paint copy time: 313607
+Physic time: 744346
+Send action time: 12616
 
 
 Client Sincronous Turn: 200 Asinc: 200
 Waiting input: 1
 AllMap received
-Reading input time: 60653
+Reading input time: 61391
 Testin precision of map
 I'm rebuilding the asynchronous world!! Was 200 will be 200
 x: 0.0 y: 0.0 xV: 0.0 yV: 0.0 aV: 0.0 a: 0.0
@@ -697,8 +711,8 @@ Creating id: 10
 elements in world:15
 Rebuilding world from turn: 600
 NewTurn to elaborate: 0
-Rilevated turn LAG: -225.0 to ms: -3375.0
-Updating syncronous time: 42321571
+Rilevated turn LAG: -229.0 to ms: -3435.0
+Updating syncronous time: 37006923
 I'm rebuilding the asynchronous world!! Was 599 will be 600
 x: 0.0 y: 0.0 xV: 0.0 yV: 0.0 aV: 0.0 a: 0.0
 x: 0.0 y: 0.5 xV: 0.0 yV: 0.0 aV: 0.0 a: 0.0
@@ -711,712 +725,712 @@ x: 0.0 y: 3.5 xV: 0.0 yV: 0.0 aV: 0.0 a: 0.0
 x: 0.0 y: 4.0 xV: 0.0 yV: 0.0 aV: 0.0 a: 0.0
 x: 0.0 y: 4.5 xV: 0.0 yV: 0.0 aV: 0.0 a: 0.0
 x: 0.0 y: -10.0 xV: 0.0 yV: 0.0 aV: 0.0 a: 0.0
-Rebuilding asyncronous time: 2591896
+Rebuilding asyncronous time: 2577926
 Asinc turn was less than sync turn:200 600
 I'm updating the asynchronous world!! Was 600 will be 600
-Update asyncronous time: 103585
+Update asyncronous time: 35528
 GUIActions:11
-GUI copy time: 106409
-Paint copy time: 157953
-Physic time: 45563249
-Send action time: 33107
-WARNING: engine turn take more execution time than requested!!! This can cause serius error/data corruption!! ms duration: 46
+GUI copy time: 74755
+Paint copy time: 94227
+Physic time: 39997293
+Send action time: 29417
+WARNING: engine turn take more execution time than requested!!! This can cause serius error/data corruption!! ms duration: 40
 
 
 Client Sincronous Turn: 600 Asinc: 600
 Waiting input: 0
-Reading input time: 2875
-Updating syncronous time: 711
-Rebuilding asyncronous time: 418
+Reading input time: 2347
+Updating syncronous time: 615
+Rebuilding asyncronous time: 427
 I'm updating the asynchronous world!! Was 600 will be 600
-Update asyncronous time: 51725
+Update asyncronous time: 19739
 GUIActions:11
-GUI copy time: 100785
-Paint copy time: 151891
-Physic time: 509748
-Send action time: 10804
+GUI copy time: 68192
+Paint copy time: 85780
+Physic time: 218063
+Send action time: 9954
 
 
 Client Sincronous Turn: 600 Asinc: 600
 Waiting input: 0
-Reading input time: 2274
-Updating syncronous time: 670
-Rebuilding asyncronous time: 432
+Reading input time: 1813
+Updating syncronous time: 605
+Rebuilding asyncronous time: 370
 I'm updating the asynchronous world!! Was 600 will be 600
-Update asyncronous time: 53415
+Update asyncronous time: 46354
 GUIActions:11
-GUI copy time: 111648
-Paint copy time: 163378
-Physic time: 522056
-Send action time: 11066
+GUI copy time: 68694
+Paint copy time: 87435
+Physic time: 241315
+Send action time: 10180
 
 
 Client Sincronous Turn: 600 Asinc: 600
 Waiting input: 0
-Reading input time: 2255
-Updating syncronous time: 928
-Rebuilding asyncronous time: 424
+Reading input time: 2622
+Updating syncronous time: 573
+Rebuilding asyncronous time: 389
 I'm updating the asynchronous world!! Was 600 will be 600
-Update asyncronous time: 51828
+Update asyncronous time: 17666
 GUIActions:11
-GUI copy time: 100128
-Paint copy time: 151568
-Physic time: 506950
-Send action time: 10925
+GUI copy time: 74999
+Paint copy time: 94352
+Physic time: 219083
+Send action time: 13526
 loading: Cone
 loading from filesystem: Cone
 
 
 Client Sincronous Turn: 600 Asinc: 600
 Waiting input: 0
-Reading input time: 6003
-Updating syncronous time: 1972
-Rebuilding asyncronous time: 757
+Reading input time: 3100
+Updating syncronous time: 779
+Rebuilding asyncronous time: 498
 I'm updating the asynchronous world!! Was 600 will be 600
-Update asyncronous time: 91369
+Update asyncronous time: 22941
 GUIActions:11
 New model created, ID:10 Cone
-GUI copy time: 315173836
-Paint copy time: 315206851
-Physic time: 315763893
-Send action time: 17234
-WARNING: engine turn take more execution time than requested!!! This can cause serius error/data corruption!! ms duration: 316
+GUI copy time: 296416441
+Paint copy time: 296490654
+Physic time: 296655983
+Send action time: 21658
+WARNING: engine turn take more execution time than requested!!! This can cause serius error/data corruption!! ms duration: 297
 
 
 Client Sincronous Turn: 600 Asinc: 600
 Waiting input: 0
-Reading input time: 3457
-Updating syncronous time: 829
-Rebuilding asyncronous time: 408
+Reading input time: 3877
+Updating syncronous time: 783
+Rebuilding asyncronous time: 380
 I'm updating the asynchronous world!! Was 600 will be 600
-Update asyncronous time: 18049
+Update asyncronous time: 20449
 GUIActions:11
-GUI copy time: 76354
-Paint copy time: 93234
-Physic time: 223571
-Send action time: 9841
+GUI copy time: 89919
+Paint copy time: 107471
+Physic time: 241631
+Send action time: 9822
 
 
 Client Sincronous Turn: 600 Asinc: 600
 Waiting input: 0
-Reading input time: 1475
-Updating syncronous time: 556
-Rebuilding asyncronous time: 410
+Reading input time: 1658
+Updating syncronous time: 535
+Rebuilding asyncronous time: 397
 I'm updating the asynchronous world!! Was 600 will be 600
-Update asyncronous time: 16946
+Update asyncronous time: 17797
 GUIActions:11
-GUI copy time: 66311
-Paint copy time: 82831
-Physic time: 196580
-Send action time: 9662
-
-
-Client Sincronous Turn: 600 Asinc: 600
-Waiting input: 0
-Reading input time: 1457
-Updating syncronous time: 529
-Rebuilding asyncronous time: 407
-I'm updating the asynchronous world!! Was 600 will be 600
-Update asyncronous time: 16925
-GUIActions:11
-GUI copy time: 63723
-Paint copy time: 80065
-Physic time: 196960
-Send action time: 9703
-
-
-Client Sincronous Turn: 600 Asinc: 600
-Waiting input: 0
-Reading input time: 1463
-Updating syncronous time: 543
-Rebuilding asyncronous time: 400
-I'm updating the asynchronous world!! Was 600 will be 600
-Update asyncronous time: 16965
-GUIActions:11
-GUI copy time: 64540
-Paint copy time: 80949
-Physic time: 196660
-Send action time: 9750
-
-
-Client Sincronous Turn: 600 Asinc: 600
-Waiting input: 0
-Reading input time: 1489
-Updating syncronous time: 520
-Rebuilding asyncronous time: 407
-I'm updating the asynchronous world!! Was 600 will be 600
-Update asyncronous time: 17090
-GUIActions:11
-GUI copy time: 66877
-Paint copy time: 83385
-Physic time: 197014
-Send action time: 9661
-
-
-Client Sincronous Turn: 600 Asinc: 600
-Waiting input: 0
-Reading input time: 1500
-Updating syncronous time: 517
-Rebuilding asyncronous time: 399
-I'm updating the asynchronous world!! Was 600 will be 600
-Update asyncronous time: 16958
-GUIActions:11
-GUI copy time: 66480
-Paint copy time: 83046
-Physic time: 196562
-Send action time: 9609
-
-
-Client Sincronous Turn: 600 Asinc: 600
-Waiting input: 0
-Reading input time: 1470
-Updating syncronous time: 521
-Rebuilding asyncronous time: 407
-I'm updating the asynchronous world!! Was 600 will be 600
-Update asyncronous time: 16964
-GUIActions:11
-GUI copy time: 63598
-Paint copy time: 80002
-Physic time: 195737
-Send action time: 9642
-
-
-Client Sincronous Turn: 600 Asinc: 600
-Waiting input: 0
-Reading input time: 1477
-Updating syncronous time: 516
-Rebuilding asyncronous time: 411
-I'm updating the asynchronous world!! Was 600 will be 600
-Update asyncronous time: 17166
-GUIActions:11
-GUI copy time: 69008
-Paint copy time: 85561
-Physic time: 199431
-Send action time: 9716
-
-
-Client Sincronous Turn: 600 Asinc: 600
-Waiting input: 0
-Reading input time: 1473
-Updating syncronous time: 517
-Rebuilding asyncronous time: 406
-I'm updating the asynchronous world!! Was 600 will be 600
-Update asyncronous time: 16971
-GUIActions:11
-GUI copy time: 74281
-Paint copy time: 90841
-Physic time: 203974
-Send action time: 9706
-
-
-Client Sincronous Turn: 600 Asinc: 600
-Waiting input: 0
-Reading input time: 1497
-Updating syncronous time: 521
-Rebuilding asyncronous time: 401
-I'm updating the asynchronous world!! Was 600 will be 600
-Update asyncronous time: 16869
-GUIActions:11
-GUI copy time: 64187
-Paint copy time: 80451
-Physic time: 195910
-Send action time: 9711
+GUI copy time: 66794
+Paint copy time: 83962
+Physic time: 222931
+Send action time: 9520
 
 
 Client Sincronous Turn: 600 Asinc: 600
 Waiting input: 0
 Reading input time: 1472
-Updating syncronous time: 550
-Rebuilding asyncronous time: 401
+Updating syncronous time: 554
+Rebuilding asyncronous time: 385
 I'm updating the asynchronous world!! Was 600 will be 600
-Update asyncronous time: 16920
+Update asyncronous time: 19878
 GUIActions:11
-GUI copy time: 64163
-Paint copy time: 82909
-Physic time: 195936
-Send action time: 9681
+GUI copy time: 69177
+Paint copy time: 86434
+Physic time: 208163
+Send action time: 9403
 
 
 Client Sincronous Turn: 600 Asinc: 600
 Waiting input: 0
-Reading input time: 1500
-Updating syncronous time: 520
-Rebuilding asyncronous time: 399
+Reading input time: 1480
+Updating syncronous time: 544
+Rebuilding asyncronous time: 395
 I'm updating the asynchronous world!! Was 600 will be 600
-Update asyncronous time: 17582
+Update asyncronous time: 20228
 GUIActions:11
-GUI copy time: 175791
-Paint copy time: 232242
-Physic time: 382935
-Send action time: 11254
+GUI copy time: 68739
+Paint copy time: 85876
+Physic time: 208862
+Send action time: 9387
 
 
 Client Sincronous Turn: 600 Asinc: 600
 Waiting input: 0
-Reading input time: 2073
-Updating syncronous time: 965
-Rebuilding asyncronous time: 432
+Reading input time: 1452
+Updating syncronous time: 538
+Rebuilding asyncronous time: 389
 I'm updating the asynchronous world!! Was 600 will be 600
-Update asyncronous time: 55879
+Update asyncronous time: 17689
 GUIActions:11
-GUI copy time: 101096
-Paint copy time: 153584
-Physic time: 520915
-Send action time: 10871
+GUI copy time: 381978
+Paint copy time: 405806
+Physic time: 533094
+Send action time: 10699
 
 
 Client Sincronous Turn: 600 Asinc: 600
 Waiting input: 0
-Reading input time: 1991
-Updating syncronous time: 955
-Rebuilding asyncronous time: 435
-I'm updating the asynchronous world!! Was 600 will be 600
-Update asyncronous time: 53502
-GUIActions:11
-GUI copy time: 100538
-Paint copy time: 152446
-Physic time: 519965
-Send action time: 10851
-
-
-Client Sincronous Turn: 600 Asinc: 600
-Waiting input: 0
-Reading input time: 2014
-Updating syncronous time: 932
-Rebuilding asyncronous time: 433
-I'm updating the asynchronous world!! Was 600 will be 600
-Update asyncronous time: 53035
-GUIActions:11
-GUI copy time: 105166
-Paint copy time: 157449
-Physic time: 522266
-Send action time: 10965
-
-
-Client Sincronous Turn: 600 Asinc: 600
-Waiting input: 0
-Reading input time: 2016
-Updating syncronous time: 933
-Rebuilding asyncronous time: 433
-I'm updating the asynchronous world!! Was 600 will be 600
-Update asyncronous time: 53000
-GUIActions:11
-GUI copy time: 102214
-Paint copy time: 156998
-Physic time: 528368
-Send action time: 10964
-
-
-Client Sincronous Turn: 600 Asinc: 600
-Waiting input: 0
-Reading input time: 2433
-Updating syncronous time: 664
+Reading input time: 1602
+Updating syncronous time: 548
 Rebuilding asyncronous time: 387
 I'm updating the asynchronous world!! Was 600 will be 600
-Update asyncronous time: 17252
+Update asyncronous time: 19538
 GUIActions:11
-GUI copy time: 71152
-Paint copy time: 90836
-Physic time: 248893
-Send action time: 12312
+GUI copy time: 67142
+Paint copy time: 89320
+Physic time: 211098
+Send action time: 9468
 
 
 Client Sincronous Turn: 600 Asinc: 600
 Waiting input: 0
-Reading input time: 1505
-Updating syncronous time: 523
-Rebuilding asyncronous time: 396
-I'm updating the asynchronous world!! Was 600 will be 600
-Update asyncronous time: 17044
-GUIActions:11
-GUI copy time: 430219
-Paint copy time: 485397
-Physic time: 641831
-Send action time: 12010
-
-
-Client Sincronous Turn: 600 Asinc: 600
-Waiting input: 0
-Reading input time: 2152
-Updating syncronous time: 952
-Rebuilding asyncronous time: 435
-I'm updating the asynchronous world!! Was 600 will be 600
-Update asyncronous time: 52249
-GUIActions:11
-GUI copy time: 107539
-Paint copy time: 158419
-Physic time: 515250
-Send action time: 11021
-
-
-Client Sincronous Turn: 600 Asinc: 600
-Waiting input: 0
-Reading input time: 1901
-Updating syncronous time: 554
-Rebuilding asyncronous time: 397
-I'm updating the asynchronous world!! Was 600 will be 600
-Update asyncronous time: 17157
-GUIActions:11
-GUI copy time: 67139
-Paint copy time: 86193
-Physic time: 232842
-Send action time: 10524
-
-
-Client Sincronous Turn: 600 Asinc: 600
-Waiting input: 0
-Reading input time: 1562
-Updating syncronous time: 572
+Reading input time: 1493
+Updating syncronous time: 540
 Rebuilding asyncronous time: 393
 I'm updating the asynchronous world!! Was 600 will be 600
-Update asyncronous time: 18877
+Update asyncronous time: 19776
 GUIActions:11
-GUI copy time: 68811
-Paint copy time: 87295
-Physic time: 211183
-Send action time: 9786
+GUI copy time: 68599
+Paint copy time: 85804
+Physic time: 207624
+Send action time: 9431
 
 
 Client Sincronous Turn: 600 Asinc: 600
 Waiting input: 0
-Reading input time: 1977
-Updating syncronous time: 552
-Rebuilding asyncronous time: 398
+Reading input time: 1520
+Updating syncronous time: 553
+Rebuilding asyncronous time: 388
 I'm updating the asynchronous world!! Was 600 will be 600
-Update asyncronous time: 20189
+Update asyncronous time: 22868
 GUIActions:11
-GUI copy time: 76137
-Paint copy time: 94834
-Physic time: 211819
-Send action time: 12070
+GUI copy time: 73731
+Paint copy time: 90972
+Physic time: 218288
+Send action time: 10195
 
 
 Client Sincronous Turn: 600 Asinc: 600
 Waiting input: 0
-Reading input time: 8257
-Updating syncronous time: 2057
-Rebuilding asyncronous time: 1427
+Reading input time: 1612
+Updating syncronous time: 561
+Rebuilding asyncronous time: 393
 I'm updating the asynchronous world!! Was 600 will be 600
-Update asyncronous time: 59104
+Update asyncronous time: 17416
 GUIActions:11
-GUI copy time: 422613
-Paint copy time: 601413
-Physic time: 1148099
-Send action time: 45958
+GUI copy time: 66528
+Paint copy time: 83708
+Physic time: 215600
+Send action time: 9323
 
 
 Client Sincronous Turn: 600 Asinc: 600
 Waiting input: 0
-Reading input time: 8556
-Updating syncronous time: 1932
-Rebuilding asyncronous time: 1393
+Reading input time: 1556
+Updating syncronous time: 531
+Rebuilding asyncronous time: 386
 I'm updating the asynchronous world!! Was 600 will be 600
-Update asyncronous time: 57078
+Update asyncronous time: 19556
 GUIActions:11
-GUI copy time: 268550
-Paint copy time: 326589
-Physic time: 832192
-Send action time: 45336
+GUI copy time: 68360
+Paint copy time: 85434
+Physic time: 206712
+Send action time: 9373
 
 
 Client Sincronous Turn: 600 Asinc: 600
 Waiting input: 0
-Reading input time: 8103
-Updating syncronous time: 2079
-Rebuilding asyncronous time: 1354
+Reading input time: 1530
+Updating syncronous time: 533
+Rebuilding asyncronous time: 390
 I'm updating the asynchronous world!! Was 600 will be 600
-Update asyncronous time: 84175
+Update asyncronous time: 19455
 GUIActions:11
-GUI copy time: 265427
-Paint copy time: 331609
-Physic time: 848937
-Send action time: 43746
+GUI copy time: 69033
+Paint copy time: 89084
+Physic time: 217307
+Send action time: 9584
 
 
 Client Sincronous Turn: 600 Asinc: 600
 Waiting input: 0
-Reading input time: 3053
-Updating syncronous time: 616
-Rebuilding asyncronous time: 400
+Reading input time: 1549
+Updating syncronous time: 553
+Rebuilding asyncronous time: 392
 I'm updating the asynchronous world!! Was 600 will be 600
-Update asyncronous time: 21720
+Update asyncronous time: 19970
 GUIActions:11
-GUI copy time: 79915
-Paint copy time: 97100
-Physic time: 220562
-Send action time: 15284
+GUI copy time: 66243
+Paint copy time: 83258
+Physic time: 210922
+Send action time: 9742
 
 
 Client Sincronous Turn: 600 Asinc: 600
 Waiting input: 0
-Reading input time: 3465
-Updating syncronous time: 764
-Rebuilding asyncronous time: 397
+Reading input time: 1565
+Updating syncronous time: 532
+Rebuilding asyncronous time: 392
 I'm updating the asynchronous world!! Was 600 will be 600
-Update asyncronous time: 19280
+Update asyncronous time: 19670
 GUIActions:11
-GUI copy time: 79260
-Paint copy time: 103146
-Physic time: 230474
-Send action time: 17376
+GUI copy time: 68693
+Paint copy time: 85720
+Physic time: 211116
+Send action time: 9661
 
 
 Client Sincronous Turn: 600 Asinc: 600
 Waiting input: 0
-Reading input time: 2409
-Updating syncronous time: 576
-Rebuilding asyncronous time: 402
+Reading input time: 2056
+Updating syncronous time: 760
+Rebuilding asyncronous time: 465
 I'm updating the asynchronous world!! Was 600 will be 600
-Update asyncronous time: 17464
+Update asyncronous time: 52583
 GUIActions:11
-GUI copy time: 94536
-Paint copy time: 121963
-Physic time: 239660
-Send action time: 12997
+GUI copy time: 103585
+Paint copy time: 155407
+Physic time: 528331
+Send action time: 10804
 
 
 Client Sincronous Turn: 600 Asinc: 600
 Waiting input: 0
-Reading input time: 6885
-Updating syncronous time: 2061
-Rebuilding asyncronous time: 1393
+Reading input time: 2110
+Updating syncronous time: 676
+Rebuilding asyncronous time: 460
 I'm updating the asynchronous world!! Was 600 will be 600
-Update asyncronous time: 76316
+Update asyncronous time: 52409
 GUIActions:11
-GUI copy time: 238663
-Paint copy time: 295661
-Physic time: 744858
-Send action time: 41220
+GUI copy time: 99445
+Paint copy time: 154151
+Physic time: 524082
+Send action time: 10522
 
 
 Client Sincronous Turn: 600 Asinc: 600
 Waiting input: 0
-Reading input time: 2133
-Updating syncronous time: 604
-Rebuilding asyncronous time: 410
+Reading input time: 2008
+Updating syncronous time: 683
+Rebuilding asyncronous time: 459
 I'm updating the asynchronous world!! Was 600 will be 600
-Update asyncronous time: 16525
+Update asyncronous time: 52504
 GUIActions:11
-GUI copy time: 70924
-Paint copy time: 87872
-Physic time: 208037
-Send action time: 12291
+GUI copy time: 102238
+Paint copy time: 153612
+Physic time: 512724
+Send action time: 10631
 
 
 Client Sincronous Turn: 600 Asinc: 600
 Waiting input: 0
-Reading input time: 7170
-Updating syncronous time: 1865
-Rebuilding asyncronous time: 1343
+Reading input time: 2007
+Updating syncronous time: 670
+Rebuilding asyncronous time: 468
 I'm updating the asynchronous world!! Was 600 will be 600
-Update asyncronous time: 68654
+Update asyncronous time: 51921
 GUIActions:11
-GUI copy time: 263340
-Paint copy time: 320960
-Physic time: 760652
-Send action time: 40534
+GUI copy time: 102073
+Paint copy time: 153484
+Physic time: 515258
+Send action time: 10505
 
 
 Client Sincronous Turn: 600 Asinc: 600
 Waiting input: 0
-Reading input time: 7736
-Updating syncronous time: 2075
-Rebuilding asyncronous time: 1398
+Reading input time: 2033
+Updating syncronous time: 687
+Rebuilding asyncronous time: 470
 I'm updating the asynchronous world!! Was 600 will be 600
-Update asyncronous time: 72795
+Update asyncronous time: 52435
 GUIActions:11
-GUI copy time: 241145
-Paint copy time: 305804
-Physic time: 954167
-Send action time: 38131
+GUI copy time: 102718
+Paint copy time: 154625
+Physic time: 515643
+Send action time: 10940
 
 
 Client Sincronous Turn: 600 Asinc: 600
 Waiting input: 0
-Reading input time: 6846
-Updating syncronous time: 2031
-Rebuilding asyncronous time: 1377
+Reading input time: 2171
+Updating syncronous time: 972
+Rebuilding asyncronous time: 465
 I'm updating the asynchronous world!! Was 600 will be 600
-Update asyncronous time: 85819
+Update asyncronous time: 52684
 GUIActions:11
-GUI copy time: 237835
-Paint copy time: 301059
-Physic time: 765327
-Send action time: 42047
+GUI copy time: 101954
+Paint copy time: 153252
+Physic time: 513652
+Send action time: 10940
 
 
 Client Sincronous Turn: 600 Asinc: 600
 Waiting input: 0
-Reading input time: 7123
-Updating syncronous time: 1974
-Rebuilding asyncronous time: 1509
+Reading input time: 1993
+Updating syncronous time: 964
+Rebuilding asyncronous time: 460
 I'm updating the asynchronous world!! Was 600 will be 600
-Update asyncronous time: 57124
+Update asyncronous time: 57285
 GUIActions:11
-GUI copy time: 822917
-Paint copy time: 888293
-Physic time: 1399200
-Send action time: 41911
+GUI copy time: 102590
+Paint copy time: 124717
+Physic time: 457589
+Send action time: 10307
 
 
 Client Sincronous Turn: 600 Asinc: 600
 Waiting input: 0
-Reading input time: 6725
-Updating syncronous time: 2042
-Rebuilding asyncronous time: 1369
+Reading input time: 3253
+Updating syncronous time: 707
+Rebuilding asyncronous time: 381
 I'm updating the asynchronous world!! Was 600 will be 600
-Update asyncronous time: 62992
+Update asyncronous time: 25313
 GUIActions:11
-GUI copy time: 249934
-Paint copy time: 312555
-Physic time: 720387
-Send action time: 40893
+GUI copy time: 77208
+Paint copy time: 94668
+Physic time: 222489
+Send action time: 15505
 
 
 Client Sincronous Turn: 600 Asinc: 600
 Waiting input: 0
-Reading input time: 6770
-Updating syncronous time: 2085
-Rebuilding asyncronous time: 1465
+Reading input time: 7695
+Updating syncronous time: 2168
+Rebuilding asyncronous time: 1364
 I'm updating the asynchronous world!! Was 600 will be 600
-Update asyncronous time: 61949
+Update asyncronous time: 64747
 GUIActions:11
-GUI copy time: 530210
-Paint copy time: 605848
-Physic time: 1028074
-Send action time: 40999
+GUI copy time: 245014
+Paint copy time: 317035
+Physic time: 760091
+Send action time: 43180
+
+
+Client Sincronous Turn: 600 Asinc: 600
+Waiting input: 0
+Reading input time: 7972
+Updating syncronous time: 2308
+Rebuilding asyncronous time: 1348
+I'm updating the asynchronous world!! Was 600 will be 600
+Update asyncronous time: 58484
+GUIActions:11
+GUI copy time: 475805
+Paint copy time: 550879
+Physic time: 1346901
+Send action time: 45880
+
+
+Client Sincronous Turn: 600 Asinc: 600
+Waiting input: 0
+Reading input time: 8348
+Updating syncronous time: 2144
+Rebuilding asyncronous time: 1328
+I'm updating the asynchronous world!! Was 600 will be 600
+Update asyncronous time: 72166
+GUIActions:11
+GUI copy time: 242708
+Paint copy time: 301203
+Physic time: 768342
+Send action time: 44596
+
+
+Client Sincronous Turn: 600 Asinc: 600
+Waiting input: 0
+Reading input time: 8224
+Updating syncronous time: 843
+Rebuilding asyncronous time: 375
+I'm updating the asynchronous world!! Was 600 will be 600
+Update asyncronous time: 20708
+GUIActions:11
+GUI copy time: 80621
+Paint copy time: 103279
+Physic time: 241484
+Send action time: 15678
+
+
+Client Sincronous Turn: 600 Asinc: 600
+Waiting input: 0
+Reading input time: 4217
+Updating syncronous time: 1038
+Rebuilding asyncronous time: 641
+I'm updating the asynchronous world!! Was 600 will be 600
+Update asyncronous time: 38499
+GUIActions:11
+GUI copy time: 137385
+Paint copy time: 167561
+Physic time: 384041
+Send action time: 22220
+
+
+Client Sincronous Turn: 600 Asinc: 600
+Waiting input: 0
+Reading input time: 6968
+Updating syncronous time: 2121
+Rebuilding asyncronous time: 1314
+I'm updating the asynchronous world!! Was 600 will be 600
+Update asyncronous time: 65794
+GUIActions:11
+GUI copy time: 288177
+Paint copy time: 570934
+Physic time: 1773150
+Send action time: 43141
+
+
+Client Sincronous Turn: 600 Asinc: 600
+Waiting input: 0
+Reading input time: 6953
+Updating syncronous time: 2043
+Rebuilding asyncronous time: 1300
+I'm updating the asynchronous world!! Was 600 will be 600
+Update asyncronous time: 67627
+GUIActions:11
+GUI copy time: 241004
+Paint copy time: 306720
+Physic time: 980299
+Send action time: 42135
+
+
+Client Sincronous Turn: 600 Asinc: 600
+Waiting input: 0
+Reading input time: 6960
+Updating syncronous time: 1869
+Rebuilding asyncronous time: 1272
+I'm updating the asynchronous world!! Was 600 will be 600
+Update asyncronous time: 62930
+GUIActions:11
+GUI copy time: 249286
+Paint copy time: 306549
+Physic time: 702325
+Send action time: 40836
+
+
+Client Sincronous Turn: 600 Asinc: 600
+Waiting input: 0
+Reading input time: 6723
+Updating syncronous time: 2049
+Rebuilding asyncronous time: 1282
+I'm updating the asynchronous world!! Was 600 will be 600
+Update asyncronous time: 66776
+GUIActions:11
+GUI copy time: 245809
+Paint copy time: 308132
+Physic time: 724944
+Send action time: 40599
+
+
+Client Sincronous Turn: 600 Asinc: 600
+Waiting input: 0
+Reading input time: 6666
+Updating syncronous time: 1889
+Rebuilding asyncronous time: 1290
+I'm updating the asynchronous world!! Was 600 will be 600
+Update asyncronous time: 62154
+GUIActions:11
+GUI copy time: 276235
+Paint copy time: 340250
+Physic time: 753941
+Send action time: 40076
+
+
+Client Sincronous Turn: 600 Asinc: 600
+Waiting input: 0
+Reading input time: 7094
+Updating syncronous time: 1992
+Rebuilding asyncronous time: 1274
+I'm updating the asynchronous world!! Was 600 will be 600
+Update asyncronous time: 89642
+GUIActions:11
+GUI copy time: 537342
+Paint copy time: 614170
+Physic time: 1067702
+Send action time: 41327
+
+
+Client Sincronous Turn: 600 Asinc: 600
+Waiting input: 0
+Reading input time: 6890
+Updating syncronous time: 1947
+Rebuilding asyncronous time: 1283
+I'm updating the asynchronous world!! Was 600 will be 600
+Update asyncronous time: 62302
+GUIActions:11
+GUI copy time: 607630
+Paint copy time: 686286
+Physic time: 1092653
+Send action time: 40604
+
+
+Client Sincronous Turn: 600 Asinc: 600
+Waiting input: 0
+Reading input time: 6692
+Updating syncronous time: 1927
+Rebuilding asyncronous time: 1303
+I'm updating the asynchronous world!! Was 600 will be 600
+Update asyncronous time: 65944
+GUIActions:11
+GUI copy time: 658947
+Paint copy time: 735113
+Physic time: 1155853
+Send action time: 40952
+
+
+Client Sincronous Turn: 600 Asinc: 600
+Waiting input: 0
+Reading input time: 6992
+Updating syncronous time: 1961
+Rebuilding asyncronous time: 1309
+I'm updating the asynchronous world!! Was 600 will be 600
+Update asyncronous time: 66006
+GUIActions:11
+GUI copy time: 3506444
+Paint copy time: 3555945
+Physic time: 3959674
+Send action time: 13164
+
+
+Client Sincronous Turn: 600 Asinc: 600
+Waiting input: 0
+Reading input time: 6727
+Updating syncronous time: 1947
+Rebuilding asyncronous time: 1305
+I'm updating the asynchronous world!! Was 600 will be 600
+Update asyncronous time: 65918
+GUIActions:11
+GUI copy time: 528869
+Paint copy time: 605057
+Physic time: 1018352
+Send action time: 41369
+
+
+Client Sincronous Turn: 600 Asinc: 600
+Waiting input: 0
+Reading input time: 6783
+Updating syncronous time: 1949
+Rebuilding asyncronous time: 1322
+I'm updating the asynchronous world!! Was 600 will be 600
+Update asyncronous time: 72042
+GUIActions:11
+GUI copy time: 490633
+Paint copy time: 567280
+Physic time: 1025500
+Send action time: 40831
+
+
+Client Sincronous Turn: 600 Asinc: 600
+Waiting input: 0
+Reading input time: 7118
+Updating syncronous time: 2062
+Rebuilding asyncronous time: 1307
+I'm updating the asynchronous world!! Was 600 will be 600
+Update asyncronous time: 67218
+GUIActions:11
+GUI copy time: 611502
+Paint copy time: 699702
+Physic time: 1238630
+Send action time: 42044
+
+
+Client Sincronous Turn: 600 Asinc: 600
+Waiting input: 0
+Reading input time: 7041
+Updating syncronous time: 1990
+Rebuilding asyncronous time: 1316
+I'm updating the asynchronous world!! Was 600 will be 600
+Update asyncronous time: 57432
+GUIActions:11
+GUI copy time: 244346
+Paint copy time: 302148
+Physic time: 707327
+Send action time: 41159
+
+
+Client Sincronous Turn: 600 Asinc: 600
+Waiting input: 0
+Reading input time: 6953
+Updating syncronous time: 2110
+Rebuilding asyncronous time: 1321
+I'm updating the asynchronous world!! Was 600 will be 600
+Update asyncronous time: 76857
+GUIActions:11
+GUI copy time: 3325929
+Paint copy time: 3418293
+Physic time: 3858415
+Send action time: 42101
+
+
+Client Sincronous Turn: 600 Asinc: 600
+Waiting input: 0
+Reading input time: 18196
+Updating syncronous time: 2140
+Rebuilding asyncronous time: 1463
+I'm updating the asynchronous world!! Was 600 will be 600
+Update asyncronous time: 65452
+GUIActions:11
+GUI copy time: 508584
+Paint copy time: 586987
+Physic time: 1025568
+Send action time: 40624
+
+
+Client Sincronous Turn: 600 Asinc: 600
+Waiting input: 0
+Reading input time: 6836
+Updating syncronous time: 2040
+Rebuilding asyncronous time: 1306
+I'm updating the asynchronous world!! Was 600 will be 600
+Update asyncronous time: 84247
+GUIActions:11
+GUI copy time: 505927
+Paint copy time: 582404
+Physic time: 1024474
+Send action time: 40740
 
 
 Client Sincronous Turn: 600 Asinc: 600
 Waiting input: 0
 Reading input time: 6683
-Updating syncronous time: 1953
-Rebuilding asyncronous time: 1391
+Updating syncronous time: 2214
+Rebuilding asyncronous time: 1347
 I'm updating the asynchronous world!! Was 600 will be 600
-Update asyncronous time: 57209
+Update asyncronous time: 64879
 GUIActions:11
-GUI copy time: 613773
-Paint copy time: 691445
-Physic time: 1105829
-Send action time: 72726
+GUI copy time: 580615
+Paint copy time: 657987
+Physic time: 1136242
+Send action time: 40555
 
 
 Client Sincronous Turn: 600 Asinc: 600
 Waiting input: 0
-Reading input time: 6897
-Updating syncronous time: 1994
-Rebuilding asyncronous time: 1441
+Reading input time: 6758
+Updating syncronous time: 2151
+Rebuilding asyncronous time: 1318
 I'm updating the asynchronous world!! Was 600 will be 600
-Update asyncronous time: 65661
+Update asyncronous time: 82428
 GUIActions:11
-GUI copy time: 521750
-Paint copy time: 598279
-Physic time: 1035919
-Send action time: 41747
+GUI copy time: 3204784
+Paint copy time: 3291551
+Physic time: 3744320
+Send action time: 41790
 
 
 Client Sincronous Turn: 600 Asinc: 600
 Waiting input: 0
-Reading input time: 6651
-Updating syncronous time: 1900
-Rebuilding asyncronous time: 1399
+Reading input time: 6729
+Updating syncronous time: 2172
+Rebuilding asyncronous time: 1370
 I'm updating the asynchronous world!! Was 600 will be 600
-Update asyncronous time: 65971
+Update asyncronous time: 62885
 GUIActions:11
-GUI copy time: 3377616
-Paint copy time: 3501259
-Physic time: 3920458
-Send action time: 42879
-
-
-Client Sincronous Turn: 600 Asinc: 600
-Waiting input: 0
-Reading input time: 6866
-Updating syncronous time: 2728
-Rebuilding asyncronous time: 1463
-I'm updating the asynchronous world!! Was 600 will be 600
-Update asyncronous time: 65290
-GUIActions:11
-GUI copy time: 534406
-Paint copy time: 613144
-Physic time: 1345224
-Send action time: 51665
-
-
-Client Sincronous Turn: 600 Asinc: 600
-Waiting input: 0
-Reading input time: 6684
-Updating syncronous time: 1974
-Rebuilding asyncronous time: 1403
-I'm updating the asynchronous world!! Was 600 will be 600
-Update asyncronous time: 63807
-GUIActions:11
-GUI copy time: 3258967
-Paint copy time: 3289232
-Physic time: 3676949
-Send action time: 12531
-
-
-Client Sincronous Turn: 600 Asinc: 600
-Waiting input: 0
-Reading input time: 6554
-Updating syncronous time: 1843
-Rebuilding asyncronous time: 1361
-I'm updating the asynchronous world!! Was 600 will be 600
-Update asyncronous time: 74739
-GUIActions:11
-GUI copy time: 842007
-Paint copy time: 923124
-Physic time: 1361758
-Send action time: 41259
-
-
-Client Sincronous Turn: 600 Asinc: 600
-Waiting input: 0
-Reading input time: 6633
-Updating syncronous time: 2132
-Rebuilding asyncronous time: 1371
-I'm updating the asynchronous world!! Was 600 will be 600
-Update asyncronous time: 63472
-GUIActions:11
-GUI copy time: 5878398
-Paint copy time: 6000102
-Physic time: 6427180
-Send action time: 44131
-
-
-Client Sincronous Turn: 600 Asinc: 600
-Waiting input: 0
-Reading input time: 6588
-Updating syncronous time: 1931
-Rebuilding asyncronous time: 1387
-I'm updating the asynchronous world!! Was 600 will be 600
-Update asyncronous time: 57458
-GUIActions:11
-GUI copy time: 249849
-Paint copy time: 308778
-Physic time: 739521
-Send action time: 40659
-
-
-Client Sincronous Turn: 600 Asinc: 600
-Waiting input: 0
-Reading input time: 6679
-Updating syncronous time: 2042
-Rebuilding asyncronous time: 1376
-I'm updating the asynchronous world!! Was 600 will be 600
-Update asyncronous time: 57252
-GUIActions:11
-GUI copy time: 505636
-Paint copy time: 591832
-Physic time: 1019454
-Send action time: 50879
+GUI copy time: 453065
+Paint copy time: 529322
+Physic time: 959707
+Send action time: 41060
 
 
 Client Sincronous Turn: 600 Asinc: 600
 Waiting input: 1
 AllMap received
-Reading input time: 58377
+Reading input time: 58237
 Testin precision of map
 I'm rebuilding the asynchronous world!! Was 600 will be 600
 x: 0.0 y: 0.0 xV: 0.0 yV: 0.0 aV: 0.0 a: 0.0
@@ -1468,8 +1482,8 @@ Creating id: 10
 elements in world:15
 Rebuilding world from turn: 700
 NewTurn to elaborate: 0
-Rilevated turn LAG: -162.5 to ms: -2437.5
-Updating syncronous time: 24039748
+Rilevated turn LAG: -164.5 to ms: -2467.5
+Updating syncronous time: 19337796
 I'm rebuilding the asynchronous world!! Was 699 will be 700
 x: 0.0 y: 0.0 xV: 0.0 yV: 0.0 aV: 0.0 a: 0.0
 x: 0.0 y: 0.5 xV: 0.0 yV: 0.0 aV: 0.0 a: 0.0
@@ -1482,708 +1496,708 @@ x: 0.0 y: 3.5 xV: 0.0 yV: 0.0 aV: 0.0 a: 0.0
 x: 0.0 y: 4.0 xV: 0.0 yV: 0.0 aV: 0.0 a: 0.0
 x: 0.0 y: 4.5 xV: 0.0 yV: 0.0 aV: 0.0 a: 0.0
 x: 0.0 y: -10.0 xV: 0.0 yV: 0.0 aV: 0.0 a: 0.0
-Rebuilding asyncronous time: 2120583
+Rebuilding asyncronous time: 1920016
 Asinc turn was less than sync turn:600 700
 I'm updating the asynchronous world!! Was 700 will be 700
-Update asyncronous time: 35150
+Update asyncronous time: 36178
 GUIActions:11
-GUI copy time: 226475
-Paint copy time: 253115
-Physic time: 26720630
-Send action time: 12300
-WARNING: engine turn take more execution time than requested!!! This can cause serius error/data corruption!! ms duration: 27
+GUI copy time: 209105
+Paint copy time: 235090
+Physic time: 21771259
+Send action time: 12516
+WARNING: engine turn take more execution time than requested!!! This can cause serius error/data corruption!! ms duration: 22
 
 
 Client Sincronous Turn: 700 Asinc: 700
 Waiting input: 0
-Reading input time: 1916
-Updating syncronous time: 566
-Rebuilding asyncronous time: 410
+Reading input time: 2179
+Updating syncronous time: 563
+Rebuilding asyncronous time: 390
 I'm updating the asynchronous world!! Was 700 will be 700
-Update asyncronous time: 17570
+Update asyncronous time: 17901
 GUIActions:11
-GUI copy time: 70808
-Paint copy time: 88120
-Physic time: 210176
-Send action time: 9190
+GUI copy time: 72578
+Paint copy time: 89806
+Physic time: 207943
+Send action time: 9375
 
 
 Client Sincronous Turn: 700 Asinc: 700
 Waiting input: 0
-Reading input time: 2121
-Updating syncronous time: 564
-Rebuilding asyncronous time: 399
+Reading input time: 2234
+Updating syncronous time: 563
+Rebuilding asyncronous time: 375
 I'm updating the asynchronous world!! Was 700 will be 700
-Update asyncronous time: 18168
+Update asyncronous time: 16793
 GUIActions:11
-GUI copy time: 68293
-Paint copy time: 88099
-Physic time: 206375
-Send action time: 11536
+GUI copy time: 246092
+Paint copy time: 270601
+Physic time: 394177
+Send action time: 12615
 
 
 Client Sincronous Turn: 700 Asinc: 700
 Waiting input: 0
-Reading input time: 6773
-Updating syncronous time: 1946
-Rebuilding asyncronous time: 1372
+Reading input time: 6729
+Updating syncronous time: 1887
+Rebuilding asyncronous time: 1293
 I'm updating the asynchronous world!! Was 700 will be 700
-Update asyncronous time: 64453
+Update asyncronous time: 57722
 GUIActions:11
-GUI copy time: 516347
-Paint copy time: 593069
-Physic time: 1032103
-Send action time: 39234
+GUI copy time: 4599493
+Paint copy time: 4864674
+Physic time: 5497331
+Send action time: 43220
 
 
 Client Sincronous Turn: 700 Asinc: 700
 Waiting input: 0
-Reading input time: 2118
-Updating syncronous time: 556
-Rebuilding asyncronous time: 396
+Reading input time: 7006
+Updating syncronous time: 1994
+Rebuilding asyncronous time: 1318
 I'm updating the asynchronous world!! Was 700 will be 700
-Update asyncronous time: 21406
+Update asyncronous time: 64624
 GUIActions:11
-GUI copy time: 952409
-Paint copy time: 977196
-Physic time: 1097639
-Send action time: 11903
+GUI copy time: 250274
+Paint copy time: 313599
+Physic time: 749616
+Send action time: 39463
 
 
 Client Sincronous Turn: 700 Asinc: 700
 Waiting input: 0
-Reading input time: 6659
-Updating syncronous time: 2009
-Rebuilding asyncronous time: 1389
+Reading input time: 6866
+Updating syncronous time: 2041
+Rebuilding asyncronous time: 1305
 I'm updating the asynchronous world!! Was 700 will be 700
-Update asyncronous time: 79384
+Update asyncronous time: 277753
 GUIActions:11
-GUI copy time: 482751
-Paint copy time: 561037
-Physic time: 1043219
-Send action time: 39065
+GUI copy time: 483725
+Paint copy time: 555596
+Physic time: 1203344
+Send action time: 39619
 
 
 Client Sincronous Turn: 700 Asinc: 700
 Waiting input: 0
-Reading input time: 6332
-Updating syncronous time: 1936
-Rebuilding asyncronous time: 1382
+Reading input time: 6740
+Updating syncronous time: 2057
+Rebuilding asyncronous time: 1319
 I'm updating the asynchronous world!! Was 700 will be 700
-Update asyncronous time: 58830
+Update asyncronous time: 62279
 GUIActions:11
-GUI copy time: 663881
-Paint copy time: 744080
-Physic time: 1162275
-Send action time: 38431
+GUI copy time: 380766
+Paint copy time: 464338
+Physic time: 891795
+Send action time: 39240
 
 
 Client Sincronous Turn: 700 Asinc: 700
 Waiting input: 0
-Reading input time: 6149
-Updating syncronous time: 1906
-Rebuilding asyncronous time: 1407
+Reading input time: 6754
+Updating syncronous time: 1937
+Rebuilding asyncronous time: 1356
 I'm updating the asynchronous world!! Was 700 will be 700
-Update asyncronous time: 57920
+Update asyncronous time: 62198
 GUIActions:11
-GUI copy time: 562753
-Paint copy time: 642260
-Physic time: 1043191
-Send action time: 37913
+GUI copy time: 624708
+Paint copy time: 701523
+Physic time: 1114478
+Send action time: 39573
 
 
 Client Sincronous Turn: 700 Asinc: 700
 Waiting input: 0
-Reading input time: 6781
-Updating syncronous time: 2171
-Rebuilding asyncronous time: 1399
+Reading input time: 7009
+Updating syncronous time: 2117
+Rebuilding asyncronous time: 1337
 I'm updating the asynchronous world!! Was 700 will be 700
-Update asyncronous time: 57451
+Update asyncronous time: 77299
 GUIActions:11
-GUI copy time: 236145
-Paint copy time: 301953
-Physic time: 715031
-Send action time: 38695
+GUI copy time: 437064
+Paint copy time: 513795
+Physic time: 969647
+Send action time: 39267
 
 
 Client Sincronous Turn: 700 Asinc: 700
 Waiting input: 0
-Reading input time: 6626
-Updating syncronous time: 1989
-Rebuilding asyncronous time: 1379
+Reading input time: 18713
+Updating syncronous time: 2201
+Rebuilding asyncronous time: 1310
 I'm updating the asynchronous world!! Was 700 will be 700
-Update asyncronous time: 65427
+Update asyncronous time: 64798
 GUIActions:11
-GUI copy time: 3626383
-Paint copy time: 3748338
-Physic time: 4160370
-Send action time: 41085
+GUI copy time: 580247
+Paint copy time: 664922
+Physic time: 1100353
+Send action time: 116792
 
 
 Client Sincronous Turn: 700 Asinc: 700
 Waiting input: 0
-Reading input time: 6590
-Updating syncronous time: 1900
-Rebuilding asyncronous time: 1387
+Reading input time: 19559
+Updating syncronous time: 1961
+Rebuilding asyncronous time: 1338
 I'm updating the asynchronous world!! Was 700 will be 700
-Update asyncronous time: 103197
+Update asyncronous time: 66575
 GUIActions:11
-GUI copy time: 423640
-Paint copy time: 498285
-Physic time: 946623
-Send action time: 39449
+GUI copy time: 419210
+Paint copy time: 495776
+Physic time: 928207
+Send action time: 39051
 
 
 Client Sincronous Turn: 700 Asinc: 700
 Waiting input: 0
-Reading input time: 6751
-Updating syncronous time: 1971
-Rebuilding asyncronous time: 1375
+Reading input time: 6862
+Updating syncronous time: 1939
+Rebuilding asyncronous time: 1287
 I'm updating the asynchronous world!! Was 700 will be 700
-Update asyncronous time: 62281
+Update asyncronous time: 62801
 GUIActions:11
-GUI copy time: 420656
-Paint copy time: 495516
-Physic time: 927288
-Send action time: 39131
+GUI copy time: 418466
+Paint copy time: 495942
+Physic time: 930671
+Send action time: 39734
 
 
 Client Sincronous Turn: 700 Asinc: 700
 Waiting input: 0
-Reading input time: 6648
-Updating syncronous time: 2030
-Rebuilding asyncronous time: 1368
+Reading input time: 6779
+Updating syncronous time: 2003
+Rebuilding asyncronous time: 1299
 I'm updating the asynchronous world!! Was 700 will be 700
-Update asyncronous time: 63581
+Update asyncronous time: 57945
 GUIActions:11
-GUI copy time: 466568
-Paint copy time: 541103
-Physic time: 954311
-Send action time: 38580
+GUI copy time: 490571
+Paint copy time: 567414
+Physic time: 1036043
+Send action time: 39765
 
 
 Client Sincronous Turn: 700 Asinc: 700
 Waiting input: 0
-Reading input time: 6674
-Updating syncronous time: 1975
-Rebuilding asyncronous time: 1429
+Reading input time: 2236
+Updating syncronous time: 571
+Rebuilding asyncronous time: 375
 I'm updating the asynchronous world!! Was 700 will be 700
-Update asyncronous time: 62890
+Update asyncronous time: 17006
 GUIActions:11
-GUI copy time: 483557
-Paint copy time: 559520
-Physic time: 990328
-Send action time: 38727
+GUI copy time: 84605
+Paint copy time: 102223
+Physic time: 218706
+Send action time: 11534
 
 
 Client Sincronous Turn: 700 Asinc: 700
 Waiting input: 0
-Reading input time: 6977
-Updating syncronous time: 1917
-Rebuilding asyncronous time: 1439
+Reading input time: 6799
+Updating syncronous time: 1988
+Rebuilding asyncronous time: 1320
 I'm updating the asynchronous world!! Was 700 will be 700
-Update asyncronous time: 64972
+Update asyncronous time: 62432
 GUIActions:11
-GUI copy time: 413563
-Paint copy time: 489876
-Physic time: 937679
-Send action time: 39430
-
-
-Client Sincronous Turn: 700 Asinc: 700
-Waiting input: 0
-Reading input time: 6800
-Updating syncronous time: 1904
-Rebuilding asyncronous time: 1369
-I'm updating the asynchronous world!! Was 700 will be 700
-Update asyncronous time: 62133
-GUIActions:11
-GUI copy time: 428678
-Paint copy time: 504081
-Physic time: 900788
-Send action time: 38765
-
-
-Client Sincronous Turn: 700 Asinc: 700
-Waiting input: 0
-Reading input time: 6789
-Updating syncronous time: 1944
-Rebuilding asyncronous time: 1368
-I'm updating the asynchronous world!! Was 700 will be 700
-Update asyncronous time: 57318
-GUIActions:11
-GUI copy time: 439550
-Paint copy time: 515618
-Physic time: 926868
-Send action time: 38597
-
-
-Client Sincronous Turn: 700 Asinc: 700
-Waiting input: 0
-Reading input time: 7895
-Updating syncronous time: 2455
-Rebuilding asyncronous time: 1487
-I'm updating the asynchronous world!! Was 700 will be 700
-Update asyncronous time: 175363
-GUIActions:11
-GUI copy time: 531879
-Paint copy time: 716716
-Physic time: 2045105
-Send action time: 39921
-
-
-Client Sincronous Turn: 700 Asinc: 700
-Waiting input: 0
-Reading input time: 6809
-Updating syncronous time: 2019
-Rebuilding asyncronous time: 1371
-I'm updating the asynchronous world!! Was 700 will be 700
-Update asyncronous time: 56604
-GUIActions:11
-GUI copy time: 1138071
-Paint copy time: 1224583
-Physic time: 1624109
-Send action time: 39838
-
-
-Client Sincronous Turn: 700 Asinc: 700
-Waiting input: 0
-Reading input time: 6817
-Updating syncronous time: 2029
-Rebuilding asyncronous time: 1367
-I'm updating the asynchronous world!! Was 700 will be 700
-Update asyncronous time: 57545
-GUIActions:11
-GUI copy time: 267862
-Paint copy time: 331403
-Physic time: 739977
-Send action time: 38035
-
-
-Client Sincronous Turn: 700 Asinc: 700
-Waiting input: 0
-Reading input time: 6712
-Updating syncronous time: 2004
-Rebuilding asyncronous time: 1357
-I'm updating the asynchronous world!! Was 700 will be 700
-Update asyncronous time: 75335
-GUIActions:11
-GUI copy time: 435961
-Paint copy time: 511995
-Physic time: 957462
+GUI copy time: 489550
+Paint copy time: 564933
+Physic time: 983962
 Send action time: 38689
 
 
 Client Sincronous Turn: 700 Asinc: 700
 Waiting input: 0
-Reading input time: 6711
-Updating syncronous time: 2037
-Rebuilding asyncronous time: 1361
+Reading input time: 7537
+Updating syncronous time: 1988
+Rebuilding asyncronous time: 1315
 I'm updating the asynchronous world!! Was 700 will be 700
-Update asyncronous time: 57886
+Update asyncronous time: 57542
 GUIActions:11
-GUI copy time: 438579
-Paint copy time: 515464
-Physic time: 964417
-Send action time: 38503
+GUI copy time: 422421
+Paint copy time: 506910
+Physic time: 915243
+Send action time: 41043
 
 
 Client Sincronous Turn: 700 Asinc: 700
 Waiting input: 0
-Reading input time: 6707
-Updating syncronous time: 1950
-Rebuilding asyncronous time: 1369
+Reading input time: 6815
+Updating syncronous time: 1936
+Rebuilding asyncronous time: 1292
 I'm updating the asynchronous world!! Was 700 will be 700
-Update asyncronous time: 58545
+Update asyncronous time: 66834
 GUIActions:11
-GUI copy time: 457072
-Paint copy time: 534571
-Physic time: 947217
-Send action time: 38916
+GUI copy time: 433684
+Paint copy time: 512657
+Physic time: 912448
+Send action time: 38909
 
 
 Client Sincronous Turn: 700 Asinc: 700
 Waiting input: 0
-Reading input time: 6628
-Updating syncronous time: 1852
-Rebuilding asyncronous time: 1361
+Reading input time: 6811
+Updating syncronous time: 1929
+Rebuilding asyncronous time: 1291
 I'm updating the asynchronous world!! Was 700 will be 700
-Update asyncronous time: 86991
+Update asyncronous time: 65468
 GUIActions:11
-GUI copy time: 439318
-Paint copy time: 514836
-Physic time: 968134
-Send action time: 38704
-
-
-Client Sincronous Turn: 700 Asinc: 700
-Waiting input: 0
-Reading input time: 7760
-Updating syncronous time: 2153
-Rebuilding asyncronous time: 1397
-I'm updating the asynchronous world!! Was 700 will be 700
-Update asyncronous time: 58588
-GUIActions:11
-GUI copy time: 451510
-Paint copy time: 529639
-Physic time: 1182040
-Send action time: 39132
-
-
-Client Sincronous Turn: 700 Asinc: 700
-Waiting input: 0
-Reading input time: 6701
-Updating syncronous time: 1892
-Rebuilding asyncronous time: 1357
-I'm updating the asynchronous world!! Was 700 will be 700
-Update asyncronous time: 66058
-GUIActions:11
-GUI copy time: 453105
-Paint copy time: 528165
-Physic time: 948895
-Send action time: 38705
-
-
-Client Sincronous Turn: 700 Asinc: 700
-Waiting input: 0
-Reading input time: 6603
-Updating syncronous time: 1865
-Rebuilding asyncronous time: 1366
-I'm updating the asynchronous world!! Was 700 will be 700
-Update asyncronous time: 66966
-GUIActions:11
-GUI copy time: 602593
-Paint copy time: 684700
-Physic time: 1290201
-Send action time: 39080
-
-
-Client Sincronous Turn: 700 Asinc: 700
-Waiting input: 0
-Reading input time: 6701
-Updating syncronous time: 1943
-Rebuilding asyncronous time: 1358
-I'm updating the asynchronous world!! Was 700 will be 700
-Update asyncronous time: 106917
-GUIActions:11
-GUI copy time: 478041
-Paint copy time: 555963
-Physic time: 1030692
-Send action time: 39958
-
-
-Client Sincronous Turn: 700 Asinc: 700
-Waiting input: 0
-Reading input time: 6666
-Updating syncronous time: 1896
-Rebuilding asyncronous time: 1364
-I'm updating the asynchronous world!! Was 700 will be 700
-Update asyncronous time: 61838
-GUIActions:11
-GUI copy time: 253596
-Paint copy time: 324295
-Physic time: 935318
-Send action time: 38120
-
-
-Client Sincronous Turn: 700 Asinc: 700
-Waiting input: 0
-Reading input time: 6725
-Updating syncronous time: 1913
-Rebuilding asyncronous time: 1432
-I'm updating the asynchronous world!! Was 700 will be 700
-Update asyncronous time: 58360
-GUIActions:11
-GUI copy time: 519815
-Paint copy time: 597082
-Physic time: 1064403
-Send action time: 39774
-
-
-Client Sincronous Turn: 700 Asinc: 700
-Waiting input: 0
-Reading input time: 6902
-Updating syncronous time: 2047
-Rebuilding asyncronous time: 1376
-I'm updating the asynchronous world!! Was 700 will be 700
-Update asyncronous time: 347311
-GUIActions:11
-GUI copy time: 446749
-Paint copy time: 527896
-Physic time: 1355830
-Send action time: 39005
-
-
-Client Sincronous Turn: 700 Asinc: 700
-Waiting input: 0
-Reading input time: 6759
-Updating syncronous time: 1911
-Rebuilding asyncronous time: 1420
-I'm updating the asynchronous world!! Was 700 will be 700
-Update asyncronous time: 64907
-GUIActions:11
-GUI copy time: 446366
-Paint copy time: 527276
-Physic time: 959548
-Send action time: 39278
-
-
-Client Sincronous Turn: 700 Asinc: 700
-Waiting input: 0
-Reading input time: 6720
-Updating syncronous time: 1927
-Rebuilding asyncronous time: 1371
-I'm updating the asynchronous world!! Was 700 will be 700
-Update asyncronous time: 64765
-GUIActions:11
-GUI copy time: 790388
-Paint copy time: 870640
-Physic time: 1298589
+GUI copy time: 450531
+Paint copy time: 526091
+Physic time: 1268449
 Send action time: 39500
 
 
 Client Sincronous Turn: 700 Asinc: 700
 Waiting input: 0
-Reading input time: 6894
-Updating syncronous time: 1907
-Rebuilding asyncronous time: 1350
+Reading input time: 6719
+Updating syncronous time: 1908
+Rebuilding asyncronous time: 1289
 I'm updating the asynchronous world!! Was 700 will be 700
-Update asyncronous time: 65798
+Update asyncronous time: 59297
 GUIActions:11
-GUI copy time: 442461
-Paint copy time: 538934
-Physic time: 986599
-Send action time: 38885
+GUI copy time: 466317
+Paint copy time: 542623
+Physic time: 952176
+Send action time: 39125
 
 
 Client Sincronous Turn: 700 Asinc: 700
 Waiting input: 0
-Reading input time: 6712
-Updating syncronous time: 1929
-Rebuilding asyncronous time: 1361
-I'm updating the asynchronous world!! Was 700 will be 700
-Update asyncronous time: 63682
-GUIActions:11
-GUI copy time: 746305
-Paint copy time: 835813
-Physic time: 1264449
-Send action time: 38763
-
-
-Client Sincronous Turn: 700 Asinc: 700
-Waiting input: 0
-Reading input time: 6822
-Updating syncronous time: 1998
-Rebuilding asyncronous time: 1393
-I'm updating the asynchronous world!! Was 700 will be 700
-Update asyncronous time: 65041
-GUIActions:11
-GUI copy time: 495214
-Paint copy time: 582380
-Physic time: 1005442
-Send action time: 40471
-
-
-Client Sincronous Turn: 700 Asinc: 700
-Waiting input: 0
-Reading input time: 6332
-Updating syncronous time: 2145
-Rebuilding asyncronous time: 1376
-I'm updating the asynchronous world!! Was 700 will be 700
-Update asyncronous time: 73766
-GUIActions:11
-GUI copy time: 258818
-Paint copy time: 318839
-Physic time: 760391
-Send action time: 35335
-
-
-Client Sincronous Turn: 700 Asinc: 700
-Waiting input: 0
-Reading input time: 7234
-Updating syncronous time: 2090
-Rebuilding asyncronous time: 1372
-I'm updating the asynchronous world!! Was 700 will be 700
-Update asyncronous time: 65160
-GUIActions:11
-GUI copy time: 244442
-Paint copy time: 318935
-Physic time: 789554
-Send action time: 41203
-
-
-Client Sincronous Turn: 700 Asinc: 700
-Waiting input: 0
-Reading input time: 2288
-Updating syncronous time: 551
-Rebuilding asyncronous time: 398
-I'm updating the asynchronous world!! Was 700 will be 700
-Update asyncronous time: 69112
-GUIActions:11
-GUI copy time: 258047
-Paint copy time: 322467
-Physic time: 634686
-Send action time: 39819
-
-
-Client Sincronous Turn: 700 Asinc: 700
-Waiting input: 0
-Reading input time: 6918
-Updating syncronous time: 1918
-Rebuilding asyncronous time: 1385
-I'm updating the asynchronous world!! Was 700 will be 700
-Update asyncronous time: 65675
-GUIActions:11
-GUI copy time: 289536
-Paint copy time: 359409
-Physic time: 832306
-Send action time: 38517
-
-
-Client Sincronous Turn: 700 Asinc: 700
-Waiting input: 0
-Reading input time: 7068
-Updating syncronous time: 2081
-Rebuilding asyncronous time: 1402
-I'm updating the asynchronous world!! Was 700 will be 700
-Update asyncronous time: 66506
-GUIActions:11
-GUI copy time: 244546
-Paint copy time: 308860
-Physic time: 757575
-Send action time: 39961
-
-
-Client Sincronous Turn: 700 Asinc: 700
-Waiting input: 0
-Reading input time: 7052
+Reading input time: 6718
 Updating syncronous time: 1937
-Rebuilding asyncronous time: 1385
+Rebuilding asyncronous time: 1699
 I'm updating the asynchronous world!! Was 700 will be 700
-Update asyncronous time: 63145
+Update asyncronous time: 62338
 GUIActions:11
-GUI copy time: 279705
-Paint copy time: 346742
-Physic time: 768871
-Send action time: 39427
+GUI copy time: 437454
+Paint copy time: 512273
+Physic time: 936613
+Send action time: 38709
 
 
 Client Sincronous Turn: 700 Asinc: 700
 Waiting input: 0
-Reading input time: 6823
-Updating syncronous time: 1903
-Rebuilding asyncronous time: 1402
+Reading input time: 6837
+Updating syncronous time: 1953
+Rebuilding asyncronous time: 1293
 I'm updating the asynchronous world!! Was 700 will be 700
-Update asyncronous time: 67439
+Update asyncronous time: 63862
 GUIActions:11
-GUI copy time: 283387
-Paint copy time: 342827
-Physic time: 772659
-Send action time: 39043
+GUI copy time: 448570
+Paint copy time: 557180
+Physic time: 969390
+Send action time: 38745
 
 
 Client Sincronous Turn: 700 Asinc: 700
 Waiting input: 0
-Reading input time: 6750
-Updating syncronous time: 1928
-Rebuilding asyncronous time: 1385
+Reading input time: 6873
+Updating syncronous time: 1957
+Rebuilding asyncronous time: 1289
 I'm updating the asynchronous world!! Was 700 will be 700
-Update asyncronous time: 75299
+Update asyncronous time: 74911
 GUIActions:11
-GUI copy time: 246705
-Paint copy time: 305074
-Physic time: 739308
-Send action time: 38546
+GUI copy time: 479011
+Paint copy time: 554360
+Physic time: 977944
+Send action time: 39227
 
 
 Client Sincronous Turn: 700 Asinc: 700
 Waiting input: 0
-Reading input time: 6536
-Updating syncronous time: 2018
-Rebuilding asyncronous time: 1304
+Reading input time: 8076
+Updating syncronous time: 2392
+Rebuilding asyncronous time: 1466
 I'm updating the asynchronous world!! Was 700 will be 700
-Update asyncronous time: 63601
+Update asyncronous time: 176332
 GUIActions:11
-GUI copy time: 242358
-Paint copy time: 313888
-Physic time: 771486
-Send action time: 38423
+GUI copy time: 616310
+Paint copy time: 815164
+Physic time: 2097919
+Send action time: 41910
 
 
 Client Sincronous Turn: 700 Asinc: 700
 Waiting input: 0
-Reading input time: 6738
-Updating syncronous time: 1935
-Rebuilding asyncronous time: 1343
+Reading input time: 6961
+Updating syncronous time: 1978
+Rebuilding asyncronous time: 1293
 I'm updating the asynchronous world!! Was 700 will be 700
-Update asyncronous time: 58820
+Update asyncronous time: 59442
 GUIActions:11
-GUI copy time: 251969
-Paint copy time: 310351
-Physic time: 722009
-Send action time: 37943
+GUI copy time: 265797
+Paint copy time: 329532
+Physic time: 785287
+Send action time: 38866
 
 
 Client Sincronous Turn: 700 Asinc: 700
 Waiting input: 0
-Reading input time: 6461
+Reading input time: 7079
+Updating syncronous time: 1946
+Rebuilding asyncronous time: 1297
+I'm updating the asynchronous world!! Was 700 will be 700
+Update asyncronous time: 75662
+GUIActions:11
+GUI copy time: 474912
+Paint copy time: 552178
+Physic time: 989150
+Send action time: 67827
+
+
+Client Sincronous Turn: 700 Asinc: 700
+Waiting input: 0
+Reading input time: 6832
+Updating syncronous time: 2015
+Rebuilding asyncronous time: 1371
+I'm updating the asynchronous world!! Was 700 will be 700
+Update asyncronous time: 57430
+GUIActions:11
+GUI copy time: 470835
+Paint copy time: 549039
+Physic time: 1096960
+Send action time: 38789
+
+
+Client Sincronous Turn: 700 Asinc: 700
+Waiting input: 0
+Reading input time: 6878
+Updating syncronous time: 2165
+Rebuilding asyncronous time: 1316
+I'm updating the asynchronous world!! Was 700 will be 700
+Update asyncronous time: 57674
+GUIActions:11
+GUI copy time: 445032
+Paint copy time: 521709
+Physic time: 951382
+Send action time: 38919
+
+
+Client Sincronous Turn: 700 Asinc: 700
+Waiting input: 0
+Reading input time: 6839
+Updating syncronous time: 1950
+Rebuilding asyncronous time: 1294
+I'm updating the asynchronous world!! Was 700 will be 700
+Update asyncronous time: 62589
+GUIActions:11
+GUI copy time: 427137
+Paint copy time: 516029
+Physic time: 940065
+Send action time: 38716
+
+
+Client Sincronous Turn: 700 Asinc: 700
+Waiting input: 0
+Reading input time: 6810
+Updating syncronous time: 1967
+Rebuilding asyncronous time: 1308
+I'm updating the asynchronous world!! Was 700 will be 700
+Update asyncronous time: 64283
+GUIActions:11
+GUI copy time: 557025
+Paint copy time: 634544
+Physic time: 1114172
+Send action time: 39263
+
+
+Client Sincronous Turn: 700 Asinc: 700
+Waiting input: 0
+Reading input time: 7180
+Updating syncronous time: 2199
+Rebuilding asyncronous time: 1286
+I'm updating the asynchronous world!! Was 700 will be 700
+Update asyncronous time: 66930
+GUIActions:11
+GUI copy time: 426248
+Paint copy time: 501454
+Physic time: 989085
+Send action time: 38535
+
+
+Client Sincronous Turn: 700 Asinc: 700
+Waiting input: 0
+Reading input time: 6792
 Updating syncronous time: 1872
-Rebuilding asyncronous time: 1364
+Rebuilding asyncronous time: 1286
 I'm updating the asynchronous world!! Was 700 will be 700
-Update asyncronous time: 73591
+Update asyncronous time: 65560
 GUIActions:11
-GUI copy time: 236064
-Paint copy time: 293976
-Physic time: 717982
-Send action time: 37187
+GUI copy time: 520985
+Paint copy time: 583835
+Physic time: 971342
+Send action time: 11829
 
 
 Client Sincronous Turn: 700 Asinc: 700
 Waiting input: 0
-Reading input time: 6102
-Updating syncronous time: 646
-Rebuilding asyncronous time: 405
+Reading input time: 6594
+Updating syncronous time: 1832
+Rebuilding asyncronous time: 1281
 I'm updating the asynchronous world!! Was 700 will be 700
-Update asyncronous time: 16932
+Update asyncronous time: 77936
 GUIActions:11
-GUI copy time: 71878
-Paint copy time: 88976
-Physic time: 216719
-Send action time: 12540
+GUI copy time: 244141
+Paint copy time: 303158
+Physic time: 747763
+Send action time: 37265
 
 
 Client Sincronous Turn: 700 Asinc: 700
 Waiting input: 0
-Reading input time: 6924
-Updating syncronous time: 1948
-Rebuilding asyncronous time: 1416
+Reading input time: 6883
+Updating syncronous time: 1994
+Rebuilding asyncronous time: 1277
 I'm updating the asynchronous world!! Was 700 will be 700
-Update asyncronous time: 68088
+Update asyncronous time: 59515
 GUIActions:11
-GUI copy time: 288093
-Paint copy time: 358954
-Physic time: 814521
-Send action time: 38090
+GUI copy time: 254315
+Paint copy time: 319514
+Physic time: 793389
+Send action time: 39728
 
 
 Client Sincronous Turn: 700 Asinc: 700
 Waiting input: 0
-Reading input time: 6853
-Updating syncronous time: 1972
-Rebuilding asyncronous time: 1419
+Reading input time: 7515
+Updating syncronous time: 2081
+Rebuilding asyncronous time: 1266
 I'm updating the asynchronous world!! Was 700 will be 700
-Update asyncronous time: 72930
+Update asyncronous time: 67046
 GUIActions:11
-GUI copy time: 241223
-Paint copy time: 305789
-Physic time: 768959
-Send action time: 38092
+GUI copy time: 259354
+Paint copy time: 318863
+Physic time: 772745
+Send action time: 38539
+
+
+Client Sincronous Turn: 700 Asinc: 700
+Waiting input: 0
+Reading input time: 7145
+Updating syncronous time: 2097
+Rebuilding asyncronous time: 1283
+I'm updating the asynchronous world!! Was 700 will be 700
+Update asyncronous time: 65426
+GUIActions:11
+GUI copy time: 245528
+Paint copy time: 396956
+Physic time: 846737
+Send action time: 40286
+
+
+Client Sincronous Turn: 700 Asinc: 700
+Waiting input: 0
+Reading input time: 6796
+Updating syncronous time: 1922
+Rebuilding asyncronous time: 1272
+I'm updating the asynchronous world!! Was 700 will be 700
+Update asyncronous time: 64894
+GUIActions:11
+GUI copy time: 288834
+Paint copy time: 348438
+Physic time: 765705
+Send action time: 38389
+
+
+Client Sincronous Turn: 700 Asinc: 700
+Waiting input: 0
+Reading input time: 6875
+Updating syncronous time: 1978
+Rebuilding asyncronous time: 1294
+I'm updating the asynchronous world!! Was 700 will be 700
+Update asyncronous time: 87899
+GUIActions:11
+GUI copy time: 252642
+Paint copy time: 316458
+Physic time: 773765
+Send action time: 38295
+
+
+Client Sincronous Turn: 700 Asinc: 700
+Waiting input: 0
+Reading input time: 6847
+Updating syncronous time: 2209
+Rebuilding asyncronous time: 1273
+I'm updating the asynchronous world!! Was 700 will be 700
+Update asyncronous time: 77243
+GUIActions:11
+GUI copy time: 237985
+Paint copy time: 302891
+Physic time: 752041
+Send action time: 37888
+
+
+Client Sincronous Turn: 700 Asinc: 700
+Waiting input: 0
+Reading input time: 7035
+Updating syncronous time: 2064
+Rebuilding asyncronous time: 1274
+I'm updating the asynchronous world!! Was 700 will be 700
+Update asyncronous time: 65438
+GUIActions:11
+GUI copy time: 238693
+Paint copy time: 310162
+Physic time: 749722
+Send action time: 37924
+
+
+Client Sincronous Turn: 700 Asinc: 700
+Waiting input: 0
+Reading input time: 6889
+Updating syncronous time: 2044
+Rebuilding asyncronous time: 1281
+I'm updating the asynchronous world!! Was 700 will be 700
+Update asyncronous time: 65134
+GUIActions:11
+GUI copy time: 256709
+Paint copy time: 320855
+Physic time: 749478
+Send action time: 38511
+
+
+Client Sincronous Turn: 700 Asinc: 700
+Waiting input: 0
+Reading input time: 8716
+Updating syncronous time: 2517
+Rebuilding asyncronous time: 1512
+I'm updating the asynchronous world!! Was 700 will be 700
+Update asyncronous time: 89495
+GUIActions:11
+GUI copy time: 260049
+Paint copy time: 325948
+Physic time: 1285707
+Send action time: 41723
+
+
+Client Sincronous Turn: 700 Asinc: 700
+Waiting input: 0
+Reading input time: 7231
+Updating syncronous time: 2049
+Rebuilding asyncronous time: 1355
+I'm updating the asynchronous world!! Was 700 will be 700
+Update asyncronous time: 59971
+GUIActions:11
+GUI copy time: 240965
+Paint copy time: 306226
+Physic time: 767154
+Send action time: 39651
+
+
+Client Sincronous Turn: 700 Asinc: 700
+Waiting input: 0
+Reading input time: 7058
+Updating syncronous time: 1961
+Rebuilding asyncronous time: 1309
+I'm updating the asynchronous world!! Was 700 will be 700
+Update asyncronous time: 59998
+GUIActions:11
+GUI copy time: 253155
+Paint copy time: 317515
+Physic time: 758888
+Send action time: 39132
+
+
+Client Sincronous Turn: 700 Asinc: 700
+Waiting input: 0
+Reading input time: 6854
+Updating syncronous time: 2075
+Rebuilding asyncronous time: 1281
+I'm updating the asynchronous world!! Was 700 will be 700
+Update asyncronous time: 64947
+GUIActions:11
+GUI copy time: 240468
+Paint copy time: 306275
+Physic time: 748831
+Send action time: 37912
+
+
+Client Sincronous Turn: 700 Asinc: 700
+Waiting input: 0
+Reading input time: 6858
+Updating syncronous time: 1913
+Rebuilding asyncronous time: 1293
+I'm updating the asynchronous world!! Was 700 will be 700
+Update asyncronous time: 58166
+GUIActions:11
+GUI copy time: 234445
+Paint copy time: 302697
+Physic time: 777443
+Send action time: 37912
+
+
+Client Sincronous Turn: 700 Asinc: 700
+Waiting input: 0
+Reading input time: 6978
+Updating syncronous time: 2173
+Rebuilding asyncronous time: 1300
+I'm updating the asynchronous world!! Was 700 will be 700
+Update asyncronous time: 64925
+GUIActions:11
+GUI copy time: 264825
+Paint copy time: 332277
+Physic time: 773532
+Send action time: 38762
+
+
+Client Sincronous Turn: 700 Asinc: 700
+Waiting input: 0
+Reading input time: 7316
+Updating syncronous time: 2044
+Rebuilding asyncronous time: 1314
+I'm updating the asynchronous world!! Was 700 will be 700
+Update asyncronous time: 65433
+GUIActions:11
+GUI copy time: 254835
+Paint copy time: 319215
+Physic time: 775838
+Send action time: 38533
+
+
+Client Sincronous Turn: 700 Asinc: 700
+Waiting input: 0
+Reading input time: 7614
+Updating syncronous time: 2175
+Rebuilding asyncronous time: 1340
+I'm updating the asynchronous world!! Was 700 will be 700
+Update asyncronous time: 66373
+GUIActions:11
+GUI copy time: 268833
+Paint copy time: 329649
+Physic time: 754263
+Send action time: 40190
+
+
+Client Sincronous Turn: 700 Asinc: 700
+Waiting input: 0
+Reading input time: 19912
+Updating syncronous time: 2072
+Rebuilding asyncronous time: 1538
+I'm updating the asynchronous world!! Was 700 will be 700
+Update asyncronous time: 68293
+GUIActions:11
+GUI copy time: 247803
+Paint copy time: 315104
+Physic time: 806904
+Send action time: 40569
+
+
+Client Sincronous Turn: 700 Asinc: 700
+Waiting input: 0
+Reading input time: 2267
+Updating syncronous time: 558
+Rebuilding asyncronous time: 374
+I'm updating the asynchronous world!! Was 700 will be 700
+Update asyncronous time: 17119
+GUIActions:11
+GUI copy time: 71669
+Paint copy time: 91401
+Physic time: 206746
+Send action time: 12017
 
 
 Client Sincronous Turn: 700 Asinc: 700
 Waiting input: 1
 AllMap received
-Reading input time: 60643
+Reading input time: 70672
 Testin precision of map
 I'm rebuilding the asynchronous world!! Was 700 will be 700
 x: 0.0 y: 0.0 xV: 0.0 yV: 0.0 aV: 0.0 a: 0.0
@@ -2235,8 +2249,8 @@ Creating id: 10
 elements in world:15
 Rebuilding world from turn: 800
 NewTurn to elaborate: 0
-Rilevated turn LAG: -131.25 to ms: -1968.75
-Updating syncronous time: 24607293
+Rilevated turn LAG: -132.25 to ms: -1983.75
+Updating syncronous time: 18025281
 I'm rebuilding the asynchronous world!! Was 799 will be 800
 x: 0.0 y: 0.0 xV: 0.0 yV: 0.0 aV: 0.0 a: 0.0
 x: 0.0 y: 0.5 xV: 0.0 yV: 0.0 aV: 0.0 a: 0.0
@@ -2249,475 +2263,181 @@ x: 0.0 y: 3.5 xV: 0.0 yV: 0.0 aV: 0.0 a: 0.0
 x: 0.0 y: 4.0 xV: 0.0 yV: 0.0 aV: 0.0 a: 0.0
 x: 0.0 y: 4.5 xV: 0.0 yV: 0.0 aV: 0.0 a: 0.0
 x: 0.0 y: -10.0 xV: 0.0 yV: 0.0 aV: 0.0 a: 0.0
-Rebuilding asyncronous time: 2535854
+Rebuilding asyncronous time: 2675754
 Asinc turn was less than sync turn:700 800
 I'm updating the asynchronous world!! Was 800 will be 800
-Update asyncronous time: 104037
+Update asyncronous time: 102926
 GUIActions:11
-GUI copy time: 109571
-Paint copy time: 161279
-Physic time: 27831284
-Send action time: 12782
-WARNING: engine turn take more execution time than requested!!! This can cause serius error/data corruption!! ms duration: 28
+GUI copy time: 106830
+Paint copy time: 158566
+Physic time: 21384358
+Send action time: 13108
+WARNING: engine turn take more execution time than requested!!! This can cause serius error/data corruption!! ms duration: 22
 
 
 Client Sincronous Turn: 800 Asinc: 800
 Waiting input: 0
-Reading input time: 2369
-Updating syncronous time: 729
-Rebuilding asyncronous time: 430
+Reading input time: 2332
+Updating syncronous time: 704
+Rebuilding asyncronous time: 420
 I'm updating the asynchronous world!! Was 800 will be 800
-Update asyncronous time: 52023
+Update asyncronous time: 51935
 GUIActions:11
-GUI copy time: 101024
-Paint copy time: 152451
-Physic time: 528631
-Send action time: 10292
+GUI copy time: 103515
+Paint copy time: 154645
+Physic time: 512025
+Send action time: 10242
 
 
 Client Sincronous Turn: 800 Asinc: 800
 Waiting input: 0
-Reading input time: 2391
-Updating syncronous time: 734
-Rebuilding asyncronous time: 421
+Reading input time: 2846
+Updating syncronous time: 728
+Rebuilding asyncronous time: 445
 I'm updating the asynchronous world!! Was 800 will be 800
-Update asyncronous time: 50976
+Update asyncronous time: 56370
 GUIActions:11
-GUI copy time: 113915
-Paint copy time: 165601
-Physic time: 518102
-Send action time: 12057
+GUI copy time: 106612
+Paint copy time: 158294
+Physic time: 527255
+Send action time: 13973
 
 
 Client Sincronous Turn: 800 Asinc: 800
 Waiting input: 0
-Reading input time: 2959
-Updating syncronous time: 626
-Rebuilding asyncronous time: 408
+Reading input time: 2926
+Updating syncronous time: 750
+Rebuilding asyncronous time: 377
 I'm updating the asynchronous world!! Was 800 will be 800
-Update asyncronous time: 17272
+Update asyncronous time: 17954
 GUIActions:11
-GUI copy time: 74955
-Paint copy time: 91961
-Physic time: 214049
-Send action time: 13403
+GUI copy time: 76981
+Paint copy time: 96719
+Physic time: 219171
+Send action time: 19257
 
 
 Client Sincronous Turn: 800 Asinc: 800
 Waiting input: 0
-Reading input time: 8639
-Updating syncronous time: 2038
-Rebuilding asyncronous time: 1392
+Reading input time: 3012
+Updating syncronous time: 814
+Rebuilding asyncronous time: 388
 I'm updating the asynchronous world!! Was 800 will be 800
-Update asyncronous time: 58330
+Update asyncronous time: 18213
 GUIActions:11
-GUI copy time: 245244
-Paint copy time: 303878
-Physic time: 738989
-Send action time: 42019
+GUI copy time: 93171
+Paint copy time: 111332
+Physic time: 236918
+Send action time: 15078
 
 
 Client Sincronous Turn: 800 Asinc: 800
 Waiting input: 0
-Reading input time: 8454
-Updating syncronous time: 1991
-Rebuilding asyncronous time: 1373
+Reading input time: 2942
+Updating syncronous time: 597
+Rebuilding asyncronous time: 375
 I'm updating the asynchronous world!! Was 800 will be 800
-Update asyncronous time: 58237
+Update asyncronous time: 22725
 GUIActions:11
-GUI copy time: 255780
-Paint copy time: 314495
-Physic time: 736347
-Send action time: 40912
+GUI copy time: 77960
+Paint copy time: 96193
+Physic time: 223615
+Send action time: 13600
 
 
 Client Sincronous Turn: 800 Asinc: 800
 Waiting input: 0
-Reading input time: 8024
-Updating syncronous time: 2020
-Rebuilding asyncronous time: 1405
+Reading input time: 7658
+Updating syncronous time: 2263
+Rebuilding asyncronous time: 1396
 I'm updating the asynchronous world!! Was 800 will be 800
-Update asyncronous time: 67988
+Update asyncronous time: 68992
 GUIActions:11
-GUI copy time: 259405
-Paint copy time: 318342
-Physic time: 778244
-Send action time: 40664
+GUI copy time: 243224
+Paint copy time: 308469
+Physic time: 786636
+Send action time: 39800
 
 
 Client Sincronous Turn: 800 Asinc: 800
 Waiting input: 0
-Reading input time: 8101
-Updating syncronous time: 2025
-Rebuilding asyncronous time: 1394
+Reading input time: 6898
+Updating syncronous time: 1977
+Rebuilding asyncronous time: 1294
 I'm updating the asynchronous world!! Was 800 will be 800
-Update asyncronous time: 59048
+Update asyncronous time: 65730
 GUIActions:11
-GUI copy time: 250395
-Paint copy time: 443482
-Physic time: 871623
-Send action time: 42061
+GUI copy time: 252220
+Paint copy time: 316437
+Physic time: 768936
+Send action time: 38546
 
 
 Client Sincronous Turn: 800 Asinc: 800
 Waiting input: 0
-Reading input time: 2251
-Updating syncronous time: 550
-Rebuilding asyncronous time: 410
+Reading input time: 7307
+Updating syncronous time: 2070
+Rebuilding asyncronous time: 1315
 I'm updating the asynchronous world!! Was 800 will be 800
-Update asyncronous time: 20913
+Update asyncronous time: 58759
 GUIActions:11
-GUI copy time: 77374
-Paint copy time: 96757
-Physic time: 218798
-Send action time: 12328
+GUI copy time: 260061
+Paint copy time: 320307
+Physic time: 781192
+Send action time: 39150
 
 
 Client Sincronous Turn: 800 Asinc: 800
 Waiting input: 0
-Reading input time: 6924
-Updating syncronous time: 2016
-Rebuilding asyncronous time: 1416
+Reading input time: 7049
+Updating syncronous time: 2236
+Rebuilding asyncronous time: 1446
 I'm updating the asynchronous world!! Was 800 will be 800
-Update asyncronous time: 236461
+Update asyncronous time: 65422
 GUIActions:11
-GUI copy time: 276238
-Paint copy time: 341740
-Physic time: 1333840
-Send action time: 38874
+GUI copy time: 256779
+Paint copy time: 323861
+Physic time: 771316
+Send action time: 38464
 
 
 Client Sincronous Turn: 800 Asinc: 800
 Waiting input: 0
-Reading input time: 6726
-Updating syncronous time: 1932
-Rebuilding asyncronous time: 1412
-I'm updating the asynchronous world!! Was 800 will be 800
-Update asyncronous time: 80633
-GUIActions:11
-GUI copy time: 248984
-Paint copy time: 323774
-Physic time: 780181
-Send action time: 39089
-
-
-Client Sincronous Turn: 800 Asinc: 800
-Waiting input: 0
-Reading input time: 7542
-Updating syncronous time: 2224
-Rebuilding asyncronous time: 1391
-I'm updating the asynchronous world!! Was 800 will be 800
-Update asyncronous time: 78182
-GUIActions:11
-GUI copy time: 251794
-Paint copy time: 316982
-Physic time: 1033001
-Send action time: 38912
-
-
-Client Sincronous Turn: 800 Asinc: 800
-Waiting input: 0
-Reading input time: 6752
-Updating syncronous time: 2002
-Rebuilding asyncronous time: 1403
-I'm updating the asynchronous world!! Was 800 will be 800
-Update asyncronous time: 69264
-GUIActions:11
-GUI copy time: 256717
-Paint copy time: 320795
-Physic time: 776893
-Send action time: 38797
-
-
-Client Sincronous Turn: 800 Asinc: 800
-Waiting input: 0
-Reading input time: 7177
-Updating syncronous time: 1929
-Rebuilding asyncronous time: 1367
-I'm updating the asynchronous world!! Was 800 will be 800
-Update asyncronous time: 82328
-GUIActions:11
-GUI copy time: 480712
-Paint copy time: 539264
-Physic time: 1079546
-Send action time: 39464
-
-
-Client Sincronous Turn: 800 Asinc: 800
-Waiting input: 0
-Reading input time: 7175
-Updating syncronous time: 2024
-Rebuilding asyncronous time: 1432
-I'm updating the asynchronous world!! Was 800 will be 800
-Update asyncronous time: 58731
-GUIActions:11
-GUI copy time: 263992
-Paint copy time: 336612
-Physic time: 775139
-Send action time: 40060
-
-
-Client Sincronous Turn: 800 Asinc: 800
-Waiting input: 0
-Reading input time: 6755
-Updating syncronous time: 1969
-Rebuilding asyncronous time: 1309
-I'm updating the asynchronous world!! Was 800 will be 800
-Update asyncronous time: 59572
-GUIActions:11
-GUI copy time: 298602
-Paint copy time: 357816
-Physic time: 800721
-Send action time: 38621
-
-
-Client Sincronous Turn: 800 Asinc: 800
-Waiting input: 0
-Reading input time: 6536
+Reading input time: 6837
 Updating syncronous time: 1937
-Rebuilding asyncronous time: 1350
+Rebuilding asyncronous time: 1284
 I'm updating the asynchronous world!! Was 800 will be 800
-Update asyncronous time: 67933
+Update asyncronous time: 80022
 GUIActions:11
-GUI copy time: 234201
-Paint copy time: 299809
-Physic time: 781003
-Send action time: 37216
-
-
-Client Sincronous Turn: 800 Asinc: 800
-Waiting input: 0
-Reading input time: 6170
-Updating syncronous time: 2071
-Rebuilding asyncronous time: 1335
-I'm updating the asynchronous world!! Was 800 will be 800
-Update asyncronous time: 68481
-GUIActions:11
-GUI copy time: 232312
-Paint copy time: 291059
-Physic time: 753087
-Send action time: 35060
-
-
-Client Sincronous Turn: 800 Asinc: 800
-Waiting input: 0
-Reading input time: 6822
-Updating syncronous time: 1949
-Rebuilding asyncronous time: 1405
-I'm updating the asynchronous world!! Was 800 will be 800
-Update asyncronous time: 63539
-GUIActions:11
-GUI copy time: 250790
-Paint copy time: 316893
-Physic time: 739870
-Send action time: 39003
-
-
-Client Sincronous Turn: 800 Asinc: 800
-Waiting input: 0
-Reading input time: 6718
-Updating syncronous time: 2029
-Rebuilding asyncronous time: 1365
-I'm updating the asynchronous world!! Was 800 will be 800
-Update asyncronous time: 63706
-GUIActions:11
-GUI copy time: 236206
-Paint copy time: 300197
-Physic time: 765908
-Send action time: 39127
-
-
-Client Sincronous Turn: 800 Asinc: 800
-Waiting input: 0
-Reading input time: 6751
-Updating syncronous time: 2069
-Rebuilding asyncronous time: 1342
-I'm updating the asynchronous world!! Was 800 will be 800
-Update asyncronous time: 63634
-GUIActions:11
-GUI copy time: 275132
-Paint copy time: 335450
-Physic time: 786295
-Send action time: 38555
-
-
-Client Sincronous Turn: 800 Asinc: 800
-Waiting input: 0
-Reading input time: 6719
-Updating syncronous time: 2001
-Rebuilding asyncronous time: 1349
-I'm updating the asynchronous world!! Was 800 will be 800
-Update asyncronous time: 65923
-GUIActions:11
-GUI copy time: 249796
-Paint copy time: 314937
-Physic time: 1115183
-Send action time: 70424
-
-
-Client Sincronous Turn: 800 Asinc: 800
-Waiting input: 0
-Reading input time: 2190
-Updating syncronous time: 545
-Rebuilding asyncronous time: 387
-I'm updating the asynchronous world!! Was 800 will be 800
-Update asyncronous time: 17167
-GUIActions:11
-GUI copy time: 72185
-Paint copy time: 89439
-Physic time: 207386
-Send action time: 11764
-
-
-Client Sincronous Turn: 800 Asinc: 800
-Waiting input: 0
-Reading input time: 6760
-Updating syncronous time: 1858
-Rebuilding asyncronous time: 1499
-I'm updating the asynchronous world!! Was 800 will be 800
-Update asyncronous time: 64165
-GUIActions:11
-GUI copy time: 233567
-Paint copy time: 297444
-Physic time: 753407
-Send action time: 38292
-
-
-Client Sincronous Turn: 800 Asinc: 800
-Waiting input: 0
-Reading input time: 6724
-Updating syncronous time: 2011
-Rebuilding asyncronous time: 1361
-I'm updating the asynchronous world!! Was 800 will be 800
-Update asyncronous time: 65582
-GUIActions:11
-GUI copy time: 251025
-Paint copy time: 317814
-Physic time: 742363
-Send action time: 38372
-
-
-Client Sincronous Turn: 800 Asinc: 800
-Waiting input: 0
-Reading input time: 7372
-Updating syncronous time: 2013
-Rebuilding asyncronous time: 1398
-I'm updating the asynchronous world!! Was 800 will be 800
-Update asyncronous time: 226736
-GUIActions:11
-GUI copy time: 372087
-Paint copy time: 583093
-Physic time: 1398446
-Send action time: 42241
-
-
-Client Sincronous Turn: 800 Asinc: 800
-Waiting input: 0
-Reading input time: 7222
-Updating syncronous time: 2052
-Rebuilding asyncronous time: 2288
-I'm updating the asynchronous world!! Was 800 will be 800
-Update asyncronous time: 66977
-GUIActions:11
-GUI copy time: 238163
-Paint copy time: 302637
-Physic time: 772792
-Send action time: 39402
-
-
-Client Sincronous Turn: 800 Asinc: 800
-Waiting input: 0
-Reading input time: 6847
-Updating syncronous time: 2060
-Rebuilding asyncronous time: 1344
-I'm updating the asynchronous world!! Was 800 will be 800
-Update asyncronous time: 64820
-GUIActions:11
-GUI copy time: 251473
-Paint copy time: 316116
-Physic time: 739372
-Send action time: 47542
-
-
-Client Sincronous Turn: 800 Asinc: 800
-Waiting input: 0
-Reading input time: 6880
-Updating syncronous time: 2035
-Rebuilding asyncronous time: 1345
-I'm updating the asynchronous world!! Was 800 will be 800
-Update asyncronous time: 58560
-GUIActions:11
-GUI copy time: 274736
-Paint copy time: 332963
-Physic time: 785031
-Send action time: 39768
-
-
-Client Sincronous Turn: 800 Asinc: 800
-Waiting input: 0
-Reading input time: 6746
-Updating syncronous time: 1999
-Rebuilding asyncronous time: 1367
-I'm updating the asynchronous world!! Was 800 will be 800
-Update asyncronous time: 76334
-GUIActions:11
-GUI copy time: 271060
-Paint copy time: 331199
-Physic time: 770397
-Send action time: 37688
-
-
-Client Sincronous Turn: 800 Asinc: 800
-Waiting input: 0
-Reading input time: 6782
-Updating syncronous time: 2085
-Rebuilding asyncronous time: 1464
-I'm updating the asynchronous world!! Was 800 will be 800
-Update asyncronous time: 63620
-GUIActions:11
-GUI copy time: 240939
-Paint copy time: 324881
-Physic time: 807562
-Send action time: 38276
-
-
-Client Sincronous Turn: 800 Asinc: 800
-Waiting input: 0
-Reading input time: 6726
-Updating syncronous time: 1951
-Rebuilding asyncronous time: 1431
-I'm updating the asynchronous world!! Was 800 will be 800
-Update asyncronous time: 64139
-GUIActions:11
-GUI copy time: 247543
-Paint copy time: 310743
-Physic time: 747596
+GUI copy time: 446093
+Paint copy time: 511220
+Physic time: 967930
 Writing action
-Send action time: 1487782
+Send action time: 2409967
 
 
 Client Sincronous Turn: 800 Asinc: 800
 Waiting input: 0
-Reading input time: 7225
-Updating syncronous time: 2028
-Rebuilding asyncronous time: 1406
+Reading input time: 7193
+Updating syncronous time: 2085
+Rebuilding asyncronous time: 1306
 I'm updating the asynchronous world!! Was 800 will be 800
-Update asyncronous time: 65044
+Update asyncronous time: 61135
 GUIActions:11
-GUI copy time: 252950
-Paint copy time: 312401
-Physic time: 758378
-Send action time: 39723
+GUI copy time: 250828
+Paint copy time: 310496
+Physic time: 748748
+Send action time: 38084
 
 
 Client Sincronous Turn: 800 Asinc: 800
 Waiting input: 1
 New turn received
-Reading input time: 18692
-I'm updating the synchronous world!! Was 800 will be 866
+Reading input time: 70382
+I'm updating the synchronous world!! Was 800 will be 824
 action setted for object:10 x: 0.0 y: -10.0 xV: -4.8727146E-18 yV: -0.07957747 aV: 0.0 a: 0.0
-Updating syncronous time: 5101860
-I'm rebuilding the asynchronous world!! Was 800 will be 866
+Updating syncronous time: 10514252
+I'm rebuilding the asynchronous world!! Was 800 will be 824
 x: 0.0 y: 0.0 xV: 0.0 yV: 0.0 aV: 0.0 a: 0.0
 x: 0.0 y: 0.5 xV: 0.0 yV: 0.0 aV: 0.0 a: 0.0
 x: 0.0 y: 1.0 xV: 0.0 yV: 0.0 aV: 0.0 a: 0.0
@@ -2729,247 +2449,541 @@ x: 0.0 y: 3.5 xV: 0.0 yV: 0.0 aV: 0.0 a: 0.0
 x: 0.0 y: 4.0 xV: 0.0 yV: 0.0 aV: 0.0 a: 0.0
 x: 0.0 y: 4.5 xV: 0.0 yV: 0.0 aV: 0.0 a: 0.0
 x: 0.0 y: -10.0 xV: -4.8727146E-18 yV: -0.07957747 aV: 0.0 a: 0.0
-Rebuilding asyncronous time: 3343373
-Asinc turn was less than sync turn:800 866
-I'm updating the asynchronous world!! Was 866 will be 866
-Update asyncronous time: 141561
+Rebuilding asyncronous time: 1868670
+Asinc turn was less than sync turn:800 824
+I'm updating the asynchronous world!! Was 824 will be 824
+Update asyncronous time: 41306
 GUIActions:11
-GUI copy time: 147198
-Paint copy time: 214897
-Physic time: 9127206
-Send action time: 18459
+GUI copy time: 73249
+Paint copy time: 92564
+Physic time: 12792595
+Send action time: 12354
 
 
-Client Sincronous Turn: 866 Asinc: 866
+Client Sincronous Turn: 824 Asinc: 824
 Waiting input: 0
-Reading input time: 2480
-Updating syncronous time: 680
-Rebuilding asyncronous time: 413
-I'm updating the asynchronous world!! Was 866 will be 866
-Update asyncronous time: 17096
+Reading input time: 2565
+Updating syncronous time: 745
+Rebuilding asyncronous time: 190035
+I'm updating the asynchronous world!! Was 824 will be 824
+Update asyncronous time: 52474
 GUIActions:11
-GUI copy time: 77486
-Paint copy time: 94403
-Physic time: 209404
-Send action time: 13329
+GUI copy time: 106861
+Paint copy time: 163542
+Physic time: 723349
+Send action time: 12974
 
 
-Client Sincronous Turn: 866 Asinc: 866
+Client Sincronous Turn: 824 Asinc: 824
 Waiting input: 0
-Reading input time: 3177
-Updating syncronous time: 806
-Rebuilding asyncronous time: 396
-I'm updating the asynchronous world!! Was 866 will be 866
-Update asyncronous time: 29624
+Reading input time: 7367
+Updating syncronous time: 2174
+Rebuilding asyncronous time: 1313
+I'm updating the asynchronous world!! Was 824 will be 824
+Update asyncronous time: 69680
 GUIActions:11
-GUI copy time: 79689
-Paint copy time: 97260
-Physic time: 230135
-Send action time: 14049
+GUI copy time: 440409
+Paint copy time: 574193
+Physic time: 1072855
+Send action time: 41193
 
 
-Client Sincronous Turn: 866 Asinc: 866
+Client Sincronous Turn: 824 Asinc: 824
 Waiting input: 0
-Reading input time: 2260
-Updating syncronous time: 609
-Rebuilding asyncronous time: 406
-I'm updating the asynchronous world!! Was 866 will be 866
-Update asyncronous time: 17488
+Reading input time: 8484
+Updating syncronous time: 3405
+Rebuilding asyncronous time: 1479
+I'm updating the asynchronous world!! Was 824 will be 824
+Update asyncronous time: 198368
 GUIActions:11
-GUI copy time: 71397
-Paint copy time: 91068
-Physic time: 217595
-Send action time: 12479
+GUI copy time: 354096
+Paint copy time: 541446
+Physic time: 1814026
+Send action time: 42463
 
 
-Client Sincronous Turn: 866 Asinc: 866
+Client Sincronous Turn: 824 Asinc: 824
 Waiting input: 0
-Reading input time: 3487
-Updating syncronous time: 980
-Rebuilding asyncronous time: 714
-I'm updating the asynchronous world!! Was 866 will be 866
-Update asyncronous time: 39213
+Reading input time: 7115
+Updating syncronous time: 2044
+Rebuilding asyncronous time: 1422
+I'm updating the asynchronous world!! Was 824 will be 824
+Update asyncronous time: 66256
 GUIActions:11
-GUI copy time: 126583
-Paint copy time: 156127
-Physic time: 368638
-Send action time: 20045
+GUI copy time: 242001
+Paint copy time: 306385
+Physic time: 987181
+Send action time: 39029
 
 
-Client Sincronous Turn: 866 Asinc: 866
+Client Sincronous Turn: 824 Asinc: 824
 Waiting input: 0
-Reading input time: 6885
-Updating syncronous time: 2036
-Rebuilding asyncronous time: 1382
-I'm updating the asynchronous world!! Was 866 will be 866
-Update asyncronous time: 83946
-GUIActions:11
-GUI copy time: 654479
-Paint copy time: 720067
-Physic time: 1170617
-Send action time: 68241
-
-
-Client Sincronous Turn: 866 Asinc: 866
-Waiting input: 0
-Reading input time: 6617
-Updating syncronous time: 2038
-Rebuilding asyncronous time: 1355
-I'm updating the asynchronous world!! Was 866 will be 866
-Update asyncronous time: 64053
-GUIActions:11
-GUI copy time: 224321
-Paint copy time: 288753
-Physic time: 729661
-Send action time: 39278
-
-
-Client Sincronous Turn: 866 Asinc: 866
-Waiting input: 0
-Reading input time: 7260
-Updating syncronous time: 1908
-Rebuilding asyncronous time: 1380
-I'm updating the asynchronous world!! Was 866 will be 866
-Update asyncronous time: 59071
-GUIActions:11
-GUI copy time: 241434
-Paint copy time: 304661
-Physic time: 735581
-Send action time: 40394
-
-
-Client Sincronous Turn: 866 Asinc: 866
-Waiting input: 0
-Reading input time: 6803
-Updating syncronous time: 1938
-Rebuilding asyncronous time: 1394
-I'm updating the asynchronous world!! Was 866 will be 866
-Update asyncronous time: 63586
-GUIActions:11
-GUI copy time: 241959
-Paint copy time: 306009
-Physic time: 755856
-Send action time: 38898
-
-
-Client Sincronous Turn: 866 Asinc: 866
-Waiting input: 0
-Reading input time: 2403
-Updating syncronous time: 873
-Rebuilding asyncronous time: 413
-I'm updating the asynchronous world!! Was 866 will be 866
-Update asyncronous time: 17580
-GUIActions:11
-GUI copy time: 67376
-Paint copy time: 84109
-Physic time: 210756
-Send action time: 12635
-
-
-Client Sincronous Turn: 866 Asinc: 866
-Waiting input: 0
-Reading input time: 3835
-Updating syncronous time: 1047
-Rebuilding asyncronous time: 689
-I'm updating the asynchronous world!! Was 866 will be 866
-Update asyncronous time: 38387
-GUIActions:11
-GUI copy time: 124330
-Paint copy time: 188997
-Physic time: 400587
-Send action time: 20644
-
-
-Client Sincronous Turn: 866 Asinc: 866
-Waiting input: 0
-Reading input time: 7740
-Updating syncronous time: 2035
-Rebuilding asyncronous time: 1460
-I'm updating the asynchronous world!! Was 866 will be 866
-Update asyncronous time: 94047
-GUIActions:11
-GUI copy time: 251460
-Paint copy time: 324115
-Physic time: 837978
-Send action time: 40537
-
-
-Client Sincronous Turn: 866 Asinc: 866
-Waiting input: 0
-Reading input time: 6989
-Updating syncronous time: 2075
-Rebuilding asyncronous time: 1484
-I'm updating the asynchronous world!! Was 866 will be 866
-Update asyncronous time: 65168
-GUIActions:11
-GUI copy time: 228344
-Paint copy time: 294528
-Physic time: 788619
-Send action time: 39581
-
-
-Client Sincronous Turn: 866 Asinc: 866
-Waiting input: 0
-Reading input time: 6877
-Updating syncronous time: 1902
-Rebuilding asyncronous time: 1380
-I'm updating the asynchronous world!! Was 866 will be 866
-Update asyncronous time: 55306
-GUIActions:11
-GUI copy time: 236652
-Paint copy time: 292407
-Physic time: 668160
-Send action time: 38478
-
-
-Client Sincronous Turn: 866 Asinc: 866
-Waiting input: 0
-Reading input time: 6113
-Updating syncronous time: 1932
-Rebuilding asyncronous time: 1372
-I'm updating the asynchronous world!! Was 866 will be 866
+Reading input time: 7007
+Updating syncronous time: 2069
+Rebuilding asyncronous time: 1279
+I'm updating the asynchronous world!! Was 824 will be 824
 Update asyncronous time: 64204
 GUIActions:11
-GUI copy time: 226191
-Paint copy time: 280650
-Physic time: 658722
-Send action time: 35688
+GUI copy time: 244032
+Paint copy time: 307957
+Physic time: 758975
+Send action time: 37992
 
 
-Client Sincronous Turn: 866 Asinc: 866
+Client Sincronous Turn: 824 Asinc: 824
 Waiting input: 0
-Reading input time: 7931
-Updating syncronous time: 2084
+Reading input time: 4899
+Updating syncronous time: 811
+Rebuilding asyncronous time: 405
+I'm updating the asynchronous world!! Was 824 will be 824
+Update asyncronous time: 19522
+GUIActions:11
+GUI copy time: 93645
+Paint copy time: 111488
+Physic time: 247400
+Send action time: 20008
+
+
+Client Sincronous Turn: 824 Asinc: 824
+Waiting input: 0
+Reading input time: 1620
+Updating syncronous time: 551
+Rebuilding asyncronous time: 394
+I'm updating the asynchronous world!! Was 824 will be 824
+Update asyncronous time: 17066
+GUIActions:11
+GUI copy time: 59872
+Paint copy time: 76233
+Physic time: 188689
+Send action time: 9454
+
+
+Client Sincronous Turn: 824 Asinc: 824
+Waiting input: 0
+Reading input time: 1598
+Updating syncronous time: 539
+Rebuilding asyncronous time: 392
+I'm updating the asynchronous world!! Was 824 will be 824
+Update asyncronous time: 16943
+GUIActions:11
+GUI copy time: 60478
+Paint copy time: 76933
+Physic time: 189484
+Send action time: 8903
+
+
+Client Sincronous Turn: 824 Asinc: 824
+Waiting input: 0
+Reading input time: 7104
+Updating syncronous time: 1871
+Rebuilding asyncronous time: 1307
+I'm updating the asynchronous world!! Was 824 will be 824
+Update asyncronous time: 68827
+GUIActions:11
+GUI copy time: 233772
+Paint copy time: 302353
+Physic time: 777588
+Send action time: 63531
+
+
+Client Sincronous Turn: 824 Asinc: 824
+Waiting input: 0
+Reading input time: 6382
+Updating syncronous time: 2138
+Rebuilding asyncronous time: 1436
+I'm updating the asynchronous world!! Was 824 will be 824
+Update asyncronous time: 65266
+GUIActions:11
+GUI copy time: 252362
+Paint copy time: 516955
+Physic time: 957242
+Send action time: 37489
+
+
+Client Sincronous Turn: 824 Asinc: 824
+Waiting input: 0
+Reading input time: 6902
+Updating syncronous time: 2028
+Rebuilding asyncronous time: 1255
+I'm updating the asynchronous world!! Was 824 will be 824
+Update asyncronous time: 65538
+GUIActions:11
+GUI copy time: 228822
+Paint copy time: 293414
+Physic time: 734952
+Send action time: 38303
+
+
+Client Sincronous Turn: 824 Asinc: 824
+Waiting input: 0
+Reading input time: 6857
+Updating syncronous time: 1992
+Rebuilding asyncronous time: 1383
+I'm updating the asynchronous world!! Was 824 will be 824
+Update asyncronous time: 59178
+GUIActions:11
+GUI copy time: 229595
+Paint copy time: 294975
+Physic time: 728096
+Send action time: 38118
+
+
+Client Sincronous Turn: 824 Asinc: 824
+Waiting input: 0
+Reading input time: 6912
+Updating syncronous time: 2026
+Rebuilding asyncronous time: 1274
+I'm updating the asynchronous world!! Was 824 will be 824
+Update asyncronous time: 61122
+GUIActions:11
+GUI copy time: 275679
+Paint copy time: 340747
+Physic time: 797610
+Send action time: 38853
+
+
+Client Sincronous Turn: 824 Asinc: 824
+Waiting input: 0
+Reading input time: 7243
+Updating syncronous time: 2107
+Rebuilding asyncronous time: 1276
+I'm updating the asynchronous world!! Was 824 will be 824
+Update asyncronous time: 65390
+GUIActions:11
+GUI copy time: 231354
+Paint copy time: 295226
+Physic time: 711801
+Send action time: 39297
+
+
+Client Sincronous Turn: 824 Asinc: 824
+Waiting input: 0
+Reading input time: 7049
+Updating syncronous time: 1904
+Rebuilding asyncronous time: 1277
+I'm updating the asynchronous world!! Was 824 will be 824
+Update asyncronous time: 64213
+GUIActions:11
+GUI copy time: 230452
+Paint copy time: 309927
+Physic time: 732915
+Send action time: 38861
+
+
+Client Sincronous Turn: 824 Asinc: 824
+Waiting input: 0
+Reading input time: 7488
+Updating syncronous time: 2000
+Rebuilding asyncronous time: 1316
+I'm updating the asynchronous world!! Was 824 will be 824
+Update asyncronous time: 66463
+GUIActions:11
+GUI copy time: 305298
+Paint copy time: 371231
+Physic time: 800607
+Send action time: 38993
+
+
+Client Sincronous Turn: 824 Asinc: 824
+Waiting input: 0
+Reading input time: 6720
+Updating syncronous time: 1942
+Rebuilding asyncronous time: 1364
+I'm updating the asynchronous world!! Was 824 will be 824
+Update asyncronous time: 64903
+GUIActions:11
+GUI copy time: 223902
+Paint copy time: 290363
+Physic time: 730106
+Send action time: 37611
+
+
+Client Sincronous Turn: 824 Asinc: 824
+Waiting input: 0
+Reading input time: 6776
+Updating syncronous time: 1820
+Rebuilding asyncronous time: 1301
+I'm updating the asynchronous world!! Was 824 will be 824
+Update asyncronous time: 66406
+GUIActions:11
+GUI copy time: 226486
+Paint copy time: 284696
+Physic time: 725050
+Send action time: 38241
+
+
+Client Sincronous Turn: 824 Asinc: 824
+Waiting input: 0
+Reading input time: 7337
+Updating syncronous time: 1994
+Rebuilding asyncronous time: 1336
+I'm updating the asynchronous world!! Was 824 will be 824
+Update asyncronous time: 71919
+GUIActions:11
+GUI copy time: 228000
+Paint copy time: 286863
+Physic time: 740351
+Send action time: 37887
+
+
+Client Sincronous Turn: 824 Asinc: 824
+Waiting input: 0
+Reading input time: 6474
+Updating syncronous time: 1894
+Rebuilding asyncronous time: 1283
+I'm updating the asynchronous world!! Was 824 will be 824
+Update asyncronous time: 60420
+GUIActions:11
+GUI copy time: 223385
+Paint copy time: 281918
+Physic time: 717487
+Send action time: 36142
+
+
+Client Sincronous Turn: 824 Asinc: 824
+Waiting input: 0
+Reading input time: 7023
+Updating syncronous time: 1925
+Rebuilding asyncronous time: 1256
+I'm updating the asynchronous world!! Was 824 will be 824
+Update asyncronous time: 62899
+GUIActions:11
+GUI copy time: 224099
+Paint copy time: 290529
+Physic time: 702562
+Send action time: 38728
+
+
+Client Sincronous Turn: 824 Asinc: 824
+Waiting input: 0
+Reading input time: 6932
+Updating syncronous time: 1950
+Rebuilding asyncronous time: 1278
+I'm updating the asynchronous world!! Was 824 will be 824
+Update asyncronous time: 65251
+GUIActions:11
+GUI copy time: 221051
+Paint copy time: 285438
+Physic time: 712322
+Send action time: 38523
+
+
+Client Sincronous Turn: 824 Asinc: 824
+Waiting input: 0
+Reading input time: 6942
+Updating syncronous time: 1915
+Rebuilding asyncronous time: 1277
+I'm updating the asynchronous world!! Was 824 will be 824
+Update asyncronous time: 63849
+GUIActions:11
+GUI copy time: 221635
+Paint copy time: 285107
+Physic time: 720893
+Send action time: 38737
+
+
+Client Sincronous Turn: 824 Asinc: 824
+Waiting input: 0
+Reading input time: 6834
+Updating syncronous time: 1906
+Rebuilding asyncronous time: 1277
+I'm updating the asynchronous world!! Was 824 will be 824
+Update asyncronous time: 64469
+GUIActions:11
+GUI copy time: 259893
+Paint copy time: 323251
+Physic time: 942670
+Send action time: 39409
+
+
+Client Sincronous Turn: 824 Asinc: 824
+Waiting input: 0
+Reading input time: 7037
+Updating syncronous time: 2028
 Rebuilding asyncronous time: 1390
-I'm updating the asynchronous world!! Was 866 will be 866
-Update asyncronous time: 53818
+I'm updating the asynchronous world!! Was 824 will be 824
+Update asyncronous time: 59461
 GUIActions:11
-GUI copy time: 230348
-Paint copy time: 285217
-Physic time: 666703
-Send action time: 45252
+GUI copy time: 224736
+Paint copy time: 284089
+Physic time: 730399
+Send action time: 86671
 
 
-Client Sincronous Turn: 866 Asinc: 866
+Client Sincronous Turn: 824 Asinc: 824
 Waiting input: 0
-Reading input time: 8323
-Updating syncronous time: 2201
-Rebuilding asyncronous time: 1395
-I'm updating the asynchronous world!! Was 866 will be 866
-Update asyncronous time: 54214
+Reading input time: 7152
+Updating syncronous time: 2049
+Rebuilding asyncronous time: 1321
+I'm updating the asynchronous world!! Was 824 will be 824
+Update asyncronous time: 67186
 GUIActions:11
-GUI copy time: 229339
-Paint copy time: 284394
-Physic time: 653416
-Send action time: 41940
+GUI copy time: 226532
+Paint copy time: 287077
+Physic time: 733025
+Send action time: 39330
 
 
-Client Sincronous Turn: 866 Asinc: 866
+Client Sincronous Turn: 824 Asinc: 824
+Waiting input: 0
+Reading input time: 2127
+Updating syncronous time: 570
+Rebuilding asyncronous time: 382
+I'm updating the asynchronous world!! Was 824 will be 824
+Update asyncronous time: 17619
+GUIActions:11
+GUI copy time: 63498
+Paint copy time: 79875
+Physic time: 197330
+Send action time: 11811
+
+
+Client Sincronous Turn: 824 Asinc: 824
+Waiting input: 0
+Reading input time: 6891
+Updating syncronous time: 1935
+Rebuilding asyncronous time: 1288
+I'm updating the asynchronous world!! Was 824 will be 824
+Update asyncronous time: 69867
+GUIActions:11
+GUI copy time: 243900
+Paint copy time: 302600
+Physic time: 742941
+Send action time: 38671
+
+
+Client Sincronous Turn: 824 Asinc: 824
+Waiting input: 0
+Reading input time: 6987
+Updating syncronous time: 1869
+Rebuilding asyncronous time: 1298
+I'm updating the asynchronous world!! Was 824 will be 824
+Update asyncronous time: 59764
+GUIActions:11
+GUI copy time: 225791
+Paint copy time: 284000
+Physic time: 683940
+Send action time: 38746
+
+
+Client Sincronous Turn: 824 Asinc: 824
+Waiting input: 0
+Reading input time: 6876
+Updating syncronous time: 2115
+Rebuilding asyncronous time: 1302
+I'm updating the asynchronous world!! Was 824 will be 824
+Update asyncronous time: 68453
+GUIActions:11
+GUI copy time: 228821
+Paint copy time: 346129
+Physic time: 826620
+Send action time: 38605
+
+
+Client Sincronous Turn: 824 Asinc: 824
+Waiting input: 0
+Reading input time: 7129
+Updating syncronous time: 2165
+Rebuilding asyncronous time: 1342
+I'm updating the asynchronous world!! Was 824 will be 824
+Update asyncronous time: 84796
+GUIActions:11
+GUI copy time: 233929
+Paint copy time: 307460
+Physic time: 811811
+Send action time: 39572
+
+
+Client Sincronous Turn: 824 Asinc: 824
+Waiting input: 0
+Reading input time: 7077
+Updating syncronous time: 2188
+Rebuilding asyncronous time: 1298
+I'm updating the asynchronous world!! Was 824 will be 824
+Update asyncronous time: 73660
+GUIActions:11
+GUI copy time: 239968
+Paint copy time: 311855
+Physic time: 808298
+Send action time: 39544
+
+
+Client Sincronous Turn: 824 Asinc: 824
+Waiting input: 0
+Reading input time: 7498
+Updating syncronous time: 1906
+Rebuilding asyncronous time: 1294
+I'm updating the asynchronous world!! Was 824 will be 824
+Update asyncronous time: 55298
+GUIActions:11
+GUI copy time: 221701
+Paint copy time: 297804
+Physic time: 674394
+Send action time: 41682
+
+
+Client Sincronous Turn: 824 Asinc: 824
+Waiting input: 0
+Reading input time: 6860
+Updating syncronous time: 1921
+Rebuilding asyncronous time: 1294
+I'm updating the asynchronous world!! Was 824 will be 824
+Update asyncronous time: 55838
+GUIActions:11
+GUI copy time: 244414
+Paint copy time: 299653
+Physic time: 692978
+Send action time: 39305
+
+
+Client Sincronous Turn: 824 Asinc: 824
+Waiting input: 0
+Reading input time: 6927
+Updating syncronous time: 2132
+Rebuilding asyncronous time: 1293
+I'm updating the asynchronous world!! Was 824 will be 824
+Update asyncronous time: 70284
+GUIActions:11
+GUI copy time: 234379
+Paint copy time: 290302
+Physic time: 681047
+Send action time: 39130
+
+
+Client Sincronous Turn: 824 Asinc: 824
+Waiting input: 0
+Reading input time: 7141
+Updating syncronous time: 2117
+Rebuilding asyncronous time: 1363
+I'm updating the asynchronous world!! Was 824 will be 824
+Update asyncronous time: 68948
+GUIActions:11
+GUI copy time: 234899
+Paint copy time: 290813
+Physic time: 690253
+Send action time: 40152
+
+
+Client Sincronous Turn: 824 Asinc: 824
+Waiting input: 0
+Reading input time: 6948
+Updating syncronous time: 1956
+Rebuilding asyncronous time: 1299
+I'm updating the asynchronous world!! Was 824 will be 824
+Update asyncronous time: 55767
+GUIActions:11
+GUI copy time: 231811
+Paint copy time: 296530
+Physic time: 705065
+Send action time: 38838
+
+
+Client Sincronous Turn: 824 Asinc: 824
 Waiting input: 1
 AllMap received
-Reading input time: 57338
+Reading input time: 58230
 Testin precision of map
-I'm rebuilding the asynchronous world!! Was 866 will be 866
+I'm rebuilding the asynchronous world!! Was 824 will be 824
 x: 0.0 y: 0.0 xV: 0.0 yV: 0.0 aV: 0.0 a: 0.0
 x: 0.0 y: 0.5 xV: 0.0 yV: 0.0 aV: 0.0 a: 0.0
 x: 0.0 y: 1.0 xV: 0.0 yV: 0.0 aV: 0.0 a: 0.0
@@ -2981,8 +2995,8 @@ x: 0.0 y: 3.5 xV: 0.0 yV: 0.0 aV: 0.0 a: 0.0
 x: 0.0 y: 4.0 xV: 0.0 yV: 0.0 aV: 0.0 a: 0.0
 x: 0.0 y: 4.5 xV: 0.0 yV: 0.0 aV: 0.0 a: 0.0
 x: 0.0 y: -10.0 xV: -4.8727146E-18 yV: -0.07957747 aV: 0.0 a: 0.0
-test require 34 step
-I'm updating the asynchronous world!! Was 866 will be 899
+test require 76 step
+I'm updating the asynchronous world!! Was 824 will be 899
 0 error: 0.0
 1 error: 0.0
 2 error: 0.0
@@ -2993,12 +3007,12 @@ I'm updating the asynchronous world!! Was 866 will be 899
 7 error: 0.0
 8 error: 0.0
 9 error: 0.0
-10 error: -0.021224976
-has to be: x: -1.3806023E-18 y: -10.022552 xV: -4.8727146E-18 yV: -0.07957747 aV: 0.0 a: 0.0
-is x: -2.6799934E-18 y: -10.0437765 xV: -4.8727146E-18 yV: -0.07957747 aV: 0.0 a: 0.0
+10 error: -0.049082756
+has to be: x: -3.0860533E-18 y: -10.050409 xV: -4.8727146E-18 yV: -0.07957747 aV: 0.0 a: 0.0
+is x: -6.0908894E-18 y: -10.099492 xV: -4.8727146E-18 yV: -0.07957747 aV: 0.0 a: 0.0
 Closing...
 Connection closed
-Output chiuso
-Input chiuso
 ...closing done
+Input chiuso
+Output chiuso
 AL lib: alSource.c:2361: alcDestroyContext(): deleting 64 Source(s)

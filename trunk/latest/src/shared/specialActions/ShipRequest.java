@@ -3,7 +3,6 @@ package shared.specialActions;
 import java.io.Serializable;
 
 import server.Player;
-import shared.GLOBAL_VARIABLE;
 import shared.PhysicWorld;
 import shared.Ship;
 

@@ -1,6 +1,5 @@
 package shared;
 
-import java.util.ArrayList;
 import java.util.TreeMap;
 
 import org.jbox2d.collision.AABB;
