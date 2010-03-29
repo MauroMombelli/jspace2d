@@ -367,7 +367,7 @@ public class ClientEngine extends TimerTask{
 		rebuildAsichronousWorld();
 		if (lastAllMap.turn > world.actualTurn){
 			System.out.println( "test require "+(lastAllMap.turn-world.actualTurn)+" step" );
-			updateAsincronousWorld(lastAllMap.turn-1);
+			updateAsincronousWorld(lastAllMap.turn);
 		}
 		LinkedList<InfoBody> ris = new LinkedList<InfoBody>();
 		InfoBody a;
