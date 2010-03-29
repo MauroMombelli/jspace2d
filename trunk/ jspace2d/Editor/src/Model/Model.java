@@ -47,7 +47,8 @@ public class Model {
 		//get the body		
 		String bodystring = file.getParent();
 		//bodystring = bodystring.concat("\\Body.mesh.xml");
-		File bodyfile = new File("src\\Risorse\\Body.mesh.xml");
+		String separator = System.getProperty("file.separator");
+		File bodyfile = new File("src"+separator+"Risorse"+separator+"Body.mesh.xml");
 		importer = new Model_Importer(parent, bodyfile );
 		bodymodel = (Node) importer.loadedSpatial;		
 		body_mesh = (OgreMesh) bodymodel.getChild("BodyMesh000");

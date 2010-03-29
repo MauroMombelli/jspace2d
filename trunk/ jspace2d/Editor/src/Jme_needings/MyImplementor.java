@@ -179,8 +179,8 @@ public class MyImplementor extends SimpleCanvasImpl {
 	
 	        statNode.updateGeometricState(0, true);
 	        statNode.updateRenderState();
-	        
-	        File file = new File("src\\Risorse\\Mesh.mesh.xml");
+	        String separator = System.getProperty("file.separator");
+	        File file = new File("src"+separator+"Risorse"+separator+"Mesh.mesh.xml");
 	         
 			object = new Model(root, file, getRenderer().createMaterialState() );			
 			buildPassManager();
