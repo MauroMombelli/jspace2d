@@ -80,6 +80,7 @@ public class WorldGameState extends BasicGameState{
 	@Override
 	public void update(float tpf) {
 		//System.out.println( "GUI update");
+		long time = System.nanoTime();
 		synchronized (objMod) {
 			super.update(tpf);
 			GuiAction currentAction;
@@ -129,9 +130,14 @@ public class WorldGameState extends BasicGameState{
 				cameraZoom = 10;
 			camera.setLocation( new Vector3f(cameraX, cameraY, cameraZoom) );
 		}
+		time = System.nanoTime() - time;
+		System.out.println("Time update GUI:"+time);
 		
+		time = System.nanoTime();
 		rootNode.updateRenderState();
 		rootNode.updateGeometricState(tpf, true);
+		time = System.nanoTime() - time;
+		System.out.println("Time update ROOTNODE:"+time);	
 	}
 /*	
 	@Override

@@ -13,7 +13,7 @@ public class ActionEngine extends Action implements Serializable{
 	 */
 	private static final long serialVersionUID = 3137102960165321853L;
 
-	float x, y, alpha;
+	float x=0, y=0, alpha=0;
 	
 	public ActionEngine(int ID, float x, float y, float alpha){
 		super(ID);
@@ -25,12 +25,19 @@ public class ActionEngine extends Action implements Serializable{
 	@Override
 	public boolean run(Oggetto2D p){
 		if (p != null){
-			if (p.getBody() != null){
-				p.getBody().applyImpulse( new Vec2(x,y), p.getBody().getWorldCenter() );
-				p.getBody().applyTorque( alpha );
-				return true;
+			if (p.ID==ID){
+				if (p.getBody() != null){
+					System.out.println("executing action: "+x+" "+y+" "+alpha);
+					System.out.println( "before: "+p.getInfoPosition() +" torque:"+ p.getBody().m_torque );
+					p.getBody().applyImpulse( new Vec2(x,y), p.getBody().getWorldCenter() );
+					p.getBody().applyTorque( alpha );
+					System.out.println( "after: "+p.getInfoPosition() +" torque:"+ p.getBody().m_torque );
+					return true;
+				}else{
+					System.out.println("error executing action, null body");
+				}
 			}else{
-				System.out.println("error executing action, null body");
+				System.out.println("error executing action, wrong ID");
 			}
 		}else{
 			System.out.println("error executing action, null object");			

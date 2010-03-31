@@ -25,6 +25,7 @@ public class PhysicWorld {
 		AABB worldSize = new AABB(new Vec2(minX, minY), new Vec2(maxX,maxY));
 		Vec2 worldGravity = new Vec2();
 		physicWorld = new World(worldSize, worldGravity, true);
+		//physicWorld.setContinuousPhysics(true);
 		createBorder();
 	}
 	
@@ -74,12 +75,16 @@ public class PhysicWorld {
 	}
 	
 	public void update() {
+		long time = System.nanoTime();
 		actualTurn++;
 		physicWorld.step(TIMESTEP, 10);
 		
+		time = System.nanoTime()-time;
+		System.out.println("step time: "+time);
 		//add the new object to the object
 		allOggetto2D.putAll(newOggetti2D);
 		newOggetti2D.clear();
+		
 	}
 	
 	public void addNew(Oggetto2D t) {

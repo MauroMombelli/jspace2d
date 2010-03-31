@@ -10,6 +10,8 @@ import com.jme.bounding.BoundingBox;
 import com.jme.math.Quaternion;
 import com.jme.math.Vector3f;
 import com.jme.scene.Node;
+import com.jme.scene.TriMesh;
+import com.jme.scene.shape.Box;
 import com.jmex.model.ModelFormatException;
 import com.jmex.model.ogrexml.MaterialLoader;
 import com.jmex.model.ogrexml.MeshCloner;
@@ -22,7 +24,7 @@ public class ModelLoaderOgre {
 	static HashMap<String, Node> loadedModel = new HashMap<String, Node>();
 	
 	static int i=0;
-	
+/*	
 	public static Node loadModelOgre(String name){
 		
 		System.out.println("loading: "+name);
@@ -48,7 +50,7 @@ public class ModelLoaderOgre {
             try {
 
             	loadedNode = (Node) loader.loadModel(meshURL);
-				
+				System.out.println("Numero vertici"+((TriMesh)loadedNode.getChild(0)).getVertexCount());
             	loadedNode.setLocalScale(0.2f);
 				
             	loadedNode.setLocalTranslation(0, 0, 0);
@@ -76,6 +78,14 @@ public class ModelLoaderOgre {
 		loadedNode.updateRenderState();
 		
 		res.attachChild(loadedNode);
+		
 		return res;
+	}
+*/
+
+	public static Node loadModelOgre(String modelName) {
+		Node ris = new Node();
+		ris.attachChild( new Box("Ship", new Vector3f(0,0,0), 0.2f, 0.2f, 0.2f) );
+		return ris;
 	}
 }

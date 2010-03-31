@@ -65,7 +65,9 @@ public class ServerListener extends Thread{
 		if (in instanceof TurnDuration){
 			Timer t = new Timer();
 			TurnDuration td = (TurnDuration)in;
+			
 			engine = new ClientEngine(this, td.actualTurn, td.turnDuration);
+			//engine = new ClientEngine(this, td.actualTurn, 1);
 			
 			//Wait some time for initialization
 			try {
@@ -76,6 +78,7 @@ public class ServerListener extends Thread{
 			}
 			
 			t.scheduleAtFixedRate(engine, 0, td.turnDuration );
+			//t.scheduleAtFixedRate(engine, 0, 1 );
 		}else{
 			close();
 		}

@@ -40,11 +40,12 @@ public class Oggetto2D implements Serializable {
 		bodyContainer.myBody = body;
 		CircleDef sd = new CircleDef();
         sd.restitution = 0.8f;
-        sd.friction = 0.02f;
+        sd.friction = 0;
         sd.radius = GLOBAL_VARIABLE.convertToPhysicEngineUnit( 4 );
         sd.density = 1;
         sd.userData = this;
         bodyContainer.myBody.createShape(sd);
+        bodyContainer.myBody.setMassFromShapes();
 	}
 
 	public Body getBody() {
@@ -52,13 +53,15 @@ public class Oggetto2D implements Serializable {
 	}
 	
 	public InfoBody getInfoPosition() {
-		return new InfoBody(this, ID, bodyContainer.myBody.getXForm(), bodyContainer.myBody.getLinearVelocity(), bodyContainer.myBody.getAngle(), bodyContainer.myBody.getAngularVelocity() );
+		return new InfoBody(this, ID, bodyContainer.myBody.getXForm(), bodyContainer.myBody.getLinearVelocity(), bodyContainer.myBody.getAngle(), bodyContainer.myBody.getAngularVelocity(), bodyContainer.myBody.m_torque );
 	}
 	
 	public void setInfoPosition(InfoBody ad){
 		bodyContainer.myBody.setXForm( ad.getPos(), ad.getAngle() );
 		bodyContainer.myBody.setAngularVelocity( ad.getAngAcc() );
 		bodyContainer.myBody.setLinearVelocity( ad.getPosVel() );
+		//bodyContainer.myBody.applyTorque( bodyContainer.myBody.m_torque-ad.getTorque() );
+		bodyContainer.myBody.m_torque=ad.getTorque();
 	}
 
 	public String getModelName() {

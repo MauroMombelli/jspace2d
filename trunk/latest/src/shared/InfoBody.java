@@ -20,9 +20,10 @@ public class InfoBody implements Serializable{
 	private float x;
 
 	private float alfa;
+	private float torque;
 	Oggetto2D o;
 	
-	public InfoBody(Oggetto2D o, int id, XForm xForm, Vec2 linearVelocity, float angle, float angularVelocity) {
+	public InfoBody(Oggetto2D o, int id, XForm xForm, Vec2 linearVelocity, float angle, float angularVelocity, float torque) {
 		this.o = o;
 		this.ID = id;
 		x = xForm.position.x;
@@ -31,6 +32,7 @@ public class InfoBody implements Serializable{
 		yV = linearVelocity.y;
 		alfa = angle;
 		alfaV = angularVelocity;
+		this.torque = torque;
 	}
 	
 	public Oggetto2D getOggetto2D(){
@@ -45,6 +47,10 @@ public class InfoBody implements Serializable{
 		return alfaV;
 	}
 
+	public float getTorque() {
+		return torque;
+	}
+	
 	public Vec2 getPosVel() {
 		return new Vec2(xV, yV);
 	}

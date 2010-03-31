@@ -48,7 +48,7 @@ public class Engine extends TimerTask{
 		
 		//put 10 obj in world
 		Oggetto2D t;
-		for (int i=0; i < 1; i++){
+		for (int i=0; i < 10; i++){
 			for (int a=0; a < 10; a++){
 				t = new Oggetto2D(objIndex++);
 				//newOggetti2D.add(t);
@@ -68,7 +68,6 @@ public class Engine extends TimerTask{
 	public void run() { //new turn
 		long time = System.currentTimeMillis();
 		
-		world.actualTurn++;
 		System.out.println( "Turn "+world.actualTurn);
 		
 		/*
