@@ -24,7 +24,7 @@ public class PhysicWorld {
 	public PhysicWorld(){
 		AABB worldSize = new AABB(new Vec2(minX, minY), new Vec2(maxX,maxY));
 		Vec2 worldGravity = new Vec2();
-		physicWorld = new World(worldSize, worldGravity, true);
+		physicWorld = new World(worldSize, worldGravity, false);
 		//physicWorld.setContinuousPhysics(true);
 		createBorder();
 	}
