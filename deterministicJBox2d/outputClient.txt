@@ -1,0 +1,6186 @@
+Output ok
+Input ok
+2-apr-2010 1.35.53 com.jme.input.joystick.DummyJoystickInput <init>
+INFO: Joystick support is disabled
+2-apr-2010 1.35.53 com.jme.system.lwjgl.LWJGLDisplaySystem <init>
+INFO: LWJGL Display System created.
+2-apr-2010 1.35.54 com.jme.renderer.lwjgl.LWJGLRenderer <init>
+INFO: LWJGLRenderer created. W: 800 H: 600	Version: 2.3
+2-apr-2010 1.35.54 com.jme.renderer.AbstractCamera <init>
+INFO: Camera created.
+2-apr-2010 1.35.54 com.jmex.audio.openal.OpenALSystem setupSourcePool
+INFO: max source channels: 32
+2-apr-2010 1.35.54 com.jmex.game.state.GameStateManager create
+INFO: Created GameStateManager
+2-apr-2010 1.35.54 com.jme.util.lwjgl.LWJGLTimer <init>
+INFO: Timer resolution: 1000 ticks per second
+Time update GUI:92663
+Time update ROOTNODE:119183
+Time update GUI:31921
+Time update ROOTNODE:88783
+Time update GUI:81026
+Time update ROOTNODE:593527
+Time update GUI:99885
+Time update ROOTNODE:374096
+Ship request send, starting turn:542
+Time update GUI:28002
+Time update ROOTNODE:87084
+Time update GUI:31882
+Time update ROOTNODE:86363
+Time update GUI:22265
+Time update ROOTNODE:100697
+Time update GUI:39554
+Time update ROOTNODE:115096
+Time update GUI:86438
+Time update ROOTNODE:296192
+Time update GUI:31032
+Time update ROOTNODE:87236
+Time update GUI:29688
+Time update ROOTNODE:85298
+Time update GUI:74948
+Time update ROOTNODE:261794
+Time update GUI:75709
+Time update ROOTNODE:277145
+Time update GUI:73692
+Time update ROOTNODE:291751
+Time update GUI:790954
+Time update ROOTNODE:274713
+Time update GUI:78099
+Time update ROOTNODE:272484
+Time update GUI:27048
+Time update ROOTNODE:82565
+Time update GUI:90536
+Time update ROOTNODE:265729
+Time update GUI:24016
+Time update ROOTNODE:79367
+Time update GUI:77213
+Time update ROOTNODE:278275
+Time update GUI:206140
+Time update ROOTNODE:341159
+Time update GUI:113087
+Time update ROOTNODE:281719
+Time update GUI:74118
+Time update ROOTNODE:305638
+Time update GUI:76884
+Time update ROOTNODE:267043
+Time update GUI:75640
+Time update ROOTNODE:272952
+Time update GUI:76606
+Time update ROOTNODE:271035
+Time update GUI:75122
+Time update ROOTNODE:266595
+Time update GUI:23236
+Time update ROOTNODE:80675
+Time update GUI:74372
+Time update ROOTNODE:344766
+Time update GUI:74967
+Time update ROOTNODE:265555
+Time update GUI:73514
+Time update ROOTNODE:305395
+Time update GUI:25739
+Time update ROOTNODE:81802
+Time update GUI:76637
+Time update ROOTNODE:275247
+Time update GUI:73927
+Time update ROOTNODE:266174
+Time update GUI:78882
+Time update ROOTNODE:398445
+Time update GUI:74681
+Time update ROOTNODE:266038
+Time update GUI:23464
+Time update ROOTNODE:80295
+Time update GUI:73816
+Time update ROOTNODE:266601
+Time update GUI:210524
+Time update ROOTNODE:361586
+Time update GUI:184618
+Time update ROOTNODE:268953
+Time update GUI:74612
+Time update ROOTNODE:266536
+Time update GUI:77790
+Time update ROOTNODE:294957
+Time update GUI:74922
+Time update ROOTNODE:264138
+Time update GUI:86255
+Time update ROOTNODE:414672
+Time update GUI:74669
+Time update ROOTNODE:289532
+Time update GUI:75988
+Time update ROOTNODE:375680
+Time update GUI:73943
+Time update ROOTNODE:577399
+Time update GUI:77641
+Time update ROOTNODE:306504
+Time update GUI:104363
+Time update ROOTNODE:274644
+Time update GUI:74205
+Time update ROOTNODE:287500
+Time update GUI:76458
+Time update ROOTNODE:1759068
+Time update GUI:112881
+Time update ROOTNODE:271201
+Time update GUI:74372
+Time update ROOTNODE:266944
+Time update GUI:74827
+Time update ROOTNODE:578068
+Time update GUI:75880
+Time update ROOTNODE:536267
+Time update GUI:75935
+Time update ROOTNODE:288582
+Time update GUI:205730
+Time update ROOTNODE:286930
+Time update GUI:74318
+Time update ROOTNODE:267935
+Time update GUI:76124
+Time update ROOTNODE:290318
+Time update GUI:28770
+Time update ROOTNODE:85362
+Time update GUI:26037
+Time update ROOTNODE:83470
+Time update GUI:79733
+Time update ROOTNODE:279245
+Time update GUI:78072
+Time update ROOTNODE:386354
+Time update GUI:86588
+Time update ROOTNODE:395464
+
+
+Client Sincronous Turn: 542
+Waiting input: 3
+New turn received
+Time update GUI:77314
+Time update ROOTNODE:381456
+Using ship: 101
+New turn received
+Reading input time: 1222650
+First update syncronous time: 8919
+TEST syncronized time: 1971
+I'm updating the synchronous world!! Was 542 will be 542
+elements in world:6
+created object:0.0 ID 0
+elements in world:7
+created object:0.0 ID 1
+elements in world:8
+created object:0.0 ID 2
+elements in world:9
+created object:0.0 ID 3
+elements in world:10
+created object:0.0 ID 4
+elements in world:11
+created object:0.0 ID 5
+elements in world:12
+created object:0.0 ID 6
+elements in world:13
+created object:0.0 ID 7
+elements in world:14
+created object:0.0 ID 8
+Time update GUI:76308
+Time update ROOTNODE:392141
+Time update GUI:80567
+Time update ROOTNODE:578376
+elements in world:15
+created object:0.0 ID 9
+elements in world:16
+created object:0.0 ID 10
+elements in world:17
+created object:0.0 ID 11
+elements in world:18
+created object:0.0 ID 12
+elements in world:19
+created object:0.0 ID 13
+elements in world:20
+created object:0.0 ID 14
+elements in world:21
+created object:0.0 ID 15
+elements in world:22
+created object:0.0 ID 16
+elements in world:23
+created object:0.0 ID 17
+elements in world:24
+created object:0.0 ID 18
+elements in world:25
+created object:0.0 ID 19
+elements in world:26
+created object:0.0 ID 20
+elements in world:27
+created object:0.0 ID 21
+elements in world:28
+created object:0.0 ID 22
+elements in world:29
+created object:0.0 ID 23
+elements in world:30
+created object:0.0 ID 24
+elements in world:31
+created object:0.0 ID 25
+elements in world:32
+created object:0.0 ID 26
+elements in world:33
+created object:0.0 ID 27
+elements in world:34
+created object:0.0 ID 28
+elements in world:35
+created object:0.0 ID 29
+elements in world:36
+created object:0.0 ID 30
+elements in world:37
+created object:0.0 ID 31
+elements in world:38
+created object:0.0 ID 32
+elements in world:39
+created object:0.0 ID 33
+elements in world:40
+created object:0.0 ID 34
+elements in world:41
+created object:0.0 ID 35
+elements in world:42
+created object:0.0 ID 36
+elements in world:43
+created object:0.0 ID 37
+elements in world:44
+created object:0.0 ID 38
+elements in world:45
+created object:0.0 ID 39
+elements in world:46
+created object:0.0 ID 40
+elements in world:47
+created object:0.0 ID 41
+elements in world:48
+created object:0.0 ID 42
+elements in world:49
+created object:0.0 ID 43
+elements in world:50
+created object:0.0 ID 44
+elements in world:51
+created object:0.0 ID 45
+elements in world:52
+created object:0.0 ID 46
+elements in world:53
+created object:0.0 ID 47
+elements in world:54
+created object:0.0 ID 48
+elements in world:55
+created object:0.0 ID 49
+elements in world:56
+created object:0.0 ID 50
+elements in world:57
+created object:0.0 ID 51
+elements in world:58
+created object:0.0 ID 52
+Time update GUI:28067
+Time update ROOTNODE:113114
+elements in world:59
+created object:0.0 ID 53
+elements in world:60
+created object:0.0 ID 54
+elements in world:61
+created object:0.0 ID 55
+elements in world:62
+created object:0.0 ID 56
+elements in world:63
+created object:0.0 ID 57
+elements in world:64
+created object:0.0 ID 58
+elements in world:65
+created object:0.0 ID 59
+elements in world:66
+created object:0.0 ID 60
+elements in world:67
+created object:0.0 ID 61
+elements in world:68
+created object:0.0 ID 62
+elements in world:69
+created object:0.0 ID 63
+elements in world:70
+created object:0.0 ID 64
+elements in world:71
+created object:0.0 ID 65
+elements in world:72
+created object:0.0 ID 66
+elements in world:73
+created object:0.0 ID 67
+elements in world:74
+created object:0.0 ID 68
+elements in world:75
+created object:0.0 ID 69
+elements in world:76
+created object:0.0 ID 70
+elements in world:77
+created object:0.0 ID 71
+elements in world:78
+created object:0.0 ID 72
+elements in world:79
+created object:0.0 ID 73
+elements in world:80
+created object:0.0 ID 74
+elements in world:81
+created object:0.0 ID 75
+elements in world:82
+created object:0.0 ID 76
+elements in world:83
+created object:0.0 ID 77
+elements in world:84
+created object:0.0 ID 78
+elements in world:85
+created object:0.0 ID 79
+elements in world:86
+created object:0.0 ID 80
+elements in world:87
+created object:0.0 ID 81
+elements in world:88
+created object:0.0 ID 82
+elements in world:89
+created object:0.0 ID 83
+elements in world:90
+created object:0.0 ID 84
+elements in world:91
+created object:0.0 ID 85
+elements in world:92
+created object:0.0 ID 86
+elements in world:93
+Time update GUI:28868
+Time update ROOTNODE:68444
+created object:0.0 ID 87
+elements in world:94
+created object:0.0 ID 88
+elements in world:95
+created object:0.0 ID 89
+elements in world:96
+created object:0.0 ID 90
+elements in world:97
+created object:0.0 ID 91
+elements in world:98
+created object:0.0 ID 92
+elements in world:99
+created object:0.0 ID 93
+elements in world:100
+created object:0.0 ID 94
+elements in world:101
+created object:0.0 ID 95
+elements in world:102
+created object:0.0 ID 96
+elements in world:103
+created object:0.0 ID 97
+elements in world:104
+created object:0.0 ID 98
+elements in world:105
+created object:0.0 ID 99
+elements in world:106
+created object:0.0 ID 100
+I'm updating the synchronous world!! Was 542 will be 691
+Time update GUI:89130
+Time update ROOTNODE:61004
+step time: 14002496
+step time: 3393793
+step time: 3507832
+step time: 4093647
+Time update GUI:90370
+Time update ROOTNODE:58458
+step time: 3999091
+step time: 3164021
+step time: 2752938
+step time: 3211107
+step time: 2873562
+Time update GUI:86108
+Time update ROOTNODE:57294
+step time: 3496690
+step time: 2619817
+step time: 7259752
+step time: 3327435
+Time update GUI:89231
+Time update ROOTNODE:60386
+step time: 3518549
+step time: 2811198
+step time: 4314443
+step time: 3529851
+Time update GUI:32725
+Time update ROOTNODE:61878
+step time: 5405468
+step time: 2989308
+step time: 3386760
+step time: 3838096
+step time: 2844260
+Time update GUI:90168
+Time update ROOTNODE:59091
+step time: 2903930
+step time: 3398134
+step time: 2918702
+step time: 3532298
+Time update GUI:30445
+Time update ROOTNODE:56227
+step time: 8283276
+step time: 1713515
+step time: 1592524
+step time: 2340416
+step time: 1591656
+step time: 1626295
+step time: 1859466
+Time update GUI:90843
+Time update ROOTNODE:59189
+step time: 1684512
+step time: 2312209
+step time: 1610817
+step time: 1644605
+step time: 2521699
+step time: 1640175
+step time: 1623008
+step time: 1613878
+step time: 1657576
+step time: 2111906
+step time: 1655565
+step time: 1640038
+step time: 2231773
+step time: 1905879
+step time: 2310164
+step time: 1746547
+Time update GUI:32432
+Time update ROOTNODE:60199
+step time: 3469010
+step time: 1687456
+step time: 1481273
+step time: 3645482
+step time: 2459352
+step time: 1491255
+step time: 1419032
+step time: 1440134
+Time update GUI:31158
+Time update ROOTNODE:57725
+step time: 2761535
+step time: 2297176
+step time: 1891988
+step time: 1956874
+step time: 1942583
+step time: 1921503
+step time: 2103169
+step time: 1119347
+step time: 1157948
+Time update GUI:27815
+Time update ROOTNODE:53457
+step time: 2925395
+step time: 1103757
+step time: 1131492
+step time: 1107085
+step time: 1118392
+step time: 1235079
+step time: 1827657
+step time: 1336848
+step time: 1319776
+step time: 1352338
+step time: 1322620
+Time update GUI:96906
+Time update ROOTNODE:175090
+step time: 2477059
+step time: 1376076
+step time: 1352277
+step time: 1406418
+step time: 1267503
+step time: 1858679
+step time: 1286223
+step time: 1256985
+step time: 1289146
+step time: 1883902
+step time: 1238748
+Time update GUI:28292
+Time update ROOTNODE:56518
+step time: 1322188
+step time: 1268415
+step time: 1249013
+step time: 962317
+step time: 1025229
+step time: 1475207
+step time: 1120063
+step time: 912223
+step time: 885117
+step time: 937210
+step time: 1540520
+step time: 907629
+step time: 891266
+step time: 888583
+Time update GUI:28656
+Time update ROOTNODE:55731
+step time: 1610448
+step time: 1024950
+step time: 896107
+step time: 621909
+step time: 614224
+step time: 1131002
+step time: 631066
+step time: 566566
+step time: 514253
+step time: 545325
+step time: 517226
+step time: 510671
+step time: 522915
+step time: 511474
+step time: 1369547
+step time: 541550
+step time: 503330
+step time: 505773
+step time: 494897
+step time: 498252
+step time: 494882
+step time: 525477
+Time update GUI:29934
+Time update ROOTNODE:58718
+step time: 557922
+step time: 501392
+step time: 508569
+step time: 507665
+step time: 510772
+step time: 510108
+step time: 1060100
+step time: 492138
+step time: 480385
+step time: 491126
+step time: 459775
+step time: 458821
+step time: 471918
+step time: 460682
+step time: 660901
+step time: 1263202
+step time: 512723
+step time: 493916
+step time: 485728
+step time: 503269
+step time: 518398
+step time: 388945
+step time: 381191
+step time: 376884
+step time: 370312
+Time update GUI:30283
+Time update ROOTNODE:59478
+elements in world:107
+created object:0.0 ID 101
+Second update syncronous time: 349967841
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm rebuilding the asynchronous world!! Was 542 will be 691
+Time update GUI:29670
+Time update ROOTNODE:57129
+Rebuilding asyncronous time: 18243780
+Asinc turn was less than sync turn:542 691
+I'm updating the asynchronous world!! Was 692 will be 692
+Update asyncronous time: 127871
+GUI copy obj time: 2772
+GUI copy new obj time: 1124689
+GUIActions:102
+GUI set time: 1337900
+Synchronization time: 371615442
+Send action time: 35856
+WARNING: engine turn take more execution time than requested!!! This can cause serius error/data corruption!! ms duration: 372
+
+
+Client Sincronous Turn: 691
+Waiting input: 1
+New turn received
+Reading input time: 55804
+First update syncronous time: 692
+TEST syncronized time: 667
+I'm updating the synchronous world!! Was 691 will be 782
+step time: 355625
+step time: 227719
+step time: 210195
+step time: 989766
+step time: 316357
+step time: 311776
+step time: 258825
+step time: 287608
+step time: 334778
+step time: 306873
+step time: 295484
+step time: 269652
+step time: 266791
+step time: 309569
+step time: 272054
+step time: 284431
+step time: 326893
+step time: 278778
+step time: 282065
+step time: 275120
+step time: 277033
+step time: 270313
+step time: 294535
+step time: 280226
+step time: 359506
+step time: 303353
+step time: 307034
+step time: 1356423
+step time: 245376
+step time: 219120
+step time: 214268
+step time: 226072
+step time: 227792
+step time: 209163
+step time: 213702
+step time: 244623
+step time: 279693
+step time: 241457
+step time: 224835
+step time: 233014
+step time: 537683
+step time: 228543
+step time: 248672
+step time: 206769
+step time: 309081
+step time: 222462
+step time: 230513
+step time: 237893
+step time: 210864
+step time: 212016
+step time: 198055
+step time: 198225
+step time: 202187
+step time: 205563
+step time: 225465
+step time: 289620
+step time: 224078
+step time: 208789
+step time: 209096
+step time: 208343
+step time: 207817
+step time: 258334
+step time: 215679
+step time: 214608
+step time: 245663
+step time: 216405
+step time: 211590
+step time: 212909
+loading: Sphere
+loading from filesystem: Sphere
+step time: 265389
+step time: 255118
+step time: 269945
+step time: 281769
+step time: 277422
+step time: 251021
+step time: 243115
+step time: 232667
+step time: 233673
+step time: 215111
+step time: 211509
+step time: 225891
+step time: 206609
+step time: 225779
+step time: 207694
+step time: 204713
+step time: 202247
+step time: 203592
+step time: 234975
+step time: 213620
+step time: 210266
+step time: 205326
+step time: 205916
+executing action: 1.0 -1.0 0.0
+before: x: 0.005 y: 5.0 xV: 0.0 yV: 0.0 aV: 0.0 a: 0.0 torque:0.0
+after: x: 0.005 y: 5.0 xV: 0.39788735 yV: -0.39788735 aV: 0.0 a: 0.0 torque:0.0
+action setted for object:101 at turn:782
+Second update syncronous time: 47100991
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm rebuilding the asynchronous world!! Was 692 will be 782
+Rebuilding asyncronous time: 25484587
+Asinc turn was less than sync turn:692 782
+I'm updating the asynchronous world!! Was 783 will be 783
+Update asyncronous time: 112167
+GUI copy obj time: 1727
+GUI copy new obj time: 397982
+GUIActions:102
+Numero vertici642
+New model created, ID:0 Sphere
+loading: Sphere
+New model created, ID:1 Sphere
+loading: Sphere
+New model created, ID:2 Sphere
+loading: Sphere
+New model created, ID:3 Sphere
+loading: Sphere
+New model created, ID:4 Sphere
+loading: Sphere
+New model created, ID:5 Sphere
+loading: Sphere
+New model created, ID:6 Sphere
+loading: Sphere
+New model created, ID:7 Sphere
+loading: Sphere
+New model created, ID:8 Sphere
+loading: Sphere
+New model created, ID:9 Sphere
+loading: Sphere
+New model created, ID:10 Sphere
+loading: Sphere
+New model created, ID:11 Sphere
+loading: Sphere
+New model created, ID:12 Sphere
+loading: Sphere
+New model created, ID:13 Sphere
+loading: Sphere
+New model created, ID:14 Sphere
+loading: Sphere
+New model created, ID:15 Sphere
+loading: Sphere
+New model created, ID:16 Sphere
+loading: Sphere
+New model created, ID:17 Sphere
+loading: Sphere
+New model created, ID:18 Sphere
+loading: Sphere
+New model created, ID:19 Sphere
+loading: Sphere
+New model created, ID:20 Sphere
+loading: Sphere
+New model created, ID:21 Sphere
+loading: Sphere
+New model created, ID:22 Sphere
+loading: Sphere
+New model created, ID:23 Sphere
+loading: Sphere
+New model created, ID:24 Sphere
+loading: Sphere
+New model created, ID:25 Sphere
+loading: Sphere
+New model created, ID:26 Sphere
+loading: Sphere
+New model created, ID:27 Sphere
+loading: Sphere
+New model created, ID:28 Sphere
+loading: Sphere
+New model created, ID:29 Sphere
+loading: Sphere
+New model created, ID:30 Sphere
+loading: Sphere
+New model created, ID:31 Sphere
+loading: Sphere
+New model created, ID:32 Sphere
+loading: Sphere
+New model created, ID:33 Sphere
+loading: Sphere
+New model created, ID:34 Sphere
+loading: Sphere
+New model created, ID:35 Sphere
+loading: Sphere
+New model created, ID:36 Sphere
+loading: Sphere
+New model created, ID:37 Sphere
+loading: Sphere
+New model created, ID:38 Sphere
+loading: Sphere
+New model created, ID:39 Sphere
+loading: Sphere
+New model created, ID:40 Sphere
+loading: Sphere
+New model created, ID:41 Sphere
+loading: Sphere
+New model created, ID:42 Sphere
+loading: Sphere
+New model created, ID:43 Sphere
+loading: Sphere
+New model created, ID:44 Sphere
+loading: Sphere
+New model created, ID:45 Sphere
+loading: Sphere
+New model created, ID:46 Sphere
+loading: Sphere
+New model created, ID:47 Sphere
+loading: Sphere
+New model created, ID:48 Sphere
+loading: Sphere
+New model created, ID:49 Sphere
+loading: Sphere
+New model created, ID:50 Sphere
+loading: Sphere
+New model created, ID:51 Sphere
+loading: Sphere
+New model created, ID:52 Sphere
+loading: Sphere
+New model created, ID:53 Sphere
+loading: Sphere
+New model created, ID:54 Sphere
+loading: Sphere
+New model created, ID:55 Sphere
+loading: Sphere
+New model created, ID:56 Sphere
+loading: Sphere
+New model created, ID:57 Sphere
+loading: Sphere
+New model created, ID:58 Sphere
+loading: Sphere
+New model created, ID:59 Sphere
+loading: Sphere
+New model created, ID:60 Sphere
+loading: Sphere
+New model created, ID:61 Sphere
+loading: Sphere
+New model created, ID:62 Sphere
+loading: Sphere
+New model created, ID:63 Sphere
+loading: Sphere
+New model created, ID:64 Sphere
+loading: Sphere
+New model created, ID:65 Sphere
+loading: Sphere
+New model created, ID:66 Sphere
+loading: Sphere
+New model created, ID:67 Sphere
+loading: Sphere
+New model created, ID:68 Sphere
+loading: Sphere
+New model created, ID:69 Sphere
+loading: Sphere
+New model created, ID:70 Sphere
+loading: Sphere
+New model created, ID:71 Sphere
+loading: Sphere
+New model created, ID:72 Sphere
+loading: Sphere
+New model created, ID:73 Sphere
+loading: Sphere
+New model created, ID:74 Sphere
+loading: Sphere
+New model created, ID:75 Sphere
+loading: Sphere
+New model created, ID:76 Sphere
+loading: Sphere
+New model created, ID:77 Sphere
+loading: Sphere
+New model created, ID:78 Sphere
+loading: Sphere
+New model created, ID:79 Sphere
+loading: Sphere
+New model created, ID:80 Sphere
+loading: Sphere
+New model created, ID:81 Sphere
+loading: Sphere
+New model created, ID:82 Sphere
+loading: Sphere
+New model created, ID:83 Sphere
+loading: Sphere
+New model created, ID:84 Sphere
+loading: Sphere
+New model created, ID:85 Sphere
+loading: Sphere
+New model created, ID:86 Sphere
+loading: Sphere
+New model created, ID:87 Sphere
+loading: Sphere
+New model created, ID:88 Sphere
+loading: Sphere
+New model created, ID:89 Sphere
+loading: Sphere
+New model created, ID:90 Sphere
+loading: Sphere
+New model created, ID:91 Sphere
+loading: Sphere
+New model created, ID:92 Sphere
+loading: Sphere
+New model created, ID:93 Sphere
+loading: Sphere
+New model created, ID:94 Sphere
+loading: Sphere
+New model created, ID:95 Sphere
+loading: Sphere
+New model created, ID:96 Sphere
+loading: Sphere
+New model created, ID:97 Sphere
+loading: Sphere
+New model created, ID:98 Sphere
+loading: Sphere
+New model created, ID:99 Sphere
+loading: Cone
+loading from filesystem: Cone
+Numero vertici7958
+New model created, ID:100 Cone
+loading: Cone
+New model created, ID:101 Cone
+Time update GUI:903562038
+GUI set time: 841876221
+Synchronization time: 915186136
+Send action time: 20125
+WARNING: engine turn take more execution time than requested!!! This can cause serius error/data corruption!! ms duration: 915
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 4227
+First update syncronous time: 678
+TEST syncronized time: 669
+Second update syncronous time: 554
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 783 will be 784
+step time: 348668
+Update asyncronous time: 489555
+GUI copy obj time: 402629
+GUI copy new obj time: 1675
+GUIActions:102
+GUI set time: 455983
+Synchronization time: 1099092
+Send action time: 10451
+engine turn ms duration: 2
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 2030
+First update syncronous time: 478
+TEST syncronized time: 470
+Second update syncronous time: 465
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 784 will be 785
+step time: 219124
+Update asyncronous time: 258055
+GUI copy obj time: 387682
+GUI copy new obj time: 1410
+GUIActions:102
+GUI set time: 439129
+Synchronization time: 835177
+Send action time: 10077
+engine turn ms duration: 0
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 1934
+First update syncronous time: 477
+TEST syncronized time: 473
+Second update syncronous time: 461
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 785 will be 786
+step time: 228759
+Update asyncronous time: 267239
+Time update ROOTNODE:2748879
+GUI copy obj time: 1089286
+GUI copy new obj time: 2530
+GUIActions:102
+GUI set time: 1282735
+Synchronization time: 1722674
+Send action time: 12419
+engine turn ms duration: 2
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 2761
+First update syncronous time: 693
+TEST syncronized time: 561
+Second update syncronous time: 647
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 786 will be 787
+step time: 283668
+Update asyncronous time: 404190
+GUI copy obj time: 386477
+GUI copy new obj time: 1861
+GUIActions:102
+GUI set time: 544287
+Synchronization time: 1372839
+Send action time: 11765
+engine turn ms duration: 2
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 2660
+First update syncronous time: 622
+TEST syncronized time: 561
+Second update syncronous time: 597
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 787 will be 788
+step time: 232764
+Update asyncronous time: 347053
+GUI copy obj time: 6734583
+GUI copy new obj time: 2420
+GUIActions:102
+GUI set time: 6810663
+Synchronization time: 7547003
+Send action time: 13073
+engine turn ms duration: 8
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 2781
+First update syncronous time: 480
+TEST syncronized time: 466
+Second update syncronous time: 476
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 788 will be 789
+step time: 347113
+Update asyncronous time: 392287
+GUI copy obj time: 402520
+GUI copy new obj time: 1470
+GUIActions:102
+GUI set time: 457073
+Synchronization time: 1003713
+Send action time: 10020
+engine turn ms duration: 1
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 1901
+First update syncronous time: 467
+TEST syncronized time: 500
+Second update syncronous time: 458
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 789 will be 790
+step time: 231105
+Update asyncronous time: 273094
+GUI copy obj time: 399242
+GUI copy new obj time: 1368
+GUIActions:102
+GUI set time: 453836
+Synchronization time: 871189
+Send action time: 9808
+engine turn ms duration: 1
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 1904
+First update syncronous time: 456
+TEST syncronized time: 457
+Second update syncronous time: 453
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 790 will be 791
+step time: 229855
+Update asyncronous time: 271797
+GUI copy obj time: 405870
+GUI copy new obj time: 1427
+GUIActions:102
+GUI set time: 461941
+Synchronization time: 875046
+Send action time: 9894
+engine turn ms duration: 1
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 1922
+First update syncronous time: 480
+TEST syncronized time: 451
+Second update syncronous time: 462
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 791 will be 792
+step time: 273466
+Update asyncronous time: 317996
+GUI copy obj time: 400760
+GUI copy new obj time: 1384
+GUIActions:102
+GUI set time: 455118
+Synchronization time: 919674
+Send action time: 10649
+engine turn ms duration: 1
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 2021
+First update syncronous time: 480
+TEST syncronized time: 477
+Second update syncronous time: 452
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 792 will be 793
+step time: 341935
+Update asyncronous time: 389374
+GUI copy obj time: 396266
+GUI copy new obj time: 1464
+GUIActions:102
+Time update GUI:2174088
+GUI set time: 1756983
+Synchronization time: 3437975
+Send action time: 13370
+engine turn ms duration: 3
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 2622
+First update syncronous time: 495
+TEST syncronized time: 563
+Second update syncronous time: 621
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 793 will be 794
+step time: 280833
+Update asyncronous time: 363362
+GUI copy obj time: 403448
+GUI copy new obj time: 1829
+GUIActions:102
+GUI set time: 497294
+Time update ROOTNODE:2388899
+Synchronization time: 1133267
+Send action time: 11257
+engine turn ms duration: 2
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 2241
+First update syncronous time: 472
+TEST syncronized time: 472
+Second update syncronous time: 468
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 794 will be 795
+step time: 226017
+Update asyncronous time: 271182
+GUI copy obj time: 552858
+GUI copy new obj time: 1618
+GUIActions:102
+GUI set time: 615945
+Synchronization time: 1053872
+Send action time: 11455
+engine turn ms duration: 1
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 2194
+First update syncronous time: 481
+TEST syncronized time: 504
+Second update syncronous time: 470
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 795 will be 796
+step time: 237691
+Update asyncronous time: 291830
+GUI copy obj time: 385651
+GUI copy new obj time: 1430
+GUIActions:102
+GUI set time: 446034
+Synchronization time: 905452
+Send action time: 10456
+engine turn ms duration: 1
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 2031
+First update syncronous time: 492
+TEST syncronized time: 489
+Second update syncronous time: 467
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 796 will be 797
+step time: 224813
+Update asyncronous time: 324727
+GUI copy obj time: 397149
+GUI copy new obj time: 2826
+GUIActions:102
+GUI set time: 787382
+Synchronization time: 1346531
+Send action time: 12238
+engine turn ms duration: 1
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 2784
+First update syncronous time: 666
+TEST syncronized time: 577
+Second update syncronous time: 721
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 797 will be 798
+step time: 248616
+Update asyncronous time: 382113
+GUI copy obj time: 375191
+GUI copy new obj time: 1911
+GUIActions:102
+GUI set time: 539182
+Synchronization time: 1357465
+Send action time: 11518
+engine turn ms duration: 2
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 2614
+First update syncronous time: 665
+TEST syncronized time: 555
+Second update syncronous time: 600
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 798 will be 799
+step time: 213815
+Update asyncronous time: 337600
+GUI copy obj time: 367377
+GUI copy new obj time: 1435
+GUIActions:102
+GUI set time: 433086
+Synchronization time: 1174411
+Send action time: 10966
+engine turn ms duration: 1
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 3215781
+First update syncronous time: 560
+TEST syncronized time: 593
+Second update syncronous time: 472
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 799 will be 800
+step time: 234447
+Update asyncronous time: 280308
+GUI copy obj time: 380569
+GUI copy new obj time: 1557
+GUIActions:102
+GUI set time: 453191
+Synchronization time: 4150851
+Send action time: 12058
+engine turn ms duration: 4
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 2203
+First update syncronous time: 467
+TEST syncronized time: 460
+Second update syncronous time: 452
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 800 will be 801
+step time: 222934
+Update asyncronous time: 268985
+GUI copy obj time: 377630
+GUI copy new obj time: 1418
+GUIActions:102
+GUI set time: 438919
+Synchronization time: 873860
+Send action time: 10319
+engine turn ms duration: 1
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 1980
+First update syncronous time: 443
+TEST syncronized time: 447
+Second update syncronous time: 431
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 801 will be 802
+step time: 218924
+Update asyncronous time: 263916
+GUI copy obj time: 378653
+GUI copy new obj time: 1426
+GUIActions:102
+Time update GUI:2054081
+GUI set time: 1706567
+Synchronization time: 2181108
+Send action time: 12404
+engine turn ms duration: 3
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 2475
+First update syncronous time: 484
+TEST syncronized time: 498
+Second update syncronous time: 437
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 802 will be 803
+step time: 214460
+Update asyncronous time: 255573
+GUI copy obj time: 373616
+GUI copy new obj time: 1390
+GUIActions:102
+GUI set time: 428476
+Synchronization time: 848809
+Send action time: 10116
+engine turn ms duration: 1
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 1934
+First update syncronous time: 470
+TEST syncronized time: 457
+Second update syncronous time: 455
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 803 will be 804
+step time: 199182
+Update asyncronous time: 239866
+GUI copy obj time: 371712
+GUI copy new obj time: 1962
+GUIActions:102
+GUI set time: 558408
+Synchronization time: 984587
+Send action time: 11267
+engine turn ms duration: 1
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 2510
+First update syncronous time: 618
+TEST syncronized time: 588
+Second update syncronous time: 586
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 804 will be 805
+step time: 219675
+Update asyncronous time: 337148
+GUI copy obj time: 370299
+GUI copy new obj time: 1879
+GUIActions:102
+GUI set time: 538808
+Synchronization time: 1312703
+Send action time: 11287
+engine turn ms duration: 1
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 2539
+First update syncronous time: 626
+TEST syncronized time: 802
+Second update syncronous time: 592
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 805 will be 806
+step time: 204145
+Update asyncronous time: 321813
+Time update ROOTNODE:4454344
+GUI copy obj time: 400912
+GUI copy new obj time: 2103
+GUIActions:102
+GUI set time: 570607
+Synchronization time: 1336324
+Send action time: 11606
+engine turn ms duration: 2
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 2547
+First update syncronous time: 623
+TEST syncronized time: 814
+Second update syncronous time: 593
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 806 will be 807
+step time: 206748
+Update asyncronous time: 323954
+GUI copy obj time: 368259
+GUI copy new obj time: 1875
+GUIActions:102
+GUI set time: 536593
+Synchronization time: 1299917
+Send action time: 12720
+engine turn ms duration: 2
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 2788
+First update syncronous time: 625
+TEST syncronized time: 839
+Second update syncronous time: 586
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 807 will be 808
+step time: 262649
+Update asyncronous time: 386371
+GUI copy obj time: 371787
+GUI copy new obj time: 1921
+GUIActions:102
+GUI set time: 535319
+Synchronization time: 1360565
+Send action time: 11997
+engine turn ms duration: 1
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 2647
+First update syncronous time: 630
+TEST syncronized time: 842
+Second update syncronous time: 602
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 808 will be 809
+step time: 245464
+Update asyncronous time: 3647009
+GUI copy obj time: 381112
+GUI copy new obj time: 1985
+GUIActions:102
+GUI set time: 545825
+Synchronization time: 4632175
+Send action time: 12814
+engine turn ms duration: 5
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 2855
+First update syncronous time: 632
+TEST syncronized time: 858
+Second update syncronous time: 589
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 809 will be 810
+step time: 240836
+Update asyncronous time: 359435
+GUI copy obj time: 380580
+GUI copy new obj time: 1934
+GUIActions:102
+GUI set time: 1260766
+Synchronization time: 2060754
+Send action time: 12553
+engine turn ms duration: 2
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 2427
+First update syncronous time: 490
+TEST syncronized time: 521
+Time update GUI:1987003
+Second update syncronous time: 473
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 810 will be 811
+step time: 237546
+Update asyncronous time: 284650
+GUI copy obj time: 385431
+GUI copy new obj time: 1468
+GUIActions:102
+GUI set time: 447292
+Synchronization time: 956475
+Send action time: 10895
+engine turn ms duration: 1
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 2028
+First update syncronous time: 467
+TEST syncronized time: 464
+Second update syncronous time: 450
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 811 will be 812
+step time: 227485
+Update asyncronous time: 273850
+GUI copy obj time: 381220
+GUI copy new obj time: 1441
+GUIActions:102
+GUI set time: 442165
+Synchronization time: 909076
+Send action time: 10633
+engine turn ms duration: 1
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 2500
+First update syncronous time: 466
+TEST syncronized time: 489
+Second update syncronous time: 454
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 812 will be 813
+Time update ROOTNODE:2173295
+step time: 265793
+Update asyncronous time: 317701
+GUI copy obj time: 399507
+GUI copy new obj time: 1493
+GUIActions:102
+GUI set time: 460961
+Synchronization time: 980974
+Send action time: 11007
+engine turn ms duration: 2
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 1984
+First update syncronous time: 472
+TEST syncronized time: 474
+Second update syncronous time: 443
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 813 will be 814
+step time: 263251
+Update asyncronous time: 305242
+GUI copy obj time: 418627
+GUI copy new obj time: 1561
+GUIActions:102
+GUI set time: 481196
+Synchronization time: 937699
+Send action time: 10380
+engine turn ms duration: 1
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 2064
+First update syncronous time: 447
+TEST syncronized time: 455
+Second update syncronous time: 456
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 814 will be 815
+step time: 217156
+Update asyncronous time: 263231
+GUI copy obj time: 399196
+GUI copy new obj time: 1458
+GUIActions:102
+GUI set time: 461885
+Synchronization time: 890942
+Send action time: 10353
+engine turn ms duration: 1
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 2034
+First update syncronous time: 474
+TEST syncronized time: 454
+Second update syncronous time: 449
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 815 will be 816
+step time: 214848
+Update asyncronous time: 260807
+GUI copy obj time: 391146
+GUI copy new obj time: 1455
+GUIActions:102
+GUI set time: 450153
+Synchronization time: 870334
+Send action time: 9970
+engine turn ms duration: 0
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 1911
+First update syncronous time: 454
+TEST syncronized time: 442
+Second update syncronous time: 441
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 816 will be 817
+step time: 216670
+Update asyncronous time: 260639
+GUI copy obj time: 427049
+GUI copy new obj time: 1852
+GUIActions:102
+GUI set time: 547616
+Synchronization time: 980447
+Send action time: 19393
+engine turn ms duration: 1
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 3745
+First update syncronous time: 821
+TEST syncronized time: 569
+Second update syncronous time: 579
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 817 will be 818
+step time: 399939
+Update asyncronous time: 488932
+GUI copy obj time: 437205
+GUI copy new obj time: 1530
+GUIActions:102
+GUI set time: 498076
+Synchronization time: 1280148
+Send action time: 10360
+engine turn ms duration: 1
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 4508
+First update syncronous time: 834
+TEST syncronized time: 627
+Second update syncronous time: 677
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 818 will be 819
+step time: 386326
+Update asyncronous time: 475478
+GUI copy obj time: 1260310
+GUI copy new obj time: 3299
+GUIActions:102
+GUI set time: 1373010
+Synchronization time: 2142658
+Send action time: 19118
+engine turn ms duration: 2
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 3686
+First update syncronous time: 538
+TEST syncronized time: 592
+Second update syncronous time: 515
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 819 will be 820
+step time: 358752
+Update asyncronous time: 488640
+GUI copy obj time: 396536
+GUI copy new obj time: 2028
+GUIActions:102
+GUI set time: 1918901
+Synchronization time: 6119317
+Time update GUI:2890445
+Send action time: 12821
+engine turn ms duration: 6
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 2826
+First update syncronous time: 641
+TEST syncronized time: 581
+Second update syncronous time: 591
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 820 will be 821
+step time: 1455397
+Update asyncronous time: 1595467
+GUI copy obj time: 392237
+GUI copy new obj time: 1507
+GUIActions:102
+GUI set time: 452641
+Synchronization time: 2434865
+Send action time: 11816
+engine turn ms duration: 3
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 2761
+First update syncronous time: 627
+TEST syncronized time: 552
+Second update syncronous time: 604
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 821 will be 822
+step time: 248666
+Update asyncronous time: 369009
+Time update ROOTNODE:3859228
+GUI copy obj time: 391515
+GUI copy new obj time: 1545
+GUIActions:102
+GUI set time: 462314
+Synchronization time: 1248221
+Send action time: 11403
+engine turn ms duration: 1
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 2154
+First update syncronous time: 472
+TEST syncronized time: 485
+Second update syncronous time: 457
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 822 will be 823
+step time: 211211
+Update asyncronous time: 257158
+GUI copy obj time: 385878
+GUI copy new obj time: 1558
+GUIActions:102
+GUI set time: 452332
+Synchronization time: 875109
+Send action time: 10355
+engine turn ms duration: 1
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 2030
+First update syncronous time: 478
+TEST syncronized time: 456
+Second update syncronous time: 466
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 823 will be 824
+step time: 224375
+Update asyncronous time: 268916
+GUI copy obj time: 392232
+GUI copy new obj time: 2052
+GUIActions:102
+GUI set time: 579336
+Synchronization time: 1029618
+Send action time: 11544
+engine turn ms duration: 1
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 2511
+First update syncronous time: 621
+TEST syncronized time: 563
+Second update syncronous time: 601
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 824 will be 825
+step time: 206558
+Update asyncronous time: 250638
+GUI copy obj time: 385327
+GUI copy new obj time: 1500
+GUIActions:102
+GUI set time: 448734
+Synchronization time: 1050233
+Send action time: 11075
+engine turn ms duration: 2
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 2073
+First update syncronous time: 470
+TEST syncronized time: 452
+Second update syncronous time: 467
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 825 will be 826
+step time: 199225
+Update asyncronous time: 243411
+GUI copy obj time: 374502
+GUI copy new obj time: 1473
+GUIActions:102
+GUI set time: 434327
+Synchronization time: 840889
+Send action time: 10135
+engine turn ms duration: 1
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 2034
+First update syncronous time: 470
+TEST syncronized time: 455
+Second update syncronous time: 462
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 826 will be 827
+step time: 221685
+Update asyncronous time: 359066
+GUI copy obj time: 374789
+GUI copy new obj time: 1995
+GUIActions:102
+GUI set time: 554474
+Synchronization time: 1114269
+Send action time: 11724
+engine turn ms duration: 1
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 2519
+First update syncronous time: 616
+TEST syncronized time: 580
+Second update syncronous time: 600
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 827 will be 828
+step time: 217253
+Update asyncronous time: 341591
+GUI copy obj time: 380864
+GUI copy new obj time: 1968
+GUIActions:102
+GUI set time: 627692
+Synchronization time: 1415644
+Send action time: 12040
+engine turn ms duration: 1
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 3139
+First update syncronous time: 607
+TEST syncronized time: 563
+Second update syncronous time: 610
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 828 will be 829
+step time: 221001
+Update asyncronous time: 342270
+GUI copy obj time: 384513
+GUI copy new obj time: 1984
+GUIActions:102
+GUI set time: 552903
+Synchronization time: 1334871
+Send action time: 11820
+engine turn ms duration: 1
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 2668
+First update syncronous time: 617
+TEST syncronized time: 583
+Second update syncronous time: 602
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 829 will be 830
+step time: 210847
+Update asyncronous time: 330545
+GUI copy obj time: 400593
+GUI copy new obj time: 1517
+GUIActions:102
+GUI set time: 464082
+Synchronization time: 1355481
+Send action time: 11779
+engine turn ms duration: 2
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 2191
+First update syncronous time: 488
+TEST syncronized time: 479
+Second update syncronous time: 465
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 830 will be 831
+step time: 237638
+Update asyncronous time: 285615
+GUI copy obj time: 371835
+GUI copy new obj time: 1970
+GUIActions:102
+GUI set time: 555737
+Synchronization time: 1045161
+Send action time: 11537
+engine turn ms duration: 1
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 2671
+First update syncronous time: 612
+TEST syncronized time: 562
+Second update syncronous time: 564
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 831 will be 832
+step time: 334033
+Update asyncronous time: 444558
+GUI copy obj time: 434666
+GUI copy new obj time: 13637
+GUIActions:102
+GUI set time: 618935
+Synchronization time: 1424763
+Send action time: 12288
+engine turn ms duration: 1
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 2782
+First update syncronous time: 616
+TEST syncronized time: 842
+Second update syncronous time: 600
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 832 will be 833
+step time: 236315
+Update asyncronous time: 359090
+GUI copy obj time: 294053
+GUI copy new obj time: 1911
+GUIActions:102
+Time update GUI:4734201
+GUI set time: 3821317
+Synchronization time: 6306751
+Send action time: 13587
+engine turn ms duration: 7
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 2837
+First update syncronous time: 494
+TEST syncronized time: 592
+Second update syncronous time: 443
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 833 will be 834
+Time update ROOTNODE:1979604
+step time: 307107
+Update asyncronous time: 361530
+GUI copy obj time: 299754
+GUI copy new obj time: 1586
+GUIActions:102
+GUI set time: 361507
+Synchronization time: 901793
+Send action time: 10698
+engine turn ms duration: 1
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 2135
+First update syncronous time: 473
+TEST syncronized time: 472
+Second update syncronous time: 475
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 834 will be 835
+step time: 204533
+Update asyncronous time: 250162
+GUI copy obj time: 296537
+GUI copy new obj time: 1485
+GUIActions:102
+GUI set time: 411775
+Synchronization time: 832704
+Send action time: 10326
+engine turn ms duration: 1
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 2002
+First update syncronous time: 486
+TEST syncronized time: 466
+Second update syncronous time: 447
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 835 will be 836
+step time: 224773
+Update asyncronous time: 326923
+GUI copy obj time: 295000
+GUI copy new obj time: 1948
+GUIActions:102
+GUI set time: 458123
+Synchronization time: 1011283
+Send action time: 11681
+engine turn ms duration: 1
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 2623
+First update syncronous time: 615
+TEST syncronized time: 823
+Second update syncronous time: 585
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 836 will be 837
+step time: 223629
+Update asyncronous time: 343364
+GUI copy obj time: 294171
+GUI copy new obj time: 2003
+GUIActions:102
+GUI set time: 460173
+Synchronization time: 1242277
+Send action time: 11609
+engine turn ms duration: 1
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 2506
+First update syncronous time: 602
+TEST syncronized time: 823
+Second update syncronous time: 577
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 837 will be 838
+step time: 283972
+Update asyncronous time: 407221
+GUI copy obj time: 301663
+GUI copy new obj time: 2762
+GUIActions:102
+GUI set time: 994498
+Synchronization time: 1878208
+Send action time: 12619
+engine turn ms duration: 2
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 3070
+First update syncronous time: 614
+TEST syncronized time: 844
+Second update syncronous time: 589
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 838 will be 839
+step time: 264442
+Update asyncronous time: 397230
+GUI copy obj time: 303806
+GUI copy new obj time: 2041
+GUIActions:102
+Time update GUI:2820981
+GUI set time: 2364717
+Synchronization time: 3245467
+Send action time: 12563
+engine turn ms duration: 3
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 2581
+First update syncronous time: 556
+TEST syncronized time: 507
+Second update syncronous time: 536
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 839 will be 840
+step time: 265398
+Update asyncronous time: 315584
+GUI copy obj time: 305691
+GUI copy new obj time: 1425
+GUIActions:102
+GUI set time: 365435
+Synchronization time: 844711
+Send action time: 10388
+engine turn ms duration: 1
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 2048
+First update syncronous time: 450
+TEST syncronized time: 445
+Second update syncronous time: 443
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 840 will be 841
+step time: 254465
+Update asyncronous time: 299310
+GUI copy obj time: 302767
+GUI copy new obj time: 1419
+GUIActions:102
+GUI set time: 361473
+Synchronization time: 817303
+Send action time: 10134
+engine turn ms duration: 1
+Time update ROOTNODE:1943957
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 2146
+First update syncronous time: 460
+TEST syncronized time: 472
+Second update syncronous time: 438
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 841 will be 842
+step time: 282430
+Update asyncronous time: 382808
+GUI copy obj time: 305035
+GUI copy new obj time: 1949
+GUIActions:102
+GUI set time: 408585
+Synchronization time: 972182
+Send action time: 11079
+engine turn ms duration: 1
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 2121
+First update syncronous time: 457
+TEST syncronized time: 488
+Second update syncronous time: 447
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 842 will be 843
+step time: 253928
+Update asyncronous time: 299451
+GUI copy obj time: 304657
+GUI copy new obj time: 1473
+GUIActions:102
+GUI set time: 362800
+Synchronization time: 842941
+Send action time: 10386
+engine turn ms duration: 1
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 4159
+First update syncronous time: 468
+TEST syncronized time: 449
+Second update syncronous time: 435
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 843 will be 844
+step time: 240299
+Update asyncronous time: 285307
+GUI copy obj time: 305437
+GUI copy new obj time: 1440
+GUIActions:102
+GUI set time: 364799
+Synchronization time: 801589
+Send action time: 10099
+engine turn ms duration: 1
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 1982
+First update syncronous time: 449
+TEST syncronized time: 458
+Second update syncronous time: 424
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 844 will be 845
+step time: 234788
+Update asyncronous time: 279835
+GUI copy obj time: 438273
+GUI copy new obj time: 2142
+GUIActions:102
+GUI set time: 629252
+Synchronization time: 1071333
+Send action time: 11455
+engine turn ms duration: 1
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 2291
+First update syncronous time: 453
+TEST syncronized time: 875
+Second update syncronous time: 675
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 845 will be 846
+step time: 270965
+Update asyncronous time: 394978
+GUI copy obj time: 306592
+GUI copy new obj time: 1975
+GUIActions:102
+GUI set time: 481206
+Synchronization time: 1269762
+Send action time: 11934
+engine turn ms duration: 1
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 2826
+First update syncronous time: 621
+TEST syncronized time: 855
+Second update syncronous time: 595
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 846 will be 847
+step time: 252147
+Update asyncronous time: 377606
+GUI copy obj time: 340115
+GUI copy new obj time: 1969
+GUIActions:102
+GUI set time: 505946
+Synchronization time: 1321459
+Send action time: 11924
+engine turn ms duration: 2
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 2274
+First update syncronous time: 486
+TEST syncronized time: 476
+Second update syncronous time: 444
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 847 will be 848
+step time: 246572
+Update asyncronous time: 294007
+GUI copy obj time: 304307
+GUI copy new obj time: 1932
+GUIActions:102
+GUI set time: 468665
+Synchronization time: 1011181
+Send action time: 11839
+engine turn ms duration: 1
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 2560
+First update syncronous time: 628
+TEST syncronized time: 837
+Second update syncronous time: 591
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 848 will be 849
+step time: 241354
+Update asyncronous time: 359531
+GUI copy obj time: 313421
+GUI copy new obj time: 3172
+GUIActions:102
+GUI set time: 1217153
+Synchronization time: 2018592
+Send action time: 12954
+engine turn ms duration: 2
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 2894
+First update syncronous time: 625
+TEST syncronized time: 851
+Second update syncronous time: 648
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 849 will be 850
+Time update GUI:1660017
+step time: 278558
+Update asyncronous time: 418214
+GUI copy obj time: 304764
+GUI copy new obj time: 1925
+GUIActions:102
+GUI set time: 471752
+Synchronization time: 1334963
+Send action time: 12016
+engine turn ms duration: 2
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 2582
+First update syncronous time: 628
+TEST syncronized time: 840
+Second update syncronous time: 597
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 850 will be 851
+step time: 252474
+Update asyncronous time: 374863
+GUI copy obj time: 306732
+GUI copy new obj time: 1889
+GUIActions:102
+GUI set time: 477245
+Synchronization time: 1325786
+Send action time: 12083
+engine turn ms duration: 1
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 2567
+First update syncronous time: 614
+TEST syncronized time: 829
+Second update syncronous time: 682
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 851 will be 852
+Time update ROOTNODE:3113135
+step time: 259265
+Update asyncronous time: 389548
+GUI copy obj time: 304046
+GUI copy new obj time: 1471
+GUIActions:102
+GUI set time: 366771
+Synchronization time: 1125548
+Send action time: 11242
+engine turn ms duration: 2
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 2220
+First update syncronous time: 454
+TEST syncronized time: 476
+Second update syncronous time: 450
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 852 will be 853
+step time: 280804
+Update asyncronous time: 327642
+GUI copy obj time: 308422
+GUI copy new obj time: 1450
+GUIActions:102
+GUI set time: 368123
+Synchronization time: 855130
+Send action time: 10370
+engine turn ms duration: 1
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 1998
+First update syncronous time: 478
+TEST syncronized time: 463
+Second update syncronous time: 455
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 853 will be 854
+step time: 252086
+Update asyncronous time: 302428
+GUI copy obj time: 328691
+GUI copy new obj time: 1522
+GUIActions:102
+GUI set time: 390060
+Synchronization time: 846335
+Send action time: 10886
+engine turn ms duration: 1
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 2168
+First update syncronous time: 472
+TEST syncronized time: 501
+Second update syncronous time: 447
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 854 will be 855
+step time: 364135
+Update asyncronous time: 416058
+GUI copy obj time: 327690
+GUI copy new obj time: 1598
+GUIActions:102
+GUI set time: 389532
+Synchronization time: 958066
+Send action time: 11304
+engine turn ms duration: 1
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 2194
+First update syncronous time: 468
+TEST syncronized time: 463
+Second update syncronous time: 456
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 855 will be 856
+step time: 233130
+Update asyncronous time: 277068
+GUI copy obj time: 310892
+GUI copy new obj time: 1476
+GUIActions:102
+GUI set time: 369724
+Synchronization time: 803343
+Send action time: 10208
+engine turn ms duration: 0
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 2094
+First update syncronous time: 484
+TEST syncronized time: 476
+Second update syncronous time: 454
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 856 will be 857
+step time: 224771
+Update asyncronous time: 268104
+GUI copy obj time: 314936
+GUI copy new obj time: 1471
+GUIActions:102
+GUI set time: 373475
+Synchronization time: 788343
+Send action time: 10128
+engine turn ms duration: 1
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 2077
+First update syncronous time: 463
+TEST syncronized time: 470
+Second update syncronous time: 459
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 857 will be 858
+step time: 268423
+Update asyncronous time: 313692
+GUI copy obj time: 310601
+GUI copy new obj time: 1512
+GUIActions:102
+GUI set time: 370125
+Synchronization time: 837688
+Send action time: 10315
+engine turn ms duration: 1
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 2019
+First update syncronous time: 487
+TEST syncronized time: 460
+Second update syncronous time: 458
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 858 will be 859
+step time: 230685
+Update asyncronous time: 275500
+GUI copy obj time: 300376
+GUI copy new obj time: 1418
+GUIActions:102
+GUI set time: 379588
+Synchronization time: 810607
+Send action time: 10456
+engine turn ms duration: 1
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 2239
+First update syncronous time: 479
+TEST syncronized time: 454
+Second update syncronous time: 466
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 859 will be 860
+step time: 267704
+Update asyncronous time: 314127
+GUI copy obj time: 307688
+GUI copy new obj time: 1559
+GUIActions:102
+GUI set time: 365926
+Synchronization time: 832173
+Send action time: 14905
+engine turn ms duration: 1
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 2130
+First update syncronous time: 476
+TEST syncronized time: 481
+Second update syncronous time: 467
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 860 will be 861
+step time: 233783
+Update asyncronous time: 277228
+GUI copy obj time: 305796
+GUI copy new obj time: 1455
+GUIActions:102
+GUI set time: 364081
+Synchronization time: 794171
+Send action time: 10062
+engine turn ms duration: 1
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 1973
+First update syncronous time: 468
+TEST syncronized time: 474
+Second update syncronous time: 462
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 861 will be 862
+step time: 225247
+Update asyncronous time: 269448
+GUI copy obj time: 306955
+GUI copy new obj time: 1445
+GUIActions:102
+GUI set time: 361362
+Synchronization time: 783529
+Send action time: 12926
+engine turn ms duration: 1
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 2937
+First update syncronous time: 631
+TEST syncronized time: 602
+Second update syncronous time: 622
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 862 will be 863
+step time: 308765
+Update asyncronous time: 433581
+GUI copy obj time: 306325
+GUI copy new obj time: 2204
+GUIActions:102
+GUI set time: 469040
+Synchronization time: 1335072
+Send action time: 11742
+engine turn ms duration: 1
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 2630
+First update syncronous time: 615
+TEST syncronized time: 578
+Second update syncronous time: 606
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 863 will be 864
+step time: 259245
+Update asyncronous time: 379476
+GUI copy obj time: 311499
+GUI copy new obj time: 1973
+GUIActions:102
+GUI set time: 476231
+Synchronization time: 1291302
+Send action time: 11497
+engine turn ms duration: 2
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 2599
+First update syncronous time: 629
+TEST syncronized time: 576
+Second update syncronous time: 717
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 864 will be 865
+step time: 238533
+Update asyncronous time: 361306
+GUI copy obj time: 298662
+GUI copy new obj time: 1914
+GUIActions:102
+GUI set time: 461714
+Synchronization time: 1258619
+Send action time: 11358
+engine turn ms duration: 1
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 2249
+First update syncronous time: 471
+TEST syncronized time: 500
+Second update syncronous time: 447
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 865 will be 866
+step time: 243634
+Update asyncronous time: 288743
+GUI copy obj time: 306602
+GUI copy new obj time: 1509
+GUIActions:102
+GUI set time: 366481
+Synchronization time: 818541
+Send action time: 10777
+engine turn ms duration: 1
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 2136
+First update syncronous time: 467
+TEST syncronized time: 466
+Second update syncronous time: 448
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 866 will be 867
+step time: 232815
+Update asyncronous time: 277068
+GUI copy obj time: 302730
+GUI copy new obj time: 1477
+GUIActions:102
+GUI set time: 361587
+Synchronization time: 801053
+Send action time: 10039
+engine turn ms duration: 1
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 2185
+First update syncronous time: 483
+TEST syncronized time: 617
+Second update syncronous time: 459
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 867 will be 868
+step time: 264981
+Update asyncronous time: 311376
+GUI copy obj time: 305376
+GUI copy new obj time: 1465
+GUIActions:102
+GUI set time: 365741
+Synchronization time: 849645
+Send action time: 11078
+engine turn ms duration: 1
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 2113
+First update syncronous time: 470
+TEST syncronized time: 472
+Second update syncronous time: 461
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 868 will be 869
+step time: 240035
+Update asyncronous time: 284712
+GUI copy obj time: 322477
+GUI copy new obj time: 1980
+GUIActions:102
+Time update GUI:2579856
+GUI set time: 2748936
+Synchronization time: 3264276
+Send action time: 12364
+engine turn ms duration: 3
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 2567
+First update syncronous time: 473
+TEST syncronized time: 505
+Second update syncronous time: 426
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 869 will be 870
+step time: 267820
+Update asyncronous time: 313314
+GUI copy obj time: 295415
+GUI copy new obj time: 1531
+GUIActions:102
+GUI set time: 360579
+Synchronization time: 827052
+Send action time: 10305
+engine turn ms duration: 1
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 1796
+First update syncronous time: 469
+TEST syncronized time: 465
+Second update syncronous time: 451
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 870 will be 871
+step time: 233585
+Update asyncronous time: 327931
+GUI copy obj time: 290393
+GUI copy new obj time: 6097
+GUIActions:102
+GUI set time: 426840
+Synchronization time: 946513
+Send action time: 11164
+engine turn ms duration: 1
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 1940
+First update syncronous time: 449
+TEST syncronized time: 461
+Second update syncronous time: 436
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 871 will be 872
+step time: 270246
+Update asyncronous time: 316160
+GUI copy obj time: 328485
+GUI copy new obj time: 2031
+GUIActions:102
+GUI set time: 519128
+Synchronization time: 1025609
+Send action time: 11542
+engine turn ms duration: 1
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 2313
+First update syncronous time: 635
+TEST syncronized time: 578
+Second update syncronous time: 577
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 872 will be 873
+step time: 254127
+Update asyncronous time: 364254
+GUI copy obj time: 855511
+GUI copy new obj time: 2358
+GUIActions:102
+GUI set time: 1044456
+Synchronization time: 1809083
+Send action time: 12241
+engine turn ms duration: 2
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 2486
+First update syncronous time: 635
+TEST syncronized time: 585
+Second update syncronous time: 608
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 873 will be 874
+Time update ROOTNODE:2042219
+step time: 303568
+Update asyncronous time: 428311
+GUI copy obj time: 271429
+GUI copy new obj time: 1901
+GUIActions:102
+GUI set time: 435564
+Synchronization time: 1306119
+Send action time: 11699
+engine turn ms duration: 2
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 2330
+First update syncronous time: 633
+TEST syncronized time: 583
+Second update syncronous time: 657
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 874 will be 875
+step time: 261142
+Update asyncronous time: 381469
+GUI copy obj time: 269441
+GUI copy new obj time: 1896
+GUIActions:102
+GUI set time: 435646
+Synchronization time: 1260105
+Send action time: 11693
+engine turn ms duration: 1
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 2372
+First update syncronous time: 735
+TEST syncronized time: 873
+Second update syncronous time: 617
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 875 will be 876
+step time: 264224
+Update asyncronous time: 385228
+GUI copy obj time: 254881
+GUI copy new obj time: 1866
+GUIActions:102
+GUI set time: 417851
+Synchronization time: 1238578
+Send action time: 11917
+engine turn ms duration: 2
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 2286
+First update syncronous time: 1008
+TEST syncronized time: 889
+Second update syncronous time: 623
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 876 will be 877
+step time: 280405
+Update asyncronous time: 401513
+GUI copy obj time: 256659
+GUI copy new obj time: 1932
+GUIActions:102
+GUI set time: 421330
+Synchronization time: 1266674
+Send action time: 11765
+engine turn ms duration: 1
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 2626
+First update syncronous time: 648
+TEST syncronized time: 834
+Second update syncronous time: 577
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 877 will be 878
+step time: 277311
+Update asyncronous time: 411941
+GUI copy obj time: 233236
+GUI copy new obj time: 2845
+GUIActions:102
+GUI set time: 837915
+Synchronization time: 1729196
+Send action time: 12341
+engine turn ms duration: 3
+Time update GUI:1582398
+Time update ROOTNODE:2311880
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 3069
+First update syncronous time: 606
+TEST syncronized time: 691
+Second update syncronous time: 545
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 878 will be 879
+step time: 347497
+Update asyncronous time: 397991
+GUI copy obj time: 224206
+GUI copy new obj time: 1803
+GUIActions:102
+GUI set time: 3872066
+Synchronization time: 4478596
+Send action time: 14305
+engine turn ms duration: 4
+Time update GUI:5625519
+Time update ROOTNODE:1630684
+Time update GUI:1293011
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 3581
+First update syncronous time: 537
+TEST syncronized time: 633
+Second update syncronous time: 456
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 879 will be 880
+step time: 403844
+Update asyncronous time: 449501
+GUI copy obj time: 224836
+GUI copy new obj time: 1871
+GUIActions:102
+Time update ROOTNODE:9710030
+GUI set time: 9396787
+Synchronization time: 10067274
+Send action time: 18150
+engine turn ms duration: 10
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 3603
+First update syncronous time: 490
+TEST syncronized time: 676
+Second update syncronous time: 541
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 880 will be 881
+step time: 423026
+Update asyncronous time: 466104
+GUI copy obj time: 116971
+GUI copy new obj time: 1750
+GUIActions:102
+GUI set time: 167697
+Synchronization time: 780027
+Send action time: 14040
+engine turn ms duration: 1
+Time update GUI:1233787
+Time update ROOTNODE:1227151
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 7255
+First update syncronous time: 547
+TEST syncronized time: 651
+Second update syncronous time: 508
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 881 will be 882
+step time: 401181
+Update asyncronous time: 448288
+GUI copy obj time: 109248
+GUI copy new obj time: 1650
+GUIActions:102
+GUI set time: 362929
+Synchronization time: 985130
+Send action time: 16963
+engine turn ms duration: 1
+Time update GUI:940157
+Time update ROOTNODE:1298225
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 3615
+First update syncronous time: 508
+TEST syncronized time: 606
+Second update syncronous time: 526
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 882 will be 883
+step time: 364532
+Update asyncronous time: 409927
+GUI copy obj time: 89917
+GUI copy new obj time: 1644
+GUIActions:102
+GUI set time: 1105656
+Synchronization time: 1686152
+Send action time: 16276
+engine turn ms duration: 2
+Time update GUI:953830
+Time update ROOTNODE:1242076
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 3122
+First update syncronous time: 584
+TEST syncronized time: 577
+Second update syncronous time: 513
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 883 will be 884
+step time: 387755
+Update asyncronous time: 435217
+GUI copy obj time: 73451
+GUI copy new obj time: 1702
+GUIActions:102
+GUI set time: 242805
+Synchronization time: 829778
+Send action time: 14568
+engine turn ms duration: 1
+Time update GUI:3361198
+Time update ROOTNODE:3788082
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 3460
+First update syncronous time: 491
+TEST syncronized time: 580
+Second update syncronous time: 473
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 884 will be 885
+step time: 340422
+Update asyncronous time: 390336
+GUI copy obj time: 65409
+GUI copy new obj time: 15853
+GUIActions:102
+GUI set time: 413172
+Synchronization time: 989654
+Send action time: 13715
+engine turn ms duration: 1
+Time update GUI:1095864
+Time update ROOTNODE:1222478
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 3818
+First update syncronous time: 667
+TEST syncronized time: 832
+Second update syncronous time: 636
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 885 will be 886
+step time: 443244
+Update asyncronous time: 501770
+GUI copy obj time: 47816
+GUI copy new obj time: 1311
+GUIActions:102
+GUI set time: 451761
+Synchronization time: 1176952
+Send action time: 17193
+engine turn ms duration: 1
+Time update GUI:1092825
+Time update ROOTNODE:1564635
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 3506
+First update syncronous time: 608
+TEST syncronized time: 718
+Second update syncronous time: 556
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 886 will be 887
+step time: 410856
+Update asyncronous time: 465952
+GUI copy obj time: 60276
+GUI copy new obj time: 1301
+GUIActions:102
+GUI set time: 1417450
+Synchronization time: 2090396
+Send action time: 21421
+engine turn ms duration: 3
+Time update GUI:1053362
+Time update ROOTNODE:1627562
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 5113
+First update syncronous time: 912
+TEST syncronized time: 1041
+Second update syncronous time: 853
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 887 will be 888
+step time: 578190
+Update asyncronous time: 648216
+GUI copy obj time: 61842
+GUI copy new obj time: 1788
+GUIActions:102
+GUI set time: 402896
+Synchronization time: 1312791
+Send action time: 23321
+engine turn ms duration: 1
+Time update GUI:621385
+Time update ROOTNODE:846357
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 3336
+First update syncronous time: 508
+TEST syncronized time: 645
+Second update syncronous time: 505
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 888 will be 889
+step time: 374158
+Update asyncronous time: 422101
+GUI copy obj time: 39769
+GUI copy new obj time: 984
+GUIActions:102
+GUI set time: 174036
+Synchronization time: 761851
+Send action time: 19250
+engine turn ms duration: 1
+Time update GUI:824888
+Time update ROOTNODE:1084470
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 8363
+First update syncronous time: 1636
+TEST syncronized time: 1817
+Second update syncronous time: 1578
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 889 will be 890
+step time: 1025664
+Update asyncronous time: 1185043
+GUI copy obj time: 122412
+GUI copy new obj time: 3460
+GUIActions:102
+GUI set time: 3141198
+Synchronization time: 4939507
+Send action time: 17719
+engine turn ms duration: 5
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 4475
+First update syncronous time: 852
+TEST syncronized time: 948
+Second update syncronous time: 928
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 890 will be 891
+step time: 555626
+Update asyncronous time: 627692
+GUI copy obj time: 60731
+GUI copy new obj time: 1768
+GUIActions:102
+GUI set time: 1121445
+Synchronization time: 2019875
+Send action time: 20283
+engine turn ms duration: 2
+Time update GUI:3139292
+Time update ROOTNODE:1544152
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 2430
+First update syncronous time: 494
+TEST syncronized time: 568
+Second update syncronous time: 455
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 891 will be 892
+step time: 305808
+Update asyncronous time: 349967
+GUI copy obj time: 35210
+GUI copy new obj time: 985
+GUIActions:102
+GUI set time: 80271
+Synchronization time: 835734
+Send action time: 12093
+engine turn ms duration: 1
+Time update GUI:587823
+Time update ROOTNODE:806917
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 2415
+First update syncronous time: 491
+TEST syncronized time: 558
+Second update syncronous time: 453
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 892 will be 893
+step time: 311820
+Update asyncronous time: 354408
+GUI copy obj time: 33567
+GUI copy new obj time: 980
+GUIActions:102
+GUI set time: 200596
+Synchronization time: 714660
+Send action time: 20287
+engine turn ms duration: 1
+Time update GUI:2047617
+Time update ROOTNODE:3648609
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 7294
+First update syncronous time: 1654
+TEST syncronized time: 1728
+Second update syncronous time: 1508
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 893 will be 894
+step time: 1072186
+Update asyncronous time: 1216831
+GUI copy obj time: 110369
+GUI copy new obj time: 3753
+GUIActions:102
+GUI set time: 14764777
+Synchronization time: 16490853
+Send action time: 17408
+WARNING: engine turn take more execution time than requested!!! This can cause serius error/data corruption!! ms duration: 16
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 2666
+First update syncronous time: 489
+TEST syncronized time: 771
+Second update syncronous time: 513
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 894 will be 895
+step time: 361281
+Update asyncronous time: 406586
+GUI copy obj time: 32191
+GUI copy new obj time: 1070
+GUIActions:102
+GUI set time: 84826
+Synchronization time: 637649
+Send action time: 10677
+engine turn ms duration: 1
+Time update GUI:652782
+Time update ROOTNODE:826925
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 3366
+First update syncronous time: 616
+TEST syncronized time: 568
+Second update syncronous time: 521
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 895 will be 896
+step time: 362747
+Update asyncronous time: 412151
+GUI copy obj time: 36799
+GUI copy new obj time: 992
+GUIActions:102
+GUI set time: 158435
+Synchronization time: 720851
+Send action time: 14923
+engine turn ms duration: 1
+Time update GUI:1809001
+Time update ROOTNODE:1326659
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 2680
+First update syncronous time: 570
+TEST syncronized time: 564
+Second update syncronous time: 481
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 896 will be 897
+step time: 312835
+Update asyncronous time: 355458
+GUI copy obj time: 37694
+GUI copy new obj time: 1023
+GUIActions:102
+GUI set time: 278012
+Synchronization time: 783608
+Send action time: 12667
+engine turn ms duration: 1
+Time update GUI:1843902
+Time update ROOTNODE:2619531
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 7631
+First update syncronous time: 1682
+TEST syncronized time: 1709
+Second update syncronous time: 1528
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 897 will be 898
+step time: 931264
+Update asyncronous time: 1071445
+GUI copy obj time: 114631
+GUI copy new obj time: 3481
+GUIActions:102
+GUI set time: 1541972
+Synchronization time: 3136915
+Send action time: 40131
+engine turn ms duration: 4
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 2835
+First update syncronous time: 512
+TEST syncronized time: 507
+Second update syncronous time: 447
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 898 will be 899
+step time: 343338
+Update asyncronous time: 387601
+GUI copy obj time: 35478
+GUI copy new obj time: 991
+GUIActions:102
+GUI set time: 84363
+Synchronization time: 615102
+Send action time: 13019
+engine turn ms duration: 0
+Time update GUI:1881459
+Time update ROOTNODE:894454
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 3669
+First update syncronous time: 498
+TEST syncronized time: 573
+Second update syncronous time: 529
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 899 will be 900
+step time: 385489
+Update asyncronous time: 452292
+GUI copy obj time: 36860
+GUI copy new obj time: 1009
+GUIActions:102
+Time update GUI:2382981
+GUI set time: 2031003
+Synchronization time: 2725059
+Send action time: 15629
+engine turn ms duration: 3
+Time update ROOTNODE:776610
+Time update GUI:742759
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 3516
+First update syncronous time: 635
+TEST syncronized time: 933
+Second update syncronous time: 693
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 900 will be 901
+step time: 428223
+Update asyncronous time: 485700
+GUI copy obj time: 56479
+GUI copy new obj time: 1414
+GUIActions:102
+GUI set time: 294004
+Synchronization time: 975969
+Send action time: 16143
+engine turn ms duration: 1
+Time update ROOTNODE:2867290
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 7781
+First update syncronous time: 1707
+TEST syncronized time: 1779
+Second update syncronous time: 1553
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 901 will be 902
+step time: 936788
+Update asyncronous time: 1055085
+GUI copy obj time: 119721
+GUI copy new obj time: 3403
+GUIActions:102
+GUI set time: 264292
+Synchronization time: 1749782
+Send action time: 38063
+engine turn ms duration: 2
+Time update GUI:532402
+Time update ROOTNODE:771704
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 8407
+First update syncronous time: 1660
+TEST syncronized time: 1690
+Second update syncronous time: 1769
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 902 will be 903
+step time: 1009077
+Update asyncronous time: 1140424
+GUI copy obj time: 112130
+GUI copy new obj time: 3512
+GUIActions:102
+GUI set time: 481918
+Synchronization time: 2111772
+Send action time: 41390
+engine turn ms duration: 2
+Time update GUI:1861729
+Time update ROOTNODE:2636289
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 8285
+First update syncronous time: 1740
+TEST syncronized time: 1685
+Second update syncronous time: 1505
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 903 will be 904
+step time: 965559
+Update asyncronous time: 1105763
+GUI copy obj time: 102975
+GUI copy new obj time: 3448
+GUIActions:102
+GUI set time: 389907
+Synchronization time: 1991957
+Send action time: 39991
+engine turn ms duration: 2
+Time update GUI:712295
+Time update ROOTNODE:1006811
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 7924
+First update syncronous time: 1639
+TEST syncronized time: 1683
+Second update syncronous time: 1465
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 904 will be 905
+step time: 895410
+Update asyncronous time: 1051157
+GUI copy obj time: 109446
+GUI copy new obj time: 3339
+GUIActions:102
+GUI set time: 362260
+Synchronization time: 1870313
+Send action time: 40125
+engine turn ms duration: 2
+Time update GUI:2350776
+Time update ROOTNODE:1928997
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 20430
+First update syncronous time: 1723
+TEST syncronized time: 1692
+Second update syncronous time: 1513
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 905 will be 906
+step time: 902364
+Update asyncronous time: 1018883
+GUI copy obj time: 113616
+GUI copy new obj time: 3463
+GUIActions:102
+GUI set time: 3528018
+Synchronization time: 4957902
+Send action time: 14332
+engine turn ms duration: 5
+Time update GUI:982062
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 4379
+First update syncronous time: 541
+TEST syncronized time: 666
+Second update syncronous time: 528
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 906 will be 907
+step time: 340937
+Update asyncronous time: 382049
+GUI copy obj time: 25441
+GUI copy new obj time: 999
+GUIActions:102
+GUI set time: 201402
+Synchronization time: 737347
+Send action time: 21388
+engine turn ms duration: 1
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 2067
+First update syncronous time: 491
+TEST syncronized time: 501
+Second update syncronous time: 432
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 907 will be 908
+step time: 231371
+Update asyncronous time: 267928
+Time update ROOTNODE:34920379
+GUI copy obj time: 23039
+GUI copy new obj time: 1041
+GUIActions:102
+GUI set time: 95023
+Synchronization time: 505693
+Send action time: 11163
+engine turn ms duration: 1
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 1853
+First update syncronous time: 469
+TEST syncronized time: 469
+Second update syncronous time: 466
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 908 will be 909
+step time: 220929
+Update asyncronous time: 258009
+GUI copy obj time: 21540
+GUI copy new obj time: 1044
+GUIActions:102
+GUI set time: 93242
+Synchronization time: 482673
+Send action time: 10033
+engine turn ms duration: 0
+Time update GUI:543089
+Time update ROOTNODE:733101
+Time update GUI:433513
+Time update ROOTNODE:727068
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 3250
+First update syncronous time: 475
+TEST syncronized time: 732
+Second update syncronous time: 457
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 909 will be 910
+step time: 289775
+Update asyncronous time: 326070
+GUI copy obj time: 24094
+GUI copy new obj time: 980
+GUIActions:102
+GUI set time: 243338
+Synchronization time: 706903
+Send action time: 13571
+engine turn ms duration: 1
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 3755
+First update syncronous time: 669
+TEST syncronized time: 659
+Second update syncronous time: 589
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 910 will be 911
+step time: 369563
+Update asyncronous time: 412021
+GUI copy obj time: 29922
+GUI copy new obj time: 1347
+GUIActions:102
+GUI set time: 799541
+Synchronization time: 1429529
+Send action time: 41435
+engine turn ms duration: 2
+Time update GUI:2037509
+Time update ROOTNODE:2548003
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 8222
+First update syncronous time: 1750
+TEST syncronized time: 1730
+Second update syncronous time: 1459
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 911 will be 912
+step time: 833640
+Update asyncronous time: 951544
+GUI copy obj time: 78352
+GUI copy new obj time: 3303
+GUIActions:102
+Time update GUI:1636441
+GUI set time: 1062898
+Synchronization time: 2717996
+Send action time: 43751
+engine turn ms duration: 3
+Time update ROOTNODE:714530
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 8589
+First update syncronous time: 1800
+TEST syncronized time: 1692
+Second update syncronous time: 1580
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 912 will be 913
+step time: 810952
+Update asyncronous time: 944067
+GUI copy obj time: 86564
+GUI copy new obj time: 4979
+GUIActions:102
+GUI set time: 711004
+Synchronization time: 2260443
+Send action time: 40534
+engine turn ms duration: 3
+Time update GUI:952593
+Time update ROOTNODE:1432426
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 9752
+First update syncronous time: 1719
+TEST syncronized time: 1829
+Second update syncronous time: 1479
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 913 will be 914
+Time update GUI:482304
+Time update ROOTNODE:729663
+step time: 863741
+Update asyncronous time: 987489
+GUI copy obj time: 79975
+GUI copy new obj time: 3464
+GUIActions:102
+GUI set time: 5737662
+Synchronization time: 7149550
+Send action time: 16409
+engine turn ms duration: 8
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 3149
+First update syncronous time: 493
+TEST syncronized time: 679
+Second update syncronous time: 462
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 914 will be 915
+step time: 328060
+Update asyncronous time: 371806
+GUI copy obj time: 25445
+GUI copy new obj time: 1019
+GUIActions:102
+GUI set time: 65776
+Synchronization time: 611005
+Send action time: 11585
+engine turn ms duration: 0
+Time update GUI:569356
+Time update ROOTNODE:726958
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 3459
+First update syncronous time: 462
+TEST syncronized time: 615
+Second update syncronous time: 511
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 915 will be 916
+step time: 350309
+Update asyncronous time: 390148
+GUI copy obj time: 25529
+GUI copy new obj time: 1017
+GUIActions:102
+GUI set time: 146411
+Synchronization time: 667132
+Send action time: 15183
+engine turn ms duration: 1
+Time update GUI:791334
+Time update ROOTNODE:1242495
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 7926
+First update syncronous time: 1666
+TEST syncronized time: 1619
+Second update syncronous time: 1484
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 916 will be 917
+step time: 824315
+Update asyncronous time: 933177
+GUI copy obj time: 77827
+GUI copy new obj time: 3593
+GUIActions:102
+GUI set time: 402990
+Synchronization time: 1741012
+Send action time: 40146
+engine turn ms duration: 2
+Time update GUI:1925011
+Time update ROOTNODE:2641892
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 7775
+First update syncronous time: 1572
+TEST syncronized time: 1698
+Second update syncronous time: 1451
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 917 will be 918
+step time: 887990
+Update asyncronous time: 1008793
+GUI copy obj time: 78464
+GUI copy new obj time: 3571
+GUIActions:102
+GUI set time: 416139
+Synchronization time: 1820132
+Send action time: 39315
+engine turn ms duration: 2
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 3666
+First update syncronous time: 630
+TEST syncronized time: 581
+Second update syncronous time: 500
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 918 will be 919
+step time: 321741
+Update asyncronous time: 356063
+GUI copy obj time: 24863
+GUI copy new obj time: 1008
+GUIActions:102
+GUI set time: 67881
+Synchronization time: 544264
+Send action time: 14601
+engine turn ms duration: 1
+Time update GUI:345187
+Time update ROOTNODE:665047
+Time update GUI:178815
+Time update ROOTNODE:802418
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 3478
+First update syncronous time: 501
+TEST syncronized time: 593
+Second update syncronous time: 662
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 919 will be 920
+step time: 291697
+Update asyncronous time: 324990
+GUI copy obj time: 24020
+GUI copy new obj time: 961
+GUIActions:102
+GUI set time: 210629
+Synchronization time: 681129
+Send action time: 14048
+engine turn ms duration: 1
+
+
+Client Sincronous Turn: 782
+Time update GUI:933115
+Waiting input: 0
+Reading input time: 9840
+First update syncronous time: 2001
+TEST syncronized time: 1814
+Second update syncronous time: 1590
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 920 will be 921
+Time update ROOTNODE:843811
+step time: 822008
+Update asyncronous time: 937145
+GUI copy obj time: 77388
+GUI copy new obj time: 3522
+GUIActions:102
+GUI set time: 203277
+Synchronization time: 1752118
+Send action time: 41389
+engine turn ms duration: 2
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 8150
+First update syncronous time: 1704
+TEST syncronized time: 1733
+Second update syncronous time: 1487
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 921 will be 922
+Time update GUI:264935
+Time update ROOTNODE:246738
+step time: 756549
+Update asyncronous time: 1058840
+GUI copy obj time: 77703
+GUI copy new obj time: 4977
+GUIActions:102
+GUI set time: 581115
+Synchronization time: 2277701
+Send action time: 40337
+engine turn ms duration: 3
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 7689
+First update syncronous time: 1659
+TEST syncronized time: 1721
+Second update syncronous time: 1498
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 922 will be 923
+step time: 778265
+Update asyncronous time: 889485
+GUI copy obj time: 84179
+GUI copy new obj time: 3397
+GUIActions:102
+GUI set time: 226461
+Synchronization time: 1508366
+Send action time: 39141
+engine turn ms duration: 2
+Time update GUI:460145
+Time update ROOTNODE:451268
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 8357
+First update syncronous time: 1845
+TEST syncronized time: 1741
+Second update syncronous time: 1593
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 923 will be 924
+step time: 889068
+Update asyncronous time: 1013479
+GUI copy obj time: 77715
+GUI copy new obj time: 3535
+GUIActions:102
+GUI set time: 213688
+Synchronization time: 1670616
+Send action time: 39084
+engine turn ms duration: 2
+Time update GUI:469726
+Time update ROOTNODE:411668
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 4061
+First update syncronous time: 583
+TEST syncronized time: 658
+Second update syncronous time: 878
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 924 will be 925
+step time: 286730
+Update asyncronous time: 323142
+GUI copy obj time: 25338
+GUI copy new obj time: 1076
+GUIActions:102
+GUI set time: 72734
+Synchronization time: 526833
+Send action time: 15989
+engine turn ms duration: 1
+Time update GUI:974071
+Time update ROOTNODE:459816
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 4163
+First update syncronous time: 675
+TEST syncronized time: 761
+Second update syncronous time: 667
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 925 will be 926
+step time: 348747
+Update asyncronous time: 396588
+GUI copy obj time: 31478
+GUI copy new obj time: 1319
+GUIActions:102
+GUI set time: 84563
+Synchronization time: 649287
+Send action time: 17062
+engine turn ms duration: 1
+Time update GUI:231815
+Time update ROOTNODE:164722
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 4886
+First update syncronous time: 830
+TEST syncronized time: 912
+Second update syncronous time: 884
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 926 will be 927
+step time: 456781
+Update asyncronous time: 517128
+GUI copy obj time: 41817
+GUI copy new obj time: 1656
+GUIActions:102
+GUI set time: 110703
+Synchronization time: 833139
+Send action time: 21852
+engine turn ms duration: 1
+Time update GUI:630131
+Time update ROOTNODE:561882
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 7636
+First update syncronous time: 1609
+TEST syncronized time: 1690
+Second update syncronous time: 1572
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 927 will be 928
+step time: 733416
+Update asyncronous time: 844738
+GUI copy obj time: 76893
+GUI copy new obj time: 3486
+GUIActions:102
+GUI set time: 201330
+Synchronization time: 1438006
+Send action time: 38149
+engine turn ms duration: 1
+Time update GUI:344420
+Time update ROOTNODE:278092
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 8101
+First update syncronous time: 1705
+TEST syncronized time: 1796
+Second update syncronous time: 1598
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 928 will be 929
+step time: 784678
+Update asyncronous time: 889071
+GUI copy obj time: 76306
+GUI copy new obj time: 3515
+GUIActions:102
+GUI set time: 219454
+Synchronization time: 1492154
+Send action time: 39283
+engine turn ms duration: 1
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 8179
+First update syncronous time: 1634
+TEST syncronized time: 1966
+Second update syncronous time: 1563
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 929 will be 930
+step time: 884663
+Update asyncronous time: 1001372
+GUI copy obj time: 77677
+GUI copy new obj time: 3514
+GUIActions:102
+GUI set time: 221115
+Synchronization time: 1613669
+Send action time: 39699
+engine turn ms duration: 2
+Time update GUI:443267
+Time update ROOTNODE:166807
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 8301
+First update syncronous time: 1745
+TEST syncronized time: 1802
+Second update syncronous time: 1796
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 930 will be 931
+step time: 774821
+Update asyncronous time: 904377
+GUI copy obj time: 77256
+GUI copy new obj time: 3484
+GUIActions:102
+GUI set time: 236281
+Synchronization time: 1643128
+Send action time: 38981
+engine turn ms duration: 1
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 8471
+First update syncronous time: 1821
+TEST syncronized time: 1854
+Second update syncronous time: 1606
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 931 will be 932
+Time update GUI:216357
+step time: 790561
+Time update ROOTNODE:167967
+Update asyncronous time: 1043179
+GUI copy obj time: 81469
+GUI copy new obj time: 5656
+GUIActions:102
+GUI set time: 965245
+Synchronization time: 2811710
+Send action time: 42951
+engine turn ms duration: 3
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 7712
+First update syncronous time: 1705
+TEST syncronized time: 1746
+Second update syncronous time: 1556
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 932 will be 933
+step time: 782063
+Update asyncronous time: 892877
+GUI copy obj time: 76483
+GUI copy new obj time: 3485
+GUIActions:102
+GUI set time: 209109
+Synchronization time: 1489349
+Send action time: 38237
+engine turn ms duration: 2
+Time update GUI:470133
+Time update ROOTNODE:277836
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 8227
+First update syncronous time: 1758
+TEST syncronized time: 1618
+Second update syncronous time: 1542
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 933 will be 934
+step time: 861401
+Update asyncronous time: 972971
+GUI copy obj time: 76539
+GUI copy new obj time: 3383
+GUIActions:102
+GUI set time: 212057
+Synchronization time: 1572014
+Send action time: 38343
+engine turn ms duration: 2
+Time update GUI:670679
+Time update ROOTNODE:554533
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 7646
+First update syncronous time: 1697
+TEST syncronized time: 1650
+Second update syncronous time: 1541
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 934 will be 935
+step time: 792917
+Update asyncronous time: 907417
+GUI copy obj time: 77087
+GUI copy new obj time: 3396
+GUIActions:102
+GUI set time: 227153
+Synchronization time: 1528795
+Send action time: 38929
+engine turn ms duration: 2
+Time update GUI:401711
+Time update ROOTNODE:164043
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 7842
+First update syncronous time: 1756
+TEST syncronized time: 1643
+Second update syncronous time: 1525
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 935 will be 936
+step time: 951777
+Update asyncronous time: 1075746
+GUI copy obj time: 77213
+GUI copy new obj time: 3684
+GUIActions:102
+GUI set time: 218408
+Synchronization time: 1711141
+Send action time: 40777
+engine turn ms duration: 2
+Time update GUI:1985014
+Time update ROOTNODE:554546
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 3193
+First update syncronous time: 694
+TEST syncronized time: 590
+Second update syncronous time: 487
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 936 will be 937
+step time: 307745
+Update asyncronous time: 343405
+GUI copy obj time: 28585
+GUI copy new obj time: 1042
+GUIActions:102
+GUI set time: 69548
+Synchronization time: 536088
+Send action time: 12489
+engine turn ms duration: 0
+Time update GUI:214991
+Time update ROOTNODE:171043
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 8012
+First update syncronous time: 1731
+TEST syncronized time: 1650
+Second update syncronous time: 1577
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 937 will be 938
+step time: 808962
+Update asyncronous time: 929348
+GUI copy obj time: 76403
+GUI copy new obj time: 3469
+GUIActions:102
+GUI set time: 224569
+Synchronization time: 1600313
+Send action time: 47363
+engine turn ms duration: 2
+Time update GUI:645049
+Time update ROOTNODE:558105
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 8694
+First update syncronous time: 1801
+TEST syncronized time: 1849
+Second update syncronous time: 1641
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 938 will be 939
+step time: 901085
+Update asyncronous time: 1018159
+GUI copy obj time: 78132
+GUI copy new obj time: 3461
+GUIActions:102
+GUI set time: 203853
+Synchronization time: 1615205
+Send action time: 38752
+engine turn ms duration: 2
+Time update GUI:1707105
+Time update ROOTNODE:445750
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 7807
+First update syncronous time: 1720
+TEST syncronized time: 1820
+Second update syncronous time: 1609
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 939 will be 940
+step time: 832284
+Update asyncronous time: 954433
+GUI copy obj time: 77240
+GUI copy new obj time: 3512
+GUIActions:102
+GUI set time: 228892
+Synchronization time: 1602419
+Send action time: 38444
+engine turn ms duration: 2
+Time update GUI:328021
+Time update ROOTNODE:561281
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 7726
+First update syncronous time: 1664
+TEST syncronized time: 1707
+Second update syncronous time: 1598
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 940 will be 941
+step time: 857650
+Update asyncronous time: 973744
+GUI copy obj time: 76098
+GUI copy new obj time: 3750
+GUIActions:102
+GUI set time: 212895
+Synchronization time: 1588586
+Send action time: 97390
+engine turn ms duration: 2
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 9711
+First update syncronous time: 2428
+TEST syncronized time: 1848
+Second update syncronous time: 2153
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 941 will be 942
+Time update GUI:426933
+Time update ROOTNODE:297227
+step time: 1022046
+Update asyncronous time: 1390539
+GUI copy obj time: 80736
+GUI copy new obj time: 5131
+GUIActions:102
+GUI set time: 570694
+Synchronization time: 3354205
+Send action time: 50613
+engine turn ms duration: 4
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 8798
+First update syncronous time: 1768
+TEST syncronized time: 1764
+Second update syncronous time: 1678
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 942 will be 943
+step time: 852631
+Update asyncronous time: 961096
+GUI copy obj time: 77433
+GUI copy new obj time: 3432
+GUIActions:102
+GUI set time: 213731
+Synchronization time: 1594960
+Send action time: 42678
+engine turn ms duration: 1
+Time update GUI:650650
+Time update ROOTNODE:547049
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 7914
+First update syncronous time: 1724
+TEST syncronized time: 1727
+Second update syncronous time: 1547
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 943 will be 944
+step time: 858402
+Update asyncronous time: 985564
+GUI copy obj time: 76761
+GUI copy new obj time: 3338
+GUIActions:102
+GUI set time: 221236
+Synchronization time: 1638287
+Send action time: 39956
+engine turn ms duration: 2
+Time update GUI:895521
+Time update ROOTNODE:557168
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 7838
+First update syncronous time: 1707
+TEST syncronized time: 1745
+Second update syncronous time: 1557
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 944 will be 945
+step time: 771382
+Update asyncronous time: 894915
+GUI copy obj time: 76905
+GUI copy new obj time: 3261
+GUIActions:102
+GUI set time: 237035
+Synchronization time: 1578173
+Send action time: 42630
+engine turn ms duration: 2
+Time update GUI:632485
+Time update ROOTNODE:540681
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 7928
+First update syncronous time: 1809
+TEST syncronized time: 1722
+Second update syncronous time: 1692
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 945 will be 946
+step time: 790939
+Update asyncronous time: 909707
+GUI copy obj time: 78052
+GUI copy new obj time: 3525
+GUIActions:102
+GUI set time: 204338
+Synchronization time: 1526071
+Send action time: 40865
+engine turn ms duration: 2
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Time update GUI:225316
+Reading input time: 8441
+First update syncronous time: 2114
+TEST syncronized time: 1867
+Time update ROOTNODE:168870
+Second update syncronous time: 1775
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 946 will be 947
+step time: 884028
+Update asyncronous time: 1004836
+GUI copy obj time: 82557
+GUI copy new obj time: 3492
+GUIActions:102
+GUI set time: 241440
+Synchronization time: 1869421
+Send action time: 40134
+engine turn ms duration: 2
+Time update GUI:205264
+Time update ROOTNODE:169231
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 8090
+First update syncronous time: 1715
+TEST syncronized time: 1734
+Second update syncronous time: 1578
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 947 will be 948
+step time: 855163
+Update asyncronous time: 987163
+GUI copy obj time: 78117
+GUI copy new obj time: 3596
+GUIActions:102
+GUI set time: 233210
+Synchronization time: 1683964
+Send action time: 40574
+engine turn ms duration: 2
+Time update GUI:641876
+Time update ROOTNODE:545209
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 7850
+First update syncronous time: 1659
+TEST syncronized time: 1736
+Second update syncronous time: 1515
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 948 will be 949
+step time: 950465
+Update asyncronous time: 1071607
+GUI copy obj time: 77631
+GUI copy new obj time: 3593
+GUIActions:102
+GUI set time: 212202
+Synchronization time: 1695463
+Send action time: 39641
+engine turn ms duration: 2
+Time update GUI:209380
+Time update ROOTNODE:170257
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 3990
+First update syncronous time: 634
+TEST syncronized time: 529
+Second update syncronous time: 513
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 949 will be 950
+step time: 314754
+Update asyncronous time: 349645
+GUI copy obj time: 30052
+GUI copy new obj time: 1032
+GUIActions:102
+GUI set time: 68165
+Synchronization time: 538907
+Send action time: 13761
+engine turn ms duration: 0
+Time update GUI:338407
+Time update ROOTNODE:530819
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 8660
+First update syncronous time: 1848
+TEST syncronized time: 1836
+Second update syncronous time: 1691
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 950 will be 951
+step time: 821091
+Update asyncronous time: 947638
+GUI copy obj time: 78636
+GUI copy new obj time: 3486
+GUIActions:102
+GUI set time: 243318
+Synchronization time: 1661533
+Send action time: 41353
+engine turn ms duration: 2
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Time update GUI:186084
+Reading input time: 2546
+First update syncronous time: 618
+TEST syncronized time: 615
+Second update syncronous time: 449
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 951 will be 952
+Time update ROOTNODE:156137
+step time: 239122
+Update asyncronous time: 273467
+GUI copy obj time: 23309
+GUI copy new obj time: 990
+GUIActions:102
+GUI set time: 59949
+Synchronization time: 495796
+Send action time: 12238
+engine turn ms duration: 0
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 7916
+First update syncronous time: 1752
+TEST syncronized time: 1809
+Second update syncronous time: 1523
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 952 will be 953
+step time: 774589
+Update asyncronous time: 885542
+GUI copy obj time: 76954
+GUI copy new obj time: 3544
+GUIActions:102
+GUI set time: 205800
+Synchronization time: 1485942
+Send action time: 40175
+engine turn ms duration: 2
+Time update GUI:605330
+Time update ROOTNODE:543561
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 8014
+First update syncronous time: 1683
+TEST syncronized time: 1681
+Second update syncronous time: 1705
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 953 will be 954
+step time: 808024
+Update asyncronous time: 914670
+GUI copy obj time: 78905
+GUI copy new obj time: 3434
+GUIActions:102
+GUI set time: 204213
+Synchronization time: 1542165
+Send action time: 41832
+engine turn ms duration: 2
+Time update GUI:193542
+Time update ROOTNODE:156416
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 8674
+First update syncronous time: 1884
+TEST syncronized time: 1753
+Second update syncronous time: 1609
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 954 will be 955
+step time: 858108
+Update asyncronous time: 981755
+GUI copy obj time: 80111
+GUI copy new obj time: 3558
+GUIActions:102
+GUI set time: 231907
+Synchronization time: 1734992
+Send action time: 43518
+engine turn ms duration: 2
+Time update GUI:265935
+Time update ROOTNODE:211709
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 7994
+First update syncronous time: 1719
+TEST syncronized time: 1732
+Second update syncronous time: 1570
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 955 will be 956
+step time: 884466
+Update asyncronous time: 996611
+GUI copy obj time: 77668
+GUI copy new obj time: 3396
+GUIActions:102
+GUI set time: 201963
+Synchronization time: 1587443
+Send action time: 39784
+engine turn ms duration: 2
+Time update GUI:654782
+Time update ROOTNODE:564409
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 8874
+First update syncronous time: 1652
+TEST syncronized time: 1598
+Second update syncronous time: 1609
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 956 will be 957
+step time: 932520
+Update asyncronous time: 1043921
+GUI copy obj time: 88382
+GUI copy new obj time: 3609
+GUIActions:102
+GUI set time: 222994
+Synchronization time: 1653805
+Send action time: 40726
+engine turn ms duration: 2
+Time update GUI:227416
+Time update ROOTNODE:172837
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 2815
+First update syncronous time: 554
+TEST syncronized time: 557
+Second update syncronous time: 448
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 957 will be 958
+step time: 282522
+Update asyncronous time: 313758
+GUI copy obj time: 23966
+GUI copy new obj time: 1018
+GUIActions:102
+GUI set time: 60395
+Synchronization time: 487549
+Send action time: 12605
+engine turn ms duration: 1
+Time update GUI:208454
+Time update ROOTNODE:165591
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 2454
+First update syncronous time: 567
+TEST syncronized time: 493
+Second update syncronous time: 453
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 958 will be 959
+step time: 234743
+Update asyncronous time: 270787
+GUI copy obj time: 27058
+GUI copy new obj time: 1041
+GUIActions:102
+GUI set time: 66866
+Synchronization time: 455865
+Send action time: 12200
+engine turn ms duration: 0
+Time update GUI:622740
+Time update ROOTNODE:562951
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 7678
+First update syncronous time: 1778
+TEST syncronized time: 1740
+Second update syncronous time: 1688
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 959 will be 960
+step time: 847199
+Update asyncronous time: 963221
+GUI copy obj time: 77869
+GUI copy new obj time: 3536
+GUIActions:102
+GUI set time: 215314
+Synchronization time: 1578059
+Send action time: 39632
+engine turn ms duration: 2
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 4053
+First update syncronous time: 611
+TEST syncronized time: 659
+Second update syncronous time: 518
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 960 will be 961
+step time: 320950
+Update asyncronous time: 358196
+GUI copy obj time: 25712
+GUI copy new obj time: 1006
+GUIActions:102
+GUI set time: 67832
+Synchronization time: 1243335
+Send action time: 18806
+engine turn ms duration: 2
+Time update GUI:225131
+Time update ROOTNODE:163999
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 4399
+First update syncronous time: 811
+TEST syncronized time: 782
+Second update syncronous time: 699
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 961 will be 962
+step time: 366955
+Update asyncronous time: 414379
+GUI copy obj time: 32082
+GUI copy new obj time: 1341
+GUIActions:102
+GUI set time: 81577
+Synchronization time: 681286
+Send action time: 19048
+engine turn ms duration: 0
+Time update GUI:271617
+Time update ROOTNODE:214635
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 5466
+First update syncronous time: 927
+TEST syncronized time: 960
+Second update syncronous time: 815
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 962 will be 963
+step time: 481940
+Update asyncronous time: 543866
+GUI copy obj time: 41081
+GUI copy new obj time: 1761
+GUIActions:102
+GUI set time: 111229
+Synchronization time: 863238
+Send action time: 22312
+engine turn ms duration: 1
+Time update GUI:631546
+Time update ROOTNODE:562013
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 8383
+First update syncronous time: 1012
+TEST syncronized time: 836
+Second update syncronous time: 757
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 963 will be 964
+step time: 399857
+Update asyncronous time: 457059
+GUI copy obj time: 44727
+GUI copy new obj time: 1776
+GUIActions:102
+GUI set time: 113001
+Synchronization time: 768322
+Send action time: 20896
+engine turn ms duration: 1
+Time update GUI:184568
+Time update ROOTNODE:220590
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 8281
+First update syncronous time: 1761
+TEST syncronized time: 499
+Second update syncronous time: 510
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 964 will be 965
+step time: 245047
+Update asyncronous time: 276577
+GUI copy obj time: 23419
+GUI copy new obj time: 1000
+GUIActions:102
+GUI set time: 59607
+Synchronization time: 545824
+Send action time: 12590
+engine turn ms duration: 0
+Time update GUI:239323
+Time update ROOTNODE:270487
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 4666
+First update syncronous time: 954
+TEST syncronized time: 825
+Second update syncronous time: 770
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 965 will be 966
+step time: 392146
+Update asyncronous time: 448689
+GUI copy obj time: 39119
+GUI copy new obj time: 1734
+GUIActions:102
+GUI set time: 108791
+Synchronization time: 753059
+Send action time: 20823
+engine turn ms duration: 1
+Time update GUI:619121
+Time update ROOTNODE:544470
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 2731
+First update syncronous time: 536
+TEST syncronized time: 481
+Second update syncronous time: 471
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 966 will be 967
+step time: 323203
+Update asyncronous time: 354514
+GUI copy obj time: 23977
+GUI copy new obj time: 963
+GUIActions:102
+GUI set time: 61430
+Synchronization time: 528446
+Send action time: 13194
+engine turn ms duration: 0
+Time update GUI:223217
+Time update ROOTNODE:164396
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 3679
+First update syncronous time: 559
+TEST syncronized time: 612
+Second update syncronous time: 447
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 967 will be 968
+step time: 287347
+Update asyncronous time: 323818
+GUI copy obj time: 24110
+GUI copy new obj time: 1061
+GUIActions:102
+GUI set time: 61089
+Synchronization time: 506533
+Send action time: 14661
+engine turn ms duration: 1
+Time update GUI:219780
+Time update ROOTNODE:160826
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 3644
+First update syncronous time: 734
+TEST syncronized time: 699
+Second update syncronous time: 588
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 968 will be 969
+step time: 348908
+Update asyncronous time: 395272
+GUI copy obj time: 30950
+GUI copy new obj time: 1391
+GUIActions:102
+GUI set time: 86778
+Synchronization time: 635438
+Send action time: 16278
+engine turn ms duration: 1
+Time update GUI:615257
+Time update ROOTNODE:545816
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 8312
+First update syncronous time: 1677
+TEST syncronized time: 1734
+Second update syncronous time: 1509
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 969 will be 970
+step time: 767791
+Update asyncronous time: 880924
+GUI copy obj time: 76273
+GUI copy new obj time: 3443
+GUIActions:102
+GUI set time: 211471
+Synchronization time: 1481675
+Send action time: 39378
+engine turn ms duration: 1
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 8644
+First update syncronous time: 1766
+TEST syncronized time: 1616
+Second update syncronous time: 1540
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 970 will be 971
+step time: 807978
+Update asyncronous time: 912649
+GUI copy obj time: 87107
+GUI copy new obj time: 3673
+GUIActions:102
+GUI set time: 216665
+Synchronization time: 1510612
+Send action time: 42468
+engine turn ms duration: 1
+Time update GUI:232388
+Time update ROOTNODE:173937
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 4807
+First update syncronous time: 497
+TEST syncronized time: 661
+Second update syncronous time: 507
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 971 will be 972
+step time: 317412
+Update asyncronous time: 360792
+GUI copy obj time: 25503
+GUI copy new obj time: 1120
+GUIActions:102
+GUI set time: 171645
+Synchronization time: 666061
+Time update GUI:204793
+Send action time: 17644
+engine turn ms duration: 2
+Time update ROOTNODE:198588
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 4208
+First update syncronous time: 558
+TEST syncronized time: 645
+Second update syncronous time: 528
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 972 will be 973
+step time: 286917
+Update asyncronous time: 325250
+GUI copy obj time: 24953
+GUI copy new obj time: 1011
+GUIActions:102
+GUI set time: 63479
+Synchronization time: 514490
+Send action time: 21595
+engine turn ms duration: 0
+Time update GUI:253584
+Time update ROOTNODE:164565
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 4326
+First update syncronous time: 643
+TEST syncronized time: 621
+Second update syncronous time: 556
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 973 will be 974
+step time: 299092
+Update asyncronous time: 338124
+GUI copy obj time: 25136
+GUI copy new obj time: 1034
+GUIActions:102
+GUI set time: 62662
+Synchronization time: 534436
+Send action time: 17524
+engine turn ms duration: 1
+Time update GUI:380474
+Time update ROOTNODE:284126
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 4052
+First update syncronous time: 639
+TEST syncronized time: 646
+Second update syncronous time: 535
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 974 will be 975
+step time: 341890
+Update asyncronous time: 379997
+GUI copy obj time: 25185
+GUI copy new obj time: 1139
+GUIActions:102
+GUI set time: 62947
+Synchronization time: 576576
+Send action time: 16509
+engine turn ms duration: 1
+Time update GUI:234135
+Time update ROOTNODE:171872
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 3714
+First update syncronous time: 657
+TEST syncronized time: 523
+Second update syncronous time: 513
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 975 will be 976
+step time: 348064
+Update asyncronous time: 383964
+GUI copy obj time: 25509
+GUI copy new obj time: 1227
+GUIActions:102
+GUI set time: 63433
+Synchronization time: 568298
+Send action time: 14411
+engine turn ms duration: 0
+Time update GUI:1391475
+Time update ROOTNODE:173717
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 3975
+First update syncronous time: 752
+TEST syncronized time: 644
+Second update syncronous time: 452
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 976 will be 977
+step time: 355818
+Update asyncronous time: 391034
+GUI copy obj time: 25058
+GUI copy new obj time: 1018
+GUIActions:102
+GUI set time: 63114
+Synchronization time: 576707
+Send action time: 14859
+engine turn ms duration: 1
+Time update GUI:219668
+Time update ROOTNODE:159747
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 3986
+First update syncronous time: 614
+TEST syncronized time: 735
+Second update syncronous time: 499
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 977 will be 978
+step time: 328390
+Update asyncronous time: 366041
+GUI copy obj time: 25169
+GUI copy new obj time: 1000
+GUIActions:102
+GUI set time: 63355
+Synchronization time: 563293
+Send action time: 14585
+engine turn ms duration: 1
+Time update GUI:426530
+Time update ROOTNODE:170457
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 6375
+First update syncronous time: 1073
+TEST syncronized time: 1184
+Second update syncronous time: 772
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 978 will be 979
+step time: 471315
+Update asyncronous time: 539635
+GUI copy obj time: 41313
+GUI copy new obj time: 1723
+GUIActions:102
+GUI set time: 103889
+Synchronization time: 852950
+Send action time: 23100
+engine turn ms duration: 1
+Time update GUI:253029
+Time update ROOTNODE:735261
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 4813
+First update syncronous time: 890
+TEST syncronized time: 1070
+Second update syncronous time: 847
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 979 will be 980
+step time: 455783
+Update asyncronous time: 770352
+GUI copy obj time: 140707
+GUI copy new obj time: 2145
+GUIActions:102
+GUI set time: 223989
+Synchronization time: 1204672
+Send action time: 23551
+engine turn ms duration: 1
+Time update GUI:265370
+Time update ROOTNODE:164127
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 4611
+First update syncronous time: 745
+TEST syncronized time: 757
+Second update syncronous time: 608
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 980 will be 981
+step time: 367964
+Update asyncronous time: 411997
+GUI copy obj time: 32618
+GUI copy new obj time: 1314
+GUIActions:102
+GUI set time: 82760
+Synchronization time: 654912
+Send action time: 19023
+engine turn ms duration: 1
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 5742
+First update syncronous time: 916
+TEST syncronized time: 986
+Second update syncronous time: 747
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 981 will be 982
+step time: 464463
+Update asyncronous time: 524484
+GUI copy obj time: 47943
+GUI copy new obj time: 1846
+GUIActions:102
+GUI set time: 111472
+Synchronization time: 836167
+Send action time: 26071
+engine turn ms duration: 1
+Time update GUI:403899
+Time update ROOTNODE:497482
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 3642
+First update syncronous time: 529
+TEST syncronized time: 697
+Second update syncronous time: 523
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 982 will be 983
+step time: 301578
+Update asyncronous time: 336268
+GUI copy obj time: 30773
+GUI copy new obj time: 1076
+GUIActions:102
+GUI set time: 68555
+Synchronization time: 526729
+Send action time: 17544
+engine turn ms duration: 0
+Time update GUI:253621
+Time update ROOTNODE:171999
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 3638
+First update syncronous time: 548
+TEST syncronized time: 508
+Second update syncronous time: 440
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 983 will be 984
+step time: 296098
+Update asyncronous time: 332538
+GUI copy obj time: 24899
+GUI copy new obj time: 981
+GUIActions:102
+GUI set time: 63914
+Synchronization time: 518792
+Send action time: 14563
+engine turn ms duration: 1
+Time update GUI:594375
+Time update ROOTNODE:564460
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 4689
+First update syncronous time: 891
+TEST syncronized time: 965
+Second update syncronous time: 843
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 984 will be 985
+step time: 427636
+Update asyncronous time: 485284
+GUI copy obj time: 41403
+GUI copy new obj time: 1692
+GUIActions:102
+GUI set time: 108407
+Synchronization time: 797454
+Send action time: 21010
+engine turn ms duration: 1
+Time update GUI:440699
+Time update ROOTNODE:642809
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 4362
+First update syncronous time: 823
+TEST syncronized time: 885
+Second update syncronous time: 742
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 985 will be 986
+step time: 446076
+Update asyncronous time: 499614
+GUI copy obj time: 40338
+GUI copy new obj time: 1729
+GUIActions:102
+GUI set time: 102232
+Synchronization time: 801690
+Send action time: 22116
+engine turn ms duration: 1
+Time update GUI:199239
+Time update ROOTNODE:189575
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 8543
+First update syncronous time: 1906
+TEST syncronized time: 1794
+Second update syncronous time: 1580
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 986 will be 987
+step time: 948538
+Update asyncronous time: 1069067
+GUI copy obj time: 80381
+GUI copy new obj time: 3604
+GUIActions:102
+GUI set time: 232310
+Synchronization time: 1747391
+Send action time: 42165
+engine turn ms duration: 2
+Time update GUI:1198255
+Time update ROOTNODE:644094
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 9581
+First update syncronous time: 1672
+TEST syncronized time: 1809
+Second update syncronous time: 1594
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 987 will be 988
+step time: 849194
+Update asyncronous time: 950314
+GUI copy obj time: 79084
+GUI copy new obj time: 3324
+GUIActions:102
+GUI set time: 205997
+Synchronization time: 1518199
+Send action time: 41397
+engine turn ms duration: 2
+Time update GUI:141403
+Time update ROOTNODE:173922
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 8659
+First update syncronous time: 1702
+TEST syncronized time: 1717
+Second update syncronous time: 1610
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 988 will be 989
+step time: 809305
+Update asyncronous time: 920534
+GUI copy obj time: 77669
+GUI copy new obj time: 3383
+GUIActions:102
+GUI set time: 213172
+Synchronization time: 1536948
+Send action time: 39687
+engine turn ms duration: 2
+Time update GUI:336873
+Time update ROOTNODE:546074
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 18915
+First update syncronous time: 1688
+TEST syncronized time: 1757
+Second update syncronous time: 1501
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 989 will be 990
+step time: 950741
+Update asyncronous time: 1049097
+GUI copy obj time: 77754
+GUI copy new obj time: 3715
+GUIActions:102
+GUI set time: 191424
+Synchronization time: 1594850
+Send action time: 40543
+engine turn ms duration: 2
+Time update GUI:312225
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 7793
+First update syncronous time: 1650
+TEST syncronized time: 1812
+Second update syncronous time: 1540
+Rilevated turn LAG: -1.0 to ms: -15.0
+Time update ROOTNODE:556512
+I'm updating the asynchronous world!! Was 990 will be 991
+step time: 887051
+Update asyncronous time: 1358459
+GUI copy obj time: 91857
+GUI copy new obj time: 5009
+GUIActions:102
+GUI set time: 577046
+Synchronization time: 2661770
+Send action time: 43006
+engine turn ms duration: 3
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 9425
+First update syncronous time: 2358
+TEST syncronized time: 2049
+Second update syncronous time: 2213
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 991 will be 992
+Time update GUI:606609
+Time update ROOTNODE:169774
+step time: 1079175
+Update asyncronous time: 1464933
+GUI copy obj time: 81980
+GUI copy new obj time: 5048
+GUIActions:102
+GUI set time: 564381
+Synchronization time: 3453240
+Send action time: 43386
+engine turn ms duration: 5
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 7976
+First update syncronous time: 1774
+TEST syncronized time: 1695
+Second update syncronous time: 1642
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 992 will be 993
+step time: 876161
+Update asyncronous time: 984447
+GUI copy obj time: 79709
+GUI copy new obj time: 3405
+GUIActions:102
+GUI set time: 214292
+Synchronization time: 1753353
+Send action time: 43030
+engine turn ms duration: 2
+Time update GUI:319179
+Time update ROOTNODE:549407
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 8252
+First update syncronous time: 1694
+TEST syncronized time: 1653
+Second update syncronous time: 1485
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 993 will be 994
+step time: 862758
+Update asyncronous time: 971307
+GUI copy obj time: 78109
+GUI copy new obj time: 3405
+GUIActions:102
+GUI set time: 214760
+Synchronization time: 1604577
+Send action time: 42271
+engine turn ms duration: 2
+Time update GUI:339784
+Time update ROOTNODE:594748
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 7733
+First update syncronous time: 1735
+TEST syncronized time: 1724
+Second update syncronous time: 1539
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 994 will be 995
+step time: 801431
+Update asyncronous time: 918156
+GUI copy obj time: 77040
+GUI copy new obj time: 3515
+GUIActions:102
+GUI set time: 225179
+Synchronization time: 1589033
+Send action time: 39964
+engine turn ms duration: 2
+Time update GUI:339664
+Time update ROOTNODE:545494
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 8037
+First update syncronous time: 1659
+TEST syncronized time: 1900
+Second update syncronous time: 1606
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 995 will be 996
+step time: 963930
+Update asyncronous time: 1069296
+GUI copy obj time: 77709
+GUI copy new obj time: 3399
+GUIActions:102
+GUI set time: 198080
+Synchronization time: 1651845
+Send action time: 40396
+engine turn ms duration: 2
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 8777
+First update syncronous time: 2348
+TEST syncronized time: 1913
+Second update syncronous time: 2169
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 996 will be 997
+step time: 1251987
+Update asyncronous time: 1995507
+GUI copy obj time: 24090
+GUI copy new obj time: 1519
+GUIActions:102
+GUI set time: 364181
+Synchronization time: 4031553
+Send action time: 19327
+engine turn ms duration: 4
+Time update GUI:135639
+Time update ROOTNODE:260626
+Time update GUI:116871
+Time update ROOTNODE:273953
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 3572
+First update syncronous time: 677
+TEST syncronized time: 581
+Second update syncronous time: 459
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 997 will be 998
+step time: 314467
+Update asyncronous time: 350942
+GUI copy obj time: 24635
+GUI copy new obj time: 1076
+GUIActions:102
+GUI set time: 70901
+Synchronization time: 544801
+Send action time: 13552
+engine turn ms duration: 1
+Time update GUI:199374
+Time update ROOTNODE:651296
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 2948
+First update syncronous time: 563
+TEST syncronized time: 627
+Second update syncronous time: 449
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 998 will be 999
+step time: 331939
+Update asyncronous time: 369294
+GUI copy obj time: 23627
+GUI copy new obj time: 993
+GUIActions:102
+GUI set time: 61289
+Synchronization time: 548143
+Send action time: 12885
+engine turn ms duration: 1
+Time update GUI:306540
+Time update ROOTNODE:532819
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 7743
+First update syncronous time: 1704
+TEST syncronized time: 1645
+Second update syncronous time: 1534
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 999 will be 1000
+step time: 768036
+Update asyncronous time: 882540
+GUI copy obj time: 76931
+GUI copy new obj time: 3480
+GUIActions:102
+GUI set time: 197027
+Synchronization time: 1466007
+Send action time: 40623
+engine turn ms duration: 1
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 7828
+Time update GUI:328448
+First update syncronous time: 1751
+TEST syncronized time: 2059
+Second update syncronous time: 2220
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 1000 will be 1001
+step time: 847409
+Update asyncronous time: 965442
+GUI copy obj time: 85965
+GUI copy new obj time: 3705
+GUIActions:102
+GUI set time: 211339
+Synchronization time: 1681808
+Send action time: 37053
+Time update ROOTNODE:714999
+engine turn ms duration: 2
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 2906
+First update syncronous time: 491
+TEST syncronized time: 556
+Second update syncronous time: 458
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 1001 will be 1002
+step time: 296534
+Update asyncronous time: 329588
+GUI copy obj time: 23738
+GUI copy new obj time: 1013
+GUIActions:102
+GUI set time: 58380
+Synchronization time: 498265
+Send action time: 14089
+engine turn ms duration: 0
+Time update GUI:122665
+Time update ROOTNODE:163162
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 7725
+First update syncronous time: 1774
+TEST syncronized time: 1741
+Second update syncronous time: 1552
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 1002 will be 1003
+step time: 968926
+Update asyncronous time: 1093759
+GUI copy obj time: 78064
+GUI copy new obj time: 3408
+GUIActions:102
+GUI set time: 196649
+Synchronization time: 1697455
+Send action time: 40996
+engine turn ms duration: 1
+Time update GUI:346655
+Time update ROOTNODE:547627
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 7621
+First update syncronous time: 1797
+TEST syncronized time: 1634
+Second update syncronous time: 1513
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 1003 will be 1004
+step time: 820544
+Update asyncronous time: 939608
+GUI copy obj time: 87105
+GUI copy new obj time: 4596
+GUIActions:102
+GUI set time: 347546
+Synchronization time: 1666581
+Send action time: 41503
+engine turn ms duration: 1
+Time update GUI:333401
+Time update ROOTNODE:589933
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 7521
+First update syncronous time: 1652
+TEST syncronized time: 1639
+Second update syncronous time: 1547
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 1004 will be 1005
+step time: 811594
+Update asyncronous time: 935973
+GUI copy obj time: 77232
+GUI copy new obj time: 3524
+GUIActions:102
+GUI set time: 223442
+Synchronization time: 1618206
+Send action time: 39331
+engine turn ms duration: 1
+Time update GUI:321866
+Time update ROOTNODE:740071
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 7465
+First update syncronous time: 1728
+TEST syncronized time: 1610
+Second update syncronous time: 1513
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 1005 will be 1006
+step time: 782776
+Update asyncronous time: 921560
+GUI copy obj time: 88029
+GUI copy new obj time: 3538
+GUIActions:102
+GUI set time: 225869
+Synchronization time: 1563808
+Send action time: 40500
+engine turn ms duration: 1
+Time update GUI:334517
+Time update ROOTNODE:567007
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 7534
+First update syncronous time: 1783
+TEST syncronized time: 1639
+Second update syncronous time: 1678
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 1006 will be 1007
+step time: 923827
+Update asyncronous time: 1060010
+GUI copy obj time: 77292
+GUI copy new obj time: 3661
+GUIActions:102
+GUI set time: 224589
+Synchronization time: 1736985
+Send action time: 40277
+engine turn ms duration: 2
+Time update GUI:328131
+Time update ROOTNODE:659995
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 7444
+First update syncronous time: 1700
+TEST syncronized time: 1619
+Second update syncronous time: 1574
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 1007 will be 1008
+step time: 788534
+Update asyncronous time: 909364
+GUI copy obj time: 87825
+GUI copy new obj time: 3550
+GUIActions:102
+GUI set time: 225637
+Synchronization time: 1565091
+Send action time: 38835
+engine turn ms duration: 1
+Time update GUI:353100
+Time update ROOTNODE:545918
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 8267
+First update syncronous time: 1800
+TEST syncronized time: 1731
+Second update syncronous time: 1518
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 1008 will be 1009
+step time: 903494
+Update asyncronous time: 1027125
+GUI copy obj time: 78229
+GUI copy new obj time: 3536
+GUIActions:102
+GUI set time: 209777
+Synchronization time: 1644392
+Send action time: 40259
+engine turn ms duration: 1
+Time update GUI:342586
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 7817
+First update syncronous time: 1641
+TEST syncronized time: 1610
+Second update syncronous time: 1657
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 1009 will be 1010
+step time: 814943
+Update asyncronous time: 934792
+GUI copy obj time: 85694
+GUI copy new obj time: 3593
+GUIActions:102
+GUI set time: 228799
+Synchronization time: 1558397
+Send action time: 40991
+engine turn ms duration: 1
+Time update ROOTNODE:2120893
+Time update GUI:315377
+Time update ROOTNODE:557668
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 7769
+First update syncronous time: 1693
+TEST syncronized time: 1782
+Second update syncronous time: 1526
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 1010 will be 1011
+step time: 840571
+Update asyncronous time: 1126045
+GUI copy obj time: 79130
+GUI copy new obj time: 3762
+GUIActions:102
+GUI set time: 238435
+Synchronization time: 1822257
+Send action time: 41258
+engine turn ms duration: 2
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 3046
+First update syncronous time: 612
+TEST syncronized time: 572
+Second update syncronous time: 558
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 1011 will be 1012
+step time: 318289
+Update asyncronous time: 349953
+GUI copy obj time: 24441
+GUI copy new obj time: 974
+GUIActions:102
+GUI set time: 56677
+Synchronization time: 511210
+Send action time: 14400
+engine turn ms duration: 0
+Time update GUI:127854
+Time update ROOTNODE:160644
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 3670
+First update syncronous time: 549
+TEST syncronized time: 664
+Second update syncronous time: 553
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 1012 will be 1013
+step time: 292018
+Update asyncronous time: 321271
+GUI copy obj time: 24227
+GUI copy new obj time: 995
+GUIActions:102
+GUI set time: 53409
+Synchronization time: 468766
+Send action time: 15342
+engine turn ms duration: 1
+Time update GUI:199915
+Time update ROOTNODE:281167
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 3778
+First update syncronous time: 795
+TEST syncronized time: 755
+Second update syncronous time: 682
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 1013 will be 1014
+step time: 370405
+Update asyncronous time: 403393
+GUI copy obj time: 31561
+GUI copy new obj time: 1325
+GUIActions:102
+GUI set time: 63640
+Synchronization time: 577024
+Send action time: 17354
+engine turn ms duration: 1
+Time update GUI:290013
+Time update ROOTNODE:563212
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 7524
+First update syncronous time: 1825
+TEST syncronized time: 1708
+Second update syncronous time: 1580
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 1014 will be 1015
+step time: 899253
+Update asyncronous time: 977814
+GUI copy obj time: 78438
+GUI copy new obj time: 3468
+GUIActions:102
+GUI set time: 167789
+Synchronization time: 1385269
+Send action time: 39820
+engine turn ms duration: 1
+Time update GUI:118241
+Time update ROOTNODE:163669
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 8440
+First update syncronous time: 1774
+TEST syncronized time: 1926
+Second update syncronous time: 1590
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 1015 will be 1016
+step time: 950531
+Update asyncronous time: 1032764
+GUI copy obj time: 86200
+GUI copy new obj time: 3416
+GUIActions:102
+GUI set time: 156426
+Synchronization time: 1430860
+Send action time: 41222
+engine turn ms duration: 2
+Time update GUI:375260
+Time update ROOTNODE:546537
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 8127
+First update syncronous time: 1874
+TEST syncronized time: 1882
+Second update syncronous time: 1619
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 1016 will be 1017
+step time: 937606
+Update asyncronous time: 1026434
+GUI copy obj time: 78691
+GUI copy new obj time: 3322
+GUIActions:102
+GUI set time: 157304
+Synchronization time: 1437654
+Send action time: 40388
+engine turn ms duration: 2
+Time update GUI:327917
+Time update ROOTNODE:563082
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 7600
+First update syncronous time: 1713
+TEST syncronized time: 1810
+Second update syncronous time: 1563
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 1017 will be 1018
+step time: 782769
+Update asyncronous time: 862243
+GUI copy obj time: 88319
+GUI copy new obj time: 5307
+GUIActions:102
+GUI set time: 556941
+Synchronization time: 1787544
+Send action time: 42168
+engine turn ms duration: 2
+Time update GUI:315482
+Time update ROOTNODE:531508
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 7964
+First update syncronous time: 1949
+TEST syncronized time: 1827
+Second update syncronous time: 1591
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 1018 will be 1019
+step time: 881298
+Update asyncronous time: 960144
+GUI copy obj time: 77247
+GUI copy new obj time: 3368
+GUIActions:102
+GUI set time: 146260
+Synchronization time: 1368480
+Send action time: 40532
+engine turn ms duration: 2
+Time update GUI:338794
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 8311
+First update syncronous time: 1796
+TEST syncronized time: 1957
+Second update syncronous time: 1611
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 1019 will be 1020
+Time update ROOTNODE:2374441
+step time: 844807
+Update asyncronous time: 925897
+GUI copy obj time: 77859
+GUI copy new obj time: 3429
+GUIActions:102
+GUI set time: 158758
+Synchronization time: 1352374
+Send action time: 41141
+engine turn ms duration: 1
+Time update GUI:141471
+Time update ROOTNODE:282783
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 8613
+First update syncronous time: 1864
+TEST syncronized time: 1877
+Second update syncronous time: 1565
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 1020 will be 1021
+step time: 817790
+Update asyncronous time: 898590
+GUI copy obj time: 78131
+GUI copy new obj time: 3366
+GUIActions:102
+GUI set time: 154679
+Synchronization time: 1320860
+Send action time: 68049
+engine turn ms duration: 1
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 4163
+First update syncronous time: 917
+TEST syncronized time: 901
+Second update syncronous time: 772
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 1021 will be 1022
+step time: 747089
+Update asyncronous time: 783736
+GUI copy obj time: 46706
+GUI copy new obj time: 1723
+GUIActions:102
+GUI set time: 82488
+Synchronization time: 987819
+Send action time: 21208
+engine turn ms duration: 1
+Time update GUI:181283
+Time update ROOTNODE:270127
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 8302
+First update syncronous time: 1703
+TEST syncronized time: 1852
+Second update syncronous time: 1589
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 1022 will be 1023
+step time: 827755
+Update asyncronous time: 904491
+GUI copy obj time: 76868
+GUI copy new obj time: 3363
+GUIActions:102
+GUI set time: 155804
+Synchronization time: 1316881
+Send action time: 41359
+engine turn ms duration: 2
+Time update GUI:347104
+Time update ROOTNODE:722471
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 7486
+First update syncronous time: 1717
+TEST syncronized time: 1922
+Second update syncronous time: 1578
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 1023 will be 1024
+step time: 778329
+Update asyncronous time: 859508
+GUI copy obj time: 76791
+GUI copy new obj time: 3337
+GUIActions:102
+GUI set time: 155826
+Synchronization time: 1270979
+Send action time: 40167
+engine turn ms duration: 1
+Time update GUI:319246
+Time update ROOTNODE:580896
+
+
+Client Sincronous Turn: 782
+Waiting input: 0
+Reading input time: 7982
+First update syncronous time: 1813
+TEST syncronized time: 1845
+Second update syncronous time: 1554
+Rilevated turn LAG: -1.0 to ms: -15.0
+I'm updating the asynchronous world!! Was 1024 will be 1025
+step time: 865193
+Update asyncronous time: 944173
+GUI copy obj time: 77384
+GUI copy new obj time: 3607
+GUIActions:102
+GUI set time: 166521
+Synchronization time: 1356780
+Send action time: 41878
+engine turn ms duration: 1
+Time update GUI:134683
+Time update ROOTNODE:167636
+
+
+Client Sincronous Turn: 782
+Waiting input: 1
+AllMap received
+Reading input time: 40018
+First update syncronous time: 571
+Testin precision of map
+DEBUG turn: 1000
+test require 218 step
+I'm updating the synchronous world!! Was 782 will be 1000
+step time: 289738
+step time: 199052
+step time: 226350
+step time: 222239
+step time: 198510
+step time: 199233
+step time: 198177
+step time: 198887
+step time: 197680
+step time: 240759
+step time: 192474
+step time: 192707
+step time: 193396
+step time: 183372
+step time: 197612
+step time: 448258
+step time: 219493
+step time: 207949
+step time: 337054
+step time: 310342
+step time: 187897
+step time: 189133
+step time: 187824
+step time: 189904
+step time: 234442
+step time: 243909
+step time: 215302
+step time: 219474
+step time: 227586
+step time: 244181
+step time: 256568
+step time: 212138
+step time: 207848
+step time: 208291
+Time update GUI:128684
+Time update ROOTNODE:162353
+step time: 275113
+step time: 225195
+step time: 211362
+step time: 226863
+step time: 218533
+step time: 195071
+step time: 215681
+step time: 194903
+step time: 189061
+step time: 220436
+step time: 196554
+step time: 194849
+step time: 188995
+step time: 395136
+step time: 4436643
+step time: 235226
+step time: 224179
+step time: 200426
+step time: 209112
+step time: 193841
+step time: 214355
+step time: 199008
+step time: 198918
+step time: 198238
+step time: 217805
+step time: 199068
+step time: 191044
+step time: 189138
+step time: 242735
+step time: 199904
+step time: 187382
+step time: 183123
+step time: 188071
+step time: 197441
+step time: 197938
+step time: 214793
+step time: 190628
+step time: 181026
+step time: 185687
+step time: 180790
+step time: 213199
+step time: 187319
+Time update GUI:138430
+step time: 261655
+Time update ROOTNODE:162636
+step time: 219825
+step time: 238766
+step time: 233128
+step time: 204572
+step time: 187629
+step time: 190348
+step time: 190247
+step time: 210099
+step time: 194510
+step time: 195925
+step time: 187406
+step time: 211497
+step time: 195531
+step time: 194489
+step time: 199771
+step time: 198615
+step time: 211407
+step time: 199931
+step time: 199619
+step time: 213890
+step time: 217064
+step time: 216268
+step time: 206458
+step time: 222279
+step time: 212338
+step time: 213883
+step time: 213887
+step time: 206531
+step time: 217194
+step time: 205286
+step time: 208921
+step time: 208204
+step time: 200316
+step time: 228509
+step time: 236216
+step time: 305175
+step time: 245056
+step time: 247790
+step time: 249796
+step time: 30979058
+step time: 237850
+step time: 217505
+step time: 205753
+step time: 195754
+Time update GUI:149068
+Time update ROOTNODE:214837
+step time: 192836
+step time: 204232
+step time: 213348
+step time: 202883
+step time: 209959
+step time: 198123
+step time: 234265
+step time: 205146
+step time: 203485
+step time: 195128
+step time: 215682
+step time: 211912
+step time: 212435
+step time: 204494
+step time: 209861
+Time update GUI:96894
+step time: 195780
+Time update ROOTNODE:205225
+step time: 200795
+step time: 195120
+step time: 193753
+step time: 214344
+step time: 197959
+step time: 192893
+step time: 190344
+step time: 189680
+step time: 198610
+step time: 216515
+step time: 196220
+step time: 194053
+step time: 199979
+step time: 216227
+step time: 197450
+step time: 212920
+step time: 219616
+step time: 208397
+step time: 215820
+step time: 371063
+step time: 247544
+step time: 206967
+step time: 209952
+step time: 210736
+step time: 192079
+step time: 190381
+step time: 211687
+step time: 193279
+step time: 231747
+step time: 195599
+step time: 202231
+step time: 199970
+step time: 191553
+step time: 193894
+step time: 194655
+step time: 213069
+step time: 233084
+step time: 198288
+step time: 196371
+step time: 214698
+step time: 191716
+step time: 197726
+step time: 209548
+step time: 193333
+step time: 191151
+step time: 187062
+step time: 206507
+step time: 189276
+step time: 222565
+step time: 194915
+step time: 196722
+step time: 194696
+step time: 189960
+step time: 189280
+step time: 209471
+step time: 216195
+step time: 213840
+step time: 209962
+step time: 190541
+step time: 205672
+step time: 193936
+step time: 189626
+Time update GUI:111611
+step time: 223421
+Time update ROOTNODE:260816
+step time: 222511
+step time: 200968
+step time: 196561
+step time: 223220
+step time: 201727
+step time: 202349
+step time: 228936
+step time: 213863
+step time: 225506
+step time: 209249
+step time: 205499
+step time: 207133
+step time: 233351
+step time: 227495
+step time: 211283
+step time: 201740
+step time: 212280
+step time: 205664
+I've updated the synchronous world!! is 1000 inter 218
+has to be: x: 3.381185E-5 y: 1.9387715 xV: 1.4998614E-5 yV: -0.02714497 aV: -1.1450079E-10 a: -2.5976912E-10
+is x: 3.3811564E-5 y: 1.9387715 xV: 1.4998477E-5 yV: -0.02714491 aV: -8.909369E-11 a: -2.0194954E-10
+has to be: x: 0.0012161643 y: 2.339094 xV: -0.012879677 yV: -0.02136806 aV: 7.360486E-8 a: -8.121001E-9
+is x: 0.0012161273 y: 2.339094 xV: -0.012879489 yV: -0.021368127 aV: 7.923745E-8 a: -7.761765E-9
+has to be: x: -0.10711242 y: 2.7286668 xV: -0.028832396 yV: -0.03051412 aV: 1.4888177E-7 a: 6.199386E-7
+is x: -0.107110366 y: 2.7286668 xV: -0.028831858 yV: -0.030513914 aV: 1.45010395E-8 a: 4.0512308E-8
+has to be: x: -0.1500881 y: 3.134622 xV: -0.024778083 yV: -0.033311926 aV: 1.5381343E-7 a: 9.554368E-7
+is x: -0.15008806 y: 3.134622 xV: -0.024778062 yV: -0.033311937 aV: 7.7946005E-9 a: 6.477309E-8
+has to be: x: -0.32155806 y: 3.5033293 xV: -0.039689634 yV: -0.040404562 aV: -6.424223E-8 a: -5.496789E-7
+is x: -0.32155824 y: 3.5033293 xV: -0.03968968 yV: -0.040404543 aV: -6.3010056E-8 a: -5.417192E-7
+has to be: x: 0.5 y: 0.9812157 xV: -8.958436E-8 yV: -0.030057194 aV: 4.465292E-8 a: 2.794714E-8
+is x: 0.5 y: 0.9812157 xV: -8.958409E-8 yV: -0.030056989 aV: 4.4652833E-8 a: 2.7947072E-8
+has to be: x: 0.5007495 y: 1.3811123 xV: -0.018424904 yV: -0.02359639 aV: -1.8750619E-8 a: 3.59744E-9
+is x: 0.5007495 y: 1.3811113 xV: -0.018424815 yV: -0.023596324 aV: 2.8789518E-8 a: 7.975811E-9
+has to be: x: 0.42876503 y: 1.7751738 xV: -0.039516207 yV: -0.035002913 aV: 6.625645E-8 a: 3.3968684E-7
+is x: 0.4287685 y: 1.7751727 xV: -0.03951476 yV: -0.03500228 aV: 1.4142242E-7 a: 5.359737E-7
+has to be: x: 0.37064153 y: 2.1864748 xV: -0.021177743 yV: -0.04177195 aV: 2.8968806E-8 a: 2.3323298E-7
+is x: 0.37064424 y: 2.1864748 xV: -0.021177473 yV: -0.04177196 aV: 2.686931E-9 a: 1.5182172E-7
+has to be: x: 0.3375917 y: 2.5858908 xV: -0.030857313 yV: -0.03553604 aV: 2.1269318E-7 a: 1.4881308E-6
+is x: 0.33759254 y: 2.5858848 xV: -0.030857196 yV: -0.03553618 aV: 2.303236E-7 a: 1.5693786E-6
+has to be: x: 0.21630658 y: 2.9672039 xV: -0.02503515 yV: -0.033489387 aV: -4.3394937E-7 a: -3.0359236E-6
+is x: 0.21630786 y: 2.967204 xV: -0.0250345 yV: -0.033489373 aV: -2.240866E-7 a: -2.0354425E-6
+has to be: x: 0.15892938 y: 3.3887532 xV: -0.022102468 yV: -0.036259193 aV: -6.424091E-7 a: -5.888671E-6
+is x: 0.15892917 y: 3.3887534 xV: -0.0221025 yV: -0.03625913 aV: -4.96004E-7 a: -4.991528E-6
+has to be: x: 2.2566166 y: 1.8763402 xV: 0.09298046 yV: -0.15699223 aV: -1.0405087E-5 a: -1.0510413E-4
+is x: 2.256616 y: 1.8763402 xV: 0.09297963 yV: -0.15699208 aV: -1.0207998E-5 a: -1.04108876E-4
+has to be: x: 0.9999969 y: 0.4777792 xV: -4.1808657E-6 yV: -0.027917419 aV: -7.112628E-8 a: -6.177344E-8
+is x: 0.9999969 y: 0.4777792 xV: -4.180881E-6 yV: -0.027917543 aV: -7.1128675E-8 a: -6.177573E-8
+has to be: x: 1.0008482 y: 0.87745523 xV: 0.0021187712 yV: -0.027917814 aV: 5.663663E-8 a: 5.653283E-8
+is x: 1.0008482 y: 0.87745523 xV: 0.0021187384 yV: -0.02791794 aV: 5.967764E-8 a: 5.763388E-8
+has to be: x: 0.8812714 y: 1.2591738 xV: -0.025945934 yV: -0.04715009 aV: 5.434329E-8 a: 1.4186759E-7
+is x: 0.8812714 y: 1.2591738 xV: -0.025945758 yV: -0.04714997 aV: -7.217455E-8 a: -9.672E-8
+has to be: x: 1.0013963 y: 1.6751357 xV: -0.023098182 yV: -0.059378117 aV: 3.426809E-8 a: 4.7110524E-7
+is x: 1.0013949 y: 1.6751322 xV: -0.023100551 yV: -0.05937945 aV: 3.4182204E-8 a: 4.378737E-7
+has to be: x: 0.7480152 y: 2.0159338 xV: -0.028574469 yV: -0.04874369 aV: -1.02835344E-7 a: 6.834647E-7
+is x: 0.74802136 y: 2.015927 xV: -0.028572163 yV: -0.048744526 aV: -6.8889904E-7 a: -2.517722E-6
+has to be: x: 0.75042033 y: 2.4158645 xV: -0.039547376 yV: -0.04849743 aV: -7.53988E-7 a: -5.8704477E-6
+is x: 0.75042033 y: 2.415864 xV: -0.039547354 yV: -0.048498314 aV: -7.151632E-7 a: -5.6015606E-6
+has to be: x: 0.6267365 y: 2.8637607 xV: -0.02622511 yV: -0.03912064 aV: 3.5391642E-7 a: 3.5550502E-6
+is x: 0.62674516 y: 2.8637702 xV: -0.026224444 yV: -0.0391212 aV: 3.1067614E-7 a: 3.2849903E-6
+has to be: x: 3.529759 y: 2.8005252 xV: 0.18106073 yV: -0.005351615 aV: -1.3876654E-6 a: -3.2501462E-6
+is x: 3.529759 y: 2.8005252 xV: 0.18106073 yV: -0.0053516165 aV: -1.2564393E-6 a: -2.5365578E-6
+has to be: x: 1.4999653 y: -0.18908232 xV: -1.3105766E-5 yV: -0.06678551 aV: 1.8329945E-7 a: 5.3373424E-7
+is x: 1.4999653 y: -0.18907663 xV: -1.3103481E-5 yV: -0.066782415 aV: 1.8337239E-7 a: 5.3388663E-7
+has to be: x: 1.5010238 y: 0.21049261 xV: 3.6887304E-4 yV: -0.06678578 aV: -8.776209E-8 a: -2.3009675E-7
+is x: 1.5010238 y: 0.21049753 xV: 3.6879958E-4 yV: -0.06678269 aV: -8.862376E-8 a: -2.3256037E-7
+has to be: x: 1.4872077 y: 0.6103968 xV: -0.004299584 yV: -0.0667766 aV: -7.1559086E-8 a: -1.7722779E-7
+is x: 1.4872079 y: 0.61039454 xV: -0.004298612 yV: -0.06677501 aV: -7.315253E-8 a: -1.8418275E-7
+has to be: x: 1.5243251 y: 1.0089623 xV: -0.006833431 yV: -0.066421166 aV: -1.754141E-7 a: -5.125507E-7
+is x: 1.5243208 y: 1.0089554 xV: -0.0068345554 yV: -0.066424385 aV: -1.4695538E-8 a: 4.1460044E-8
+has to be: x: 1.2797927 y: 1.3282958 xV: -0.032448545 yV: -0.08267281 aV: -3.2559524E-7 a: -2.0380871E-6
+is x: 1.2797974 y: 1.328281 xV: -0.032446936 yV: -0.082676396 aV: 1.6181308E-7 a: 4.645734E-7
+has to be: x: 1.4018553 y: 1.7205701 xV: -0.009608885 yV: -0.07775818 aV: 9.891795E-7 a: 5.3118965E-6
+is x: 1.4018413 y: 1.7205565 xV: -0.009609565 yV: -0.07776071 aV: 1.8862379E-7 a: 1.5877964E-6
+has to be: x: 1.1498961 y: 2.0465293 xV: -0.019929819 yV: -0.06063871 aV: 9.4712493E-7 a: 7.326459E-6
+is x: 1.1499014 y: 2.0464966 xV: -0.019930959 yV: -0.060640678 aV: 7.545934E-7 a: 6.3098237E-6
+has to be: x: 2.7185764 y: 1.9708295 xV: 0.12405649 yV: -0.074029334 aV: 5.806242E-6 a: 3.661237E-5
+is x: 2.7185764 y: 1.9708295 xV: 0.124055564 yV: -0.07402939 aV: 5.7111706E-6 a: 3.6129964E-5
+has to be: x: 2.0422387 y: 4.328132 xV: 0.028896801 yV: 0.02327812 aV: 1.7228949E-6 a: 1.5514397E-5
+is x: 2.0422387 y: 4.328132 xV: 0.028896805 yV: 0.023278115 aV: 1.7311355E-6 a: 1.5559252E-5
+has to be: x: 1.9469451 y: 4.7883096 xV: 0.03347833 yV: 0.040911395 aV: 9.613534E-7 a: 9.848352E-6
+is x: 1.9469451 y: 4.7883096 xV: 0.03347834 yV: 0.04091139 aV: 9.643229E-7 a: 9.8668015E-6
+has to be: x: 2.0001137 y: -0.21679693 xV: 4.220834E-5 yV: -0.08267663 aV: -2.7452455E-11 a: -7.5389237E-11
+is x: 2.0001137 y: -0.21678524 xV: 4.223064E-5 yV: -0.08267619 aV: 5.9563435E-12 a: 8.168828E-12
+has to be: x: 1.9974079 y: 0.18213952 xV: -9.893844E-4 yV: -0.082681 aV: 1.8424285E-7 a: 3.779691E-7
+is x: 1.9974084 y: 0.18215421 xV: -9.898187E-4 yV: -0.08268057 aV: 1.8409854E-7 a: 3.7784187E-7
+has to be: x: 2.0263143 y: 0.58050877 xV: 0.008925695 yV: -0.08315419 aV: -1.8941874E-7 a: -3.852768E-7
+is x: 2.0263076 y: 0.58052534 xV: 0.008927111 yV: -0.083153665 aV: -1.8719373E-7 a: -3.8281576E-7
+has to be: x: 1.9226222 y: 0.96720445 xV: -0.007927529 yV: -0.08690915 aV: -8.7114364E-7 a: -4.133268E-6
+is x: 1.9226172 y: 0.9671761 xV: -0.007929977 yV: -0.0869095 aV: -8.1641997E-7 a: -4.108753E-6
+has to be: x: 2.1970382 y: 1.2594774 xV: 0.014153206 yV: -0.104881614 aV: 4.8210285E-7 a: 2.4605163E-6
+is x: 2.1970382 y: 1.2594774 xV: 0.0141524 yV: -0.10488154 aV: 4.835459E-8 a: 1.0239038E-6
+has to be: x: 1.7331336 y: 1.3867078 xV: -0.051664636 yV: -0.1860814 aV: -1.3282678E-6 a: -4.661906E-6
+is x: 1.7331337 y: 1.3867078 xV: -0.051664844 yV: -0.18608078 aV: -2.8298226E-7 a: -2.1197063E-7
+has to be: x: 3.7433045 y: 1.839675 xV: 0.21764755 yV: -0.09439671 aV: 2.237481E-6 a: -3.9596243E-6
+is x: 3.7433045 y: 1.839675 xV: 0.21764761 yV: -0.0943967 aV: 2.4166955E-6 a: -3.3129904E-6
+has to be: x: 2.7492604 y: 3.8419955 xV: 0.06271891 yV: 0.015267228 aV: -1.2425028E-6 a: -1.12963235E-5
+is x: 2.7492604 y: 3.8419955 xV: 0.0627189 yV: 0.015267222 aV: -1.2961855E-6 a: -1.1641409E-5
+has to be: x: 2.5084662 y: 4.250925 xV: 0.03861809 yV: 0.019816423 aV: -4.3832833E-7 a: -3.1917664E-6
+is x: 2.5084662 y: 4.250925 xV: 0.038618103 yV: 0.019816415 aV: -4.3567093E-7 a: -3.1806226E-6
+has to be: x: 2.3273916 y: 4.6641774 xV: 0.03183406 yV: 0.03514621 aV: 2.5313045E-7 a: 1.6372579E-6
+is x: 2.3273916 y: 4.6641774 xV: 0.031834066 yV: 0.035146203 aV: 2.6599773E-7 a: 1.6992482E-6
+has to be: x: 2.499957 y: -0.024680754 xV: -1.0545749E-4 yV: -0.05754666 aV: -2.5161364E-7 a: -1.1067252E-7
+is x: 2.499957 y: -0.024680711 xV: -1.05457315E-4 yV: -0.05754658 aV: -2.518147E-7 a: -1.107577E-7
+Time update GUI:116493
+has to be: x: 2.5016947 y: 0.3749132 xV: 0.0022825403 yV: -0.05755157 aV: 5.1357625E-7 a: 2.4998064E-7
+is x: 2.5016947 y: 0.3749133 xV: 0.002282538 yV: -0.05755149 aV: 5.113294E-7 a: 2.4898384E-7
+has to be: x: 2.477734 y: 0.7729458 xV: -0.01652107 yV: -0.05829471 aV: -1.9883097E-7 a: 1.8904356E-7
+is x: 2.477734 y: 0.7729458 xV: -0.01652105 yV: -0.05829462 aV: -1.9959461E-7 a: 1.8418596E-7
+has to be: x: 2.5859778 y: 1.1581402 xV: 0.024415396 yV: -0.06834893 aV: -5.462525E-7 a: -1.8420353E-6
+is x: 2.5859776 y: 1.1581402 xV: 0.024415178 yV: -0.068348795 aV: -5.4222096E-7 a: -1.8408358E-6
+has to be: x: 2.5709052 y: 1.5576408 xV: 0.028730487 yV: -0.06805207 aV: 1.4342774E-6 a: 3.904375E-6
+is x: 2.5709052 y: 1.5576408 xV: 0.028730351 yV: -0.06805193 aV: 1.4220459E-6 a: 3.833734E-6
+Time update ROOTNODE:192779
+has to be: x: 2.9704063 y: 1.5742435 xV: 0.02888273 yV: -0.06617242 aV: 2.310613E-6 a: 1.3816023E-5
+is x: 2.9704063 y: 1.5742435 xV: 0.02888261 yV: -0.06617242 aV: 2.358024E-6 a: 1.3921348E-5
+has to be: x: 3.9645615 y: 3.1023417 xV: 0.19750513 yV: 0.037784036 aV: 1.5798639E-6 a: 7.770098E-6
+is x: 3.9645615 y: 3.1023417 xV: 0.1975052 yV: 0.03778407 aV: 1.7912146E-6 a: 8.826998E-6
+has to be: x: 2.9566114 y: 3.4501612 xV: 0.042609006 yV: -0.0040405705 aV: 1.0449819E-7 a: 6.4979696E-7
+is x: 2.9566114 y: 3.4501612 xV: 0.042608995 yV: -0.004040566 aV: 9.040252E-8 a: 5.5932577E-7
+has to be: x: 2.9163666 y: 4.205813 xV: 0.038657296 yV: 0.027802827 aV: 3.5183578E-7 a: 1.6000282E-6
+is x: 2.9163666 y: 4.205813 xV: 0.03865729 yV: 0.027802816 aV: 3.9858705E-7 a: 1.8252854E-6
+has to be: x: 2.7432587 y: 4.578668 xV: 0.027611965 yV: 0.031620298 aV: 9.119992E-8 a: 3.7270658E-7
+is x: 2.7432587 y: 4.578668 xV: 0.027611963 yV: 0.031620283 aV: 8.962472E-8 a: 3.69001E-7
+has to be: x: 3.0000982 y: -0.01352034 xV: 4.42658E-4 yV: -0.060988445 aV: 1.8227198E-9 a: 3.3205463E-10
+is x: 3.0000982 y: -0.0135203395 xV: 4.4265794E-4 yV: -0.06098844 aV: 1.7542119E-9 a: 3.214333E-10
+has to be: x: 2.995557 y: 0.38552028 xV: -0.0074782 yV: -0.06104974 aV: 2.2404072E-7 a: 6.60308E-7
+is x: 2.995557 y: 0.38552028 xV: -0.007478154 yV: -0.061049737 aV: 2.1979038E-7 a: 6.6173754E-7
+has to be: x: 3.0482953 y: 0.78201365 xV: 0.03250522 yV: -0.06551608 aV: 3.0958073E-8 a: -2.6171705E-7
+is x: 3.0482953 y: 0.78201747 xV: 0.03250522 yV: -0.06551602 aV: 3.7391644E-8 a: -2.671529E-7
+has to be: x: 2.9843745 y: 1.1758357 xV: 0.024370426 yV: -0.066601805 aV: 2.0864954E-7 a: 1.2470545E-6
+is x: 2.9843745 y: 1.1758357 xV: 0.024370212 yV: -0.0666018 aV: 1.920667E-7 a: 1.158624E-6
+has to be: x: 3.4450738 y: 1.4275017 xV: 0.03917957 yV: -0.0881891 aV: 1.2066289E-7 a: -9.377639E-7
+is x: 3.4450738 y: 1.4275017 xV: 0.0391796 yV: -0.08818902 aV: -1.8025021E-8 a: -1.4514261E-6
+has to be: x: 3.883234 y: 2.6094408 xV: 0.18070382 yV: 0.005675057 aV: -1.050084E-6 a: -5.1446586E-6
+is x: 3.883234 y: 2.6094408 xV: 0.18070382 yV: 0.0056750784 aV: -9.804354E-7 a: -4.8672473E-6
+has to be: x: 4.243631 y: 2.7824717 xV: 0.18653582 yV: -0.006454676 aV: 2.1839777E-7 a: -3.8894544E-7
+is x: 4.243631 y: 2.7824717 xV: 0.18653585 yV: -0.006454709 aV: 2.5299633E-7 a: -1.110277E-7
+has to be: x: 3.3486226 y: 3.5387833 xV: 0.041215602 yV: 0.007560163 aV: 7.1151818E-9 a: 2.6067909E-8
+is x: 3.3486226 y: 3.5387833 xV: 0.04121559 yV: 0.0075601637 aV: 3.3860594E-9 a: 1.1618048E-8
+has to be: x: 3.2803917 y: 3.9910908 xV: 0.032285076 yV: -0.0019115617 aV: -4.9921175E-7 a: -2.3423381E-6
+is x: 3.2803917 y: 3.9910908 xV: 0.032285076 yV: -0.0019115619 aV: -5.011361E-7 a: -2.3513232E-6
+has to be: x: 3.1516104 y: 4.5286436 xV: 0.038157206 yV: 0.028168097 aV: -5.9244925E-8 a: -4.5335167E-8
+is x: 3.1516104 y: 4.5286436 xV: 0.0381572 yV: 0.028168086 aV: -5.3910302E-8 a: -3.665141E-8
+has to be: x: 3.500792 y: 0.4901626 xV: 0.0021581154 yV: -0.026829012 aV: -3.36289E-25 a: 6.690157E-23
+is x: 3.500792 y: 0.4901626 xV: 0.0021581145 yV: -0.026829 aV: -3.3588576E-25 a: 6.690169E-23
+has to be: x: 3.46075 y: 0.8879335 xV: -0.019641709 yV: -0.02858258 aV: -3.8676062E-9 a: -1.3798525E-8
+is x: 3.46075 y: 0.8879335 xV: -0.0196417 yV: -0.02858257 aV: -1.2400581E-8 a: -3.512283E-8
+has to be: x: 3.7748556 y: 1.1964383 xV: 0.035764202 yV: -0.10040457 aV: -1.4318742E-6 a: -2.881959E-6
+is x: 3.7748556 y: 1.1964383 xV: 0.035764243 yV: -0.10040447 aV: -1.6026181E-6 a: -3.336571E-6
+has to be: x: 4.0102487 y: 1.5424597 xV: 0.18149698 yV: -0.1283839 aV: 3.0225738E-7 a: -1.0716803E-6
+is x: 4.0102487 y: 1.5424597 xV: 0.18149708 yV: -0.12838387 aV: 4.096252E-7 a: -1.0222958E-6
+has to be: x: 3.9334564 y: 2.192259 xV: 0.09422744 yV: -0.016781783 aV: -8.077438E-8 a: -1.9882314E-6
+is x: 3.9334564 y: 2.192259 xV: 0.09422744 yV: -0.016781753 aV: -1.3657166E-7 a: -2.2746697E-6
+has to be: x: 4.4407024 y: 3.129776 xV: 0.16019385 yV: 0.008536689 aV: -2.7240742E-7 a: 2.0632542E-6
+is x: 4.4407024 y: 3.129776 xV: 0.1601938 yV: 0.008536697 aV: -2.7937233E-7 a: 1.9361926E-6
+has to be: x: 3.746231 y: 3.4948149 xV: 0.04093993 yV: -0.0012737351 aV: -2.3765848E-8 a: -8.5996916E-8
+is x: 3.746231 y: 3.4948149 xV: 0.04093992 yV: -0.001273735 aV: -2.3795339E-8 a: -8.5866745E-8
+has to be: x: 3.679614 y: 4.0008125 xV: 0.03226132 yV: 2.6343754E-4 aV: -5.3886392E-11 a: -2.799154E-10
+is x: 3.679614 y: 4.0008125 xV: 0.032261312 yV: 2.634376E-4 aV: -1.14211834E-10 a: -5.1386184E-10
+has to be: x: 3.5509708 y: 4.499958 xV: 0.037593443 yV: -5.6832818E-5 aV: -1.9578983E-10 a: -1.5440876E-10
+is x: 3.5509708 y: 4.499958 xV: 0.037593435 yV: -5.6832818E-5 aV: -2.5186778E-10 a: -1.9541799E-10
+has to be: x: 4.0687337 y: 0.92402434 xV: 0.05550636 yV: -0.09050119 aV: 2.360825E-8 a: 3.096127E-7
+is x: 4.0687337 y: 0.92402434 xV: 0.05550634 yV: -0.09050117 aV: 6.0502E-8 a: 3.3027848E-7
+has to be: x: 4.2902946 y: 1.2568879 xV: 0.15878041 yV: -0.15133 aV: -7.609942E-7 a: -1.0424912E-6
+is x: 4.2902946 y: 1.2568879 xV: 0.1587805 yV: -0.15133 aV: -5.550749E-7 a: -8.267572E-7
+has to be: x: 4.2477055 y: 1.9321178 xV: 0.1100766 yV: -0.016200593 aV: -4.4519496E-8 a: -2.389765E-7
+is x: 4.2477055 y: 1.9321178 xV: 0.11007663 yV: -0.016200535 aV: -1.3879504E-7 a: -3.529268E-7
+has to be: x: 4.3644624 y: 2.3232515 xV: 0.11017111 yV: -0.07213965 aV: -1.7912905E-7 a: -4.2018434E-7
+is x: 4.3644624 y: 2.3232515 xV: 0.11017112 yV: -0.07213966 aV: -2.1562644E-7 a: -5.1954964E-7
+has to be: x: 4.8519497 y: 2.9679563 xV: 0.16533199 yV: -0.0069293287 aV: 5.917595E-7 a: 2.6958555E-6
+is x: 4.8519497 y: 2.9679563 xV: 0.16533199 yV: -0.0069293263 aV: 5.9285077E-7 a: 2.7012243E-6
+has to be: x: 4.1350245 y: 3.603579 xV: 0.025598854 yV: 0.037431046 aV: 5.715676E-7 a: 1.4817651E-6
+is x: 4.1350245 y: 3.603579 xV: 0.025598848 yV: 0.037431046 aV: 5.716037E-7 a: 1.4818951E-6
+has to be: x: 4.079605 y: 3.9999647 xV: 0.032261193 yV: -1.4308083E-5 aV: 2.313324E-11 a: 5.725822E-11
+is x: 4.079605 y: 3.9999647 xV: 0.03226119 yV: -1.4308084E-5 aV: 2.5912519E-11 a: 6.4109044E-11
+has to be: x: 4.5430074 y: 0.9486368 xV: 0.14155738 yV: -0.16905455 aV: -1.3267406E-6 a: -4.1672425E-7
+is x: 4.5430074 y: 0.9486368 xV: 0.14155737 yV: -0.1690546 aV: -1.2953305E-6 a: -4.084052E-7
+has to be: x: 4.6919203 y: 1.5043406 xV: 0.18009588 yV: 0.0040738364 aV: 5.362652E-7 a: 5.729053E-7
+is x: 4.6919203 y: 1.5043406 xV: 0.18009593 yV: 0.0040738364 aV: 5.309163E-7 a: 5.672837E-7
+has to be: x: 4.6397963 y: 2.0148854 xV: 0.106615044 yV: 0.011485066 aV: -1.7731213E-7 a: -2.1809907E-7
+is x: 4.6397963 y: 2.0148854 xV: 0.10661508 yV: 0.011485071 aV: -1.8027472E-7 a: -2.2153765E-7
+has to be: x: 4.7538567 y: 2.503506 xV: 0.10655294 yV: 0.0014688205 aV: -6.4397265E-10 a: -1.5250653E-9
+is x: 4.7538567 y: 2.503506 xV: 0.10655296 yV: 0.0014688199 aV: -5.336458E-11 a: -1.0661301E-10
+has to be: x: 5.250168 y: 3.0016186 xV: 0.16530877 yV: 3.5237492E-4 aV: -8.85436E-7 a: -4.074801E-6
+is x: 5.250168 y: 3.0016186 xV: 0.16530877 yV: 3.5237486E-4 aV: -8.8540975E-7 a: -4.0746836E-6
+has to be: x: 3.3403187 y: 1.8605506 xV: 0.23820102 yV: -0.23294063 aV: 7.298752E-8 a: 1.8818683E-6
+is x: 3.3403187 y: 1.8605506 xV: 0.23820117 yV: -0.23294044 aV: 7.9805E-8 a: 1.9172855E-6
+Closing...
+Connection closed
+Output chiuso
+Input chiuso
+...closing done
+AL lib: alSource.c:2361: alcDestroyContext(): deleting 64 Source(s)
