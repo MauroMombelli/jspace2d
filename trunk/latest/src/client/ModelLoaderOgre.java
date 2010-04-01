@@ -24,7 +24,7 @@ public class ModelLoaderOgre {
 	static HashMap<String, Node> loadedModel = new HashMap<String, Node>();
 	
 	static int i=0;
-/*	
+	
 	public static Node loadModelOgre(String name){
 		
 		System.out.println("loading: "+name);
@@ -81,11 +81,12 @@ public class ModelLoaderOgre {
 		
 		return res;
 	}
-*/
 
+/*
 	public static Node loadModelOgre(String modelName) {
 		Node ris = new Node();
 		ris.attachChild( new Box("Ship", new Vector3f(0,0,0), 0.2f, 0.2f, 0.2f) );
 		return ris;
 	}
+*/
 }

@@ -135,16 +135,16 @@ public class ClientEngine extends TimerTask{
 		
 		float strenght=0, angle=0;
 		if (KeyBindingManager.getKeyBindingManager().isValidCommand("move_up", false)) {
-			strenght -= 0.01f;
+			strenght -= 1f;
         }
 		if (KeyBindingManager.getKeyBindingManager().isValidCommand("move_down", false)) {
-			strenght += 0.01f;
+			strenght += 1f;
         }
 		if (KeyBindingManager.getKeyBindingManager().isValidCommand("move_left", false)) {
-			angle += 0.001f;
+			angle += 1f;
         }
 		if (KeyBindingManager.getKeyBindingManager().isValidCommand("move_right", false)) {
-			angle -= 0.001f;
+			angle -= 1f;
         }
 		if (strenght != 0 || angle != 0){
 			float x = strenght*FastMath.cos( myShip.getBody().getAngle() + FastMath.PI/2 );
@@ -223,6 +223,7 @@ public class ClientEngine extends TimerTask{
 		System.out.println( "First update syncronous time: "+time);
 		
 		time = System.nanoTime();
+		long asincTurn = asincroniusWorld.actualTurn;
 		if (lastAllMap!=null){
 			//we have to rebuild the synchronous world
 			synchronousChanged = true;
@@ -232,19 +233,17 @@ public class ClientEngine extends TimerTask{
 				close();
 			}
 			
-			testWorldPrecision(lastAllMap);
+			//testWorldPrecision(lastAllMap);
 			
 			//rebuildWorld(lastAllMap);
-			
-			System.out.println( "Rebuilding world from turn: "+lastAllMap.turn );
-			System.out.println( "NewTurn to elaborate: "+newTurnToElaborate.size() );
-/*			
 			if (turnLag==-1)
 				turnLag = asincTurn-lastAllMap.turn;
 			else
 				turnLag = (turnLag+asincTurn-lastAllMap.turn)/2;
-*/
-			System.out.println( "Rilevated turn LAG: "+turnLag+" to ms: "+(turnLag*MAX_TURN_DURATION) );
+			
+			System.out.println( "Rebuilding world from turn: "+lastAllMap.turn );
+			System.out.println( "NewTurn to elaborate: "+newTurnToElaborate.size() );
+			
 		}
 		time = System.nanoTime()-time;
 		System.out.println( "TEST syncronized time: "+time);
@@ -264,9 +263,9 @@ public class ClientEngine extends TimerTask{
 		time = System.nanoTime()-time;
 		System.out.println( "Second update syncronous time: "+time);
 		
+
+		System.out.println( "Rilevated turn LAG: "+turnLag+" to ms: "+(turnLag*MAX_TURN_DURATION) );
 		
-		
-		long asincTurn = asincroniusWorld.actualTurn; 
 		if (synchronousChanged){
 			time = System.nanoTime();
 			
@@ -430,7 +429,7 @@ public class ClientEngine extends TimerTask{
 			ris.add(a);
 			temp = world.get(a.ID);
 			if ( temp!=null ){
-				System.out.println( a.ID+" error: "+ temp.getInfoPosition().compare(a) );
+				//System.out.println( a.ID+" error: "+ temp.getInfoPosition().compare(a) );
 				if ( temp.getInfoPosition().compare(a)!=0 ){
 					System.out.println( "has to be: "+a+"\nis "+temp.getInfoPosition() );
 					error = true;

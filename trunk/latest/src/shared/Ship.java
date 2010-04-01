@@ -14,7 +14,7 @@ public class Ship extends Oggetto2D implements Serializable{
 	
 	public Ship(int id) {
 		super(id);
-		modelName="Sphere";
+		modelName="Cone";
 	}
 	
 	@Override
