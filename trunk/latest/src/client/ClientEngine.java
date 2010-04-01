@@ -233,7 +233,7 @@ public class ClientEngine extends TimerTask{
 				close();
 			}
 			
-			//testWorldPrecision(lastAllMap);
+			testWorldPrecision(lastAllMap);
 			
 			//rebuildWorld(lastAllMap);
 			if (turnLag==-1)
