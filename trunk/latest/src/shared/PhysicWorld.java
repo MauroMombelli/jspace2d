@@ -130,8 +130,14 @@ public class PhysicWorld {
 	}
 
 	public Oggetto2D addCopy(Oggetto2D o, float x, float y) {
-		Oggetto2D copy = new Oggetto2D(o);
-		if ( copy.isValid() ){
+		Oggetto2D copy = null;
+		if (o instanceof Oggetto2D)
+			copy = new Oggetto2D(o);
+		
+		if (o instanceof Ship)
+			copy = new Ship( (Ship)o );
+		
+		if ( copy!=null && copy.isValid() ){
 			
 			BodyDef bd = new BodyDef();
 			bd.position.x = x;

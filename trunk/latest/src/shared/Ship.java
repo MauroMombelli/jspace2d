@@ -17,6 +17,11 @@ public class Ship extends Oggetto2D implements Serializable{
 		modelName="Cone";
 	}
 	
+	public Ship(Ship o) {
+		super(o);
+		modelName="Cone";
+	}
+
 	@Override
 	public void createBody(Body body) {
 		bodyContainer.myBody = body;
