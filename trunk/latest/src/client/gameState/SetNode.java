@@ -67,6 +67,12 @@ public class SetNode extends GuiAction{
 			//}
 		}
 	}
+
+	public void set(Vec2 pos, float angle) {
+		position = pos;
+		rotation = new Quaternion();
+		rotation.fromAngleAxis(angle, new Vector3f(0,0,1));
+	}
 	
 
 }

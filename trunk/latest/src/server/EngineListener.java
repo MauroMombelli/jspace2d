@@ -1,17 +1,12 @@
 package server;
 
-import java.util.LinkedList;
-
 import org.jbox2d.dynamics.ContactListener;
 import org.jbox2d.dynamics.contacts.ContactPoint;
 import org.jbox2d.dynamics.contacts.ContactResult;
 
-import shared.InfoBody;
 import shared.Oggetto2D;
 
 public class EngineListener implements ContactListener {
-
-	LinkedList<InfoBody> allPhisicCollision = new LinkedList<InfoBody>();
 	
 	@Override
 	public void add(ContactPoint point) {
@@ -111,14 +106,6 @@ public class EngineListener implements ContactListener {
 	public void result(ContactResult point) {
 		// TODO Auto-generated method stub
 		
-	}
-	
-	public LinkedList<InfoBody> getAllPhysicCollision(){
-		return allPhisicCollision;
-	}
-	
-	public void clearAllPhysicCollision(){
-		allPhisicCollision.clear();
 	}
 
 }

@@ -32,6 +32,7 @@ public class ClientEngine extends TimerTask{
 	
 	PhysicWorld asincroniusWorld = new PhysicWorld();
 	
+	TreeMap<Integer, SetNode> listaAzioniGUI = new TreeMap<Integer, SetNode>();
 	//START: Actually for debug purpose, take a shot of the world every 100 turn
 	//HashMap< Long, HashMap<Integer, InfoBody> > mapsAtTurn = new HashMap< Long, HashMap<Integer,InfoBody>>();
 	//END
@@ -91,7 +92,51 @@ public class ClientEngine extends TimerTask{
 			System.out.println( "engine turn ms duration: "+time );
 		}
 	}
-
+	
+	//GUI PURPOISE
+	private void copyWorldForPaint() {
+		long time2 = System.nanoTime();
+		SetNode temp;
+		
+		long time = System.nanoTime();
+		for ( Oggetto2D t:asincroniusWorld.getOggetti().values() ){
+			temp = listaAzioniGUI.get(t.ID);
+			if (temp == null){
+				listaAzioniGUI.put(t.ID, new SetNode(t.ID, t.getModelName(), new Vec2( t.getBody().getPosition() ) , t.getBody().getAngle()) );
+			}else{
+				temp.set( new Vec2( t.getBody().getPosition() ) , t.getBody().getAngle() );
+			}
+		}
+		time = System.nanoTime()-time;
+		System.out.println( "GUI copy obj time: "+time);
+		
+		time = System.nanoTime();
+		for ( Oggetto2D t:asincroniusWorld.getNewOggetti().values() ){
+			temp = listaAzioniGUI.get(t.ID);
+			if (temp == null){
+				listaAzioniGUI.put(t.ID, new SetNode(t.ID, t.getModelName(), new Vec2( t.getBody().getPosition() ) , t.getBody().getAngle()) );
+			}else{
+				temp.set( new Vec2( t.getBody().getPosition() ) , t.getBody().getAngle() );
+			}
+		}
+		time = System.nanoTime()-time;
+		System.out.println( "GUI copy new obj time: "+time);
+		
+		
+		time = System.nanoTime();
+		
+		LinkedList<GuiAction> ris = new LinkedList<GuiAction>();
+		//eventually add here other action
+		ris.addAll( listaAzioniGUI.values() );
+		gui.getWorldGUI().setGuiActions(ris);
+		
+		time = System.nanoTime()-time;
+		System.out.println( "GUI preparation time: "+time);
+		
+		time2 = System.nanoTime()-time2;
+		System.out.println( "GUI set time: "+time2);
+	}
+/*
 	//GUI PURPOISE
 	private void copyWorldForPaint() {
 		long time2 = System.nanoTime();
@@ -116,7 +161,7 @@ public class ClientEngine extends TimerTask{
 		time2 = System.nanoTime()-time2;
 		System.out.println( "GUI set time: "+time2);
 	}
-	
+*/	
 	//INPUT PURPOISE
 	private void sendActions() {
 		
@@ -333,13 +378,18 @@ public class ClientEngine extends TimerTask{
 	private void updateWorld(NewTurn t) {
 		System.out.println( "I'm updating the synchronous world!! Was "+world.actualTurn +" will be "+t.actualTurn );
 		
+		long time = System.nanoTime();
 		while (world.actualTurn<t.actualTurn){
 			world.update();
 		}
+		time = System.nanoTime() -time;
+		System.out.println( "Step time: "+time );
+		
 		Oggetto2D newObj;
 		InfoBody newObjPos;
 		Action newAct;
 		
+		time = System.nanoTime();
 		//add the new obj and set their position
 		while ( (newObj=t.pollNewObj())!=null ){
 			newObjPos = t.pollPosObj();
@@ -355,13 +405,17 @@ public class ClientEngine extends TimerTask{
 				//server.write( new ActionEngine(myShip.ID, 1f, -1f, 0) );
 			}
 		}
-	
+		time = System.nanoTime() -time;
+		System.out.println( "New obj time: "+time );
+		
+		time = System.nanoTime();
 		//set the actions
 		while ( (newAct=t.pollActions())!=null ){
 			newAct.run( world.get(newAct.ID) );
 			System.out.println( "action setted for object:"+newAct.ID+" at turn:"+t.actualTurn );
 		}
-		
+		time = System.nanoTime() -time;
+		System.out.println( "Action time: "+time );
 		/*
 		//set the collision
 		while ( (newObjPos=t.pollCollision())!=null ){

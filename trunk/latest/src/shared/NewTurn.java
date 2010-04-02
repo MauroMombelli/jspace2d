@@ -19,8 +19,6 @@ public class NewTurn implements Serializable{
 	
 	LinkedList<Action> nuoveAzioni = new LinkedList<Action>();
 	
-	LinkedList<InfoBody> collisioneOggetti = new LinkedList<InfoBody>();
-	
 	public NewTurn(long actualTurn){
 		this.actualTurn = actualTurn;
 	}
@@ -34,10 +32,6 @@ public class NewTurn implements Serializable{
 		nuoveAzioni.addAll(allChanges);
 	}
 	
-	public void addAllCollision(LinkedList<InfoBody> allCollisions) {
-		collisioneOggetti.addAll(allCollisions);
-	}
-	
 	public Oggetto2D pollNewObj(){
 		return nuoviOggetti.poll();
 	}
@@ -49,10 +43,6 @@ public class NewTurn implements Serializable{
 	public Action pollActions(){
 		return nuoveAzioni.poll();
 	}
-	
-	public InfoBody pollCollision(){
-		return collisioneOggetti.poll();
-	}
 
 	public int actionsSize() {
 		return nuoveAzioni.size();
@@ -60,9 +50,5 @@ public class NewTurn implements Serializable{
 
 	public int newObjSize() {
 		return nuoviOggetti.size();
-	}
-	
-	public int newCollisionSize() {
-		return collisioneOggetti.size();
 	}
 }

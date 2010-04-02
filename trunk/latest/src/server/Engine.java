@@ -159,15 +159,9 @@ public class Engine extends TimerTask{
 		//add all changes to observer and new observer
 		nNewObserver.addAll( allChanges );
 		n.addAll( allChanges );
-
-		/*
-		//add all collision to observer and new observer
-		nNewObserver.addAllCollision( collListener.getAllPhysicCollision() );
-		n.addAllCollision( collListener.getAllPhysicCollision() );
-		collListener.clearAllPhysicCollision();
-		*/
 		
-		if (n.actionsSize() != 0 || n.newObjSize() != 0 || n.newCollisionSize() != 0){
+		//send new turn if there are actions or new object
+		if (n.actionsSize() != 0 || n.newObjSize() != 0){
 		
 			//send NewTurn to all observer, if there are changes
 			for (Player p:observerPlayer){

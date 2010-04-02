@@ -75,18 +75,33 @@ public class PhysicWorld {
 	}
 	
 	public void update() {
-		long time = System.nanoTime();
+		//long time = System.nanoTime();
 		actualTurn++;
 		physicWorld.step(TIMESTEP, 10);
 		
-		time = System.nanoTime()-time;
-		System.out.println("step time: "+time);
+		//time = System.nanoTime()-time;
+		//System.out.println("step time: "+time);
+		
 		//add the new object to the object
 		allOggetto2D.putAll(newOggetti2D);
 		newOggetti2D.clear();
 		
 	}
-	
+/*	
+	public void update(long step) {
+		//long time = System.nanoTime();
+		actualTurn++;
+		physicWorld.step(TIMESTEP*step, 10);
+		
+		//time = System.nanoTime()-time;
+		//System.out.println("step time: "+time);
+		
+		//add the new object to the object
+		allOggetto2D.putAll(newOggetti2D);
+		newOggetti2D.clear();
+		
+	}
+*/	
 	public void addNew(Oggetto2D t) {
 		addNew(t, 0, 0, 0);
 	}
