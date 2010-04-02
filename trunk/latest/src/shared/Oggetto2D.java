@@ -53,15 +53,16 @@ public class Oggetto2D implements Serializable {
 	}
 	
 	public InfoBody getInfoPosition() {
-		return new InfoBody(this, ID, bodyContainer.myBody.getXForm(), bodyContainer.myBody.getLinearVelocity(), bodyContainer.myBody.getAngle(), bodyContainer.myBody.getAngularVelocity(), bodyContainer.myBody.m_torque );
+		return new InfoBody(this, ID, bodyContainer.myBody.getXForm(), bodyContainer.myBody.getLinearVelocity(), bodyContainer.myBody.getAngle(), bodyContainer.myBody.getAngularVelocity(), bodyContainer.myBody.m_torque, bodyContainer.myBody.m_force, bodyContainer.myBody.m_sweep );
 	}
 	
 	public void setInfoPosition(InfoBody ad){
 		bodyContainer.myBody.setXForm( ad.getPos(), ad.getAngle() );
 		bodyContainer.myBody.setAngularVelocity( ad.getAngAcc() );
 		bodyContainer.myBody.setLinearVelocity( ad.getPosVel() );
-		//bodyContainer.myBody.applyTorque( bodyContainer.myBody.m_torque-ad.getTorque() );
-		bodyContainer.myBody.m_torque=ad.getTorque();
+		bodyContainer.myBody.applyTorque( bodyContainer.myBody.m_torque-ad.getTorque() );
+		bodyContainer.myBody.m_sweep = ad.getSweep();
+		//bodyContainer.myBody.m_torque=ad.getTorque();
 	}
 
 	public String getModelName() {

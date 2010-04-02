@@ -28,7 +28,9 @@ public class Player {
 	HashMap<Integer, Oggetto2D> myPossessoin = new HashMap<Integer, Oggetto2D>();
 	
 	LinkedList<Action> myActions = new LinkedList<Action>();
+	//TODO: 
 	LinkedList<RemoveShip> removeOggettiActions = new LinkedList<RemoveShip>();
+	//end todo
 	LinkedList<ShipRequest> createOggettiActions = new LinkedList<ShipRequest>();
 	
 	public Player(Socket t) {
@@ -136,7 +138,7 @@ public class Player {
 		Oggetto2D old = myPossessoin.put(s.ID, s);
 		if (old!=null){
 			System.out.println("PLAYER ERROR: creating a new existent ship");
-			removeOggettiActions.add( new RemoveShip(old.ID) );
+			//removeOggettiActions.add( new RemoveShip(old.ID) );
 			close();
 		}
 	}

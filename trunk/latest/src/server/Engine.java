@@ -11,6 +11,7 @@ import shared.Oggetto2D;
 import shared.PhysicWorld;
 import shared.TurnDuration;
 import shared.azioni.Action;
+import shared.azioni.ActionEngine;
 import shared.specialActions.ShipRequest;
 
 public class Engine extends TimerTask{
@@ -32,12 +33,15 @@ public class Engine extends TimerTask{
 	//long actualTurn;
 	
 	PhysicWorld world = new PhysicWorld();
+	int objIndex=0;
 	//HashMap<Integer, Oggetto2D> allOggetto2D = new HashMap<Integer, Oggetto2D>();
 	//ArrayList<Oggetto2D> newOggetti2D = new ArrayList<Oggetto2D>();
 	
 	
 	LinkedList<Action> allChanges = new LinkedList<Action>();
-	int objIndex=0;
+	
+	
+	
 	
 	EngineListener collListener = new EngineListener();
 	
@@ -53,6 +57,9 @@ public class Engine extends TimerTask{
 				t = new Oggetto2D(objIndex++);
 				//newOggetti2D.add(t);
 				world.addNew( t, GLOBAL_VARIABLE.convertToPhysicEngineUnit( i*10 ), GLOBAL_VARIABLE.convertToPhysicEngineUnit( a*10 ), 0 );
+				Action az = new ActionEngine(t.ID, GLOBAL_VARIABLE.convertToPhysicEngineUnit( (float)Math.random()*6-3 ), GLOBAL_VARIABLE.convertToPhysicEngineUnit( (float)Math.random()*6-3 ), 0);
+				az.run(t);
+				allChanges.add(az);
 			}
 		}
 	}
@@ -101,7 +108,7 @@ public class Engine extends TimerTask{
 			writeNewTurn();
 			
 			//every 1000 turn send all maps, otherwise send NewTurn
-			if (world.actualTurn%1000==0)
+			//if (world.actualTurn%1000==0)
 				writeAllMaps();
 			
 			//add the new observer to observerPlayer
@@ -244,6 +251,8 @@ public class Engine extends TimerTask{
 			}
 		}
 		players.removeAll(removedPlayer);
+		
+		//System.out.println("");
 	}
 
 	/*

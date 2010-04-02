@@ -53,7 +53,7 @@ public class ClientEngine extends TimerTask{
 		
 		gui = new InitGraphics();
 		
-		server.write( new ShipRequest() );
+		//server.write( new ShipRequest() );
 		System.out.println("Ship request send, starting turn:"+actualTurn);
 	}
 
@@ -192,7 +192,7 @@ public class ClientEngine extends TimerTask{
 				oldTurnToElaborate.addAll(newTurnToElaborate);
 				newTurnToElaborate.clear();
 				System.out.println( "AllMap received" );
-				//break;
+				break;
 			}
 			
 			if (!used){
@@ -431,14 +431,15 @@ public class ClientEngine extends TimerTask{
 			if ( temp!=null ){
 				//System.out.println( a.ID+" error: "+ temp.getInfoPosition().compare(a) );
 				if ( temp.getInfoPosition().compare(a)!=0 ){
-					System.out.println( "has to be: "+a+"\nis "+temp.getInfoPosition() );
+					System.out.println( "ID: "+a.ID+" has to be:\n"+a+" is:\n"+temp.getInfoPosition() );
 					error = true;
 				}else{
 					//System.out.println( "Every little things, gonnna be all right: "+a );
 				}
 			}else{
-				System.out.println( a.ID+" dosn't exist!" );
+				System.out.println( a.ID+" doesn't exist!" );
 				//close();
+				error = true;
 			}
 		}
 		while ( (a=ris.poll())!=null ){

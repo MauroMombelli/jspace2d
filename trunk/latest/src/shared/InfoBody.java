@@ -2,6 +2,8 @@ package shared;
 
 import java.io.Serializable;
 
+import org.jbox2d.common.Mat22;
+import org.jbox2d.common.Sweep;
 import org.jbox2d.common.Vec2;
 import org.jbox2d.common.XForm;
 
@@ -22,10 +24,42 @@ public class InfoBody implements Serializable{
 	private float alfa;
 	private float torque;
 	Oggetto2D o;
+
+	private float xF;
+	private float yF;
+
+	private float[][] r;
+
+	private float sA;
+	private float sA0;
+	private float sCx;
+	private float sCy;
+	private float sC0x;
+	private float sC0y;
+	private float sLx;
+	private float sLy;
+	private float t0;
 	
-	public InfoBody(Oggetto2D o, int id, XForm xForm, Vec2 linearVelocity, float angle, float angularVelocity, float torque) {
+	public InfoBody(Oggetto2D o, int id, XForm xForm, Vec2 linearVelocity, float angle, float angularVelocity, float torque, Vec2 force, Sweep s) {
 		this.o = o;
 		this.ID = id;
+		
+		r=new float[2][2];
+		r[0][0]=xForm.R.col1.x;
+		r[0][1]=xForm.R.col1.y;
+		r[1][0]=xForm.R.col2.x;
+		r[1][1]=xForm.R.col2.y;
+		
+		sA = s.a;
+		sA0 = s.a0;
+		sCx = s.c.x;
+		sCy = s.c.y;
+		sC0x = s.c0.x;
+		sC0y = s.c0.y;
+		sLx = s.localCenter.x;
+		sLy = s.localCenter.y;
+		t0 = s.t0;
+		
 		x = xForm.position.x;
 		y = xForm.position.y;
 		xV = linearVelocity.x;
@@ -33,6 +67,8 @@ public class InfoBody implements Serializable{
 		alfa = angle;
 		alfaV = angularVelocity;
 		this.torque = torque;
+		xF = force.x;
+		yF = force.y;
 	}
 	
 	public Oggetto2D getOggetto2D(){
@@ -68,14 +104,46 @@ public class InfoBody implements Serializable{
 		//System.out.println("diff A:"+diffA);
 		float diffAV=alfaV-b.alfaV;
 		//System.out.println("diff AV:"+diffAV);
-		return diffA+diffAV+diffX+diffXV+diffY+diffYV;
+		float diffT=torque-b.torque;
+		//System.out.println("diff t:"+diffT);
+		float diffXF=xF-b.xF;
+		//System.out.println("diff xF:"+diffXF);
+		float diffYF=yF-b.yF;
+		//System.out.println("diff yF:"+diffYF);
+		float diffR1=r[0][0]-b.r[0][0];
+		//System.out.println("diff R1:"+diffR1);
+		float diffR2=r[0][1]-b.r[0][1];
+		//System.out.println("diff R2:"+diffR2);
+		float diffR3=r[1][0]-b.r[1][0];
+		//System.out.println("diff R3:"+diffR3);
+		float diffR4=r[1][1]-b.r[1][1];
+		//System.out.println("diff R4:"+diffR4);
+		return diffA+diffAV+diffX+diffXV+diffY+diffYV+diffT+diffXF+diffYF+diffR1+diffR2+diffR3+diffR4;
 	}
 
 	public String toString(){
-		return "x: "+x+" y: "+y+" xV: "+xV+" yV: "+yV+" aV: "+alfaV+" a: "+alfa;
+		return "x: "+x+" y: "+y+" xV: "+xV+" yV: "+yV+" aV: "+alfaV+" a: "+alfa+" t: "+torque+" xF:"+xF+" yF:"+yF+" rMat:"+getR();
 	}
 
 	public float getAngle() {
 		return alfa;
+	}
+
+	public Mat22 getR(){
+		return new Mat22(r[0][0], r[1][0], r[1][0], r[1][1]);
+	}
+	
+	public Sweep getSweep(){
+		Sweep ris = new Sweep();
+		ris.a = sA;
+		ris.a0 = sA0;
+		ris.c.x = sCx;
+		ris.c.y = sCy;
+		ris.c0.x = sC0x;
+		ris.c0.y = sC0y;
+		ris.localCenter.x = sLx;
+		ris.localCenter.y = sLy;
+		ris.t0 = t0;
+		return ris;
 	}
 }
