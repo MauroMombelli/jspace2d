@@ -1,7 +1,9 @@
 package client;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.TimerTask;
+import java.util.TreeMap;
 
 import org.jbox2d.common.Vec2;
 
@@ -34,14 +36,14 @@ public class ClientEngine extends TimerTask{
 	//HashMap< Long, HashMap<Integer, InfoBody> > mapsAtTurn = new HashMap< Long, HashMap<Integer,InfoBody>>();
 	//END
 	
-	//TreeMap< Long, ArrayList<Action> > myActions = new TreeMap<Long, ArrayList<Action> >();
+	TreeMap< Long, ArrayList<Action> > myActions = new TreeMap<Long, ArrayList<Action> >();
 	
 	private InitGraphics gui;
 	
 	int IDmyShip=-1;
 	Oggetto2D myShip;//In the asynchronous world
 	
-	double turnLag=-1;
+	long turnLag=-1;
 	
 	public ClientEngine(ServerListener serverListener, long actualTurn, long turnDuration) {
 		server = serverListener;
@@ -94,14 +96,7 @@ public class ClientEngine extends TimerTask{
 	private void copyWorldForPaint() {
 		long time2 = System.nanoTime();
 		LinkedList<GuiAction> listaAzioniGUI = new LinkedList<GuiAction>();
-		/*
-		for ( Oggetto2D t:asincroniusWorld.getOggetti().values() ){
-			listaAzioniGUI.add( new SetNode(t.ID, t.getModelName(), new Vec2( t.getBody().getPosition() ) , t.getBody().getAngle()) );
-		}
-		for ( Oggetto2D t:asincroniusWorld.getNewOggetti().values() ){
-			listaAzioniGUI.add( new SetNode(t.ID, t.getModelName(), new Vec2( t.getBody().getPosition() ) , t.getBody().getAngle()) );
-		}
-		*/
+
 		long time = System.nanoTime();
 		for ( Oggetto2D t:asincroniusWorld.getOggetti().values() ){
 			listaAzioniGUI.add( new SetNode(t.ID, t.getModelName(), new Vec2( t.getBody().getPosition() ) , t.getBody().getAngle()) );
@@ -150,8 +145,20 @@ public class ClientEngine extends TimerTask{
 			float x = strenght*FastMath.cos( myShip.getBody().getAngle() + FastMath.PI/2 );
 			float y = strenght*FastMath.sin( myShip.getBody().getAngle() + FastMath.PI/2 );
 			System.out.println( "Writing action, xV:"+x+" yV:"+y+" aV"+angle );
-			server.write( new ActionEngine(myShip.ID, x, y, angle) );
+			executeAction( new ActionEngine(myShip.ID, x, y, angle) );
 		}
+	}
+	
+	public void executeAction(Action a){
+		System.out.println( "Writing action" );
+		server.write(a);
+		ArrayList<Action> t=myActions.get(asincroniusWorld.actualTurn);
+		if ( t == null ){
+			t = new ArrayList<Action>();
+			t.add(a);
+			myActions.put(asincroniusWorld.actualTurn, t);
+		}else
+			t.add(a);
 	}
 
 	//PHYSIC PURPOISE
@@ -289,28 +296,7 @@ public class ClientEngine extends TimerTask{
 		copyWorldForPaint();
 
 	}
-/* WILL BE USED IF WE EILL FIND NON DETERMINISTIC WORLD BEAVIUR
-	private void rebuildWorld(AllMap lastAllMap) {
-		System.out.println( "I'm rebuilding the synchronous world!! Was "+world.actualTurn +" will be "+lastAllMap.turn );
-		world.clear();
-		InfoBody o;
-		Oggetto2D nuovo;
-		while ( (o=lastAllMap.poll()) != null){
-			System.out.println( "Creating id: "+o.ID);
-			nuovo = world.addNew( o.getOggetto2D(), o.getPos().x, o.getPos().y, o.getAngle() );
-			nuovo.setInfoPosition(o);
-			
-			if (IDmyShip==nuovo.ID)
-				myShip = nuovo;
-			
-			if (o.compare(nuovo.getInfoPosition())!=0){
-				System.out.println( "Error adjusting world");
-				close();
-			}
-		}
-		world.actualTurn = lastAllMap.turn;
-	}
-*/
+
 	private void rebuildAsichronousWorld() {
 		System.out.println( "I'm rebuilding the asynchronous world!! Was "+asincroniusWorld.actualTurn +" will be "+world.actualTurn );
 		asincroniusWorld.clear();
@@ -364,9 +350,9 @@ public class ClientEngine extends TimerTask{
 				System.out.println( "Error creation isn't perfect");
 				System.exit(0);
 			}
-			if (IDmyShip==newObj.ID){
+			if (IDmyShip==newObj.ID){//executed only at the first creation time
 				myShip = newObj;
-				server.write( new ActionEngine(myShip.ID, 1f, -1f, 0) );
+				//server.write( new ActionEngine(myShip.ID, 1f, -1f, 0) );
 			}
 		}
 	
@@ -393,9 +379,19 @@ public class ClientEngine extends TimerTask{
 
 	private void updateAsincronousWorld(long asincTurn) {
 		System.out.println( "I'm updating the asynchronous world!! Was "+asincroniusWorld.actualTurn +" will be "+asincTurn );
+		ArrayList<Action> my;
 		while (asincroniusWorld.actualTurn < asincTurn){
 			//update world
 			asincroniusWorld.update();
+			
+			//execute my actions
+			my = myActions.get(asincroniusWorld.actualTurn);
+			if (my!= null){//if there are action
+				for (Action t: my){
+					t.run( asincroniusWorld.get(t.ID) );
+					System.out.println( "Asin action setted for object:"+t.ID+" at turn:"+asincroniusWorld.actualTurn );
+				}
+			}
 		}
 	}
 

@@ -60,7 +60,7 @@ public class Oggetto2D implements Serializable {
 		bodyContainer.myBody.setXForm( ad.getPos(), ad.getAngle() );
 		bodyContainer.myBody.setAngularVelocity( ad.getAngAcc() );
 		bodyContainer.myBody.setLinearVelocity( ad.getPosVel() );
-		bodyContainer.myBody.applyTorque( bodyContainer.myBody.m_torque-ad.getTorque() );
+		bodyContainer.myBody.applyTorque( ad.getTorque()-bodyContainer.myBody.m_torque );
 		bodyContainer.myBody.m_sweep = ad.getSweep();
 		//bodyContainer.myBody.m_torque=ad.getTorque();
 	}
