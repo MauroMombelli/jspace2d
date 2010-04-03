@@ -390,21 +390,21 @@ public class ClientEngine extends TimerTask{
 		System.out.println( "Step time: "+time);
 		
 		Oggetto2D newObj;
-		InfoBody newObjPos;
+		//InfoBody newObjPos;
 		Action newAct;
-		Vec2 pos;
+		//Vec2 pos;
 		time = System.nanoTime();
 		//add the new obj and set their position
 		while ( (newObj=t.pollNewObj())!=null ){
-			newObjPos = t.pollPosObj();
-			pos = newObjPos.getPos();
-			world.addNew(newObj, pos.x, pos.y, newObjPos.getAngle() );
-			newObj.setInfoPosition(newObjPos);
+			//newObjPos = t.pollPosObj();
+			//pos = newObjPos.getPos();
+			world.addNew(newObj);
+			newObj.setInfoPosition( t.pollPosObj() );
 			/*
 			System.out.println( "created object:"+newObj.getInfoPosition().compare(newObjPos)+" ID "+newObj.ID );
 			if (newObj.getInfoPosition().compare(newObjPos) != 0){
 				System.out.println( "Error creation isn't perfect");
-				System.exit(0);
+				close();
 			}
 			*/
 			if (IDmyShip==newObj.ID){//executed only at the first creation time
