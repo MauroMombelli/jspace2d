@@ -293,6 +293,8 @@ public class ClientEngine extends TimerTask{
 			else
 				turnLag = (turnLag+asincTurn-lastAllMap.turn)/2;
 			
+			System.out.println( "Rilevated turn LAG: "+turnLag+" to ms: "+(turnLag*MAX_TURN_DURATION) );
+			
 			System.out.println( "Rebuilding world from turn: "+lastAllMap.turn );
 			System.out.println( "NewTurn to elaborate: "+newTurnToElaborate.size() );
 			
@@ -314,9 +316,6 @@ public class ClientEngine extends TimerTask{
 		}
 		time = System.nanoTime()-time;
 		System.out.println( "Second update syncronous time: "+time);
-		
-
-		System.out.println( "Rilevated turn LAG: "+turnLag+" to ms: "+(turnLag*MAX_TURN_DURATION) );
 		
 		if (synchronousChanged){
 			time = System.nanoTime();
@@ -347,15 +346,18 @@ public class ClientEngine extends TimerTask{
 		asincroniusWorld.clear();
 		
 		Oggetto2D tempCopy;
+		//Vec2 pos;
 		for (Oggetto2D o:world.getOggetti().values()){
-			tempCopy = asincroniusWorld.addCopy(o, o.getInfoPosition().getPos().x, o.getInfoPosition().getPos().y);
+			//pos = o.getInfoPosition().getPos();
+			tempCopy = asincroniusWorld.addCopy(o, 0, 0);
 			tempCopy.setInfoPosition( o.getInfoPosition() );
 			//System.out.println( tempCopy.getInfoPosition() );
 			if (IDmyShip==tempCopy.ID)
 				myShip = tempCopy;
 		}
 		for ( Oggetto2D o:world.getNewOggetti().values() ){
-			tempCopy = asincroniusWorld.addCopy(o, o.getInfoPosition().getPos().x, o.getInfoPosition().getPos().y);
+			//pos = o.getInfoPosition().getPos();
+			tempCopy = asincroniusWorld.addCopy(o, 0, 0);
 			tempCopy.setInfoPosition( o.getInfoPosition() );
 			//System.out.println( tempCopy.getInfoPosition() );
 			if (IDmyShip==tempCopy.ID)
@@ -376,30 +378,35 @@ public class ClientEngine extends TimerTask{
 	}
 	
 	private void updateWorld(NewTurn t) {
-		System.out.println( "I'm updating the synchronous world!! Was "+world.actualTurn +" will be "+t.actualTurn );
+		System.out.println( "I'm updating the synchronous world!! Was "+world.actualTurn +" will be "+t.actualTurn+" diff:"+(t.actualTurn-world.actualTurn)  );
 		
 		long time = System.nanoTime();
+		
 		while (world.actualTurn<t.actualTurn){
 			world.update();
 		}
+		
 		time = System.nanoTime() -time;
-		System.out.println( "Step time: "+time );
+		System.out.println( "Step time: "+time);
 		
 		Oggetto2D newObj;
 		InfoBody newObjPos;
 		Action newAct;
-		
+		Vec2 pos;
 		time = System.nanoTime();
 		//add the new obj and set their position
 		while ( (newObj=t.pollNewObj())!=null ){
 			newObjPos = t.pollPosObj();
-			world.addNew(newObj, newObjPos.getPos().x, newObjPos.getPos().y, newObjPos.getAngle() );
+			pos = newObjPos.getPos();
+			world.addNew(newObj, pos.x, pos.y, newObjPos.getAngle() );
 			newObj.setInfoPosition(newObjPos);
+			/*
 			System.out.println( "created object:"+newObj.getInfoPosition().compare(newObjPos)+" ID "+newObj.ID );
 			if (newObj.getInfoPosition().compare(newObjPos) != 0){
 				System.out.println( "Error creation isn't perfect");
 				System.exit(0);
 			}
+			*/
 			if (IDmyShip==newObj.ID){//executed only at the first creation time
 				myShip = newObj;
 				//server.write( new ActionEngine(myShip.ID, 1f, -1f, 0) );

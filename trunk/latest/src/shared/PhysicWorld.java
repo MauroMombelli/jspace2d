@@ -87,11 +87,11 @@ public class PhysicWorld {
 		newOggetti2D.clear();
 		
 	}
-/*	
+	/*
 	public void update(long step) {
 		//long time = System.nanoTime();
 		actualTurn++;
-		physicWorld.step(TIMESTEP*step, 10);
+		physicWorld.step(TIMESTEP*step, (int)(10*step));
 		
 		//time = System.nanoTime()-time;
 		//System.out.println("step time: "+time);
@@ -101,7 +101,7 @@ public class PhysicWorld {
 		newOggetti2D.clear();
 		
 	}
-*/	
+	*/
 	public void addNew(Oggetto2D t) {
 		addNew(t, 0, 0, 0);
 	}
