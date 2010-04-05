@@ -197,7 +197,8 @@ public class ClientEngine extends TimerTask{
 	public void executeAction(Action a){
 		System.out.println( "Writing action" );
 		server.write(a);
-		ArrayList<Action> t=myActions.get(asincroniusWorld.actualTurn);
+		a.setExecTime(asincroniusWorld.actualTurn);
+		ArrayList<Action> t=myActions.get( a.getExecTime() );
 		if ( t == null ){
 			t = new ArrayList<Action>();
 			t.add(a);
@@ -317,6 +318,14 @@ public class ClientEngine extends TimerTask{
 		time = System.nanoTime()-time;
 		System.out.println( "Second update syncronous time: "+time);
 		
+		//remove old myAction
+		for (long id : myActions.keySet() ){
+			if (id <= world.actualTurn)
+				myActions.remove(id);
+			else
+				break;
+		}
+		
 		if (synchronousChanged){
 			time = System.nanoTime();
 			
@@ -420,6 +429,11 @@ public class ClientEngine extends TimerTask{
 		while ( (newAct=t.pollActions())!=null ){
 			newAct.run( world.get(newAct.ID) );
 			System.out.println( "action setted for object:"+newAct.ID+" at turn:"+t.actualTurn );
+			if ( newAct.ID==IDmyShip ){
+				ArrayList<Action> arrT = myActions.get( newAct.getExecTime() );
+				if (arrT!=null)
+					arrT.remove(newAct);
+			}
 		}
 		time = System.nanoTime() -time;
 		System.out.println( "Action time: "+time );
