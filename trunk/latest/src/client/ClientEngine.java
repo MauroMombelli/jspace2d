@@ -24,6 +24,9 @@ import shared.specialActions.ShipRequest;
 
 public class ClientEngine extends TimerTask{
 
+	//if you want all the action execute X turn after it has been trigger, put here the value. WARNIG net lag is calculated in addition of this
+	private static final long actionsLag = 0;
+
 	ServerListener server;
 	
 	long MAX_TURN_DURATION;
@@ -197,12 +200,12 @@ public class ClientEngine extends TimerTask{
 	public void executeAction(Action a){
 		System.out.println( "Writing action" );
 		server.write(a);
-		a.setExecTime(asincroniusWorld.actualTurn);
+		a.setExecTime(asincroniusWorld.actualTurn+turnLag+actionsLag);
 		ArrayList<Action> t=myActions.get( a.getExecTime() );
 		if ( t == null ){
 			t = new ArrayList<Action>();
 			t.add(a);
-			myActions.put(asincroniusWorld.actualTurn, t);
+			myActions.put(a.getExecTime(), t);
 		}else
 			t.add(a);
 	}
@@ -245,7 +248,7 @@ public class ClientEngine extends TimerTask{
 				oldTurnToElaborate.addAll(newTurnToElaborate);
 				newTurnToElaborate.clear();
 				System.out.println( "AllMap received" );
-				break;
+				//break;
 			}
 			
 			if (!used){
@@ -260,7 +263,8 @@ public class ClientEngine extends TimerTask{
 		
 		time = System.nanoTime();
 		boolean synchronousChanged = false;
-
+		boolean allMapArrived = false;
+		
 		if (oldTurnToElaborate.size()>0){
 			//execute NewTurn on synchronous world
 			synchronousChanged = true;
@@ -279,7 +283,8 @@ public class ClientEngine extends TimerTask{
 		long asincTurn = asincroniusWorld.actualTurn;
 		if (lastAllMap!=null){
 			//we have to rebuild the synchronous world
-			synchronousChanged = true;
+			//synchronousChanged = true;
+			allMapArrived = true;
 			
 			if (lastAllMap.turn < world.actualTurn){
 				System.out.println("Wrong allmap: "+lastAllMap.turn+" "+world.actualTurn);
@@ -289,12 +294,13 @@ public class ClientEngine extends TimerTask{
 			testWorldPrecision(lastAllMap);
 			
 			//rebuildWorld(lastAllMap);
-			if (turnLag==-1)
-				turnLag = asincTurn-lastAllMap.turn;
-			else
-				turnLag = (turnLag+asincTurn-lastAllMap.turn)/2;
 			
-			System.out.println( "Rilevated turn LAG: "+turnLag+" to ms: "+(turnLag*MAX_TURN_DURATION) );
+			//if (turnLag==-1)
+				turnLag = asincTurn-world.actualTurn;
+			//else
+				//turnLag = (turnLag+asincTurn-world.actualTurn)/2;
+			
+			System.out.println( "Rilevated new turn LAG: "+turnLag+" to ms: "+(turnLag*MAX_TURN_DURATION) );
 			
 			System.out.println( "Rebuilding world from turn: "+lastAllMap.turn );
 			System.out.println( "NewTurn to elaborate: "+newTurnToElaborate.size() );
@@ -328,6 +334,15 @@ public class ClientEngine extends TimerTask{
 		
 		if (synchronousChanged){
 			time = System.nanoTime();
+			
+			if (!allMapArrived){
+				//if (turnLag==-1)
+					turnLag = asincTurn-world.actualTurn;
+				//else
+					//turnLag = (turnLag+asincTurn-world.actualTurn)/2;
+			}
+			
+			System.out.println( "Rilevated action LAG: "+turnLag+" to ms: "+(turnLag*MAX_TURN_DURATION) );
 			
 			rebuildAsichronousWorld();
 			
@@ -504,9 +519,9 @@ public class ClientEngine extends TimerTask{
 				if ( temp.getInfoPosition().compare(a)!=0 ){
 					if ( temp.getInfoPosition().compare(a)!=0 ){
 						temp.setInfoPosition(a);
-						System.out.println( "Little error ID: "+a.ID+" corrected" );
+						System.out.println( "Error ID: "+a.ID+" corrected, was: "+temp.getInfoPosition().compare(a) );
 					}else{
-						System.out.println( "ID: "+a.ID+" has to be:\n"+a+" is:\n"+temp.getInfoPosition() );
+						System.out.println( "ID: "+a.ID+" error: "+temp.getInfoPosition().compare(a)+" has to be:\n"+a+" is:\n"+temp.getInfoPosition() );
 						error = true;
 					}
 				}else{

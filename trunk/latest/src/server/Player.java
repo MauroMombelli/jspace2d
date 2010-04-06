@@ -27,7 +27,7 @@ public class Player {
 	
 	HashMap<Integer, Oggetto2D> myPossessoin = new HashMap<Integer, Oggetto2D>();
 	
-	LinkedList<Action> myActions = new LinkedList<Action>();
+	HashMap< Long, LinkedList<Action> > myActions = new HashMap< Long, LinkedList<Action> >();
 	//TODO: 
 	LinkedList<RemoveShip> removeOggettiActions = new LinkedList<RemoveShip>();
 	//end todo
@@ -75,8 +75,19 @@ public class Player {
 					if (t instanceof Action){
 						System.out.println("Executing action");
 						Action a = ((Action)t);
-						if ( a.run( myPossessoin.get(a.ID) ) )
-							myActions.add(a);
+						if ( a.run( myPossessoin.get(a.ID) ) ){
+							LinkedList<Action> actionAtTurn = myActions.get( a.getExecTime() );
+							if (actionAtTurn!=null){
+								actionAtTurn.add(a);
+							}else{
+								actionAtTurn = new LinkedList<Action>();
+								actionAtTurn.add(a);
+								myActions.put(a.getExecTime(), actionAtTurn);
+							}
+						}else{
+							//hacking?!?!
+							close();
+						}
 					}
 				}else{
 					if (t instanceof ShipRequest){
@@ -159,8 +170,17 @@ public class Player {
 		return createOggettiActions.poll();
 	}
 
-	public LinkedList<Action> getMyActions() {
-		return myActions;
+	public LinkedList<Action> getMyActions(long turn) {
+		//Return the action of this turn and the old one
+		LinkedList<Action> ris = new LinkedList<Action>();
+		for (long id : myActions.keySet() ){
+			if (id <= turn){
+				ris.addAll(myActions.get(id));
+				myActions.remove(id);
+			}else
+				break;
+		}
+		return ris;
 	}
 
 }

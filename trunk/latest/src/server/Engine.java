@@ -11,6 +11,7 @@ import shared.Oggetto2D;
 import shared.PhysicWorld;
 import shared.TurnDuration;
 import shared.azioni.Action;
+import shared.azioni.ActionEngine;
 import shared.specialActions.ShipRequest;
 
 public class Engine extends TimerTask{
@@ -54,11 +55,11 @@ public class Engine extends TimerTask{
 		for (int i=0; i < 10; i++){
 			for (int a=0; a < 10; a++){
 				t = new Oggetto2D(objIndex++);
-				//newOggetti2D.add(t);
 				world.addNew( t, GLOBAL_VARIABLE.convertToPhysicEngineUnit( i*10 ), GLOBAL_VARIABLE.convertToPhysicEngineUnit( a*10 ), 0 );
-				//Action az = new ActionEngine(t.ID, GLOBAL_VARIABLE.convertToPhysicEngineUnit( (float)Math.random()*6-3 ), GLOBAL_VARIABLE.convertToPhysicEngineUnit( (float)Math.random()*6-3 ), 0);
-				//az.run(t);
-				//allChanges.add(az);
+				
+				Action az = new ActionEngine(t.ID, GLOBAL_VARIABLE.convertToPhysicEngineUnit( (float)Math.random()*6-3 ), GLOBAL_VARIABLE.convertToPhysicEngineUnit( (float)Math.random()*6-3 ), 0);
+				az.run(t);
+				allChanges.add(az);
 			}
 		}
 	}
@@ -80,7 +81,7 @@ public class Engine extends TimerTask{
 		 * DEBUG PURPOISE
 		 */
 		/*
-		/*
+		
 		if (actualTurn>=2000){
 			if ( actualTurn%500==0 ){//&& allOggetto2D.get(0).getBody().getLinearVelocity().y==0){
 				for (int i=0; i < 50; i++){
@@ -240,7 +241,7 @@ public class Engine extends TimerTask{
 				removedPlayer.add(t);
 			}else{
 				t.update();
-				allChanges.addAll( t.getMyActions() );
+				allChanges.addAll( t.getMyActions(world.actualTurn) );
 			}
 		}
 		players.removeAll(removedPlayer);
