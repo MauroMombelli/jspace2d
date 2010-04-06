@@ -1,6 +1,7 @@
 package client;
 
 import client.gameState.PosFPSGameState;
+import client.gameState.PosTextGameState;
 import client.gameState.WorldGameState;
 
 import com.jme.app.AbstractGame.ConfigShowMode;
@@ -15,6 +16,8 @@ public class InitGraphics {
 	
 	WorldGameState guiWorld;
 	PosFPSGameState gameFPS;
+	PosTextGameState gameLAG;
+	
 	InputReader in;
 	StandardGame game;
 	public InitGraphics(){
@@ -52,6 +55,10 @@ public class InitGraphics {
 		gameFPS.setText("wow");
 		GameStateManager.getInstance().attachChild(gameFPS);
 		gameFPS.setActive(true);
+		
+		gameLAG = new PosTextGameState("INITIALIZING",10, 3, 10);
+		GameStateManager.getInstance().attachChild(gameLAG);
+		gameLAG.setActive(true);
 
 	}
 	
@@ -65,6 +72,10 @@ public class InitGraphics {
 	
 	public void close(){
 		game.shutdown();
+	}
+
+	public void setLag(long msLag) {
+		gameLAG.setText("LAG: "+msLag);
 	}
 	
 }

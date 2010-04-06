@@ -76,13 +76,15 @@ public class Player {
 						System.out.println("Executing action");
 						Action a = ((Action)t);
 						if ( a.run( myPossessoin.get(a.ID) ) ){
-							LinkedList<Action> actionAtTurn = myActions.get( a.getExecTime() );
-							if (actionAtTurn!=null){
-								actionAtTurn.add(a);
-							}else{
-								actionAtTurn = new LinkedList<Action>();
-								actionAtTurn.add(a);
-								myActions.put(a.getExecTime(), actionAtTurn);
+							synchronized (myActions) {
+								LinkedList<Action> actionAtTurn = myActions.get( a.getExecTime() );
+								if (actionAtTurn!=null){
+									actionAtTurn.add(a);
+								}else{
+									actionAtTurn = new LinkedList<Action>();
+									actionAtTurn.add(a);
+									myActions.put(a.getExecTime(), actionAtTurn);
+								}
 							}
 						}else{
 							//hacking?!?!
@@ -173,12 +175,14 @@ public class Player {
 	public LinkedList<Action> getMyActions(long turn) {
 		//Return the action of this turn and the old one
 		LinkedList<Action> ris = new LinkedList<Action>();
-		for (long id : myActions.keySet() ){
-			if (id <= turn){
-				ris.addAll(myActions.get(id));
-				myActions.remove(id);
-			}else
-				break;
+		synchronized (myActions) {
+			for (long id : myActions.keySet() ){
+				if (id <= turn){
+					ris.addAll(myActions.get(id));
+					myActions.remove(id);
+				}else
+					break;
+			}
 		}
 		return ris;
 	}

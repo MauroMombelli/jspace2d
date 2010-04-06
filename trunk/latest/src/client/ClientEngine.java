@@ -1,7 +1,11 @@
 package client;
 
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.Set;
+import java.util.SortedMap;
 import java.util.TimerTask;
 import java.util.TreeMap;
 
@@ -40,7 +44,8 @@ public class ClientEngine extends TimerTask{
 	//HashMap< Long, HashMap<Integer, InfoBody> > mapsAtTurn = new HashMap< Long, HashMap<Integer,InfoBody>>();
 	//END
 	
-	TreeMap< Long, ArrayList<Action> > myActions = new TreeMap<Long, ArrayList<Action> >();
+	//SortedMap< Long, ArrayList<Action> > myActions = Collections.synchronizedSortedMap( new TreeMap<Long, ArrayList<Action> >() );
+	HashMap< Long, ArrayList<Action> > myActions = new HashMap<Long, ArrayList<Action> >();
 	
 	private InitGraphics gui;
 	
@@ -201,13 +206,15 @@ public class ClientEngine extends TimerTask{
 		System.out.println( "Writing action" );
 		server.write(a);
 		a.setExecTime(asincroniusWorld.actualTurn+turnLag+actionsLag);
-		ArrayList<Action> t=myActions.get( a.getExecTime() );
-		if ( t == null ){
-			t = new ArrayList<Action>();
-			t.add(a);
-			myActions.put(a.getExecTime(), t);
-		}else
-			t.add(a);
+		synchronized (myActions) {
+			ArrayList<Action> t=myActions.get( a.getExecTime() );
+			if ( t == null ){
+				t = new ArrayList<Action>();
+				t.add(a);
+				myActions.put(a.getExecTime(), t);
+			}else
+				t.add(a);
+		}
 	}
 
 	//PHYSIC PURPOISE
@@ -297,6 +304,7 @@ public class ClientEngine extends TimerTask{
 			
 			//if (turnLag==-1)
 				turnLag = asincTurn-world.actualTurn;
+				gui.setLag(turnLag*MAX_TURN_DURATION);
 			//else
 				//turnLag = (turnLag+asincTurn-world.actualTurn)/2;
 			
@@ -325,11 +333,16 @@ public class ClientEngine extends TimerTask{
 		System.out.println( "Second update syncronous time: "+time);
 		
 		//remove old myAction
-		for (long id : myActions.keySet() ){
-			if (id <= world.actualTurn)
-				myActions.remove(id);
-			else
-				break;
+		synchronized (myActions) {
+			HashMap< Long, ArrayList<Action> > t = new HashMap<Long, ArrayList<Action>>(myActions);
+			Set<Long> key = t.keySet(); 
+			for (long id : key ){
+				if (id <= world.actualTurn)
+					t.remove(id);
+				else
+					break;
+			}
+			myActions=t;
 		}
 		
 		if (synchronousChanged){
@@ -338,6 +351,7 @@ public class ClientEngine extends TimerTask{
 			if (!allMapArrived){
 				//if (turnLag==-1)
 					turnLag = asincTurn-world.actualTurn;
+					gui.setLag(turnLag*MAX_TURN_DURATION);
 				//else
 					//turnLag = (turnLag+asincTurn-world.actualTurn)/2;
 			}
@@ -445,9 +459,11 @@ public class ClientEngine extends TimerTask{
 			newAct.run( world.get(newAct.ID) );
 			System.out.println( "action setted for object:"+newAct.ID+" at turn:"+t.actualTurn );
 			if ( newAct.ID==IDmyShip ){
-				ArrayList<Action> arrT = myActions.get( newAct.getExecTime() );
-				if (arrT!=null)
-					arrT.remove(newAct);
+				synchronized (myActions) {
+					ArrayList<Action> arrT = myActions.get( newAct.getExecTime() );
+					if (arrT!=null)
+						arrT.remove(newAct);
+				}
 			}
 		}
 		time = System.nanoTime() -time;
@@ -475,11 +491,13 @@ public class ClientEngine extends TimerTask{
 			asincroniusWorld.update();
 			
 			//execute my actions
-			my = myActions.get(asincroniusWorld.actualTurn);
-			if (my!= null){//if there are action
-				for (Action t: my){
-					t.run( asincroniusWorld.get(t.ID) );
-					System.out.println( "Asin action setted for object:"+t.ID+" at turn:"+asincroniusWorld.actualTurn );
+			synchronized (myActions) {
+				my = myActions.get(asincroniusWorld.actualTurn);
+				if (my!= null){//if there are action
+					for (Action t: my){
+						t.run( asincroniusWorld.get(t.ID) );
+						System.out.println( "Asin action setted for object:"+t.ID+" at turn:"+asincroniusWorld.actualTurn );
+					}
 				}
 			}
 		}
