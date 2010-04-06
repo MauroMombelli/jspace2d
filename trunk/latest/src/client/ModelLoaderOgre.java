@@ -11,7 +11,6 @@ import com.jme.math.Quaternion;
 import com.jme.math.Vector3f;
 import com.jme.scene.Node;
 import com.jme.scene.TriMesh;
-import com.jme.scene.shape.Box;
 import com.jmex.model.ModelFormatException;
 import com.jmex.model.ogrexml.MaterialLoader;
 import com.jmex.model.ogrexml.MeshCloner;
