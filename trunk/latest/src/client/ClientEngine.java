@@ -1,11 +1,8 @@
 package client;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.HashMap;
 import java.util.LinkedList;
-import java.util.Set;
-import java.util.SortedMap;
 import java.util.TimerTask;
 import java.util.TreeMap;
 
@@ -46,6 +43,7 @@ public class ClientEngine extends TimerTask{
 	
 	//SortedMap< Long, ArrayList<Action> > myActions = Collections.synchronizedSortedMap( new TreeMap<Long, ArrayList<Action> >() );
 	HashMap< Long, ArrayList<Action> > myActions = new HashMap<Long, ArrayList<Action> >();
+	long lastMyActionClear;
 	
 	private InitGraphics gui;
 	
@@ -59,6 +57,7 @@ public class ClientEngine extends TimerTask{
 		
 		world.actualTurn = actualTurn;
 		asincroniusWorld.actualTurn=actualTurn;
+		lastMyActionClear = actualTurn;
 		
 		MAX_TURN_DURATION = turnDuration;
 		
@@ -333,18 +332,22 @@ public class ClientEngine extends TimerTask{
 		System.out.println( "Second update syncronous time: "+time);
 		
 		//remove old myAction
+		LinkedList<Action> ris = new LinkedList<Action>();
 		synchronized (myActions) {
-			HashMap< Long, ArrayList<Action> > t = new HashMap<Long, ArrayList<Action>>(myActions);
-			Set<Long> key = t.keySet(); 
-			for (long id : key ){
-				if (id <= world.actualTurn)
-					t.remove(id);
-				else
-					break;
+			for (long id : myActions.keySet() ){
+				if (id <= world.actualTurn){
+					ris.addAll(myActions.get(id));
+					//myActions.remove(id);
+				}
 			}
-			myActions=t;
+			myActions.values().removeAll(ris);
 		}
 		
+		/*
+		for (; lastMyActionClear<=world.actualTurn;lastMyActionClear++){
+			myActions.remove(lastMyActionClear);
+		}
+		*/
 		if (synchronousChanged){
 			time = System.nanoTime();
 			

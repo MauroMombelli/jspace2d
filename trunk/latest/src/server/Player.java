@@ -179,10 +179,10 @@ public class Player {
 			for (long id : myActions.keySet() ){
 				if (id <= turn){
 					ris.addAll(myActions.get(id));
-					myActions.remove(id);
-				}else
-					break;
+					//myActions.remove(id);
+				}
 			}
+			myActions.values().removeAll(ris);
 		}
 		return ris;
 	}
