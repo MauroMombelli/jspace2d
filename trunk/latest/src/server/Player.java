@@ -174,6 +174,7 @@ public class Player {
 
 	public LinkedList<Action> getMyActions(long turn) {
 		//Return the action of this turn and the old one
+		/*
 		LinkedList<Action> ris = new LinkedList<Action>();
 		synchronized (myActions) {
 			for (long id : myActions.keySet() ){
@@ -181,6 +182,18 @@ public class Player {
 					ris.addAll(myActions.get(id));
 					//myActions.remove(id);
 				}
+			}
+			myActions.values().removeAll(ris);
+		}
+		return ris;
+		*/
+		LinkedList<Action> ris = new LinkedList<Action>();
+		synchronized (myActions) {
+			for ( LinkedList<Action> t:myActions.values() ){
+				//if (id <= turn){
+					ris.addAll(t);
+					//myActions.remove(id);
+				//}
 			}
 			myActions.values().removeAll(ris);
 		}
