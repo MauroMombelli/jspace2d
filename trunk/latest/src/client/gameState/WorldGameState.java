@@ -3,6 +3,8 @@ package client.gameState;
 import java.util.HashMap;
 import java.util.LinkedList;
 
+import client.ClientOggetto2D;
+
 import com.jme.input.KeyBindingManager;
 import com.jme.light.PointLight;
 import com.jme.math.Vector3f;
@@ -28,9 +30,11 @@ public class WorldGameState extends BasicGameState{
 
 	private Integer cameraID=-1;
 	
-	public WorldGameState(String arg0) {
+	LinkedList<ClientOggetto2D> allOggetto2D;
+	
+	public WorldGameState(String arg0, LinkedList<ClientOggetto2D> allOggetto2D) {
 		super(arg0);
-		
+		this.allOggetto2D = allOggetto2D;
 		// Lighting
         /** Set up a basic, default light. */
         light = new PointLight();
@@ -81,23 +85,31 @@ public class WorldGameState extends BasicGameState{
 	public void update(float tpf) {
 		//System.out.println( "GUI update");
 		long time = System.nanoTime();
+		
 		synchronized (objMod) {
 			super.update(tpf);
 			GuiAction currentAction;
 			while( (currentAction=objMod.poll())!=null ){
 				currentAction.run( visibleObject, rootNode );
 			}
-			Node t=null;
-			synchronized (cameraID) {
-				t = visibleObject.get(cameraID);
-			}
-			if (t!=null){
-				cameraX = t.getLocalTranslation().x;
-				cameraY = t.getLocalTranslation().y;
-				camera.setLocation( new Vector3f(cameraX, cameraY, cameraZoom) );
-			}
-				
 		}
+		
+		synchronized (allOggetto2D) {
+			for (ClientOggetto2D t:allOggetto2D){
+				t.run( visibleObject, rootNode );
+			}
+		}
+		
+		Node t=null;
+		synchronized (cameraID) {
+			t = visibleObject.get(cameraID);
+		}
+		if (t!=null){
+			cameraX = t.getLocalTranslation().x;
+			cameraY = t.getLocalTranslation().y;
+			camera.setLocation( new Vector3f(cameraX, cameraY, cameraZoom) );
+		}
+		
 		/* THIS KEYBINDING IS USED IN THE ENGINE!!
 		if (KeyBindingManager.getKeyBindingManager().isValidCommand("move_up", true)) {
 			cameraY++;

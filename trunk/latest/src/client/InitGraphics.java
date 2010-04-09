@@ -1,5 +1,7 @@
 package client;
 
+import java.util.LinkedList;
+
 import client.gameState.PosFPSGameState;
 import client.gameState.PosTextGameState;
 import client.gameState.WorldGameState;
@@ -20,8 +22,8 @@ public class InitGraphics {
 	
 	InputReader in;
 	StandardGame game;
-	public InitGraphics(){
-		
+	
+	public InitGraphics(LinkedList<ClientOggetto2D> allOggetto2D){
 		game = new StandardGame("Client test");
 		game.setBackgroundColor(ColorRGBA.white);
 		
@@ -39,7 +41,7 @@ public class InitGraphics {
 		
 		in = new InputReader();
 		
-		guiWorld = new WorldGameState("AllWorld");
+		guiWorld = new WorldGameState("AllWorld", allOggetto2D);
 		
 		GameStateManager.getInstance().attachChild( guiWorld );
 		
