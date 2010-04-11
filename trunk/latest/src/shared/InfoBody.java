@@ -118,7 +118,18 @@ public class InfoBody implements Serializable{
 		//System.out.println("diff R3:"+diffR3);
 		float diffR4=r[1][1]-b.r[1][1];
 		//System.out.println("diff R4:"+diffR4);
-		return diffA+diffAV+diffX+diffXV+diffY+diffYV+diffT+diffXF+diffYF+diffR1+diffR2+diffR3+diffR4;
+		
+		float diffSa = sA-b.sA;
+		float diffSa0 = sA0-b.sA0;
+		float diffScx = sCx-b.sCx;
+		float diffScy = sCy-b.sCy;
+		float diffSc0x = sC0x-b.sC0x;
+		float diffSc0y = sC0y-b.sC0y;
+		float diffSlx = sLx-b.sLx;
+		float diffSly = sLy-b.sLy;
+		float diffT0 = t0-b.t0;
+		
+		return diffA+diffAV+diffX+diffXV+diffY+diffYV+diffT+diffXF+diffYF+diffR1+diffR2+diffR3+diffR4+diffSa+diffSa0+diffSc0x+diffSc0y+diffScx+diffScy+diffSlx+diffSly+diffT0;
 	}
 
 	public String toString(){

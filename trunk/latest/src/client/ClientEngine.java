@@ -37,6 +37,8 @@ public class ClientEngine extends TimerTask{
 	//HashMap< Long, HashMap<Integer, InfoBody> > mapsAtTurn = new HashMap< Long, HashMap<Integer,InfoBody>>();
 	//END
 	
+	boolean firstCorrection = true;
+	
 	//SortedMap< Long, ArrayList<Action> > myActions = Collections.synchronizedSortedMap( new TreeMap<Long, ArrayList<Action> >() );
 	TreeMap< Long, ArrayList<Action> > myActions = new TreeMap<Long, ArrayList<Action> >();
 	long lastMyActionClear;
@@ -565,15 +567,15 @@ public class ClientEngine extends TimerTask{
 			if ( temp!=null ){
 				//System.out.println( a.ID+" error: "+ temp.getInfoPosition().compare(a) );
 				if ( temp.getInfoPosition().compare(a)!=0 ){
-					if ( temp.getInfoPosition().compare(a)!=0 ){ //here you can set the max acceptable error
+					if ( firstCorrection ){ //here you can set the max acceptable error
+						System.out.println( "Correcting ID: "+a.ID+" error: "+temp.getInfoPosition().compare(a)+" has to be:\n"+a+" is:\n"+temp.getInfoPosition() );
 						temp.setInfoPosition(a);
-						System.out.println( "Error ID: "+a.ID+" corrected, was: "+temp.getInfoPosition().compare(a) );
 					}else{
 						System.out.println( "ID: "+a.ID+" error: "+temp.getInfoPosition().compare(a)+" has to be:\n"+a+" is:\n"+temp.getInfoPosition() );
 						error = true;
 					}
 				}else{
-					System.out.println( "Every little things, gonna be all right: "+a );
+					System.out.println( a.ID+": Every little things, gonna be all right");//+a );
 				}
 			}else{
 				System.out.println( "\t\t"+a.ID+" doesn't exist!" );
@@ -581,6 +583,7 @@ public class ClientEngine extends TimerTask{
 				error = true;
 			}
 		}
+		firstCorrection = false;
 		/*
 		while ( (a=ris.poll())!=null ){
 			lastAllMap.add(a);
