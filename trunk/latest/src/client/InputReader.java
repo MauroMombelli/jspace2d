@@ -24,6 +24,9 @@ public class InputReader implements MouseInputListener{
 		keyboard.set("move_left", KeyInput.KEY_A);
 		keyboard.set("move_right", KeyInput.KEY_D);
 		
+		//shoot!!
+		keyboard.set("shot_light", KeyInput.KEY_RETURN);
+		
 		//zoom
 		keyboard.set("more_zoom", KeyInput.KEY_SUBTRACT);
 		keyboard.set("less_zoom", KeyInput.KEY_ADD);

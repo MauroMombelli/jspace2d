@@ -149,7 +149,8 @@ public class WorldGameState extends BasicGameState{
 		rootNode.updateRenderState();
 		rootNode.updateGeometricState(tpf, true);
 		time = System.nanoTime() - time;
-		System.out.println("Time update ROOTNODE:"+time);	
+		setActive(true);
+		System.out.println("Time update ROOTNODE:"+time);
 	}
 /*	
 	@Override

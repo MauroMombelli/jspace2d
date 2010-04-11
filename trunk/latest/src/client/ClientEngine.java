@@ -187,6 +187,7 @@ public class ClientEngine extends TimerTask{
 		if (myShip == null)
 			return;
 		
+		//movement
 		float strenght=0, angle=0;
 		if (KeyBindingManager.getKeyBindingManager().isValidCommand("move_up", false)) {
 			strenght -= 1f;
@@ -206,6 +207,11 @@ public class ClientEngine extends TimerTask{
 			System.out.println( "Writing action, xV:"+x+" yV:"+y+" aV"+angle );
 			executeAction( new ActionEngine(myShip.ID, x, y, angle) );
 		}
+		
+		//shoot
+		if (KeyBindingManager.getKeyBindingManager().isValidCommand("shot_light", false)) {
+			angle -= 1f;
+        }
 	}
 	
 	public void executeAction(Action a){
@@ -460,23 +466,23 @@ public class ClientEngine extends TimerTask{
 		System.out.println( "\t\tStep time: "+time);
 		
 		Oggetto2D newObj;
-		//InfoBody newObjPos;
+		InfoBody newObjPos;
 		Action newAct;
 		//Vec2 pos;
 		time = System.nanoTime();
 		//add the new obj and set their position
 		while ( (newObj=t.pollNewObj())!=null ){
-			//newObjPos = t.pollPosObj();
+			newObjPos = t.pollPosObj();
 			//pos = newObjPos.getPos();
 			world.addNew(newObj);
-			newObj.setInfoPosition( t.pollPosObj() );
-			/*
+			newObj.setInfoPosition( newObjPos );
+			
 			System.out.println( "created object:"+newObj.getInfoPosition().compare(newObjPos)+" ID "+newObj.ID );
 			if (newObj.getInfoPosition().compare(newObjPos) != 0){
 				System.out.println( "Error creation isn't perfect");
 				close();
 			}
-			*/
+			
 			if (IDmyShip==newObj.ID){//executed only at the first creation time
 				myShip = newObj;
 				//server.write( new ActionEngine(myShip.ID, 1f, -1f, 0) );
@@ -571,6 +577,7 @@ public class ClientEngine extends TimerTask{
 						System.out.println( "Correcting ID: "+a.ID+" error: "+temp.getInfoPosition().compare(a)+" has to be:\n"+a+" is:\n"+temp.getInfoPosition() );
 						temp.setInfoPosition(a);
 					}else{
+						System.out.println("Found unexpected world error!");
 						System.out.println( "ID: "+a.ID+" error: "+temp.getInfoPosition().compare(a)+" has to be:\n"+a+" is:\n"+temp.getInfoPosition() );
 						error = true;
 					}
