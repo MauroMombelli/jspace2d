@@ -25,7 +25,7 @@ public class ActionEngine extends Action implements Serializable{
 	@Override
 	public boolean run(Oggetto2D p){
 		if (p != null){
-			if (p.ID==ID){
+			if (p.ID==ownerID){
 				if (p.getBody() != null){
 					System.out.println("executing action: "+x+" "+y+" "+alpha);
 					System.out.println( "before: "+p.getInfoPosition() +" torque:"+ p.getBody().m_torque );
@@ -41,6 +41,19 @@ public class ActionEngine extends Action implements Serializable{
 			}
 		}else{
 			System.out.println("error executing action, null object");			
+		}
+		return false;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (obj instanceof ActionEngine){
+			ActionEngine a = (ActionEngine)obj;
+			if (a.ownerID == ownerID)
+				if (a.alpha == alpha)
+					if (a.x == x)
+						if (a.y == y)
+							return true;
 		}
 		return false;
 	}

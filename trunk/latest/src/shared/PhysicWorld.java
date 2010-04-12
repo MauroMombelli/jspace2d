@@ -145,7 +145,7 @@ public class PhysicWorld {
 		createBorder();
 	}
 
-	public Oggetto2D addCopy(Oggetto2D o, float x, float y) {
+	public Oggetto2D addCopy(Oggetto2D o, float x, float y, float f) {
 		Oggetto2D copy = null;
 		if (o instanceof Oggetto2D)
 			copy = new Oggetto2D(o);
@@ -158,6 +158,7 @@ public class PhysicWorld {
 			BodyDef bd = new BodyDef();
 			bd.position.x = x;
 			bd.position.y = y;
+			bd.angle=f;
             bd.allowSleep=true;	
             bd.angularDamping=0.005f;
             

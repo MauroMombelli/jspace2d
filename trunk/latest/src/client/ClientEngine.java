@@ -6,6 +6,8 @@ import java.util.LinkedList;
 import java.util.TimerTask;
 import java.util.TreeMap;
 
+import org.jbox2d.common.Vec2;
+
 import com.jme.input.KeyBindingManager;
 import com.jme.math.FastMath;
 
@@ -31,15 +33,9 @@ public class ClientEngine extends TimerTask{
 	
 	PhysicWorld asincroniusWorld = new PhysicWorld();
 	
-	//HashMap<Integer, SetNode> listaAzioniGUI = new HashMap<Integer, SetNode>();
 	LinkedList<ClientOggetto2D> allOggetto2D = new LinkedList<ClientOggetto2D>();
-	//START: Actually for debug purpose, take a shot of the world every 100 turn
-	//HashMap< Long, HashMap<Integer, InfoBody> > mapsAtTurn = new HashMap< Long, HashMap<Integer,InfoBody>>();
-	//END
+	LinkedList<ClientOggetto2D> tempAllOggetto2D = new LinkedList<ClientOggetto2D>();
 	
-	boolean firstCorrection = true;
-	
-	//SortedMap< Long, ArrayList<Action> > myActions = Collections.synchronizedSortedMap( new TreeMap<Long, ArrayList<Action> >() );
 	TreeMap< Long, ArrayList<Action> > myActions = new TreeMap<Long, ArrayList<Action> >();
 	long lastMyActionClear;
 	
@@ -104,31 +100,14 @@ public class ClientEngine extends TimerTask{
 		
 		
 		long time = System.nanoTime();
-		/*
-		SetNode temp;
-		for ( Oggetto2D t:asincroniusWorld.getOggetti().values() ){
-			//temp = listaAzioniGUI.get(t.ID);
-			//if (temp == null){
-				listaAzioniGUI.put(t.ID, new SetNode(t.ID, t.getModelName(), new Vec2( t.getBody().getPosition() ) , t.getBody().getAngle()) );
-			//}else{
-			//	temp.set( new Vec2( t.getBody().getPosition() ) , t.getBody().getAngle() );
-			//}
-		}
-		time = System.nanoTime()-time;
-		System.out.println( "GUI copy obj time: "+time);
-		
-		time = System.nanoTime();
-		for ( Oggetto2D t:asincroniusWorld.getNewOggetti().values() ){
-			temp = listaAzioniGUI.get(t.ID);
-			if (temp == null){
-				listaAzioniGUI.put(t.ID, new SetNode(t.ID, t.getModelName(), new Vec2( t.getBody().getPosition() ) , t.getBody().getAngle()) );
-			}else{
-				temp.set( new Vec2( t.getBody().getPosition() ) , t.getBody().getAngle() );
-			}
-		}
-		*/
 		
 		synchronized (allOggetto2D) {
+			if (tempAllOggetto2D.size()!=0){
+				allOggetto2D.clear();
+				allOggetto2D.addAll(tempAllOggetto2D);
+				tempAllOggetto2D.clear();
+			}
+				
 			for (ClientOggetto2D temp:allOggetto2D)
 				temp.update();
 		}
@@ -150,32 +129,7 @@ public class ClientEngine extends TimerTask{
 		time2 = System.nanoTime()-time2;
 		System.out.println( "GUI set time: "+time2);
 	}
-/*
-	//GUI PURPOISE
-	private void copyWorldForPaint() {
-		long time2 = System.nanoTime();
-		LinkedList<GuiAction> listaAzioniGUI = new LinkedList<GuiAction>();
-
-		long time = System.nanoTime();
-		for ( Oggetto2D t:asincroniusWorld.getOggetti().values() ){
-			listaAzioniGUI.add( new SetNode(t.ID, t.getModelName(), new Vec2( t.getBody().getPosition() ) , t.getBody().getAngle()) );
-		}
-		time = System.nanoTime()-time;
-		System.out.println( "GUI copy obj time: "+time);
-		
-		time = System.nanoTime();
-		for ( Oggetto2D t:asincroniusWorld.getNewOggetti().values() ){
-			listaAzioniGUI.add( new SetNode(t.ID, t.getModelName(), new Vec2( t.getBody().getPosition() ) , t.getBody().getAngle()) );
-		}
-		time = System.nanoTime()-time;
-		System.out.println( "GUI copy new obj time: "+time);
-		
-		System.out.println( "GUIActions:"+listaAzioniGUI.size() );
-		gui.getWorldGUI().setGuiActions(listaAzioniGUI);
-		time2 = System.nanoTime()-time2;
-		System.out.println( "GUI set time: "+time2);
-	}
-*/	
+	
 	//INPUT PURPOISE
 	private void sendActions() {
 		
@@ -312,13 +266,8 @@ public class ClientEngine extends TimerTask{
 			
 			testWorldPrecision(lastAllMap);
 			
-			//rebuildWorld(lastAllMap);
-			
-			//if (turnLag==-1)
-				turnLag = asincTurn-world.actualTurn;
-				gui.setLag(turnLag*MAX_TURN_DURATION);
-			//else
-				//turnLag = (turnLag+asincTurn-world.actualTurn)/2;
+			turnLag = asincTurn-world.actualTurn;
+			gui.setLag(turnLag*MAX_TURN_DURATION);
 			
 			System.out.println( "\tRilevated new turn LAG: "+turnLag+" to ms: "+(turnLag*MAX_TURN_DURATION) );
 			
@@ -344,6 +293,7 @@ public class ClientEngine extends TimerTask{
 		time = System.nanoTime()-time;
 		System.out.println( "\tSecond update syncronous time: "+time);
 		
+		/*
 		//remove old myAction
 		time = System.nanoTime();
 		LinkedList<Action> ris = new LinkedList<Action>();
@@ -351,18 +301,14 @@ public class ClientEngine extends TimerTask{
 			for (long id : myActions.keySet() ){
 				if (id <= world.actualTurn){
 					ris.addAll(myActions.get(id));
-					//myActions.remove(id);
 				}
 			}
 			myActions.values().removeAll(ris);
 		}
+		*/
 		time = System.nanoTime()-time;
 		System.out.println( "\tRemoving old action time: "+time);
-		/*
-		for (; lastMyActionClear<=world.actualTurn;lastMyActionClear++){
-			myActions.remove(lastMyActionClear);
-		}
-		*/
+		
 		if (synchronousChanged){
 			time = System.nanoTime();
 			
@@ -393,6 +339,8 @@ public class ClientEngine extends TimerTask{
 		time = System.nanoTime()-time;
 		System.out.println( "\tUpdate asyncronous time: "+time);
 		
+		gui.setTurn(asincroniusWorld.actualTurn, world.actualTurn);
+		
 		copyWorldForPaint();
 
 	}
@@ -402,22 +350,20 @@ public class ClientEngine extends TimerTask{
 		
 		long time = System.nanoTime();
 		asincroniusWorld.clear();
-		allOggetto2D.clear();
+		
 		time = System.nanoTime() - time;
 		System.out.println( "Clear time: "+time );
 		
 		time = System.nanoTime();
 		Oggetto2D tempCopy;
-		//Vec2 pos;
+		Vec2 pos;
 		Collection<Oggetto2D> temp = world.getOggetti().values();
 		for (Oggetto2D o:temp){
-			//pos = o.getInfoPosition().getPos();
-			tempCopy = asincroniusWorld.addCopy(o, 0, 0);
+			pos = o.getInfoPosition().getPos();
+			tempCopy = asincroniusWorld.addCopy( o, pos.x, pos.y, o.getInfoPosition().getAngle() );
 			tempCopy.setInfoPosition( o.getInfoPosition() );
 			
-			synchronized (allOggetto2D) {
-				allOggetto2D.add( new ClientOggetto2D(tempCopy) );
-			}
+			tempAllOggetto2D.add( new ClientOggetto2D(tempCopy) );
 			
 			//System.out.println( tempCopy.getInfoPosition() );
 			if (IDmyShip==tempCopy.ID)
@@ -426,13 +372,11 @@ public class ClientEngine extends TimerTask{
 		
 		temp = world.getNewOggetti().values();
 		for ( Oggetto2D o:temp ){
-			//pos = o.getInfoPosition().getPos();
-			tempCopy = asincroniusWorld.addCopy(o, 0, 0);
+			pos = o.getInfoPosition().getPos();
+			tempCopy = asincroniusWorld.addCopy( o, pos.x, pos.y, o.getInfoPosition().getAngle() );
 			tempCopy.setInfoPosition( o.getInfoPosition() );
 			
-			synchronized (allOggetto2D) {
-				allOggetto2D.add( new ClientOggetto2D(tempCopy) );
-			}
+			tempAllOggetto2D.add( new ClientOggetto2D(tempCopy) );
 			
 			//System.out.println( tempCopy.getInfoPosition() );
 			if (IDmyShip==tempCopy.ID)
@@ -468,13 +412,13 @@ public class ClientEngine extends TimerTask{
 		Oggetto2D newObj;
 		InfoBody newObjPos;
 		Action newAct;
-		//Vec2 pos;
+		Vec2 pos;
 		time = System.nanoTime();
 		//add the new obj and set their position
 		while ( (newObj=t.pollNewObj())!=null ){
 			newObjPos = t.pollPosObj();
-			//pos = newObjPos.getPos();
-			world.addNew(newObj);
+			pos = newObjPos.getPos();
+			world.addNew( newObj, pos.x, pos.y, newObjPos.getAngle() );
 			newObj.setInfoPosition( newObjPos );
 			
 			System.out.println( "created object:"+newObj.getInfoPosition().compare(newObjPos)+" ID "+newObj.ID );
@@ -493,32 +437,32 @@ public class ClientEngine extends TimerTask{
 		
 		time = System.nanoTime();
 		//set the actions
+		LinkedList<Action> myActionDefinetlyExecuted = new LinkedList<Action>();
 		while ( (newAct=t.pollActions())!=null ){
-			newAct.run( world.get(newAct.ID) );
-			System.out.println( "action setted for object:"+newAct.ID+" at turn:"+t.actualTurn );
-			if ( newAct.ID==IDmyShip ){
+			newAct.run( world.get(newAct.ownerID) );
+			System.out.println( "action setted for object:"+newAct.ownerID+" at turn:"+t.actualTurn );
+			if ( newAct.ownerID==IDmyShip ){
+				myActionDefinetlyExecuted.add(newAct);
+				/*
 				synchronized (myActions) {
 					ArrayList<Action> arrT = myActions.get( newAct.getExecTime() );
 					if (arrT!=null)
 						arrT.remove(newAct);
 				}
+				*/
 			}
+		}
+		
+		synchronized (myActions) {
+			for (long id:myActions.keySet()){
+				if ( myActions.get(id).contains(myActionDefinetlyExecuted.get(0)) ){
+					System.out.println( "Real Lag:"+(id-world.actualTurn) );
+				}
+			}
+			myActions.values().removeAll(myActionDefinetlyExecuted);
 		}
 		time = System.nanoTime() -time;
-		System.out.println( "\t\tAction time: "+time );
-		/*
-		//set the collision
-		while ( (newObjPos=t.pollCollision())!=null ){
-			if ( world.get(newObjPos.ID)!=null )
-				world.get(newObjPos.ID).setInfoPosition(newObjPos);
-			else{
-				System.out.println("Error: cannot find "+newObjPos.ID);
-				close();
-			}
-		}
-		*/
-		//world.update();
-		
+		System.out.println( "\t\tAction time: "+time );		
 	}
 
 	private void updateAsincronousWorld(long asincTurn) {
@@ -533,8 +477,8 @@ public class ClientEngine extends TimerTask{
 				my = myActions.get(asincroniusWorld.actualTurn);
 				if (my!= null){//if there are action
 					for (Action t: my){
-						t.run( asincroniusWorld.get(t.ID) );
-						System.out.println( "\t\tAsin action setted for object:"+t.ID+" at turn:"+asincroniusWorld.actualTurn );
+						t.run( asincroniusWorld.get(t.ownerID) );
+						System.out.println( "\t\tAsin action setted for object:"+t.ownerID+" at turn:"+asincroniusWorld.actualTurn );
 					}
 				}
 			}
@@ -554,9 +498,6 @@ public class ClientEngine extends TimerTask{
 		boolean error = false;
 		System.out.println("\t\tTestin precision of map");
 		
-		//rebuildAsichronousWorld();
-		
-		//LinkedList<InfoBody> ris;
 		InfoBody a;
 		
 		//DEBUG at turn
@@ -573,14 +514,14 @@ public class ClientEngine extends TimerTask{
 			if ( temp!=null ){
 				//System.out.println( a.ID+" error: "+ temp.getInfoPosition().compare(a) );
 				if ( temp.getInfoPosition().compare(a)!=0 ){
-					if ( firstCorrection ){ //here you can set the max acceptable error
-						System.out.println( "Correcting ID: "+a.ID+" error: "+temp.getInfoPosition().compare(a)+" has to be:\n"+a+" is:\n"+temp.getInfoPosition() );
-						temp.setInfoPosition(a);
-					}else{
+					//if ( firstCorrection ){ //here you can set the max acceptable error
+					//	System.out.println( "Correcting ID: "+a.ID+" error: "+temp.getInfoPosition().compare(a)+" has to be:\n"+a+" is:\n"+temp.getInfoPosition() );
+					//	temp.setInfoPosition(a);
+					//}else{
 						System.out.println("Found unexpected world error!");
 						System.out.println( "ID: "+a.ID+" error: "+temp.getInfoPosition().compare(a)+" has to be:\n"+a+" is:\n"+temp.getInfoPosition() );
 						error = true;
-					}
+					//}
 				}else{
 					System.out.println( a.ID+": Every little things, gonna be all right");//+a );
 				}
@@ -590,12 +531,8 @@ public class ClientEngine extends TimerTask{
 				error = true;
 			}
 		}
-		firstCorrection = false;
-		/*
-		while ( (a=ris.poll())!=null ){
-			lastAllMap.add(a);
-		}
-		*/
+		//firstCorrection = false;
+
 		//CLOSE if find error
 		if (error)
 			close();

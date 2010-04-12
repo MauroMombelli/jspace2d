@@ -11,11 +11,11 @@ public abstract class Action implements Serializable {
 	 */
 	private static final long serialVersionUID = 4252933575712164693L;
 
-	public int ID;
+	public int ownerID;
 	long time;
 	
 	public Action(int ID){
-		this.ID = ID;
+		this.ownerID = ID;
 	}
 	
 	public abstract boolean run(Oggetto2D p); //return true if action is executed with success
@@ -28,14 +28,18 @@ public abstract class Action implements Serializable {
 		return time;
 	}
 	
-	public boolean equals(Object obj){
+	public abstract boolean equals(Object obj);
+	/*{
+		
 		if (obj instanceof Action)
-			if ( ((Action)obj).ID == ID )
+			if ( ((Action)obj).ownerID == ownerID ){
 				return true;
+			}
+				
 		return false;
 	}
-	
+	*/
 	public int hashCode(){
-		return ID;
+		return ownerID;
 	}
 }

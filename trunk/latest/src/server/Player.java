@@ -75,7 +75,7 @@ public class Player {
 					if (t instanceof Action){
 						System.out.println("Executing action");
 						Action a = ((Action)t);
-						if ( a.run( myPossessoin.get(a.ID) ) ){
+						if ( a.run( myPossessoin.get(a.ownerID) ) ){
 							synchronized (myActions) {
 								LinkedList<Action> actionAtTurn = myActions.get( a.getExecTime() );
 								if (actionAtTurn!=null){

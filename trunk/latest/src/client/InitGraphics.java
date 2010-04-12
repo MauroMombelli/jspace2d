@@ -19,7 +19,7 @@ public class InitGraphics {
 	WorldGameState guiWorld;
 	PosFPSGameState gameFPS;
 	PosTextGameState gameLAG;
-	
+	PosTextGameState clientTurn;
 	InputReader in;
 	StandardGame game;
 	
@@ -53,15 +53,18 @@ public class InitGraphics {
 		//guiWorld.addAction( new SetNode(100, "sfera.xml", new Vec2(0,0), 0) );
 		//guiWorld.addAction( new SetNode(101, "sfera.xml", new Vec2(5,0), 0) );
 		//System.out.println("action added");//Add FPS counter
-		gameFPS = new PosFPSGameState(10, 15, 10);
+		gameFPS = new PosFPSGameState(10, 3, 10);
 		gameFPS.setText("wow");
 		GameStateManager.getInstance().attachChild(gameFPS);
 		gameFPS.setActive(true);
 		
-		gameLAG = new PosTextGameState("INITIALIZING",10, 3, 10);
+		gameLAG = new PosTextGameState("INITIALIZING",10, 15, 10);
 		GameStateManager.getInstance().attachChild(gameLAG);
 		gameLAG.setActive(true);
 
+		clientTurn = new PosTextGameState("INITIALIZING",10, 27, 10);
+		GameStateManager.getInstance().attachChild(clientTurn);
+		clientTurn.setActive(true);
 	}
 	
 	public WorldGameState getWorldGUI(){
@@ -80,4 +83,7 @@ public class InitGraphics {
 		gameLAG.setText("LAG: "+msLag);
 	}
 	
+	public void setTurn(long aturn, long turn) {
+		clientTurn.setText("AsincTurn:"+aturn+" sincTurn:"+turn);
+	}
 }
