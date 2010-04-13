@@ -11,7 +11,6 @@ import shared.Oggetto2D;
 import shared.PhysicWorld;
 import shared.TurnDuration;
 import shared.azioni.Action;
-import shared.azioni.ActionEngine;
 import shared.specialActions.ShipRequest;
 
 public class Engine extends TimerTask{
@@ -33,7 +32,7 @@ public class Engine extends TimerTask{
 	//long actualTurn;
 	
 	PhysicWorld world = new PhysicWorld();
-	int objIndex=0;
+
 	//HashMap<Integer, Oggetto2D> allOggetto2D = new HashMap<Integer, Oggetto2D>();
 	//ArrayList<Oggetto2D> newOggetti2D = new ArrayList<Oggetto2D>();
 	
@@ -54,12 +53,14 @@ public class Engine extends TimerTask{
 		Oggetto2D t;
 		for (int i=0; i < 10; i++){
 			for (int a=0; a < 10; a++){
-				t = new Oggetto2D(objIndex++);
+				t = new Oggetto2D(world.getNextIndex());
 				world.addNew( t, GLOBAL_VARIABLE.convertToPhysicEngineUnit( i*10 ), GLOBAL_VARIABLE.convertToPhysicEngineUnit( a*10 ), 0 );
 				
+				/*
 				Action az = new ActionEngine(t.ID, GLOBAL_VARIABLE.convertToPhysicEngineUnit( (float)Math.random()*6-3 ), GLOBAL_VARIABLE.convertToPhysicEngineUnit( (float)Math.random()*6-3 ), 0);
-				az.run(t);
+				az.run(t, world);
 				allChanges.add(az);
+				*/
 			}
 		}
 	}
@@ -128,7 +129,9 @@ public class Engine extends TimerTask{
 
 	private void writeAllMaps() {
 		AllMap n = new AllMap(world.actualTurn);
-		for ( Oggetto2D t:world.getOggetti().values() ){
+		
+		
+		for ( Oggetto2D t:world.getOggetti() ){
 			n.add( t.getInfoPosition() );
 		}
 		
@@ -146,13 +149,13 @@ public class Engine extends TimerTask{
 		//add all map to new observer NewTurn
 		NewTurn nNewObserver = new NewTurn(world.actualTurn);
 		
-		for ( Oggetto2D t:world.getOggetti().values() ){
+		for ( Oggetto2D t:world.getOggetti() ){
 			nNewObserver.add( t, t.getInfoPosition() );
 		}
 		
 		//add all new object to observer and new observer NewTurn
 		NewTurn n = new NewTurn(world.actualTurn);
-		for ( Oggetto2D t:world.getNewOggetti().values() ){
+		for ( Oggetto2D t:world.getNewOggetti() ){
 			nNewObserver.add( t, t.getInfoPosition() );
 			n.add( t, t.getInfoPosition() );
 		}
@@ -193,7 +196,7 @@ public class Engine extends TimerTask{
 		for (int i =0; i < unloggedPlayer.size(); i++){
 			tP = unloggedPlayer.poll();
 			if ( !tP.isClosed() ){
-				tP.update();
+				tP.update(world);
 				if (tP.getLogin() == null){
 					if (tP.getUpdate() < TIMEOUT_LOGIN  )
 						unloggedPlayer.add(tP);
@@ -218,12 +221,12 @@ public class Engine extends TimerTask{
 				t.close();
 				removedObserver.add(t);
 			}else{
-				t.update();
+				t.update(world);
 				if ( (objToCreate=t.getCreateShip()) != null ){
 					System.out.println("creating ship1");
 					players.add(t);
 					removedObserver.add(t);
-					objToCreate.run(world, objIndex++, t);
+					objToCreate.run(world, t);
 				}
 			}
 		}
@@ -240,7 +243,7 @@ public class Engine extends TimerTask{
 				t.close();
 				removedPlayer.add(t);
 			}else{
-				t.update();
+				t.update(world);
 				allChanges.addAll( t.getMyActions(world.actualTurn) );
 			}
 		}

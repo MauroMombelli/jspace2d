@@ -5,6 +5,7 @@ import java.io.Serializable;
 import org.jbox2d.common.Vec2;
 
 import shared.Oggetto2D;
+import shared.PhysicWorld;
 
 public class ActionEngine extends Action implements Serializable{
 	
@@ -23,7 +24,7 @@ public class ActionEngine extends Action implements Serializable{
 	}
 	
 	@Override
-	public boolean run(Oggetto2D p){
+	public boolean run(Oggetto2D p, PhysicWorld w){
 		if (p != null){
 			if (p.ID==ownerID){
 				if (p.getBody() != null){

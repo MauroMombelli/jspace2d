@@ -9,6 +9,7 @@ import shared.InputReader;
 import shared.Login;
 import shared.Oggetto2D;
 import shared.OutputWriter;
+import shared.PhysicWorld;
 import shared.Ship;
 import shared.azioni.Action;
 import shared.specialActions.RemoveShip;
@@ -51,7 +52,7 @@ public class Player {
 		}
 	}
 	
-	public void update(){
+	public void update(PhysicWorld w){
 		update++;
 
 		myActions.clear();
@@ -75,7 +76,7 @@ public class Player {
 					if (t instanceof Action){
 						System.out.println("Executing action");
 						Action a = ((Action)t);
-						if ( a.run( myPossessoin.get(a.ownerID) ) ){
+						if ( a.run( myPossessoin.get(a.ownerID), w ) ){
 							synchronized (myActions) {
 								LinkedList<Action> actionAtTurn = myActions.get( a.getExecTime() );
 								if (actionAtTurn!=null){

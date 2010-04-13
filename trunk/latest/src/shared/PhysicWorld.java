@@ -1,6 +1,7 @@
 package shared;
 
 import java.util.TreeMap;
+import java.util.TreeSet;
 
 import org.jbox2d.collision.AABB;
 import org.jbox2d.collision.shapes.PolygonDef;
@@ -19,13 +20,18 @@ public class PhysicWorld {
 	TreeMap<Integer, Oggetto2D> allOggetto2D = new TreeMap<Integer, Oggetto2D>();
 	TreeMap<Integer, Oggetto2D> newOggetti2D = new TreeMap<Integer, Oggetto2D>();
 	
+	TreeSet<Oggetto2D> sortedOggetto2D = new TreeSet<Oggetto2D>();
+	TreeSet<Oggetto2D> sortedNewOggetti2D = new TreeSet<Oggetto2D>();
+	
 	public long actualTurn=0;
+	
+	int objIndex=0;
 	
 	public PhysicWorld(){
 		AABB worldSize = new AABB(new Vec2(minX, minY), new Vec2(maxX,maxY));
 		Vec2 worldGravity = new Vec2();
 		physicWorld = new World(worldSize, worldGravity, true);
-		physicWorld.setWarmStarting(true);
+		//physicWorld.setWarmStarting(true);
 		//physicWorld.setContinuousPhysics(true);
 		createBorder();
 	}
@@ -86,6 +92,8 @@ public class PhysicWorld {
 		//add the new object to the object
 		allOggetto2D.putAll(newOggetti2D);
 		newOggetti2D.clear();
+		sortedOggetto2D.addAll(sortedNewOggetti2D);
+		sortedNewOggetti2D.clear();
 		
 	}
 	/*
@@ -122,6 +130,7 @@ public class PhysicWorld {
 			t.getBody().setMassFromShapes();
 			
 			newOggetti2D.put(t.ID, t);
+			sortedNewOggetti2D.add(t);
 			
 			System.out.println("elements in world:"+physicWorld.getBodyCount());
 			return t;
@@ -136,6 +145,8 @@ public class PhysicWorld {
 	public void clear() {
 		allOggetto2D.clear();
 		newOggetti2D.clear();
+		sortedOggetto2D.clear();
+		sortedNewOggetti2D.clear();
 		
 		Body t = physicWorld.getBodyList();
 		while (t!=null){
@@ -167,6 +178,7 @@ public class PhysicWorld {
 			copy.getBody().setMassFromShapes();
 			
 			newOggetti2D.put(copy.ID, copy);
+			sortedNewOggetti2D.add(copy);
 			
 			//System.out.println("elements in world:"+physicWorld.getBodyCount());
 			return copy;
@@ -183,20 +195,33 @@ public class PhysicWorld {
 		physicWorld.destroyBody(body);
 	}
 
-	public TreeMap<Integer, Oggetto2D> getOggetti() {
+	public TreeMap<Integer, Oggetto2D> getMapOggetti() {
 		return allOggetto2D;
 	}
 
-	public TreeMap<Integer, Oggetto2D> getNewOggetti() {
-		// TODO Auto-generated method stub
+	public TreeMap<Integer, Oggetto2D> getMapNewOggetti() {
 		return newOggetti2D;
 	}
 
+	public TreeSet<Oggetto2D> getOggetti() {
+		return sortedOggetto2D;
+	}
+
+	public TreeSet<Oggetto2D> getNewOggetti() {
+		return sortedNewOggetti2D;
+	}
+	
 	public Oggetto2D get(int iD) {
 		Oggetto2D ris =allOggetto2D.get(iD);
 		if (ris == null)
 			ris = newOggetti2D.get(iD);
 		return ris;
+	}
+
+	public int getNextIndex() {
+		while ( allOggetto2D.containsKey(objIndex) || newOggetti2D.containsKey(objIndex) )
+			objIndex++;
+		return objIndex;
 	}
 	
 }

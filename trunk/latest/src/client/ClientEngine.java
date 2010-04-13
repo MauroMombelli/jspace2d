@@ -5,6 +5,7 @@ import java.util.Collection;
 import java.util.LinkedList;
 import java.util.TimerTask;
 import java.util.TreeMap;
+import java.util.TreeSet;
 
 import org.jbox2d.common.Vec2;
 
@@ -45,6 +46,8 @@ public class ClientEngine extends TimerTask{
 	Oggetto2D myShip;//In the asynchronous world
 	
 	long turnLag=-1;
+
+	private int errorNumber=1;
 	
 	public ClientEngine(ServerListener serverListener, long actualTurn, long turnDuration) {
 		server = serverListener;
@@ -132,7 +135,7 @@ public class ClientEngine extends TimerTask{
 	
 	//INPUT PURPOISE
 	private void sendActions() {
-		
+		boolean actionExecuted = false;
 		if (KeyBindingManager.getKeyBindingManager().isValidCommand("escape", true)) {
 			gui.close();
 			System.exit(0);
@@ -160,18 +163,26 @@ public class ClientEngine extends TimerTask{
 			float y = strenght*FastMath.sin( myShip.getBody().getAngle() + FastMath.PI/2 );
 			System.out.println( "Writing action, xV:"+x+" yV:"+y+" aV"+angle );
 			executeAction( new ActionEngine(myShip.ID, x, y, angle) );
+			actionExecuted = true;
 		}
 		
 		//shoot
 		if (KeyBindingManager.getKeyBindingManager().isValidCommand("shot_light", false)) {
 			angle -= 1f;
         }
+		
+		if (actionExecuted){
+			long t = asincroniusWorld.actualTurn;
+			rebuildAsichronousWorld();
+			updateAsincronousWorld(t);
+		}
 	}
 	
 	public void executeAction(Action a){
 		System.out.println( "Writing action" );
 		server.write(a);
-		a.setExecTime(asincroniusWorld.actualTurn+turnLag+actionsLag);
+		a.setExecTime(asincroniusWorld.actualTurn-turnLag+actionsLag);
+		
 		synchronized (myActions) {
 			ArrayList<Action> t=myActions.get( a.getExecTime() );
 			if ( t == null ){
@@ -181,6 +192,7 @@ public class ClientEngine extends TimerTask{
 			}else
 				t.add(a);
 		}
+		
 	}
 
 	//PHYSIC PURPOISE
@@ -294,8 +306,8 @@ public class ClientEngine extends TimerTask{
 		System.out.println( "\tSecond update syncronous time: "+time);
 		
 		/*
-		//remove old myAction
 		time = System.nanoTime();
+		//remove old myAction
 		LinkedList<Action> ris = new LinkedList<Action>();
 		synchronized (myActions) {
 			for (long id : myActions.keySet() ){
@@ -305,9 +317,9 @@ public class ClientEngine extends TimerTask{
 			}
 			myActions.values().removeAll(ris);
 		}
-		*/
 		time = System.nanoTime()-time;
 		System.out.println( "\tRemoving old action time: "+time);
+		*/
 		
 		if (synchronousChanged){
 			time = System.nanoTime();
@@ -339,7 +351,7 @@ public class ClientEngine extends TimerTask{
 		time = System.nanoTime()-time;
 		System.out.println( "\tUpdate asyncronous time: "+time);
 		
-		gui.setTurn(asincroniusWorld.actualTurn, world.actualTurn);
+		gui.setTurn(asincroniusWorld.actualTurn, world.actualTurn, errorNumber);
 		
 		copyWorldForPaint();
 
@@ -357,7 +369,7 @@ public class ClientEngine extends TimerTask{
 		time = System.nanoTime();
 		Oggetto2D tempCopy;
 		Vec2 pos;
-		Collection<Oggetto2D> temp = world.getOggetti().values();
+		Collection<Oggetto2D> temp = world.getOggetti();
 		for (Oggetto2D o:temp){
 			pos = o.getInfoPosition().getPos();
 			tempCopy = asincroniusWorld.addCopy( o, pos.x, pos.y, o.getInfoPosition().getAngle() );
@@ -370,7 +382,7 @@ public class ClientEngine extends TimerTask{
 				myShip = tempCopy;
 		}
 		
-		temp = world.getNewOggetti().values();
+		temp = world.getNewOggetti();
 		for ( Oggetto2D o:temp ){
 			pos = o.getInfoPosition().getPos();
 			tempCopy = asincroniusWorld.addCopy( o, pos.x, pos.y, o.getInfoPosition().getAngle() );
@@ -439,27 +451,23 @@ public class ClientEngine extends TimerTask{
 		//set the actions
 		LinkedList<Action> myActionDefinetlyExecuted = new LinkedList<Action>();
 		while ( (newAct=t.pollActions())!=null ){
-			newAct.run( world.get(newAct.ownerID) );
+			newAct.run( world.get(newAct.ownerID), world );
 			System.out.println( "action setted for object:"+newAct.ownerID+" at turn:"+t.actualTurn );
 			if ( newAct.ownerID==IDmyShip ){
 				myActionDefinetlyExecuted.add(newAct);
-				/*
-				synchronized (myActions) {
-					ArrayList<Action> arrT = myActions.get( newAct.getExecTime() );
-					if (arrT!=null)
-						arrT.remove(newAct);
-				}
-				*/
 			}
 		}
 		
 		synchronized (myActions) {
+			
 			for (long id:myActions.keySet()){
 				if ( myActions.get(id).contains(myActionDefinetlyExecuted.get(0)) ){
 					System.out.println( "Real Lag:"+(id-world.actualTurn) );
 				}
 			}
-			myActions.values().removeAll(myActionDefinetlyExecuted);
+			
+			for ( ArrayList<Action> tA:myActions.values() )
+				tA.removeAll(myActionDefinetlyExecuted);
 		}
 		time = System.nanoTime() -time;
 		System.out.println( "\t\tAction time: "+time );		
@@ -477,7 +485,7 @@ public class ClientEngine extends TimerTask{
 				my = myActions.get(asincroniusWorld.actualTurn);
 				if (my!= null){//if there are action
 					for (Action t: my){
-						t.run( asincroniusWorld.get(t.ownerID) );
+						t.run( asincroniusWorld.get(t.ownerID), asincroniusWorld );
 						System.out.println( "\t\tAsin action setted for object:"+t.ownerID+" at turn:"+asincroniusWorld.actualTurn );
 					}
 				}
@@ -503,39 +511,83 @@ public class ClientEngine extends TimerTask{
 		//DEBUG at turn
 		System.out.println( "\t\tDEBUG turn: "+lastAllMap.turn);
 		if (lastAllMap.turn > world.actualTurn){
-			System.out.println( "test require "+(lastAllMap.turn-world.actualTurn)+" step" );
+			System.out.println( "\t\ttest require "+(lastAllMap.turn-world.actualTurn)+" step" );
 			updateWorld(lastAllMap.turn);
 		}
 		//ris = new LinkedList<InfoBody>();
+		
+		
+		TreeSet<Oggetto2D> tempWord = world.getOggetti();
+		
+		for (Oggetto2D t:tempWord){
+			a=lastAllMap.poll();
+			if (a == null){
+				System.out.println( "\t\t\tClient world has more obj than server!" );
+				error = true;
+				break;
+			}
+			if (t.ID == a.ID){
+				if ( t.getInfoPosition().compare(a)!=0 ){
+					System.out.println( "\t\t\tCorrecting ID: "+a.ID+" error: "+t.getInfoPosition().compare(a)+" has to be:\n"+a+" is:\n"+t.getInfoPosition() );
+					t.setInfoPosition(a);
+					error = true;
+				}//else everything is all right
+			}else{
+				System.out.println( "\t\t\tExpected ID: "+a.ID+" found: "+t.ID );
+				error = true;
+			}
+		}
+		
+		a=lastAllMap.poll();
+		if (a != null){
+			System.out.println( "\t\t\tServer world has more obj than client!" );
+			error = true;
+		}
+		/*
 		Oggetto2D temp;
 		while ( (a=lastAllMap.poll())!=null ){
 			//ris.add(a);
+			
+			
+			
 			temp = world.get(a.ID);
 			if ( temp!=null ){
 				//System.out.println( a.ID+" error: "+ temp.getInfoPosition().compare(a) );
 				if ( temp.getInfoPosition().compare(a)!=0 ){
-					//if ( firstCorrection ){ //here you can set the max acceptable error
-					//	System.out.println( "Correcting ID: "+a.ID+" error: "+temp.getInfoPosition().compare(a)+" has to be:\n"+a+" is:\n"+temp.getInfoPosition() );
-					//	temp.setInfoPosition(a);
+					//if ( errorNumber < 2 ){ //here you can set the max acceptable error
+						System.out.println( "Correcting ID: "+a.ID+" error: "+temp.getInfoPosition().compare(a)+" has to be:\n"+a+" is:\n"+temp.getInfoPosition() );
+						temp.setInfoPosition(a);
+					//	errorNumber++;
 					//}else{
-						System.out.println("Found unexpected world error!");
-						System.out.println( "ID: "+a.ID+" error: "+temp.getInfoPosition().compare(a)+" has to be:\n"+a+" is:\n"+temp.getInfoPosition() );
+					//	System.out.println( "ID: "+a.ID+" error: "+temp.getInfoPosition().compare(a)+" has to be:\n"+a+" is:\n"+temp.getInfoPosition() );
 						error = true;
 					//}
 				}else{
-					System.out.println( a.ID+": Every little things, gonna be all right");//+a );
+					//System.out.println( a.ID+": Every little things, gonna be all right");//+a );
 				}
 			}else{
 				System.out.println( "\t\t"+a.ID+" doesn't exist!" );
 				//close();
 				error = true;
 			}
+			
 		}
-		//firstCorrection = false;
-
+		//errorNumber = false;
+		*/
+		if (error){
+			errorNumber++;
+			System.out.println("\t\t\tFound unexpected world error!");
+		}else{
+			System.out.println("\t\tTest OK!");
+		}
+		
+		/*
 		//CLOSE if find error
-		if (error)
+		if (errorNumber>0){
 			close();
+		}
+		*/
+			
 	}
 
 }

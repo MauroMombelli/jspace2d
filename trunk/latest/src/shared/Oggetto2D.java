@@ -9,7 +9,7 @@ import org.jbox2d.collision.shapes.CircleDef;
 import org.jbox2d.dynamics.Body;
 
 
-public class Oggetto2D implements Serializable {
+public class Oggetto2D implements Serializable, Comparable<Oggetto2D> {
 
 	/**
 	 * 
@@ -97,6 +97,11 @@ public class Oggetto2D implements Serializable {
 	public void continueCollide(Oggetto2D obj1) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public int compareTo(Oggetto2D o) {
+		return ID-o.ID;
 	}
 
 }

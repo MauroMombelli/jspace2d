@@ -3,6 +3,7 @@ package shared.azioni;
 import java.io.Serializable;
 
 import shared.Oggetto2D;
+import shared.PhysicWorld;
 
 public abstract class Action implements Serializable {
 
@@ -18,7 +19,7 @@ public abstract class Action implements Serializable {
 		this.ownerID = ID;
 	}
 	
-	public abstract boolean run(Oggetto2D p); //return true if action is executed with success
+	public abstract boolean run(Oggetto2D p, PhysicWorld w); //return true if action is executed with success
 
 	public void setExecTime(long turn) {
 		time = turn;

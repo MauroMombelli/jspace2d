@@ -83,7 +83,7 @@ public class InitGraphics {
 		gameLAG.setText("LAG: "+msLag);
 	}
 	
-	public void setTurn(long aturn, long turn) {
-		clientTurn.setText("AsincTurn:"+aturn+" sincTurn:"+turn);
+	public void setTurn(long aturn, long turn, int errorNumber) {
+		clientTurn.setText("AsincTurn:"+aturn+" sincTurn:"+turn+" world physic error:"+errorNumber);
 	}
 }

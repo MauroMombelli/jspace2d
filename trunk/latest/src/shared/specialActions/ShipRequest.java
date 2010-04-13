@@ -24,9 +24,9 @@ public class ShipRequest implements Serializable{
 		this.setID(ID);
 	}
 
-	public void run(PhysicWorld w, int objIndex, Player p) {
+	public void run(PhysicWorld w, Player p) {
 		if (getID()==-1){
-			Ship s = new Ship(objIndex);
+			Ship s = new Ship( w.getNextIndex() );
 			w.addNew( s, GLOBAL_VARIABLE.convertToPhysicEngineUnit( 0.1f ), GLOBAL_VARIABLE.convertToPhysicEngineUnit( 100 ), 0 );
 			p.addShip(s);
 			System.out.println("Created ship "+s.ID+" for player: "+p.getLogin().toString());
