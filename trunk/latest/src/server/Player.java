@@ -52,15 +52,18 @@ public class Player {
 		}
 	}
 	
-	public void update(PhysicWorld w){
+	public void update(PhysicWorld w, LinkedList<Action> allChanges){
 		update++;
 
 		myActions.clear();
 		createOggettiActions.clear();
 		removeOggettiActions.clear();
 		//read and execute client request
+		
 		Object t;
 		while( ( t=inR.poll() )!=null){ //until there is input
+			
+			
 			
 			if (myself == null){ //first of all read login
 				if (t instanceof Login){
@@ -76,7 +79,7 @@ public class Player {
 					if (t instanceof Action){
 						System.out.println("Executing action");
 						Action a = ((Action)t);
-						if ( a.run( myPossessoin.get(a.ownerID), w ) ){
+						if ( a.run( myPossessoin.get(a.ownerID), w, allChanges ) ){
 							synchronized (myActions) {
 								LinkedList<Action> actionAtTurn = myActions.get( a.getExecTime() );
 								if (actionAtTurn!=null){
@@ -104,6 +107,7 @@ public class Player {
 					}
 				}
 			}
+			
 		}
 	}
 	

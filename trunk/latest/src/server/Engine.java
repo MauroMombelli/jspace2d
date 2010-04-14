@@ -196,7 +196,7 @@ public class Engine extends TimerTask{
 		for (int i =0; i < unloggedPlayer.size(); i++){
 			tP = unloggedPlayer.poll();
 			if ( !tP.isClosed() ){
-				tP.update(world);
+				tP.update(world, allChanges);
 				if (tP.getLogin() == null){
 					if (tP.getUpdate() < TIMEOUT_LOGIN  )
 						unloggedPlayer.add(tP);
@@ -221,7 +221,7 @@ public class Engine extends TimerTask{
 				t.close();
 				removedObserver.add(t);
 			}else{
-				t.update(world);
+				t.update(world, allChanges);
 				if ( (objToCreate=t.getCreateShip()) != null ){
 					System.out.println("creating ship1");
 					players.add(t);
@@ -243,7 +243,7 @@ public class Engine extends TimerTask{
 				t.close();
 				removedPlayer.add(t);
 			}else{
-				t.update(world);
+				t.update(world, allChanges);
 				allChanges.addAll( t.getMyActions(world.actualTurn) );
 			}
 		}

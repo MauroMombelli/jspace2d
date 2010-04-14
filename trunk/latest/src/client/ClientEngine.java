@@ -1,6 +1,5 @@
 package client;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.LinkedList;
 import java.util.TimerTask;
@@ -19,6 +18,7 @@ import shared.Oggetto2D;
 import shared.PhysicWorld;
 import shared.azioni.Action;
 import shared.azioni.ActionEngine;
+import shared.azioni.ActionLightShot;
 import shared.specialActions.ShipRequest;
 
 public class ClientEngine extends TimerTask{
@@ -37,7 +37,7 @@ public class ClientEngine extends TimerTask{
 	LinkedList<ClientOggetto2D> allOggetto2D = new LinkedList<ClientOggetto2D>();
 	LinkedList<ClientOggetto2D> tempAllOggetto2D = new LinkedList<ClientOggetto2D>();
 	
-	TreeMap< Long, ArrayList<Action> > myActions = new TreeMap<Long, ArrayList<Action> >();
+	TreeMap< Long, LinkedList<Action> > myActions = new TreeMap<Long, LinkedList<Action> >();
 	long lastMyActionClear;
 	
 	private InitGraphics gui;
@@ -168,7 +168,7 @@ public class ClientEngine extends TimerTask{
 		
 		//shoot
 		if (KeyBindingManager.getKeyBindingManager().isValidCommand("shot_light", false)) {
-			angle -= 1f;
+			executeAction( new ActionLightShot(myShip.ID) );
         }
 		
 		if (actionExecuted){
@@ -182,17 +182,17 @@ public class ClientEngine extends TimerTask{
 		System.out.println( "Writing action" );
 		server.write(a);
 		a.setExecTime(asincroniusWorld.actualTurn-turnLag+actionsLag);
-		
+		/*
 		synchronized (myActions) {
-			ArrayList<Action> t=myActions.get( a.getExecTime() );
+			LinkedList<Action> t=myActions.get( a.getExecTime() );
 			if ( t == null ){
-				t = new ArrayList<Action>();
+				t = new LinkedList<Action>();
 				t.add(a);
 				myActions.put(a.getExecTime(), t);
 			}else
 				t.add(a);
 		}
-		
+		*/
 	}
 
 	//PHYSIC PURPOISE
@@ -451,7 +451,7 @@ public class ClientEngine extends TimerTask{
 		//set the actions
 		LinkedList<Action> myActionDefinetlyExecuted = new LinkedList<Action>();
 		while ( (newAct=t.pollActions())!=null ){
-			newAct.run( world.get(newAct.ownerID), world );
+			newAct.run( world.get(newAct.ownerID), world, myActions.get(world.actualTurn) );
 			System.out.println( "action setted for object:"+newAct.ownerID+" at turn:"+t.actualTurn );
 			if ( newAct.ownerID==IDmyShip ){
 				myActionDefinetlyExecuted.add(newAct);
@@ -466,7 +466,7 @@ public class ClientEngine extends TimerTask{
 				}
 			}
 			
-			for ( ArrayList<Action> tA:myActions.values() )
+			for ( LinkedList<Action> tA:myActions.values() )
 				tA.removeAll(myActionDefinetlyExecuted);
 		}
 		time = System.nanoTime() -time;
@@ -475,21 +475,28 @@ public class ClientEngine extends TimerTask{
 
 	private void updateAsincronousWorld(long asincTurn) {
 		System.out.println( "\t\tI'm updating the asynchronous world!! Was "+asincroniusWorld.actualTurn +" will be "+asincTurn );
-		ArrayList<Action> my;
+		LinkedList<Action> my;
+		Action t;
+		LinkedList<Action> temp;
 		while (asincroniusWorld.actualTurn < asincTurn){
 			//update world
 			asincroniusWorld.update();
-			
+			/*
 			//execute my actions
 			synchronized (myActions) {
 				my = myActions.get(asincroniusWorld.actualTurn);
 				if (my!= null){//if there are action
-					for (Action t: my){
-						t.run( asincroniusWorld.get(t.ownerID), asincroniusWorld );
+					temp = new LinkedList<Action>();
+					for (int i=0; i < my.size(); i++){
+						t = my.poll();
+						t.run( asincroniusWorld.get(t.ownerID), asincroniusWorld, my );
 						System.out.println( "\t\tAsin action setted for object:"+t.ownerID+" at turn:"+asincroniusWorld.actualTurn );
+						temp.add(t);
 					}
+					my.addAll(temp);
 				}
 			}
+			*/
 		}
 	}
 

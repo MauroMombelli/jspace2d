@@ -1,6 +1,7 @@
 package shared.azioni;
 
 import java.io.Serializable;
+import java.util.LinkedList;
 
 import org.jbox2d.common.Vec2;
 
@@ -24,7 +25,7 @@ public class ActionEngine extends Action implements Serializable{
 	}
 	
 	@Override
-	public boolean run(Oggetto2D p, PhysicWorld w){
+	public boolean run(Oggetto2D p, PhysicWorld w, LinkedList<Action> a) {
 		if (p != null){
 			if (p.ID==ownerID){
 				if (p.getBody() != null){
@@ -58,4 +59,5 @@ public class ActionEngine extends Action implements Serializable{
 		}
 		return false;
 	}
+
 }
