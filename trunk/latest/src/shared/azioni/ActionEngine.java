@@ -1,10 +1,10 @@
 package shared.azioni;
 
 import java.io.Serializable;
-import java.util.LinkedList;
 
 import org.jbox2d.common.Vec2;
 
+import server.Player;
 import shared.Oggetto2D;
 import shared.PhysicWorld;
 
@@ -25,15 +25,15 @@ public class ActionEngine extends Action implements Serializable{
 	}
 	
 	@Override
-	public boolean run(Oggetto2D p, PhysicWorld w, LinkedList<Action> a) {
-		if (p != null){
-			if (p.ID==ownerID){
-				if (p.getBody() != null){
+	public boolean run(Oggetto2D o, PhysicWorld w){
+		if (o != null){
+			if (o.ID==ownerID){
+				if (o.getBody() != null){
 					System.out.println("executing action: "+x+" "+y+" "+alpha);
-					System.out.println( "before: "+p.getInfoPosition() +" torque:"+ p.getBody().m_torque );
-					p.getBody().applyImpulse( new Vec2(x,y), p.getBody().getWorldCenter() );
-					p.getBody().applyTorque( alpha );
-					System.out.println( "after: "+p.getInfoPosition() +" torque:"+ p.getBody().m_torque );
+					System.out.println( "before: "+o.getInfoPosition() +" torque:"+ o.getBody().m_torque );
+					o.getBody().applyImpulse( new Vec2(x,y), o.getBody().getWorldCenter() );
+					o.getBody().applyTorque( alpha );
+					System.out.println( "after: "+o.getInfoPosition() +" torque:"+ o.getBody().m_torque );
 					return true;
 				}else{
 					System.out.println("error executing action, null body");
@@ -60,4 +60,8 @@ public class ActionEngine extends Action implements Serializable{
 		return false;
 	}
 
+	@Override
+	public boolean run(Oggetto2D o, PhysicWorld w, Player p) {
+		return run(o, w);
+	}
 }

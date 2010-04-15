@@ -18,7 +18,6 @@ import shared.Oggetto2D;
 import shared.PhysicWorld;
 import shared.azioni.Action;
 import shared.azioni.ActionEngine;
-import shared.azioni.ActionLightShot;
 import shared.specialActions.ShipRequest;
 
 public class ClientEngine extends TimerTask{
@@ -168,7 +167,7 @@ public class ClientEngine extends TimerTask{
 		
 		//shoot
 		if (KeyBindingManager.getKeyBindingManager().isValidCommand("shot_light", false)) {
-			executeAction( new ActionLightShot(myShip.ID) );
+			//executeAction( new ActionLightShot(myShip.ID) );
         }
 		
 		if (actionExecuted){
@@ -441,7 +440,6 @@ public class ClientEngine extends TimerTask{
 			
 			if (IDmyShip==newObj.ID){//executed only at the first creation time
 				myShip = newObj;
-				//server.write( new ActionEngine(myShip.ID, 1f, -1f, 0) );
 			}
 		}
 		time = System.nanoTime() -time;
@@ -451,7 +449,7 @@ public class ClientEngine extends TimerTask{
 		//set the actions
 		LinkedList<Action> myActionDefinetlyExecuted = new LinkedList<Action>();
 		while ( (newAct=t.pollActions())!=null ){
-			newAct.run( world.get(newAct.ownerID), world, myActions.get(world.actualTurn) );
+			newAct.run( world.get(newAct.ownerID), world );
 			System.out.println( "action setted for object:"+newAct.ownerID+" at turn:"+t.actualTurn );
 			if ( newAct.ownerID==IDmyShip ){
 				myActionDefinetlyExecuted.add(newAct);
@@ -481,7 +479,6 @@ public class ClientEngine extends TimerTask{
 		while (asincroniusWorld.actualTurn < asincTurn){
 			//update world
 			asincroniusWorld.update();
-			/*
 			//execute my actions
 			synchronized (myActions) {
 				my = myActions.get(asincroniusWorld.actualTurn);
@@ -489,14 +486,13 @@ public class ClientEngine extends TimerTask{
 					temp = new LinkedList<Action>();
 					for (int i=0; i < my.size(); i++){
 						t = my.poll();
-						t.run( asincroniusWorld.get(t.ownerID), asincroniusWorld, my );
+						t.run( asincroniusWorld.get(t.ownerID), asincroniusWorld );
 						System.out.println( "\t\tAsin action setted for object:"+t.ownerID+" at turn:"+asincroniusWorld.actualTurn );
 						temp.add(t);
 					}
 					my.addAll(temp);
 				}
 			}
-			*/
 		}
 	}
 
@@ -520,9 +516,7 @@ public class ClientEngine extends TimerTask{
 		if (lastAllMap.turn > world.actualTurn){
 			System.out.println( "\t\ttest require "+(lastAllMap.turn-world.actualTurn)+" step" );
 			updateWorld(lastAllMap.turn);
-		}
-		//ris = new LinkedList<InfoBody>();
-		
+		}		
 		
 		TreeSet<Oggetto2D> tempWord = world.getOggetti();
 		
@@ -531,6 +525,7 @@ public class ClientEngine extends TimerTask{
 			if (a == null){
 				System.out.println( "\t\t\tClient world has more obj than server!" );
 				error = true;
+				close();
 				break;
 			}
 			if (t.ID == a.ID){
@@ -549,38 +544,9 @@ public class ClientEngine extends TimerTask{
 		if (a != null){
 			System.out.println( "\t\t\tServer world has more obj than client!" );
 			error = true;
+			close();
 		}
-		/*
-		Oggetto2D temp;
-		while ( (a=lastAllMap.poll())!=null ){
-			//ris.add(a);
-			
-			
-			
-			temp = world.get(a.ID);
-			if ( temp!=null ){
-				//System.out.println( a.ID+" error: "+ temp.getInfoPosition().compare(a) );
-				if ( temp.getInfoPosition().compare(a)!=0 ){
-					//if ( errorNumber < 2 ){ //here you can set the max acceptable error
-						System.out.println( "Correcting ID: "+a.ID+" error: "+temp.getInfoPosition().compare(a)+" has to be:\n"+a+" is:\n"+temp.getInfoPosition() );
-						temp.setInfoPosition(a);
-					//	errorNumber++;
-					//}else{
-					//	System.out.println( "ID: "+a.ID+" error: "+temp.getInfoPosition().compare(a)+" has to be:\n"+a+" is:\n"+temp.getInfoPosition() );
-						error = true;
-					//}
-				}else{
-					//System.out.println( a.ID+": Every little things, gonna be all right");//+a );
-				}
-			}else{
-				System.out.println( "\t\t"+a.ID+" doesn't exist!" );
-				//close();
-				error = true;
-			}
-			
-		}
-		//errorNumber = false;
-		*/
+
 		if (error){
 			errorNumber++;
 			System.out.println("\t\t\tFound unexpected world error!");

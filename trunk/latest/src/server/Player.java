@@ -66,20 +66,16 @@ public class Player {
 			
 			
 			if (myself == null){ //first of all read login
-				if (t instanceof Login){
-					myself = (Login)t;
-				}else{
-					//error first input wasn't a login
-					System.out.println("PLAYER ERROR: Not a login, ip:"+giocatore.getRemoteSocketAddress() );
-					close();
-				}
+				login(t);
 			}else{
 				
-				if (activeShip != -1){ //don't accept action without ship
+				if (activeShip == -1){ //don't accept action without ship
+					setFirstShip(t);
+				}else{
 					if (t instanceof Action){
 						System.out.println("Executing action");
 						Action a = ((Action)t);
-						if ( a.run( myPossessoin.get(a.ownerID), w, allChanges ) ){
+						if ( a.run( myPossessoin.get(a.ownerID), w, this ) ){
 							synchronized (myActions) {
 								LinkedList<Action> actionAtTurn = myActions.get( a.getExecTime() );
 								if (actionAtTurn!=null){
@@ -92,18 +88,9 @@ public class Player {
 							}
 						}else{
 							//hacking?!?!
+							System.out.println("Action returned false");
 							close();
 						}
-					}
-				}else{
-					if (t instanceof ShipRequest){
-						System.out.println("Ship request arrived");
-						createOggettiActions.add( (ShipRequest)t );
-						break; //SPECIAL CASE: Don't try to execute any other action before shipRequest has been accepted
-					}else{
-						//Action without a ship, probably an hacking attempt
-						System.out.print("PLAYER ERROR: Player:"+myself+" send action without ship selected, ip:"+giocatore.getRemoteSocketAddress() );
-						close();
 					}
 				}
 			}
@@ -111,6 +98,27 @@ public class Player {
 		}
 	}
 	
+	private void setFirstShip(Object t) {
+		if (t instanceof ShipRequest){
+			System.out.println("Ship request arrived");
+			createOggettiActions.add( (ShipRequest)t );
+		}else{
+			//Action without a ship, probably an hacking attempt
+			System.out.print("PLAYER ERROR: Player:"+myself+" send action without ship selected, ip:"+giocatore.getRemoteSocketAddress() );
+			close();
+		}
+	}
+
+	private void login(Object t) {
+		if (t instanceof Login){
+			myself = (Login)t;
+		}else{
+			//error first input wasn't a login
+			System.out.println("PLAYER ERROR: Not a login, ip:"+giocatore.getRemoteSocketAddress() );
+			close();
+		}
+	}
+
 	public boolean isClosed(){
 		return ( giocatore.isClosed() || giocatore.isInputShutdown() || giocatore.isOutputShutdown() || !inR.isAlive() || !outW.isAlive() );
 	}
@@ -178,20 +186,6 @@ public class Player {
 	}
 
 	public LinkedList<Action> getMyActions(long turn) {
-		//Return the action of this turn and the old one
-		/*
-		LinkedList<Action> ris = new LinkedList<Action>();
-		synchronized (myActions) {
-			for (long id : myActions.keySet() ){
-				if (id <= turn){
-					ris.addAll(myActions.get(id));
-					//myActions.remove(id);
-				}
-			}
-			myActions.values().removeAll(ris);
-		}
-		return ris;
-		*/
 		LinkedList<Action> ris = new LinkedList<Action>();
 		synchronized (myActions) {
 			for ( LinkedList<Action> t:myActions.values() ){
