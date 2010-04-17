@@ -18,7 +18,7 @@ import shared.Oggetto2D;
 import shared.PhysicWorld;
 import shared.azioni.Action;
 import shared.azioni.ActionEngine;
-import shared.specialActions.ShipRequest;
+import shared.azioni.ShipRequest;
 
 public class ClientEngine extends TimerTask{
 
@@ -44,9 +44,10 @@ public class ClientEngine extends TimerTask{
 	int IDmyShip=-1;
 	Oggetto2D myShip;//In the asynchronous world
 	
-	long turnLag=-1;
+	long turnLag=0;
+	long allMapLag=0;
 
-	private int errorNumber=1;
+	private int errorNumber=0;
 	
 	public ClientEngine(ServerListener serverListener, long actualTurn, long turnDuration) {
 		server = serverListener;
@@ -213,7 +214,7 @@ public class ClientEngine extends TimerTask{
 			
 			if (o instanceof ShipRequest){
 				used = true;
-				IDmyShip = ( (ShipRequest)o ).getID();
+				IDmyShip = ( (ShipRequest)o ).shipOwnerID;
 				gui.setCameraID(IDmyShip);
 				System.out.println( "\tUsing ship: "+ IDmyShip );
 			}
@@ -267,7 +268,7 @@ public class ClientEngine extends TimerTask{
 		long asincTurn = asincroniusWorld.actualTurn;
 		if (lastAllMap!=null){
 			//we have to rebuild the synchronous world
-			//synchronousChanged = true;
+			synchronousChanged = true;
 			allMapArrived = true;
 			
 			if (lastAllMap.turn < world.actualTurn){
@@ -277,10 +278,10 @@ public class ClientEngine extends TimerTask{
 			
 			testWorldPrecision(lastAllMap);
 			
-			turnLag = asincTurn-world.actualTurn;
-			gui.setLag(turnLag*MAX_TURN_DURATION);
+			allMapLag = asincTurn-world.actualTurn;
+			//gui.setLag(allMapLag*MAX_TURN_DURATION);
 			
-			System.out.println( "\tRilevated new turn LAG: "+turnLag+" to ms: "+(turnLag*MAX_TURN_DURATION) );
+			System.out.println( "\tRilevated new turn LAG: "+allMapLag+" to ms: "+(allMapLag*MAX_TURN_DURATION) );
 			
 			System.out.println( "\tRebuilding world from turn: "+lastAllMap.turn );
 			System.out.println( "\tNewTurn to elaborate: "+newTurnToElaborate.size() );
@@ -323,12 +324,10 @@ public class ClientEngine extends TimerTask{
 		if (synchronousChanged){
 			time = System.nanoTime();
 			
+			gui.setLag(actionsLag, allMapLag);
+			
 			if (!allMapArrived){
-				//if (turnLag==-1)
-					turnLag = asincTurn-world.actualTurn;
-					gui.setLag(turnLag*MAX_TURN_DURATION);
-				//else
-					//turnLag = (turnLag+asincTurn-world.actualTurn)/2;
+				turnLag = asincTurn-world.actualTurn;
 			}
 			
 			System.out.println( "\tRilevated action LAG: "+turnLag+" to ms: "+(turnLag*MAX_TURN_DURATION) );
@@ -449,9 +448,9 @@ public class ClientEngine extends TimerTask{
 		//set the actions
 		LinkedList<Action> myActionDefinetlyExecuted = new LinkedList<Action>();
 		while ( (newAct=t.pollActions())!=null ){
-			newAct.run( world.get(newAct.ownerID), world );
-			System.out.println( "action setted for object:"+newAct.ownerID+" at turn:"+t.actualTurn );
-			if ( newAct.ownerID==IDmyShip ){
+			newAct.run( world );
+			System.out.println( "action setted for object:"+newAct.shipOwnerID+" at turn:"+t.actualTurn );
+			if ( newAct.shipOwnerID==IDmyShip ){
 				myActionDefinetlyExecuted.add(newAct);
 			}
 		}
@@ -486,8 +485,8 @@ public class ClientEngine extends TimerTask{
 					temp = new LinkedList<Action>();
 					for (int i=0; i < my.size(); i++){
 						t = my.poll();
-						t.run( asincroniusWorld.get(t.ownerID), asincroniusWorld );
-						System.out.println( "\t\tAsin action setted for object:"+t.ownerID+" at turn:"+asincroniusWorld.actualTurn );
+						t.run( asincroniusWorld );
+						System.out.println( "\t\tAsin action setted for object:"+t.shipOwnerID+" at turn:"+asincroniusWorld.actualTurn );
 						temp.add(t);
 					}
 					my.addAll(temp);

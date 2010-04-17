@@ -25,9 +25,10 @@ public class ActionEngine extends Action implements Serializable{
 	}
 	
 	@Override
-	public boolean run(Oggetto2D o, PhysicWorld w){
+	public boolean run(PhysicWorld w){
+		Oggetto2D o = w.get(shipOwnerID);
 		if (o != null){
-			if (o.ID==ownerID){
+			if (o.ID==shipOwnerID){
 				if (o.getBody() != null){
 					System.out.println("executing action: "+x+" "+y+" "+alpha);
 					System.out.println( "before: "+o.getInfoPosition() +" torque:"+ o.getBody().m_torque );
@@ -51,7 +52,7 @@ public class ActionEngine extends Action implements Serializable{
 	public boolean equals(Object obj) {
 		if (obj instanceof ActionEngine){
 			ActionEngine a = (ActionEngine)obj;
-			if (a.ownerID == ownerID)
+			if (a.shipOwnerID == shipOwnerID)
 				if (a.alpha == alpha)
 					if (a.x == x)
 						if (a.y == y)
@@ -61,7 +62,7 @@ public class ActionEngine extends Action implements Serializable{
 	}
 
 	@Override
-	public boolean run(Oggetto2D o, PhysicWorld w, Player p) {
-		return run(o, w);
+	public boolean run(PhysicWorld w, Player p) {
+		return run(w);
 	}
 }

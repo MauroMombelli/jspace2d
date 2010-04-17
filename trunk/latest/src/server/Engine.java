@@ -11,7 +11,7 @@ import shared.Oggetto2D;
 import shared.PhysicWorld;
 import shared.TurnDuration;
 import shared.azioni.Action;
-import shared.specialActions.ShipRequest;
+import shared.azioni.ShipRequest;
 
 public class Engine extends TimerTask{
 
@@ -198,16 +198,19 @@ public class Engine extends TimerTask{
 			if ( !tP.isClosed() ){
 				tP.update(world, allChanges);
 				if (tP.getLogin() == null){
-					if (tP.getUpdate() < TIMEOUT_LOGIN  )
+					if (tP.getUpdate() < TIMEOUT_LOGIN  ){
 						unloggedPlayer.add(tP);
-					else
+					}else{
+						System.out.println( "Timeout for login: "+tP.getIP() );
 						tP.close();
+					}
 				}else{
-					System.out.println("new player logged: "+tP.myself);
+					System.out.println( "new player logged: "+tP.myself );
 					tP.write( new TurnDuration(ServerMain.TURN_DURATION, world.actualTurn) );
 					newObserver.add(tP);
 				}
 			}else{
+				System.out.println( "Connection lost: "+tP.getIP() );
 				tP.close();
 			}
 		}
@@ -224,9 +227,14 @@ public class Engine extends TimerTask{
 				t.update(world, allChanges);
 				if ( (objToCreate=t.getCreateShip()) != null ){
 					System.out.println("creating ship1");
-					players.add(t);
 					removedObserver.add(t);
-					objToCreate.run(world, t);
+					if (objToCreate.shipOwnerID == -1){
+						objToCreate.run(world, t);
+						players.add(t);
+					}else{
+						System.out.println( "Error observer request an existing ship, disconnecting! "+t.getLogin() );
+						t.close();
+					}
 				}
 			}
 		}
@@ -235,16 +243,25 @@ public class Engine extends TimerTask{
 		
 		
 		/*
-		 * control if action requests is arrived for the player (all handled by update() method). Also delete disconnected player
+		 * control if action requests is arrived for the player and execute it. Also delete disconnected player
 		 */
 		LinkedList<Player> removedPlayer = new LinkedList<Player>();
+		LinkedList<Action> tempAct;
 		for (Player t:players){
 			if ( t.isClosed() ){
 				t.close();
 				removedPlayer.add(t);
 			}else{
 				t.update(world, allChanges);
-				allChanges.addAll( t.getMyActions(world.actualTurn) );
+				tempAct = t.getMyActions();
+				for (Action tA:tempAct){
+					if ( tA.run(world, t) ){
+						allChanges.add(tA);
+					}else{
+						System.out.println("Error executing request ation, disconnecting!");
+						t.close();
+					}
+				}
 			}
 		}
 		players.removeAll(removedPlayer);

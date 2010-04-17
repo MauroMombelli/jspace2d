@@ -12,8 +12,8 @@ import shared.OutputWriter;
 import shared.PhysicWorld;
 import shared.Ship;
 import shared.azioni.Action;
-import shared.specialActions.RemoveShip;
-import shared.specialActions.ShipRequest;
+import shared.azioni.RemoveShip;
+import shared.azioni.ShipRequest;
 
 public class Player {
 	Socket giocatore;
@@ -28,7 +28,7 @@ public class Player {
 	
 	HashMap<Integer, Oggetto2D> myPossessoin = new HashMap<Integer, Oggetto2D>();
 	
-	HashMap< Long, LinkedList<Action> > myActions = new HashMap< Long, LinkedList<Action> >();
+	LinkedList<Action> myActions = new LinkedList<Action>();
 	//TODO: 
 	LinkedList<RemoveShip> removeOggettiActions = new LinkedList<RemoveShip>();
 	//end todo
@@ -61,22 +61,38 @@ public class Player {
 		//read and execute client request
 		
 		Object t;
+		Action a;
+		int actionThisTurn=0;
 		while( ( t=inR.poll() )!=null){ //until there is input
 			
+			actionThisTurn++;
 			
+			if (actionThisTurn > 5){
+				System.out.println("Disconnecting player because too much actions: "+myself);
+				close();
+			}
 			
 			if (myself == null){ //first of all read login
 				login(t);
 			}else{
-				
 				if (activeShip == -1){ //don't accept action without ship
 					setFirstShip(t);
 				}else{
 					if (t instanceof Action){
+						
 						System.out.println("Executing action");
-						Action a = ((Action)t);
+						a = ((Action)t);
+						
+						if (a.shipOwnerID == -1 || myPossessoin.containsKey( a.shipOwnerID ) ){ //if is an action on new object(actually only new obj request), or on a possesed obj 
+							myActions.add(a);
+						}else{
+							System.out.println("Disconnecting player because request action on exiting object not owned: "+myself);
+							close();
+						}
+						/*
 						if ( a.run( myPossessoin.get(a.ownerID), w, this ) ){
 							synchronized (myActions) {
+								
 								LinkedList<Action> actionAtTurn = myActions.get( a.getExecTime() );
 								if (actionAtTurn!=null){
 									actionAtTurn.add(a);
@@ -85,16 +101,17 @@ public class Player {
 									actionAtTurn.add(a);
 									myActions.put(a.getExecTime(), actionAtTurn);
 								}
+								
 							}
 						}else{
 							//hacking?!?!
 							System.out.println("Action returned false");
 							close();
 						}
+						*/
 					}
 				}
 			}
-			
 		}
 	}
 	
@@ -185,18 +202,17 @@ public class Player {
 		return createOggettiActions.poll();
 	}
 
-	public LinkedList<Action> getMyActions(long turn) {
+	public LinkedList<Action> getMyActions() {
 		LinkedList<Action> ris = new LinkedList<Action>();
 		synchronized (myActions) {
-			for ( LinkedList<Action> t:myActions.values() ){
-				//if (id <= turn){
-					ris.addAll(t);
-					//myActions.remove(id);
-				//}
-			}
-			myActions.values().removeAll(ris);
+			ris.addAll(myActions);
+			myActions.clear();
 		}
 		return ris;
+	}
+	
+	public String getIP(){
+		return giocatore.getRemoteSocketAddress().toString();
 	}
 
 }

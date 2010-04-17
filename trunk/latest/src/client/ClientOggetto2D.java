@@ -19,10 +19,15 @@ public class ClientOggetto2D {
 	}
 
 	public void update() {
-		graphicPosition.set( new Vec2( obj.getBody().getPosition() ) , obj.getBody().getAngle() );
+		if (obj != null){ //obj has been deleted
+			graphicPosition.set( new Vec2( obj.getBody().getPosition() ) , obj.getBody().getAngle() );
+		}else{
+			graphicPosition = null;
+		}
 	}
 
 	public void run(HashMap<Integer, Node> visibleObject, Node rootNode) {
-		graphicPosition.run(visibleObject, rootNode);
+		if (graphicPosition != null)
+			graphicPosition.run(visibleObject, rootNode);
 	}
 }

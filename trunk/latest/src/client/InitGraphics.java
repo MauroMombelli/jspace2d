@@ -79,8 +79,8 @@ public class InitGraphics {
 		game.shutdown();
 	}
 
-	public void setLag(long msLag) {
-		gameLAG.setText("LAG: "+msLag);
+	public void setLag(long lag, long allMapLag) {
+		gameLAG.setText("Action turn LAG:"+lag+" AllMap turn LAG:"+allMapLag);
 	}
 	
 	public void setTurn(long aturn, long turn, int errorNumber) {

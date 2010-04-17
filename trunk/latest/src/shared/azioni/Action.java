@@ -3,7 +3,6 @@ package shared.azioni;
 import java.io.Serializable;
 
 import server.Player;
-import shared.Oggetto2D;
 import shared.PhysicWorld;
 
 public abstract class Action implements Serializable {
@@ -13,16 +12,16 @@ public abstract class Action implements Serializable {
 	 */
 	private static final long serialVersionUID = 4252933575712164693L;
 
-	public int ownerID;
+	public int shipOwnerID;
 	long time;
 	
 	public Action(int ID){
-		this.ownerID = ID;
+		this.shipOwnerID = ID;
 	}
 	
-	public abstract boolean run(Oggetto2D o, PhysicWorld w); //return true if action is executed with success
+	public abstract boolean run(PhysicWorld w); //return true if action is executed with success
 	
-	public abstract boolean run(Oggetto2D o, PhysicWorld w, Player p); //return true if action is executed with success
+	public abstract boolean run(PhysicWorld w, Player p); //return true if action is executed with success
 
 	public void setExecTime(long turn) {
 		time = turn;
@@ -35,6 +34,6 @@ public abstract class Action implements Serializable {
 	public abstract boolean equals(Object obj);
 
 	public int hashCode(){
-		return ownerID;
+		return shipOwnerID;
 	}
 }

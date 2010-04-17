@@ -191,7 +191,12 @@ public class PhysicWorld {
 		physicWorld.setContactListener(l);
 	}
 
-	public void removeBody(Body body) {
+	public void removeBody(Body body, int id) {
+		allOggetto2D.remove(id);
+		newOggetti2D.remove(id);
+		sortedOggetto2D.remove(id);
+		sortedNewOggetti2D.remove(id);
+		
 		physicWorld.destroyBody(body);
 	}
 
