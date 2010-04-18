@@ -1,6 +1,7 @@
 package client;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -41,14 +42,31 @@ public class ModelLoaderOgre {
 				e1.printStackTrace();
 			}
 			
+			sk = new File(name+".material");
+            URL matURL = null;
+			try {
+				matURL = sk.toURI().toURL();
+			} catch (MalformedURLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
+			
 			System.out.println("loading from filesystem: "+name);
 			
 			if (meshURL == null)
                 throw new IllegalStateException( "Required runtime resource missing: " + name);
             
             try {
-
+            	try {
+            		matLoader.load(matURL.openStream());
+            		if (matLoader.getMaterials().size() > 0)
+            			loader.setMaterials(matLoader.getMaterials());
+            	}catch(FileNotFoundException e){
+            		System.out.println("Material file not found for: "+name);
+            	}
+                
             	loadedNode = (Node) loader.loadModel(meshURL);
+            	
 				System.out.println("Numero vertici:"+((TriMesh)loadedNode.getChild(0)).getVertexCount());
             	loadedNode.setLocalScale(0.2f);
 				
