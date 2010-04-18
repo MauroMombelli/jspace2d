@@ -14,7 +14,7 @@ Actually still in development, here some implemented features
   * Shot
   * Ship editor on development
 
-And here what I'm are going to add
+And here what I'm going to add
   * Collision damage
   * Bullet damage
   * Good anti-lag algorithm
