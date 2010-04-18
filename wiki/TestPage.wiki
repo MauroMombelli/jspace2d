@@ -1,6 +1,4 @@
-#summary One-sentence summary of this page.
 #labels Phase-Design
-#This is a test page
 = What's new on code =
 
 Welcome to the jspace2d wiki, here we can talk about this great(?) game.
