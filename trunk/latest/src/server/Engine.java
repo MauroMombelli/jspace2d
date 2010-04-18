@@ -11,7 +11,7 @@ import shared.Oggetto2D;
 import shared.PhysicWorld;
 import shared.TurnDuration;
 import shared.azioni.Action;
-import shared.azioni.ShipRequest;
+import shared.azioni.CreateShip;
 
 public class Engine extends TimerTask{
 
@@ -53,7 +53,7 @@ public class Engine extends TimerTask{
 		Oggetto2D t;
 		for (int i=0; i < 10; i++){
 			for (int a=0; a < 10; a++){
-				t = new Oggetto2D(world.getNextIndex());
+				t = new Oggetto2D( world.getNextIndex() );
 				world.addNew( t, GLOBAL_VARIABLE.convertToPhysicEngineUnit( i*10 ), GLOBAL_VARIABLE.convertToPhysicEngineUnit( a*10 ), 0 );
 				
 				/*
@@ -221,7 +221,7 @@ public class Engine extends TimerTask{
 		 * control if a ship request is arrived for the unlogged player.
 		 */
 		Action tempA;
-		ShipRequest objToCreate;
+		CreateShip objToCreate;
 		for (Player t:observerPlayer){
 			if ( t.isClosed() ){
 				t.close();
@@ -229,8 +229,8 @@ public class Engine extends TimerTask{
 			}else{
 				t.update(world, allChanges);
 				if ( ( tempA=t.peekMyActions() ) != null ){
-					if (tempA instanceof ShipRequest){
-						objToCreate = (ShipRequest)tempA;
+					if (tempA instanceof CreateShip){
+						objToCreate = (CreateShip)tempA;
 						System.out.println("creating ship1");
 						removedObserver.add(t);
 						if (objToCreate.shipOwnerID == -1){

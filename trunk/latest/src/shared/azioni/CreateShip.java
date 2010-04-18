@@ -8,19 +8,18 @@ import shared.Oggetto2D;
 import shared.PhysicWorld;
 import shared.Ship;
 
-public class ShipRequest extends Action implements Serializable{
+public class CreateShip extends Action implements Serializable{
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	
-	public ShipRequest() {
+	public CreateShip() {
 		super(-1);
 	}
 	
-	public ShipRequest(int ID) {
+	public CreateShip(int ID) {
 		super(ID);
 	}
 
@@ -35,12 +34,15 @@ public class ShipRequest extends Action implements Serializable{
 			}
 			p.addOggetto(s);
 			System.out.println("Created ship "+s.ID+" for player: "+p.getLogin().toString());
-			//notify client of ship creation
-			//p.write( new ShipRequest(s.ID) );
+			
+			//set the ship as player possession
 			p.setActiveShip(s.ID);
 			
 			shipOwnerID = s.ID;
 		}else{
+			System.out.println( "Ship "+shipOwnerID+" actually exist!" );
+			return false;
+			/*
 			if ( p.getShip(shipOwnerID) != null ){
 				p.setActiveShip(shipOwnerID);
 			}else{
@@ -49,6 +51,7 @@ public class ShipRequest extends Action implements Serializable{
 				p.close();
 				return false;
 			}
+			*/
 		}
 		return true;
 	}

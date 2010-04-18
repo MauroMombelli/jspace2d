@@ -14,7 +14,7 @@ public class OggettoBullet extends Oggetto2D {
 	public OggettoBullet(int id) {
 		super(id);
 		//modelName="Bullet";
-		//radius=0.4f;
+		//radius=GLOBAL_VARIABLE.convertToPhysicEngineUnit( 0.4f );
 	}
 
 	public OggettoBullet(OggettoBullet o) {
@@ -29,7 +29,7 @@ public class OggettoBullet extends Oggetto2D {
 		CircleDef hull = new CircleDef();
         hull.restitution = 0.8f;
         hull.friction = 0;
-        hull.radius = GLOBAL_VARIABLE.convertToPhysicEngineUnit( radius );
+        hull.radius = radius;
         hull.density = 20;
         hull.userData = this;
         bodyContainer.myBody.createShape(hull);

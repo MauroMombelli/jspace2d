@@ -19,7 +19,8 @@ import shared.PhysicWorld;
 import shared.azioni.Action;
 import shared.azioni.ActionEngine;
 import shared.azioni.ActionLightShot;
-import shared.azioni.ShipRequest;
+import shared.azioni.CreateShip;
+import shared.azioni.SelectShip;
 
 public class ClientEngine extends TimerTask{
 
@@ -62,8 +63,8 @@ public class ClientEngine extends TimerTask{
 		
 		gui = new InitGraphics( allOggetto2D );
 		
-		server.write( new ShipRequest() );
-		System.out.println("Ship request send, starting turn:"+actualTurn);
+		server.write( new CreateShip() );
+		System.out.println("Creation ship request send, starting turn:"+actualTurn);
 	}
 
 	@Override
@@ -215,6 +216,12 @@ public class ClientEngine extends TimerTask{
 		while ( (o=server.poll())!=null ){
 			
 			used = false;
+			
+			if (o instanceof SelectShip){
+				used = true;
+				IDmyShip = ((SelectShip)o).shipOwnerID;
+				System.out.println( "\tSelect ship received, id:"+IDmyShip);
+			}
 			
 			if (o instanceof NewTurn){
 				used = true;
@@ -452,11 +459,14 @@ public class ClientEngine extends TimerTask{
 				myActionDefinetlyExecuted.add(newAct);
 			}
 			
-			if (newAct instanceof ShipRequest){
-				IDmyShip = ( (ShipRequest)newAct ).shipOwnerID;
+			/* TODO: create a object ActivateShip instead of using CreateShip!!!!
+			if (newAct instanceof CreateShip){
+				IDmyShip = ( (CreateShip)newAct ).shipOwnerID;
 				gui.setCameraID(IDmyShip);
 				System.out.println( "\tUsing ship: "+ IDmyShip );
 			}
+			*/
+			
 		}
 		
 		synchronized (myActions) {

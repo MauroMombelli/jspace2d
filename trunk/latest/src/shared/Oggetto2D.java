@@ -16,13 +16,14 @@ public class Oggetto2D implements Serializable, Comparable<Oggetto2D> {
 	 */
 	private static final long serialVersionUID = -6591598803708118223L;
 	
+	
 	//private Body myBody;
 	UniqueData bodyContainer = new UniqueData();//this class will not be synchronized
 	
 	public int ID;
 	String modelName="Sphere";
 
-	protected float radius=4;
+	protected float radius=GLOBAL_VARIABLE.convertToPhysicEngineUnit( 4 );
 	
 	public Oggetto2D(int id){
 		this.ID = id;
@@ -43,7 +44,7 @@ public class Oggetto2D implements Serializable, Comparable<Oggetto2D> {
 		CircleDef sd = new CircleDef();
         sd.restitution = 0.8f;
         sd.friction = 0;
-        sd.radius = GLOBAL_VARIABLE.convertToPhysicEngineUnit( radius );
+        sd.radius = radius;
         sd.density = 1;
         sd.userData = this;
         bodyContainer.myBody.createShape(sd);

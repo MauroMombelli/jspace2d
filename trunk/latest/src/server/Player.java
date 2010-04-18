@@ -11,8 +11,7 @@ import shared.Oggetto2D;
 import shared.OutputWriter;
 import shared.PhysicWorld;
 import shared.azioni.Action;
-import shared.azioni.RemoveShip;
-import shared.azioni.ShipRequest;
+import shared.azioni.SelectShip;
 
 public class Player {
 	Socket giocatore;
@@ -161,7 +160,7 @@ public class Player {
 		
 	}
 
-	public Object getLogin() {
+	public Login getLogin() {
 		return myself;
 	}
 
@@ -193,6 +192,8 @@ public class Player {
 
 	public void setActiveShip(int iD) {
 		activeShip = iD;
+		//send the action to client
+		write( new SelectShip(iD) );
 	}
 
 	public void removeOggetto(int id) {

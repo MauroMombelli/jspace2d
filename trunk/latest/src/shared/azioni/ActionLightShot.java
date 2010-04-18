@@ -3,7 +3,6 @@ package shared.azioni;
 import com.jme.math.FastMath;
 
 import server.Player;
-import shared.GLOBAL_VARIABLE;
 import shared.Oggetto2D;
 import shared.OggettoBullet;
 import shared.PhysicWorld;
@@ -14,7 +13,7 @@ public class ActionLightShot extends Action {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private float bulletSpeed=0.1f;
+	private float bulletSpeed=0.01f;
 
 	public ActionLightShot(int ID) {
 		super(ID);
@@ -39,18 +38,16 @@ public class ActionLightShot extends Action {
 			OggettoBullet b = new OggettoBullet( w.getNextIndex() );
 			
 			a = o.getBody().getAngle();
-			sinA = FastMath.sin(a);
-			cosA = FastMath.cos(a);
+			sinA = FastMath.sin(a) + FastMath.PI/2;
+			cosA = FastMath.cos(a) + FastMath.PI/2;
 			
-			//x = o.getBody().getPosition().x + ( o.getRadius()+b.getRadius() )*sinA;
-			//y = o.getBody().getPosition().y + ( o.getRadius()+b.getRadius() )*cosA;
-			x = o.getBody().getPosition().x + GLOBAL_VARIABLE.convertToPhysicEngineUnit( o.getRadius()+b.getRadius() )*sinA;
-			y = o.getBody().getPosition().y + GLOBAL_VARIABLE.convertToPhysicEngineUnit ( o.getRadius()+b.getRadius() )*cosA;
+			x = o.getBody().getWorldCenter().x + ( o.getRadius()+b.getRadius() ) *cosA;
+			y = o.getBody().getWorldCenter().y + ( o.getRadius()+b.getRadius() ) *sinA;
 			
 			if (w.addNew(b, x, y, a) != null){
-				x = bulletSpeed+sinA;
-				y = bulletSpeed+cosA;
-				ActionEngine tAct = new ActionEngine(b.ID, x, y, 0);
+				x = bulletSpeed*cosA;
+				y = bulletSpeed*sinA;
+				ActionEngine tAct = new ActionEngine(b.ID, x, y, a);
 				if ( ! tAct.run(w) ){
 					System.out.println("error moving the bullet!");
 					return false;
@@ -73,19 +70,17 @@ public class ActionLightShot extends Action {
 			OggettoBullet b = new OggettoBullet( w.getNextIndex() );
 			
 			a = o.getBody().getAngle();
-			sinA = FastMath.sin(a);
-			cosA = FastMath.cos(a);
-			
-			x = o.getBody().getPosition().x + GLOBAL_VARIABLE.convertToPhysicEngineUnit( o.getRadius()+b.getRadius()*sinA );
-			y = o.getBody().getPosition().y + GLOBAL_VARIABLE.convertToPhysicEngineUnit ( o.getRadius()+b.getRadius()*cosA );
-			//x = o.getBody().getPosition().x + 1*sinA;
-			//y = o.getBody().getPosition().y + 1*cosA;
+			sinA = FastMath.sin(a) + FastMath.PI/2;
+			cosA = FastMath.cos(a) + FastMath.PI/2;
+
+			x = o.getBody().getPosition().x + ( o.getRadius()+b.getRadius() ) *cosA;
+			y = o.getBody().getPosition().y + ( o.getRadius()+b.getRadius() ) *sinA;
 			
 			if (w.addNew(b, x, y, a) != null){
 				p.addOggetto(b);
-				x = bulletSpeed+cosA;
-				y = bulletSpeed+sinA;
-				ActionEngine tAct = new ActionEngine(b.ID, x, y, 0);
+				x = bulletSpeed*cosA;
+				y = bulletSpeed*sinA;
+				ActionEngine tAct = new ActionEngine(b.ID, x, y, a);
 				if ( ! tAct.run(w) ){
 					p.addAction(tAct);
 					System.out.println("error moving the bullet!");
