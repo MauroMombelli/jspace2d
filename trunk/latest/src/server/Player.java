@@ -10,7 +10,6 @@ import shared.Login;
 import shared.Oggetto2D;
 import shared.OutputWriter;
 import shared.PhysicWorld;
-import shared.Ship;
 import shared.azioni.Action;
 import shared.azioni.RemoveShip;
 import shared.azioni.ShipRequest;
@@ -30,9 +29,9 @@ public class Player {
 	
 	LinkedList<Action> myActions = new LinkedList<Action>();
 	//TODO: 
-	LinkedList<RemoveShip> removeOggettiActions = new LinkedList<RemoveShip>();
+//	LinkedList<RemoveShip> removeOggettiActions = new LinkedList<RemoveShip>();
 	//end todo
-	LinkedList<ShipRequest> createOggettiActions = new LinkedList<ShipRequest>();
+//	LinkedList<ShipRequest> createOggettiActions = new LinkedList<ShipRequest>();
 	
 	public Player(Socket t) {
 		giocatore = t;
@@ -56,8 +55,8 @@ public class Player {
 		update++;
 
 		myActions.clear();
-		createOggettiActions.clear();
-		removeOggettiActions.clear();
+//		createOggettiActions.clear();
+//		removeOggettiActions.clear();
 		//read and execute client request
 		
 		Object t;
@@ -75,9 +74,9 @@ public class Player {
 			if (myself == null){ //first of all read login
 				login(t);
 			}else{
-				if (activeShip == -1){ //don't accept action without ship
-					setFirstShip(t);
-				}else{
+				//if (activeShip == -1){ //don't accept action without ship
+					//setFirstShip(t);
+				//}else{
 					if (t instanceof Action){
 						
 						System.out.println("Executing action");
@@ -110,22 +109,24 @@ public class Player {
 						}
 						*/
 					}
-				}
+				//}
 			}
 		}
 	}
-	
+/*
 	private void setFirstShip(Object t) {
 		if (t instanceof ShipRequest){
 			System.out.println("Ship request arrived");
-			createOggettiActions.add( (ShipRequest)t );
+			ShipRequest a = (ShipRequest)t;
+			createOggettiActions.add( a );
+			myActions.add(a);
 		}else{
 			//Action without a ship, probably an hacking attempt
 			System.out.print("PLAYER ERROR: Player:"+myself+" send action without ship selected, ip:"+giocatore.getRemoteSocketAddress() );
 			close();
 		}
 	}
-
+*/
 	private void login(Object t) {
 		if (t instanceof Login){
 			myself = (Login)t;
@@ -177,7 +178,7 @@ public class Player {
 		return activeShip;
 	}
 
-	public void addShip(Ship s) {
+	public void addOggetto(Oggetto2D s) {
 		Oggetto2D old = myPossessoin.put(s.ID, s);
 		if (old!=null){
 			System.out.println("PLAYER ERROR: creating a new existent ship");
@@ -197,11 +198,11 @@ public class Player {
 	public void removeOggetto(int id) {
 		myPossessoin.remove(id);
 	}
-
+/*
 	public ShipRequest getCreateShip() {
 		return createOggettiActions.poll();
 	}
-
+*/
 	public LinkedList<Action> getMyActions() {
 		LinkedList<Action> ris = new LinkedList<Action>();
 		synchronized (myActions) {
@@ -211,8 +212,18 @@ public class Player {
 		return ris;
 	}
 	
+	public Action peekMyActions() {
+		synchronized (myActions) {
+			return myActions.peek();
+		}
+	}
+	
 	public String getIP(){
 		return giocatore.getRemoteSocketAddress().toString();
+	}
+
+	public void addAction(Action tAct) {
+		myActions.add(tAct);
 	}
 
 }

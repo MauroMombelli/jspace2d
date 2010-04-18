@@ -21,6 +21,8 @@ public class Oggetto2D implements Serializable, Comparable<Oggetto2D> {
 	
 	public int ID;
 	String modelName="Sphere";
+
+	protected float radius=4;
 	
 	public Oggetto2D(int id){
 		this.ID = id;
@@ -41,7 +43,7 @@ public class Oggetto2D implements Serializable, Comparable<Oggetto2D> {
 		CircleDef sd = new CircleDef();
         sd.restitution = 0.8f;
         sd.friction = 0;
-        sd.radius = GLOBAL_VARIABLE.convertToPhysicEngineUnit( 4 );
+        sd.radius = GLOBAL_VARIABLE.convertToPhysicEngineUnit( radius );
         sd.density = 1;
         sd.userData = this;
         bodyContainer.myBody.createShape(sd);
@@ -63,6 +65,10 @@ public class Oggetto2D implements Serializable, Comparable<Oggetto2D> {
 		bodyContainer.myBody.applyTorque( ad.getTorque()-bodyContainer.myBody.m_torque );
 		bodyContainer.myBody.m_sweep = ad.getSweep();
 		//bodyContainer.myBody.m_torque=ad.getTorque();
+	}
+	
+	public float getRadius(){
+		return radius;
 	}
 
 	public String getModelName() {

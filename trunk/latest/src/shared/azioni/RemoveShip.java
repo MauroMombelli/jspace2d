@@ -34,7 +34,11 @@ public class RemoveShip extends Action implements Serializable{
 
 	@Override
 	public boolean equals(Object obj) {
-		// TODO Auto-generated method stub
+		if (obj instanceof ActionEngine){
+			ActionEngine a = (ActionEngine)obj;
+			if (a.shipOwnerID == shipOwnerID)
+				return true;
+		}
 		return false;
 	}
 

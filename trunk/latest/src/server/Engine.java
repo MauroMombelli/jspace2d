@@ -153,12 +153,14 @@ public class Engine extends TimerTask{
 			nNewObserver.add( t, t.getInfoPosition() );
 		}
 		
-		//add all new object to observer and new observer NewTurn
 		NewTurn n = new NewTurn(world.actualTurn);
+		/*
+		//add all new object to observer and new observer NewTurn
 		for ( Oggetto2D t:world.getNewOggetti() ){
 			nNewObserver.add( t, t.getInfoPosition() );
 			n.add( t, t.getInfoPosition() );
 		}
+		*/
 		
 		//add all changes to observer and new observer
 		nNewObserver.addAll( allChanges );
@@ -218,6 +220,7 @@ public class Engine extends TimerTask{
 		/*
 		 * control if a ship request is arrived for the unlogged player.
 		 */
+		Action tempA;
 		ShipRequest objToCreate;
 		for (Player t:observerPlayer){
 			if ( t.isClosed() ){
@@ -225,14 +228,21 @@ public class Engine extends TimerTask{
 				removedObserver.add(t);
 			}else{
 				t.update(world, allChanges);
-				if ( (objToCreate=t.getCreateShip()) != null ){
-					System.out.println("creating ship1");
-					removedObserver.add(t);
-					if (objToCreate.shipOwnerID == -1){
-						objToCreate.run(world, t);
-						players.add(t);
+				if ( ( tempA=t.peekMyActions() ) != null ){
+					if (tempA instanceof ShipRequest){
+						objToCreate = (ShipRequest)tempA;
+						System.out.println("creating ship1");
+						removedObserver.add(t);
+						if (objToCreate.shipOwnerID == -1){
+							objToCreate.run(world, t);
+							players.add(t);
+							allChanges.add(objToCreate);
+						}else{
+							System.out.println( "Error observer request an existing ship, disconnecting! "+t.getLogin() );
+							t.close();
+						}
 					}else{
-						System.out.println( "Error observer request an existing ship, disconnecting! "+t.getLogin() );
+						System.out.println( "Error observer request an action witouth a ship, disconnecting! "+t.getLogin() );
 						t.close();
 					}
 				}
@@ -252,16 +262,21 @@ public class Engine extends TimerTask{
 				t.close();
 				removedPlayer.add(t);
 			}else{
-				t.update(world, allChanges);
-				tempAct = t.getMyActions();
-				for (Action tA:tempAct){
-					if ( tA.run(world, t) ){
-						allChanges.add(tA);
-					}else{
-						System.out.println("Error executing request ation, disconnecting!");
-						t.close();
-					}
+				
+				t.update(world, allChanges); //read all changes
+				
+				while( ( tempAct = t.getMyActions() ).size() > 0 ){ //because some action can generate other action (like bullet) we must b sure to execute them all
+					
+					for (Action tA:tempAct){
+						if ( tA.run(world, t) ){
+							allChanges.add(tA);
+						}else{
+							System.out.println("Error executing request ation:"+tA);
+							//t.close();
+						}
+					}	
 				}
+				
 			}
 		}
 		players.removeAll(removedPlayer);

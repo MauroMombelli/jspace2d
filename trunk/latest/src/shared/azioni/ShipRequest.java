@@ -29,12 +29,17 @@ public class ShipRequest extends Action implements Serializable{
 		Oggetto2D o = p.getShip(shipOwnerID);
 		if (o==null){
 			Ship s = new Ship( w.getNextIndex() );
-			w.addNew( s, GLOBAL_VARIABLE.convertToPhysicEngineUnit( 0.1f ), GLOBAL_VARIABLE.convertToPhysicEngineUnit( 100 ), 0 );
-			p.addShip(s);
+			if ( w.addNew( s, GLOBAL_VARIABLE.convertToPhysicEngineUnit( 0.1f ), GLOBAL_VARIABLE.convertToPhysicEngineUnit( 100 ), 0 ) == null ){
+				System.out.println("Error, world hasn't created ship "+s.ID+" for player: "+p.getLogin().toString());
+				return false;
+			}
+			p.addOggetto(s);
 			System.out.println("Created ship "+s.ID+" for player: "+p.getLogin().toString());
 			//notify client of ship creation
-			p.write( new ShipRequest(s.ID) );
+			//p.write( new ShipRequest(s.ID) );
 			p.setActiveShip(s.ID);
+			
+			shipOwnerID = s.ID;
 		}else{
 			if ( p.getShip(shipOwnerID) != null ){
 				p.setActiveShip(shipOwnerID);
@@ -50,7 +55,11 @@ public class ShipRequest extends Action implements Serializable{
 
 	@Override
 	public boolean equals(Object obj) {
-		// TODO Auto-generated method stub
+		if (obj instanceof ActionEngine){
+			ActionEngine a = (ActionEngine)obj;
+			if (a.shipOwnerID == shipOwnerID)
+				return true;
+		}
 		return false;
 	}
 

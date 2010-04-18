@@ -26,4 +26,8 @@ public class AllMap implements Serializable {
 		return maps.poll();
 	}
 
+	public int size() {
+		return maps.size();
+	}
+
 }

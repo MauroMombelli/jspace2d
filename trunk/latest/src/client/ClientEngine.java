@@ -18,12 +18,13 @@ import shared.Oggetto2D;
 import shared.PhysicWorld;
 import shared.azioni.Action;
 import shared.azioni.ActionEngine;
+import shared.azioni.ActionLightShot;
 import shared.azioni.ShipRequest;
 
 public class ClientEngine extends TimerTask{
 
 	//if you want all the action execute X turn after it has been trigger, put here the value. WARNIG net lag is calculated in addition of this
-	private static final long actionsLag = 0;
+	private static final long fixedActionLAG = 0;
 
 	ServerListener server;
 	
@@ -44,8 +45,9 @@ public class ClientEngine extends TimerTask{
 	int IDmyShip=-1;
 	Oggetto2D myShip;//In the asynchronous world
 	
-	long turnLag=0;
+	long actionLag=0;
 	long allMapLag=0;
+	long realClientTurn=0;
 
 	private int errorNumber=0;
 	
@@ -69,6 +71,7 @@ public class ClientEngine extends TimerTask{
 		long time = System.currentTimeMillis();
 		
 		{
+			realClientTurn++;
 			//System.out.println("\n\nClient Sincronous Turn: "+world.actualTurn+" Asinc: "+asincroniusWorld.actualTurn);
 			System.out.println("\n\nClient Sincronous Turn: "+world.actualTurn);
 			if ( server.isClosed() ){
@@ -168,7 +171,7 @@ public class ClientEngine extends TimerTask{
 		
 		//shoot
 		if (KeyBindingManager.getKeyBindingManager().isValidCommand("shot_light", false)) {
-			//executeAction( new ActionLightShot(myShip.ID) );
+			executeAction( new ActionLightShot(myShip.ID) );
         }
 		
 		if (actionExecuted){
@@ -181,7 +184,7 @@ public class ClientEngine extends TimerTask{
 	public void executeAction(Action a){
 		System.out.println( "Writing action" );
 		server.write(a);
-		a.setExecTime(asincroniusWorld.actualTurn-turnLag+actionsLag);
+		a.setExecTime(asincroniusWorld.actualTurn-actionLag+fixedActionLAG);
 		/*
 		synchronized (myActions) {
 			LinkedList<Action> t=myActions.get( a.getExecTime() );
@@ -193,6 +196,7 @@ public class ClientEngine extends TimerTask{
 				t.add(a);
 		}
 		*/
+		
 	}
 
 	//PHYSIC PURPOISE
@@ -211,13 +215,6 @@ public class ClientEngine extends TimerTask{
 		while ( (o=server.poll())!=null ){
 			
 			used = false;
-			
-			if (o instanceof ShipRequest){
-				used = true;
-				IDmyShip = ( (ShipRequest)o ).shipOwnerID;
-				gui.setCameraID(IDmyShip);
-				System.out.println( "\tUsing ship: "+ IDmyShip );
-			}
 			
 			if (o instanceof NewTurn){
 				used = true;
@@ -324,13 +321,13 @@ public class ClientEngine extends TimerTask{
 		if (synchronousChanged){
 			time = System.nanoTime();
 			
-			gui.setLag(actionsLag, allMapLag);
+			gui.setLag(actionLag, allMapLag);
 			
 			if (!allMapArrived){
-				turnLag = asincTurn-world.actualTurn;
+				actionLag = asincTurn-world.actualTurn;
 			}
 			
-			System.out.println( "\tRilevated action LAG: "+turnLag+" to ms: "+(turnLag*MAX_TURN_DURATION) );
+			System.out.println( "\tRilevated action LAG: "+actionLag+" to ms: "+(actionLag*MAX_TURN_DURATION) );
 			
 			rebuildAsichronousWorld();
 			
@@ -450,22 +447,30 @@ public class ClientEngine extends TimerTask{
 		while ( (newAct=t.pollActions())!=null ){
 			newAct.run( world );
 			System.out.println( "action setted for object:"+newAct.shipOwnerID+" at turn:"+t.actualTurn );
+			
 			if ( newAct.shipOwnerID==IDmyShip ){
 				myActionDefinetlyExecuted.add(newAct);
+			}
+			
+			if (newAct instanceof ShipRequest){
+				IDmyShip = ( (ShipRequest)newAct ).shipOwnerID;
+				gui.setCameraID(IDmyShip);
+				System.out.println( "\tUsing ship: "+ IDmyShip );
 			}
 		}
 		
 		synchronized (myActions) {
-			
+			/*
 			for (long id:myActions.keySet()){
 				if ( myActions.get(id).contains(myActionDefinetlyExecuted.get(0)) ){
 					System.out.println( "Real Lag:"+(id-world.actualTurn) );
 				}
 			}
-			
+			*/
 			for ( LinkedList<Action> tA:myActions.values() )
 				tA.removeAll(myActionDefinetlyExecuted);
 		}
+		
 		time = System.nanoTime() -time;
 		System.out.println( "\t\tAction time: "+time );		
 	}
@@ -518,11 +523,23 @@ public class ClientEngine extends TimerTask{
 		}		
 		
 		TreeSet<Oggetto2D> tempWord = world.getOggetti();
+/*		
+		if ( lastAllMap.size() > tempWord.size() ){
+			System.out.println( "\t\t\tServer world has more obj than client! "+(lastAllMap.size() - tempWord.size()) );
+			error = true;
+			close();
+		}
 		
+		if ( lastAllMap.size() < tempWord.size() ){
+			System.out.println( "\t\t\tServer world has more obj than client! "+( tempWord.size() - lastAllMap.size() ) );
+			error = true;
+			close();
+		}
+*/		
 		for (Oggetto2D t:tempWord){
 			a=lastAllMap.poll();
 			if (a == null){
-				System.out.println( "\t\t\tClient world has more obj than server!" );
+				System.out.println( "\t\t\tClient world has more obj than server! first occurence id:"+t.ID );
 				error = true;
 				close();
 				break;
@@ -541,7 +558,9 @@ public class ClientEngine extends TimerTask{
 		
 		a=lastAllMap.poll();
 		if (a != null){
-			System.out.println( "\t\t\tServer world has more obj than client!" );
+			System.out.println( "\t\t\tServer world has more obj than client! ids:"+a.ID );
+			while ( (a=lastAllMap.poll()) != null )
+				System.out.println( a.ID );
 			error = true;
 			close();
 		}

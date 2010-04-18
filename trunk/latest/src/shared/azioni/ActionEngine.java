@@ -28,19 +28,15 @@ public class ActionEngine extends Action implements Serializable{
 	public boolean run(PhysicWorld w){
 		Oggetto2D o = w.get(shipOwnerID);
 		if (o != null){
-			if (o.ID==shipOwnerID){
-				if (o.getBody() != null){
-					System.out.println("executing action: "+x+" "+y+" "+alpha);
-					System.out.println( "before: "+o.getInfoPosition() +" torque:"+ o.getBody().m_torque );
-					o.getBody().applyImpulse( new Vec2(x,y), o.getBody().getWorldCenter() );
-					o.getBody().applyTorque( alpha );
-					System.out.println( "after: "+o.getInfoPosition() +" torque:"+ o.getBody().m_torque );
-					return true;
-				}else{
-					System.out.println("error executing action, null body");
-				}
+			if (o.getBody() != null){
+				System.out.println("executing action: "+x+" "+y+" "+alpha);
+				System.out.println( "before: "+o.getInfoPosition() +" torque:"+ o.getBody().m_torque );
+				o.getBody().applyImpulse( new Vec2(x,y), o.getBody().getWorldCenter() );
+				o.getBody().applyTorque( alpha );
+				System.out.println( "after: "+o.getInfoPosition() +" torque:"+ o.getBody().m_torque );
+				return true;
 			}else{
-				System.out.println("error executing action, wrong ID");
+				System.out.println("error executing action, null body");
 			}
 		}else{
 			System.out.println("error executing action, null object");			
@@ -63,6 +59,21 @@ public class ActionEngine extends Action implements Serializable{
 
 	@Override
 	public boolean run(PhysicWorld w, Player p) {
-		return run(w);
+		Oggetto2D o = p.getShip(shipOwnerID);
+		if (o != null){
+			if (o.getBody() != null){
+				System.out.println("executing action: "+x+" "+y+" "+alpha);
+				System.out.println( "before: "+o.getInfoPosition() +" torque:"+ o.getBody().m_torque );
+				o.getBody().applyImpulse( new Vec2(x,y), o.getBody().getWorldCenter() );
+				o.getBody().applyTorque( alpha );
+				System.out.println( "after: "+o.getInfoPosition() +" torque:"+ o.getBody().m_torque );
+				return true;
+			}else{
+				System.out.println("error executing action, null body");
+			}
+		}else{
+			System.out.println("error executing action, null object");			
+		}
+		return false;
 	}
 }

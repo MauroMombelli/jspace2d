@@ -15,11 +15,13 @@ public class Ship extends Oggetto2D implements Serializable{
 	public Ship(int id) {
 		super(id);
 		modelName="Cone";
+		radius=4f;
 	}
 	
 	public Ship(Ship o) {
 		super(o);
 		modelName="Cone";
+		radius=4f;
 	}
 
 	@Override
@@ -28,7 +30,7 @@ public class Ship extends Oggetto2D implements Serializable{
 		CircleDef hull = new CircleDef();
         hull.restitution = 0.8f;
         hull.friction = 0;
-        hull.radius = GLOBAL_VARIABLE.convertToPhysicEngineUnit( 4 );
+        hull.radius = GLOBAL_VARIABLE.convertToPhysicEngineUnit( radius );
         hull.density = 20;
         hull.userData = this;
         bodyContainer.myBody.createShape(hull);

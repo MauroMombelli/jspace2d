@@ -49,7 +49,7 @@ public class ModelLoaderOgre {
             try {
 
             	loadedNode = (Node) loader.loadModel(meshURL);
-				System.out.println("Numero vertici"+((TriMesh)loadedNode.getChild(0)).getVertexCount());
+				System.out.println("Numero vertici:"+((TriMesh)loadedNode.getChild(0)).getVertexCount());
             	loadedNode.setLocalScale(0.2f);
 				
             	loadedNode.setLocalTranslation(0, 0, 0);
