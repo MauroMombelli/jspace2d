@@ -20,8 +20,10 @@ public class InitGraphics {
 	PosFPSGameState gameFPS;
 	PosTextGameState gameLAG;
 	PosTextGameState clientTurn;
+	PosTextGameState info;
 	InputReader in;
 	StandardGame game;
+	
 	
 	public InitGraphics(LinkedList<ClientOggetto2D> allOggetto2D){
 		game = new StandardGame("Client test");
@@ -65,6 +67,10 @@ public class InitGraphics {
 		clientTurn = new PosTextGameState("INITIALIZING",10, 27, 10);
 		GameStateManager.getInstance().attachChild(clientTurn);
 		clientTurn.setActive(true);
+		
+		info = new PosTextGameState("INITIALIZING",10, 34, 10);
+		GameStateManager.getInstance().attachChild(info);
+		info.setActive(true);
 	}
 	
 	public WorldGameState getWorldGUI(){
@@ -85,5 +91,9 @@ public class InitGraphics {
 	
 	public void setTurn(long aturn, long turn, int errorNumber) {
 		clientTurn.setText("AsincTurn:"+aturn+" sincTurn:"+turn+" world physic error:"+errorNumber);
+	}
+	
+	public void setInfo(String str) {
+		info.setText(str);
 	}
 }

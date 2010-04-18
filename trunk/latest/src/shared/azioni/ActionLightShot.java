@@ -13,7 +13,7 @@ public class ActionLightShot extends Action {
 	 * 
 	 */
 	private static final long serialVersionUID = 1L;
-	private float bulletSpeed=0.01f;
+	private float bulletSpeed=5f;
 
 	public ActionLightShot(int ID) {
 		super(ID);
@@ -33,56 +33,44 @@ public class ActionLightShot extends Action {
 	public boolean run(PhysicWorld w) {
 		
 		Oggetto2D o = w.get(shipOwnerID);
-		if (o != null){
-			float x, y, a, sinA, cosA;
-			OggettoBullet b = new OggettoBullet( w.getNextIndex() );
-			
-			a = o.getBody().getAngle();
-			sinA = FastMath.sin(a) + FastMath.PI/2;
-			cosA = FastMath.cos(a) + FastMath.PI/2;
-			
-			x = o.getBody().getWorldCenter().x + ( o.getRadius()+b.getRadius() ) *cosA;
-			y = o.getBody().getWorldCenter().y + ( o.getRadius()+b.getRadius() ) *sinA;
-			
-			if (w.addNew(b, x, y, a) != null){
-				x = bulletSpeed*cosA;
-				y = bulletSpeed*sinA;
-				ActionEngine tAct = new ActionEngine(b.ID, x, y, a);
-				if ( ! tAct.run(w) ){
-					System.out.println("error moving the bullet!");
-					return false;
-				}
-				return true;
-			}else{
-				System.out.println("error creating the bullet in the world");
-			}
-		}else{
-			System.out.println("error executing action, null object");			
-		}
-		return false;
+		
+		return createShot(o, w, null);
 	}
 
 	@Override
 	public boolean run(PhysicWorld w, Player p) {
-		Oggetto2D o = p.getShip(shipOwnerID);
+		if (p!=null){
+			Oggetto2D o = p.getShip(shipOwnerID);
+			return createShot(o, w, p);
+		}else{
+			System.out.println("Error, non existent player tryed to shot");
+			return false;
+		}
+		
+	}
+	
+	private boolean createShot(Oggetto2D o, PhysicWorld w, Player p){
 		if (o != null){
-			float x, y, a, sinA, cosA;
 			OggettoBullet b = new OggettoBullet( w.getNextIndex() );
+			float x, y, a, sinA, cosA;
+			
 			
 			a = o.getBody().getAngle();
-			sinA = FastMath.sin(a) + FastMath.PI/2;
-			cosA = FastMath.cos(a) + FastMath.PI/2;
+			sinA = FastMath.sin(a + FastMath.PI/2);
+			cosA = FastMath.cos(a + FastMath.PI/2);
 
-			x = o.getBody().getPosition().x + ( o.getRadius()+b.getRadius() ) *cosA;
-			y = o.getBody().getPosition().y + ( o.getRadius()+b.getRadius() ) *sinA;
+			x = o.getBody().getPosition().x - ( o.getRadius()+b.getRadius() ) *cosA;
+			y = o.getBody().getPosition().y - ( o.getRadius()+b.getRadius() ) *sinA;
 			
 			if (w.addNew(b, x, y, a) != null){
-				p.addOggetto(b);
-				x = bulletSpeed*cosA;
-				y = bulletSpeed*sinA;
+				if (p!=null)
+					p.addOggetto(b);
+				x = -bulletSpeed*cosA+o.getBody().getLinearVelocity().x;
+				y = -bulletSpeed*sinA+o.getBody().getLinearVelocity().y;
 				ActionEngine tAct = new ActionEngine(b.ID, x, y, a);
 				if ( ! tAct.run(w) ){
-					p.addAction(tAct);
+					if (p!=null)
+						p.addAction(tAct);
 					System.out.println("error moving the bullet!");
 					return false;
 				}

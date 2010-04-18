@@ -220,6 +220,7 @@ public class ClientEngine extends TimerTask{
 			if (o instanceof SelectShip){
 				used = true;
 				IDmyShip = ((SelectShip)o).shipOwnerID;
+				gui.setCameraID(IDmyShip);
 				System.out.println( "\tSelect ship received, id:"+IDmyShip);
 			}
 			
@@ -372,6 +373,7 @@ public class ClientEngine extends TimerTask{
 		Oggetto2D tempCopy;
 		Vec2 pos;
 		Collection<Oggetto2D> temp = world.getOggetti();
+		gui.setInfo("Number of obj in world:"+temp.size());
 		for (Oggetto2D o:temp){
 			pos = o.getInfoPosition().getPos();
 			tempCopy = asincroniusWorld.addCopy( o, pos.x, pos.y, o.getInfoPosition().getAngle() );

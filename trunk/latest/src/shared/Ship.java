@@ -16,31 +16,24 @@ public class Ship extends Oggetto2D implements Serializable{
 		super(id);
 		modelName="Cone";
 		radius=GLOBAL_VARIABLE.convertToPhysicEngineUnit( 4 );
+		density = 20;
 	}
 	
 	public Ship(Ship o) {
 		super(o);
 		modelName="Cone";
 		radius=GLOBAL_VARIABLE.convertToPhysicEngineUnit( 4 );
+		density = 20;
 	}
 
 	@Override
 	public void createBody(Body body) {
-		bodyContainer.myBody = body;
-		CircleDef hull = new CircleDef();
-        hull.restitution = 0.8f;
-        hull.friction = 0;
-        hull.radius = radius;
-        hull.density = 20;
-        hull.userData = this;
-        bodyContainer.myBody.createShape(hull);
+		super.createBody(body);
         
         CircleDef radar = new CircleDef();
         radar.radius = GLOBAL_VARIABLE.convertToPhysicEngineUnit( 100 );
         radar.userData = this;
         radar.isSensor = true;
         bodyContainer.myBody.createShape(radar);
-        
-        bodyContainer.myBody.setMassFromShapes();
 	}
 }

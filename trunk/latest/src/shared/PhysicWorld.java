@@ -161,9 +161,6 @@ public class PhysicWorld {
 		if (o instanceof Oggetto2D)
 			copy = new Oggetto2D(o);
 		
-		if (o instanceof Ship)
-			copy = new Ship( (Ship)o );
-		
 		if ( copy!=null && copy.isValid() ){
 			
 			BodyDef bd = new BodyDef();

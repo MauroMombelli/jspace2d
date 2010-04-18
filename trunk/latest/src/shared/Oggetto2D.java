@@ -17,13 +17,15 @@ public class Oggetto2D implements Serializable, Comparable<Oggetto2D> {
 	private static final long serialVersionUID = -6591598803708118223L;
 	
 	
-	//private Body myBody;
-	UniqueData bodyContainer = new UniqueData();//this class will not be synchronized
+	//UniqueData is the body, because is not serializable, it will be created from scratch
+	UniqueData bodyContainer = new UniqueData();//this class will not be serializated
 	
 	public int ID;
 	String modelName="Sphere";
-
 	protected float radius=GLOBAL_VARIABLE.convertToPhysicEngineUnit( 4 );
+	protected float density = 1;
+	protected float friction = 0;
+	protected float restitution = 0.8f;
 	
 	public Oggetto2D(int id){
 		this.ID = id;
@@ -32,6 +34,10 @@ public class Oggetto2D implements Serializable, Comparable<Oggetto2D> {
 	public Oggetto2D(Oggetto2D obj){
 		this.ID = obj.ID;
 		this.modelName = obj.modelName;
+		this.radius = obj.radius;
+		this.density = obj.density;
+		this.friction = obj.friction;
+		this.restitution = obj.restitution;
 	}
 	
 	public boolean isValid() {
@@ -42,13 +48,12 @@ public class Oggetto2D implements Serializable, Comparable<Oggetto2D> {
 	public void createBody(Body body) {
 		bodyContainer.myBody = body;
 		CircleDef sd = new CircleDef();
-        sd.restitution = 0.8f;
-        sd.friction = 0;
+        sd.restitution = restitution;
+        sd.friction = friction ;
         sd.radius = radius;
-        sd.density = 1;
+        sd.density = density ;
         sd.userData = this;
         bodyContainer.myBody.createShape(sd);
-        bodyContainer.myBody.setMassFromShapes();
 	}
 
 	public Body getBody() {
