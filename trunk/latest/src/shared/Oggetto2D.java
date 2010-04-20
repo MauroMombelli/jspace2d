@@ -42,6 +42,7 @@ public class Oggetto2D implements Serializable, Comparable<Oggetto2D> {
 		this.density = obj.density;
 		this.friction = obj.friction;
 		this.restitution = obj.restitution;
+		setInfoPosition(obj.getInfoPosition());
 	}
 
 	public boolean isValid() {
