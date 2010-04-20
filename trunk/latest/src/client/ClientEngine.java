@@ -364,7 +364,7 @@ public class ClientEngine extends TimerTask{
 		System.out.println( "\t\tI'm rebuilding the asynchronous world!! Was "+asincroniusWorld.actualTurn +" will be "+world.actualTurn );
 		
 		long time = System.nanoTime();
-		asincroniusWorld.clear();
+		//asincroniusWorld.clear();
 		
 		time = System.nanoTime() - time;
 		System.out.println( "Clear time: "+time );
@@ -373,17 +373,28 @@ public class ClientEngine extends TimerTask{
 		Oggetto2D tempCopy;
 		Vec2 pos;
 		Collection<Oggetto2D> temp = world.getOggetti();
+
 		gui.setInfo("Number of obj in world:"+temp.size());
 		for (Oggetto2D o:temp){
-			pos = o.getInfoPosition().getPos();
-			tempCopy = asincroniusWorld.addCopy( o, pos.x, pos.y, o.getInfoPosition().getAngle() );
-			tempCopy.setInfoPosition( o.getInfoPosition() );
-			
-			tempAllOggetto2D.add( new ClientOggetto2D(tempCopy) );
-			
-			//System.out.println( tempCopy.getInfoPosition() );
-			if (IDmyShip==tempCopy.ID)
-				myShip = tempCopy;
+			for (ClientOggetto2D o2:tempAllOggetto2D){
+				if ( o.ID == o2.getID() ){
+					
+					o2.set( o.getInfoPosition() );
+				}else{
+					if (o2.getID() > o.ID){
+						pos = o.getInfoPosition().getPos();
+						
+						tempCopy = asincroniusWorld.addCopy( o, pos.x, pos.y, o.getInfoPosition().getAngle() );
+						tempCopy.setInfoPosition( o.getInfoPosition() );
+					
+						tempAllOggetto2D.add( new ClientOggetto2D(tempCopy) );
+					}else{
+						tempAllOggetto2D.remove(o2);
+					}
+				}
+				if (IDmyShip==o.ID)
+					myShip = o;
+			}
 		}
 		
 		temp = world.getNewOggetti();

@@ -7,6 +7,7 @@ import org.jbox2d.common.Vec2;
 import com.jme.scene.Node;
 
 import client.gameState.SetNode;
+import shared.InfoBody;
 import shared.Oggetto2D;
 
 public class ClientOggetto2D {
@@ -29,5 +30,13 @@ public class ClientOggetto2D {
 	public void run(HashMap<Integer, Node> visibleObject, Node rootNode) {
 		if (graphicPosition != null)
 			graphicPosition.run(visibleObject, rootNode);
+	}
+
+	public int getID() {
+		return obj.ID;
+	}
+
+	public void set(InfoBody infoPosition) {
+		obj.setInfoPosition( infoPosition );
 	}
 }
