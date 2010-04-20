@@ -273,7 +273,7 @@ public class ClientEngine extends TimerTask{
 		long asincTurn = asincroniusWorld.actualTurn;
 		if (lastAllMap!=null){
 			//we have to rebuild the synchronous world
-			synchronousChanged = true;
+			//synchronousChanged = true;
 			allMapArrived = true;
 			
 			if (lastAllMap.turn < world.actualTurn){
@@ -326,7 +326,7 @@ public class ClientEngine extends TimerTask{
 		System.out.println( "\tRemoving old action time: "+time);
 		*/
 		
-		if (synchronousChanged){
+		if (synchronousChanged || allMapArrived){
 			time = System.nanoTime();
 			
 			gui.setLag(actionLag, allMapLag);
@@ -350,9 +350,9 @@ public class ClientEngine extends TimerTask{
 			asincTurn = world.actualTurn;
 		}
 		
-		//if (!synchronousChanged){
+		if (!synchronousChanged){
 			updateAsincronousWorld(asincTurn+1);
-		//}
+		}
 		
 		time = System.nanoTime()-time;
 		System.out.println( "\tUpdate asyncronous time: "+time);
@@ -550,11 +550,36 @@ public class ClientEngine extends TimerTask{
 	
 
 	private void testWorldPrecision(AllMap lastAllMap) {
-		boolean error = false;
+		
 		System.out.println("\t\tTestin precision of map");
 		
 		InfoBody a;
 		
+		TreeSet<Oggetto2D> tempWord = world.getOggetti();
+		for (Oggetto2D t:tempWord){
+			a=lastAllMap.poll();
+			if (a == null){
+				System.out.println( "\t\t\tClient world has more obj than server! first occurence id:"+t.ID );
+				close();
+				break;
+			}
+			if (t.ID == a.ID){
+				t.setInfoPosition(a);
+			}else{
+				System.out.println( "\t\t\tExpected ID: "+a.ID+" found: "+t.ID );
+				close();
+			}
+		}
+		
+		a=lastAllMap.poll();
+		if (a != null){
+			System.out.println( "\t\t\tServer world has more obj than client! ids:"+a.ID );
+			while ( (a=lastAllMap.poll()) != null )
+				System.out.println( a.ID );
+			close();
+		}
+		/*
+		boolean error = false;
 		//DEBUG at turn
 		System.out.println( "\t\tDEBUG turn: "+lastAllMap.turn);
 		if (lastAllMap.turn > world.actualTurn){
@@ -563,19 +588,7 @@ public class ClientEngine extends TimerTask{
 		}		
 		
 		TreeSet<Oggetto2D> tempWord = world.getOggetti();
-/*		
-		if ( lastAllMap.size() > tempWord.size() ){
-			System.out.println( "\t\t\tServer world has more obj than client! "+(lastAllMap.size() - tempWord.size()) );
-			error = true;
-			close();
-		}
-		
-		if ( lastAllMap.size() < tempWord.size() ){
-			System.out.println( "\t\t\tServer world has more obj than client! "+( tempWord.size() - lastAllMap.size() ) );
-			error = true;
-			close();
-		}
-*/		
+
 		for (Oggetto2D t:tempWord){
 			a=lastAllMap.poll();
 			if (a == null){
@@ -611,7 +624,7 @@ public class ClientEngine extends TimerTask{
 		}else{
 			System.out.println("\t\tTest OK!");
 		}
-		
+		*/
 		/*
 		//CLOSE if find error
 		if (errorNumber>0){
