@@ -39,4 +39,9 @@ public class ClientOggetto2D {
 	public void set(Oggetto2D o) {
 		obj.setOggetto2D( o );
 	}
+
+	public void setInfoPosition(InfoBody infoPosition) {
+		obj.setInfoPosition( infoPosition );
+		graphicPosition = new SetNode( obj.ID, obj.getModelName(), new Vec2( obj.getBody().getPosition() ) , obj.getBody().getAngle() );
+	}
 }

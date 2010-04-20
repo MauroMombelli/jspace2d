@@ -18,10 +18,10 @@ public class PhysicWorld {
 	float minX =-50, minY=-50, maxX=50, maxY=50;
 	
 	TreeMap<Integer, Oggetto2D> allOggetto2D = new TreeMap<Integer, Oggetto2D>();
-	TreeMap<Integer, Oggetto2D> newOggetti2D = new TreeMap<Integer, Oggetto2D>();
+	//TreeMap<Integer, Oggetto2D> newOggetti2D = new TreeMap<Integer, Oggetto2D>();
 	
 	TreeSet<Oggetto2D> sortedOggetto2D = new TreeSet<Oggetto2D>();
-	TreeSet<Oggetto2D> sortedNewOggetti2D = new TreeSet<Oggetto2D>();
+	//TreeSet<Oggetto2D> sortedNewOggetti2D = new TreeSet<Oggetto2D>();
 	
 	public long actualTurn=0;
 	
@@ -90,10 +90,12 @@ public class PhysicWorld {
 		//System.out.println("step time: "+time);
 		
 		//add the new object to the object
+		/*
 		allOggetto2D.putAll(newOggetti2D);
 		newOggetti2D.clear();
 		sortedOggetto2D.addAll(sortedNewOggetti2D);
 		sortedNewOggetti2D.clear();
+		*/
 		
 	}
 	/*
@@ -129,8 +131,13 @@ public class PhysicWorld {
 			
 			t.getBody().setMassFromShapes();
 			
+			/*
 			newOggetti2D.put(t.ID, t);
 			sortedNewOggetti2D.add(t);
+			*/
+			
+			allOggetto2D.put(t.ID, t);
+			sortedOggetto2D.add(t);
 			
 			System.out.println("elements in world:"+physicWorld.getBodyCount());
 			return t;
@@ -144,9 +151,9 @@ public class PhysicWorld {
 
 	public void clear() {
 		allOggetto2D.clear();
-		newOggetti2D.clear();
+		//newOggetti2D.clear();
 		sortedOggetto2D.clear();
-		sortedNewOggetti2D.clear();
+		//sortedNewOggetti2D.clear();
 		
 		Body t = physicWorld.getBodyList();
 		while (t!=null){
@@ -174,9 +181,12 @@ public class PhysicWorld {
 			
 			copy.getBody().setMassFromShapes();
 			
+			/*
 			newOggetti2D.put(copy.ID, copy);
 			sortedNewOggetti2D.add(copy);
-			
+			*/
+			allOggetto2D.put(copy.ID, copy);
+			sortedOggetto2D.add(copy);
 			//System.out.println("elements in world:"+physicWorld.getBodyCount());
 			return copy;
 		}
@@ -190,9 +200,9 @@ public class PhysicWorld {
 
 	public void removeBody(Body body, int id) {
 		allOggetto2D.remove(id);
-		newOggetti2D.remove(id);
+		//newOggetti2D.remove(id);
 		sortedOggetto2D.remove(id);
-		sortedNewOggetti2D.remove(id);
+		//sortedNewOggetti2D.remove(id);
 		
 		physicWorld.destroyBody(body);
 	}
@@ -200,28 +210,30 @@ public class PhysicWorld {
 	public TreeMap<Integer, Oggetto2D> getMapOggetti() {
 		return allOggetto2D;
 	}
-
+/*
 	public TreeMap<Integer, Oggetto2D> getMapNewOggetti() {
 		return newOggetti2D;
 	}
-
+*/
 	public TreeSet<Oggetto2D> getOggetti() {
 		return sortedOggetto2D;
 	}
-
+/*
 	public TreeSet<Oggetto2D> getNewOggetti() {
 		return sortedNewOggetti2D;
 	}
-	
+	*/
 	public Oggetto2D get(int iD) {
+		/*
 		Oggetto2D ris =allOggetto2D.get(iD);
 		if (ris == null)
 			ris = newOggetti2D.get(iD);
-		return ris;
+			*/
+		return allOggetto2D.get(iD);
 	}
 
 	public int getNextIndex() {
-		while ( allOggetto2D.containsKey(objIndex) || newOggetti2D.containsKey(objIndex) )
+		while ( allOggetto2D.containsKey(objIndex) )
 			objIndex++;
 		return objIndex;
 	}
