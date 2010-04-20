@@ -578,6 +578,7 @@ public class ClientEngine extends TimerTask{
 				System.out.println( a.ID );
 			close();
 		}
+		world.actualTurn = lastAllMap.turn;
 		/*
 		boolean error = false;
 		//DEBUG at turn
