@@ -378,9 +378,9 @@ public class ClientEngine extends TimerTask{
 		for (Oggetto2D o:temp){
 			for (ClientOggetto2D o2:tempAllOggetto2D){
 				if ( o.ID == o2.getID() ){
-					
 					o2.set( o );
 				}else{
+					/*
 					if (o2.getID() > o.ID){
 						pos = o.getInfoPosition().getPos();
 						
@@ -391,6 +391,9 @@ public class ClientEngine extends TimerTask{
 					}else{
 						tempAllOggetto2D.remove(o2);
 					}
+					*/
+					System.out.println("Unexpected error");
+					close();
 				}
 				if (IDmyShip==o.ID)
 					myShip = o;
