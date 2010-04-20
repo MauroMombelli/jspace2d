@@ -379,7 +379,7 @@ public class ClientEngine extends TimerTask{
 			for (ClientOggetto2D o2:tempAllOggetto2D){
 				if ( o.ID == o2.getID() ){
 					
-					o2.set( o.getInfoPosition() );
+					o2.set( o );
 				}else{
 					if (o2.getID() > o.ID){
 						pos = o.getInfoPosition().getPos();

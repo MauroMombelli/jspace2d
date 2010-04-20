@@ -32,6 +32,10 @@ public class Oggetto2D implements Serializable, Comparable<Oggetto2D> {
 	}
 	
 	public Oggetto2D(Oggetto2D obj){
+		setOggetto2D(obj);
+	}
+	
+	public void setOggetto2D(Oggetto2D obj) {
 		this.ID = obj.ID;
 		this.modelName = obj.modelName;
 		this.radius = obj.radius;
@@ -39,7 +43,7 @@ public class Oggetto2D implements Serializable, Comparable<Oggetto2D> {
 		this.friction = obj.friction;
 		this.restitution = obj.restitution;
 	}
-	
+
 	public boolean isValid() {
 		//TODO:implement a control
 		return true;

@@ -36,7 +36,7 @@ public class ClientOggetto2D {
 		return obj.ID;
 	}
 
-	public void set(InfoBody infoPosition) {
-		obj.setInfoPosition( infoPosition );
+	public void set(Oggetto2D o) {
+		obj.setOggetto2D( o );
 	}
 }
