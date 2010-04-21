@@ -59,8 +59,8 @@ public class ActionLightShot extends Action {
 			sinA = FastMath.sin(a + FastMath.PI/2);
 			cosA = FastMath.cos(a + FastMath.PI/2);
 
-			x = o.getBody().getPosition().x - ( o.getRadius()+b.getRadius() ) *cosA;
-			y = o.getBody().getPosition().y - ( o.getRadius()+b.getRadius() ) *sinA;
+			x = o.getBody().getPosition().x - ( o.getRadius()+b.getRadius()+0.0001f ) *cosA;
+			y = o.getBody().getPosition().y - ( o.getRadius()+b.getRadius()+0.0001f ) *sinA;
 			
 			if (w.addNew(b, x, y, a) != null){
 				if (p!=null)
@@ -69,8 +69,11 @@ public class ActionLightShot extends Action {
 				y = -bulletSpeed*sinA+o.getBody().getLinearVelocity().y;
 				ActionEngine tAct = new ActionEngine(b.ID, x, y, a);
 				if ( ! tAct.run(w) ){
+					/*
 					if (p!=null)
 						p.addAction(tAct);
+					*/
+					b.addAction(tAct);
 					System.out.println("error moving the bullet!");
 					return false;
 				}

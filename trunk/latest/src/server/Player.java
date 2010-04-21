@@ -61,6 +61,11 @@ public class Player {
 		Object t;
 		Action a;
 		int actionThisTurn=0;
+		
+		for (Oggetto2D o : myPossessoin.values()){
+			myActions.addAll( o.getActions() );
+		}
+		
 		while( ( t=inR.poll() )!=null){ //until there is input
 			
 			actionThisTurn++;

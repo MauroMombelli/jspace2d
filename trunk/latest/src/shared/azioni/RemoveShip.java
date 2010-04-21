@@ -22,8 +22,9 @@ public class RemoveShip extends Action implements Serializable{
 	public boolean run(PhysicWorld w, Player p) {
 		Oggetto2D o = p.getShip(shipOwnerID); 
 		if (o != null){
+			System.out.println("Removing obj:"+shipOwnerID);
 			w.removeBody( o.getBody(), shipOwnerID );
-			p.removeOggetto(o.ID);
+			p.removeOggetto(shipOwnerID);
 			return true;
 		}else{
 			System.out.println("Player "+p.getLogin()+" tryed to delete not owned ship, disconnectiong!");
@@ -44,6 +45,7 @@ public class RemoveShip extends Action implements Serializable{
 
 	@Override
 	public boolean run(PhysicWorld w) {
+		System.out.println("Removing obj:"+shipOwnerID);
 		Oggetto2D o = w.get(shipOwnerID);
 		w.removeBody( o.getBody(), shipOwnerID );
 		return true;

@@ -20,7 +20,7 @@ public class WorldGameState extends BasicGameState{
 
 	HashMap<Integer, Node> visibleObject = new HashMap<Integer, Node>();
 	
-	LinkedList<GuiAction> objMod = new LinkedList<GuiAction>();
+	//LinkedList<GuiAction> objMod = new LinkedList<GuiAction>();
 
 	LightState lightState;
 	PointLight light;
@@ -68,13 +68,13 @@ public class WorldGameState extends BasicGameState{
         rootNode.updateWorldBound();
         rootNode.updateGeometricState(0.0f, true);
 	}
-	
+/*	
 	public void addAction(GuiAction a){
 		synchronized (objMod) {
 			objMod.add(a);
 		}
 	}
-	
+*/	
 	public void setCameraID(int id){
 		synchronized (cameraID) {
 			cameraID = id;
@@ -85,14 +85,6 @@ public class WorldGameState extends BasicGameState{
 	public void update(float tpf) {
 		//System.out.println( "GUI update");
 		long time = System.nanoTime();
-		
-		synchronized (objMod) {
-			super.update(tpf);
-			GuiAction currentAction;
-			while( (currentAction=objMod.poll())!=null ){
-				currentAction.run( visibleObject, rootNode );
-			}
-		}
 		
 		synchronized (allOggetto2D) {
 			for (ClientOggetto2D t:allOggetto2D){
@@ -166,10 +158,11 @@ public class WorldGameState extends BasicGameState{
 			objMod.addAll(listaAzioni);
 		}
 	}
-*/
+*//*
 	public void setGuiActions(LinkedList<GuiAction> listaAzioni) {
 		synchronized (objMod) {
 			objMod = listaAzioni;
 		}
 	}
+	*/
 }

@@ -39,9 +39,13 @@ public class EngineListener implements ContactListener {
 			//collisione tra shape1 e shape2
 			Oggetto2D obj1 = (Oggetto2D)point.shape1.getUserData();
 			Oggetto2D obj2 = (Oggetto2D)point.shape2.getUserData();
-			if (obj1!=null && obj2!=null){
+			if (obj1!=null){
 				obj1.collide(obj2);
+			}
+			if (obj2!=null){
 				obj2.collide(obj1);
+			}
+			if (obj1!=null && obj2!=null){
 				System.out.println(obj1.ID+" collide "+obj2.ID);
 				//allPhisicCollision.add(obj1.getInfoPosition());
 				//allPhisicCollision.add(obj2.getInfoPosition());

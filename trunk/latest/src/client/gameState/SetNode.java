@@ -29,11 +29,17 @@ public class SetNode extends GuiAction{
 		position = pos;
 		
 	}
-	
+
+
+	public void set(Vec2 pos, float angle) {
+		position = pos;
+		rotation = new Quaternion();
+		rotation.fromAngleAxis(angle, new Vector3f(0,0,1));
+	}
+
 	@Override
-	public void run(HashMap<Integer, Node> visibleObject, Node rootNode) {
-		
-		Node myself = visibleObject.get(ID);
+	public void run(HashMap<Integer, Node> visibleObject, Node rootNode, Node myself) {
+
 		if (myself!=null){
 			//myself.setLocalTranslation( new Vector3f(GLOBAL_VARIABLE.convertFromPhysicEngineUnit( position.x ), GLOBAL_VARIABLE.convertFromPhysicEngineUnit( position.y ), 0) );
 			myself.setLocalTranslation( new Vector3f( position.x, position.y, 0) );
@@ -66,12 +72,6 @@ public class SetNode extends GuiAction{
 			//	System.exit(0);
 			//}
 		}
-	}
-
-	public void set(Vec2 pos, float angle) {
-		position = pos;
-		rotation = new Quaternion();
-		rotation.fromAngleAxis(angle, new Vector3f(0,0,1));
 	}
 	
 

@@ -13,6 +13,7 @@ import shared.Oggetto2D;
 public class ClientOggetto2D {
 	Oggetto2D obj;
 	SetNode graphicPosition;
+	private Node myNode;
 	
 	public ClientOggetto2D(Oggetto2D obj){
 		this.obj = obj;
@@ -20,7 +21,7 @@ public class ClientOggetto2D {
 	}
 
 	public void update() {
-		if (obj != null){ //obj has been deleted
+		if (graphicPosition != null){ //obj has been deleted
 			graphicPosition.set( new Vec2( obj.getBody().getPosition() ) , obj.getBody().getAngle() );
 		}else{
 			graphicPosition = null;
@@ -28,20 +29,23 @@ public class ClientOggetto2D {
 	}
 
 	public void run(HashMap<Integer, Node> visibleObject, Node rootNode) {
-		if (graphicPosition != null)
-			graphicPosition.run(visibleObject, rootNode);
+		if (graphicPosition != null){
+			if (myNode==null)
+				myNode = visibleObject.get(obj.ID);
+			
+			graphicPosition.run(visibleObject, rootNode, myNode);
+		}
+	}
+
+	public void set(Oggetto2D o) {
+		obj.setOggetto2D(o);
+	}
+
+	public void setInfoPosition(InfoBody infoPosition) {
+		obj.setInfoPosition(infoPosition);
 	}
 
 	public int getID() {
 		return obj.ID;
-	}
-
-	public void set(Oggetto2D o) {
-		obj.setOggetto2D( o );
-	}
-
-	public void setInfoPosition(InfoBody infoPosition) {
-		obj.setInfoPosition( infoPosition );
-		graphicPosition = new SetNode( obj.ID, obj.getModelName(), new Vec2( obj.getBody().getPosition() ) , obj.getBody().getAngle() );
 	}
 }

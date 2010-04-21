@@ -1,6 +1,5 @@
 package client;
 
-import java.util.Collection;
 import java.util.LinkedList;
 import java.util.TimerTask;
 import java.util.TreeMap;
@@ -162,6 +161,7 @@ public class ClientEngine extends TimerTask{
 		if (KeyBindingManager.getKeyBindingManager().isValidCommand("move_right", false)) {
 			angle -= 1f;
         }
+		System.out.println( "forza:"+strenght+" a:"+angle );
 		if (strenght != 0 || angle != 0){
 			float x = strenght*FastMath.cos( myShip.getBody().getAngle() + FastMath.PI/2 );
 			float y = strenght*FastMath.sin( myShip.getBody().getAngle() + FastMath.PI/2 );
@@ -173,10 +173,11 @@ public class ClientEngine extends TimerTask{
 		//shoot
 		if (KeyBindingManager.getKeyBindingManager().isValidCommand("shot_light", false)) {
 			executeAction( new ActionLightShot(myShip.ID) );
+			actionExecuted = true;
         }
 		
 		if (actionExecuted){
-			long t = asincroniusWorld.actualTurn;
+			//long t = asincroniusWorld.actualTurn;
 			//rebuildAsichronousWorld();
 			//updateAsincronousWorld(t);
 		}
@@ -375,12 +376,61 @@ public class ClientEngine extends TimerTask{
 		time = System.nanoTime();
 		Oggetto2D tempCopy;
 		Vec2 pos;
-		Collection<Oggetto2D> temp = world.getOggetti();
+		
+		LinkedList<Oggetto2D> tempW = new LinkedList<Oggetto2D>();
+		tempW.addAll( world.getOggetti() );
 
-		gui.setInfo("Number of obj in world:"+temp.size());
+		gui.setInfo("Number of obj in world:"+tempW.size());
 		
 		ClientOggetto2D a;
 		LinkedList<ClientOggetto2D> all = new LinkedList<ClientOggetto2D>();
+		Oggetto2D o;
+		boolean deleteThisObj = false;
+		while( (o = tempW.poll()) != null ){
+			
+			a = tempAllOggetto2D.poll();
+			
+			
+			while ( a!=null && a.getID() < o.ID){
+				a = tempAllOggetto2D.poll();
+			}
+			
+			if ( a!=null && !deleteThisObj ){
+				//updating old obj
+				System.out.println("Same id:"+o.ID);
+				
+				a.set( o );
+				a.setInfoPosition(o.getInfoPosition());
+				
+				all.add(a);
+				
+				if (a.getID() == IDmyShip){
+					myShip = a.obj;
+				}
+			}else{
+			
+				if (a == null){
+					//creatin new obj
+					System.out.println("Created id:"+o.ID);
+					pos = o.getInfoPosition().getPos();
+				
+					tempCopy = asincroniusWorld.addCopy( o, pos.x, pos.y, o.getInfoPosition().getAngle() );
+					tempCopy.setInfoPosition( o.getInfoPosition() );
+			
+					all.add( new ClientOggetto2D(tempCopy) );
+				}else{
+					if (!deleteThisObj){
+						System.out.println("Unexpected error: "+o.ID+" "+a.getID());
+						close();
+					}
+				}
+			}
+		}
+		
+		while( (a = tempAllOggetto2D.poll() ) != null ){
+			//remove inexistent obj
+		}
+		/*
 		for (Oggetto2D o:temp){
 			a = tempAllOggetto2D.poll();
 			//for (ClientOggetto2D o2:tempAllOggetto2D){
@@ -392,19 +442,6 @@ public class ClientEngine extends TimerTask{
 					
 					all.add(a);
 				}else{
-					/*
-					if (a.getID() > o.ID){
-						pos = o.getInfoPosition().getPos();
-						
-						tempCopy = asincroniusWorld.addCopy( o, pos.x, pos.y, o.getInfoPosition().getAngle() );
-						tempCopy.setInfoPosition( o.getInfoPosition() );
-					
-						tempAllOggetto2D.add( new ClientOggetto2D(tempCopy) );
-					}else{
-						
-						//tempAllOggetto2D.remove(o2);
-					}
-					*/
 					
 					if (a == null){
 						System.out.println("Created id:"+o.ID);
@@ -425,7 +462,7 @@ public class ClientEngine extends TimerTask{
 				
 			//}
 		}
-		
+		*/
 		tempAllOggetto2D.addAll(all);
 		
 		time = System.nanoTime() - time;
