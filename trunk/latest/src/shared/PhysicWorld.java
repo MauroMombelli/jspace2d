@@ -126,7 +126,7 @@ public class PhysicWorld {
 			bd.angle = rotation;
             bd.allowSleep=true;	
             bd.angularDamping=0.005f;
-            
+            bd.userData = t;
             t.createBody( physicWorld.createBody(bd) );
 			
 			t.getBody().setMassFromShapes();
@@ -176,6 +176,7 @@ public class PhysicWorld {
 			bd.angle=f;
             bd.allowSleep=true;	
             bd.angularDamping=0.005f;
+            bd.userData = copy;
             
             copy.createBody( physicWorld.createBody(bd) );
 			

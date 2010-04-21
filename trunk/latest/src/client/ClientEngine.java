@@ -15,6 +15,7 @@ import shared.InfoBody;
 import shared.NewTurn;
 import shared.Oggetto2D;
 import shared.PhysicWorld;
+import shared.PhysicWorldListener;
 import shared.azioni.Action;
 import shared.azioni.ActionEngine;
 import shared.azioni.ActionLightShot;
@@ -31,8 +32,10 @@ public class ClientEngine extends TimerTask{
 	long MAX_TURN_DURATION;
 	
 	PhysicWorld world = new PhysicWorld();
+	PhysicWorldListener worldList = new PhysicWorldListener();
 	
 	PhysicWorld asincroniusWorld = new PhysicWorld();
+	PhysicWorldListener asincList = new PhysicWorldListener();
 	
 	LinkedList<ClientOggetto2D> allOggetto2D = new LinkedList<ClientOggetto2D>();
 	LinkedList<ClientOggetto2D> tempAllOggetto2D = new LinkedList<ClientOggetto2D>();
@@ -55,7 +58,9 @@ public class ClientEngine extends TimerTask{
 		server = serverListener;
 		
 		world.actualTurn = actualTurn;
+		//world.setCollisionListener(worldList);
 		asincroniusWorld.actualTurn=actualTurn;
+		asincroniusWorld.setCollisionListener(asincList);
 		lastMyActionClear = actualTurn;
 		
 		MAX_TURN_DURATION = turnDuration;
@@ -100,6 +105,15 @@ public class ClientEngine extends TimerTask{
 		}
 	}
 	
+	private void executeAsincAct() {
+		for (Oggetto2D o:asincroniusWorld.getOggetti()){
+			for (Action a:o.getActions()){
+				a.run(asincroniusWorld);
+			}
+				
+		}
+	}
+
 	//GUI PURPOISE
 	private void copyWorldForPaint() {
 		long time2 = System.nanoTime();
@@ -361,7 +375,8 @@ public class ClientEngine extends TimerTask{
 		gui.setTurn(asincroniusWorld.actualTurn, world.actualTurn, errorNumber);
 		
 		copyWorldForPaint();
-
+		if (myShip!=null)
+			gui.setLife( "Life: "+myShip.getLife() );
 	}
 
 	private void rebuildAsichronousWorld() {
@@ -392,6 +407,7 @@ public class ClientEngine extends TimerTask{
 			
 			
 			while ( a!=null && a.getID() < o.ID){
+				asincroniusWorld.removeBody(a.obj.getBody(), a.obj.ID);
 				a = tempAllOggetto2D.poll();
 			}
 			
@@ -429,6 +445,7 @@ public class ClientEngine extends TimerTask{
 		
 		while( (a = tempAllOggetto2D.poll() ) != null ){
 			//remove inexistent obj
+			asincroniusWorld.removeBody(a.obj.getBody(), a.obj.ID);
 		}
 		/*
 		for (Oggetto2D o:temp){
@@ -560,6 +577,11 @@ public class ClientEngine extends TimerTask{
 		while (asincroniusWorld.actualTurn < asincTurn){
 			//update world
 			asincroniusWorld.update();
+			//execute world action
+			//time2 = System.nanoTime();
+			executeAsincAct();
+			//time2 = System.nanoTime()-time2;
+			//System.out.println( "Asinc action time: "+time2);
 			//execute my actions
 			synchronized (myActions) {
 				my = myActions.get(asincroniusWorld.actualTurn);

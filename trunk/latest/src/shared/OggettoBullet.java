@@ -8,6 +8,7 @@ public class OggettoBullet extends Oggetto2D {
 	 * 
 	 */
 	private static final long serialVersionUID = 5735099940575927022L;
+	private int bulletDamage = 5;
 
 	public OggettoBullet(int id) {
 		super(id);
@@ -25,12 +26,14 @@ public class OggettoBullet extends Oggetto2D {
 	
 	@Override
 	public void collide(Oggetto2D obj1) {
-		if (obj1!=null) //null == wall
+		if (obj1!=null){ //null == wall
 			System.out.println("Bullet "+ID+" is colliding with:"+obj1.ID);
+			obj1.subLife(bulletDamage);
+		}
 		//addAction( new ActionLightShot(ID) );
 		addAction( new RemoveShip(ID) );
 	}
-	
+/*	
 	@Override
 	public void continueCollide(Oggetto2D obj1) {
 		if (obj1!=null) //null == wall
@@ -38,5 +41,5 @@ public class OggettoBullet extends Oggetto2D {
 		//addAction( new ActionLightShot(ID) );
 		addAction( new RemoveShip(ID) );
 	}
-
+*/
 }

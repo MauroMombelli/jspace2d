@@ -21,6 +21,7 @@ public class InitGraphics {
 	PosTextGameState gameLAG;
 	PosTextGameState clientTurn;
 	PosTextGameState info;
+	PosTextGameState life;
 	InputReader in;
 	StandardGame game;
 	
@@ -68,9 +69,13 @@ public class InitGraphics {
 		GameStateManager.getInstance().attachChild(clientTurn);
 		clientTurn.setActive(true);
 		
-		info = new PosTextGameState("INITIALIZING",10, 34, 10);
+		info = new PosTextGameState("INITIALIZING",10, 39, 10);
 		GameStateManager.getInstance().attachChild(info);
 		info.setActive(true);
+		
+		life = new PosTextGameState("INITIALIZING",10, 51, 10);
+		GameStateManager.getInstance().attachChild(life);
+		life.setActive(true);
 	}
 	
 	public WorldGameState getWorldGUI(){
@@ -95,5 +100,9 @@ public class InitGraphics {
 	
 	public void setInfo(String str) {
 		info.setText(str);
+	}
+
+	public void setLife(String string) {
+		life.setText(string);
 	}
 }

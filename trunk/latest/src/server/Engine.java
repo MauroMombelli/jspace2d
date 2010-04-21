@@ -5,6 +5,7 @@ import java.util.LinkedList;
 import java.util.TimerTask;
 
 import shared.AllMap;
+import shared.PhysicWorldListener;
 import shared.GLOBAL_VARIABLE;
 import shared.NewTurn;
 import shared.Oggetto2D;
@@ -42,7 +43,7 @@ public class Engine extends TimerTask{
 	
 	
 	
-	EngineListener collListener = new EngineListener();
+	PhysicWorldListener collListener = new PhysicWorldListener();
 	
 	public Engine(PortListener serverMain) {
 		this.serverMain = serverMain;

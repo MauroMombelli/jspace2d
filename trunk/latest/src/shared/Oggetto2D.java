@@ -10,6 +10,7 @@ import org.jbox2d.collision.shapes.CircleDef;
 import org.jbox2d.dynamics.Body;
 
 import shared.azioni.Action;
+import shared.azioni.RemoveShip;
 
 
 public class Oggetto2D implements Serializable, Comparable<Oggetto2D> {
@@ -30,6 +31,8 @@ public class Oggetto2D implements Serializable, Comparable<Oggetto2D> {
 	protected float friction = 0;
 	protected float restitution = 0.8f;
 	private LinkedList<Action> myActions = new LinkedList<Action>();
+	
+	private int life = 100;
 	
 	public Oggetto2D(int id){
 		this.ID = id;
@@ -131,6 +134,22 @@ public class Oggetto2D implements Serializable, Comparable<Oggetto2D> {
 	
 	public void addAction(Action act) {
 		myActions.add(act);
+	}
+
+	public void setLife(int life) {
+		this.life = life;
+		if (life < 0)
+			myActions.add( new RemoveShip(ID) );
+	}
+	
+	public void subLife(int sub) {
+		this.life -= sub;
+		if (life < 0)
+			myActions.add( new RemoveShip(ID) );
+	}
+
+	public int getLife() {
+		return life;
 	}
 
 }

@@ -32,7 +32,6 @@ public class Ship extends Oggetto2D implements Serializable{
         
         CircleDef radar = new CircleDef();
         radar.radius = GLOBAL_VARIABLE.convertToPhysicEngineUnit( 100 );
-        radar.userData = this;
         radar.isSensor = true;
         bodyContainer.myBody.createShape(radar);
 	}

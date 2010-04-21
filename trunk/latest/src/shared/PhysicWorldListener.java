@@ -1,12 +1,11 @@
-package server;
+package shared;
 
 import org.jbox2d.dynamics.ContactListener;
 import org.jbox2d.dynamics.contacts.ContactPoint;
 import org.jbox2d.dynamics.contacts.ContactResult;
 
-import shared.Oggetto2D;
 
-public class EngineListener implements ContactListener {
+public class PhysicWorldListener implements ContactListener {
 	
 	@Override
 	public void add(ContactPoint point) {
