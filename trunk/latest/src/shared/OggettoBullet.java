@@ -1,5 +1,7 @@
 package shared;
 
+import org.jbox2d.dynamics.Body;
+
 import shared.azioni.RemoveShip;
 
 public class OggettoBullet extends Oggetto2D {
@@ -22,6 +24,12 @@ public class OggettoBullet extends Oggetto2D {
 		modelName="Bullet1";
 		radius=GLOBAL_VARIABLE.convertToPhysicEngineUnit( 2f );
 		density=20;
+	}
+	
+	@Override
+	public void createBody(Body body) {
+		super.createBody(body);
+		body.setBullet(true);
 	}
 	
 	@Override

@@ -49,6 +49,7 @@ public class Oggetto2D implements Serializable, Comparable<Oggetto2D> {
 		this.density = obj.density;
 		this.friction = obj.friction;
 		this.restitution = obj.restitution;
+		this.life = obj.life;
 		//setInfoPosition(obj.getInfoPosition());
 	}
 
@@ -82,6 +83,7 @@ public class Oggetto2D implements Serializable, Comparable<Oggetto2D> {
 		bodyContainer.myBody.setLinearVelocity( ad.getPosVel() );
 		bodyContainer.myBody.applyTorque( ad.getTorque()-bodyContainer.myBody.m_torque );
 		bodyContainer.myBody.m_sweep = ad.getSweep();
+		setLife(ad.getLife());
 		//bodyContainer.myBody.m_torque=ad.getTorque();
 	}
 	

@@ -40,6 +40,8 @@ public class InfoBody implements Serializable{
 	private float sLy;
 	private float t0;
 	
+	private int life;
+	
 	public InfoBody(Oggetto2D o, int id, XForm xForm, Vec2 linearVelocity, float angle, float angularVelocity, float torque, Vec2 force, Sweep s) {
 		this.o = o;
 		this.ID = id;
@@ -69,6 +71,8 @@ public class InfoBody implements Serializable{
 		this.torque = torque;
 		xF = force.x;
 		yF = force.y;
+		
+		life = o.getLife();
 	}
 	
 	public Oggetto2D getOggetto2D(){
@@ -89,6 +93,10 @@ public class InfoBody implements Serializable{
 	
 	public Vec2 getPosVel() {
 		return new Vec2(xV, yV);
+	}
+	
+	public int getLife() {
+		return life;
 	}
 
 	public float compare(InfoBody b) {
