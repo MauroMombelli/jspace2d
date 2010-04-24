@@ -233,6 +233,7 @@ public class ClientEngine extends TimerTask{
 				used = true;
 				IDmyShip = ((SelectShip)o).shipOwnerID;
 				gui.setCameraID(IDmyShip);
+				myShip = world.get(IDmyShip);
 				System.out.println( "\tSelect ship received, id:"+IDmyShip);
 			}
 			
@@ -432,7 +433,13 @@ public class ClientEngine extends TimerTask{
 					tempCopy = asincroniusWorld.addCopy( o, pos.x, pos.y, o.getInfoPosition().getAngle() );
 					tempCopy.setInfoPosition( o.getInfoPosition() );
 			
-					all.add( new ClientOggetto2D(tempCopy) );
+					a = new ClientOggetto2D(tempCopy);
+					
+					all.add( a );
+					
+					if (a.getID() == IDmyShip){
+						myShip = a.obj;
+					}
 				}else{
 					if (!deleteThisObj){
 						System.out.println("Unexpected error: "+o.ID+" "+a.getID());
@@ -571,7 +578,8 @@ public class ClientEngine extends TimerTask{
 	}
 	
 	private void executeAsincAct() {
-		for (Oggetto2D o:asincroniusWorld.getOggetti()){
+		TreeSet<Oggetto2D> t = new TreeSet<Oggetto2D>( asincroniusWorld.getOggetti() );
+		for (Oggetto2D o:t){
 			for (Action a:o.getActions()){
 				a.run(asincroniusWorld);
 			}

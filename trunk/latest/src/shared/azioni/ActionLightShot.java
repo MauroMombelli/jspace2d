@@ -61,6 +61,7 @@ public class ActionLightShot extends Action {
 
 			x = o.getBody().getPosition().x - ( o.getRadius()+b.getRadius()+0.0001f ) *cosA;
 			y = o.getBody().getPosition().y - ( o.getRadius()+b.getRadius()+0.0001f ) *sinA;
+			System.out.println("rad1:"+o.getRadius()+" rad2:"+b.getRadius());
 			
 			if (w.addNew(b, x, y, a) != null){
 				if (p!=null)

@@ -22,7 +22,7 @@ public class Oggetto2D implements Serializable, Comparable<Oggetto2D> {
 	private static final long serialVersionUID = -6591598803708118223L;
 	
 	
-	//UniqueData is the body, because is not serializable, it will be created from scratch
+	//UniqueData is the body, because it is not serializable, it will be created from scratch
 	UniqueData bodyContainer = new UniqueData();//this class will not be serializated
 	
 	public int ID;
@@ -35,18 +35,18 @@ public class Oggetto2D implements Serializable, Comparable<Oggetto2D> {
 	private int life = 100;
 
 
-	private float globalRadius=0;
+	protected float globalRadius;
 	
 	public Oggetto2D(int id){
 		this.ID = id;
-		forma.clear();
-		forma.add( new SharedShape(4, SharedShape.Forme.CIRCLE, 1, 0) );
+
+		SharedShape basic = new SharedShape(4, SharedShape.Forme.CIRCLE, 1, 0);
+		forma.add( basic );
+		globalRadius = basic.radius;
 	}
 	
 	public Oggetto2D(Oggetto2D obj){
 		setOggetto2D(obj);
-		forma.clear();
-		forma.addAll( obj.forma );
 	}
 	
 	public void setOggetto2D(Oggetto2D obj) {
@@ -55,7 +55,8 @@ public class Oggetto2D implements Serializable, Comparable<Oggetto2D> {
 		this.forma.clear();
 		this.forma.addAll( obj.forma );
 		this.life = obj.life;
-		//setInfoPosition(obj.getInfoPosition());
+		this.globalRadius = obj.globalRadius;
+		this.modelName=obj.modelName;
 	}
 
 	public boolean isValid() {
@@ -149,13 +150,13 @@ public class Oggetto2D implements Serializable, Comparable<Oggetto2D> {
 
 	public void setLife(int life) {
 		this.life = life;
-		if (life < 0)
+		if (life <= 0)
 			myActions.add( new RemoveShip(ID) );
 	}
 	
 	public void subLife(int sub) {
 		this.life -= sub;
-		if (life < 0)
+		if (life <= 0)
 			myActions.add( new RemoveShip(ID) );
 	}
 

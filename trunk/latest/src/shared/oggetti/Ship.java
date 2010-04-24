@@ -16,16 +16,17 @@ public class Ship extends Oggetto2D implements Serializable{
 	
 	public Ship(int id) {
 		super(id);
+		
 		modelName="Cone";
+		
+		SharedShape basic = new SharedShape(4, SharedShape.Forme.CIRCLE, 20, 0);
 		forma.clear();
-		forma.add( new SharedShape(4, SharedShape.Forme.CIRCLE, 20, 0) );
+		forma.add( basic );
+		globalRadius = basic.radius;
 	}
-	
+
 	public Ship(Ship o) {
 		super(o);
-		modelName="Cone";
-		forma.clear();
-		forma.add( new SharedShape(4, SharedShape.Forme.CIRCLE, 20, 0) );
 	}
 
 	@Override

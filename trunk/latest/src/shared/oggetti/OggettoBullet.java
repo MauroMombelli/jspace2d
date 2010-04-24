@@ -15,16 +15,17 @@ public class OggettoBullet extends Oggetto2D {
 
 	public OggettoBullet(int id) {
 		super(id);
+		
 		modelName="Bullet1";
+		
+		SharedShape basic = new SharedShape(2, SharedShape.Forme.CIRCLE, 20, 0);
 		forma.clear();
-		forma.add( new SharedShape(2, SharedShape.Forme.CIRCLE, 20, 0) );
+		forma.add( basic );
+		globalRadius = basic.radius;
 	}
-
+	
 	public OggettoBullet(OggettoBullet o) {
 		super(o);
-		modelName="Bullet1";
-		forma.clear();
-		forma.add( new SharedShape(2, SharedShape.Forme.CIRCLE, 20, 0) );
 	}
 	
 	@Override
