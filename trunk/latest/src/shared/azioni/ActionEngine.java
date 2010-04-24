@@ -5,8 +5,8 @@ import java.io.Serializable;
 import org.jbox2d.common.Vec2;
 
 import server.Player;
-import shared.Oggetto2D;
 import shared.PhysicWorld;
+import shared.oggetti.Oggetto2D;
 
 public class ActionEngine extends Action implements Serializable{
 	

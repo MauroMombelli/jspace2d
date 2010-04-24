@@ -5,13 +5,13 @@ import java.net.Socket;
 import java.util.HashMap;
 import java.util.LinkedList;
 
-import shared.InputReader;
 import shared.Login;
-import shared.Oggetto2D;
-import shared.OutputWriter;
 import shared.PhysicWorld;
 import shared.azioni.Action;
 import shared.azioni.SelectShip;
+import shared.net.InputReader;
+import shared.net.OutputWriter;
+import shared.oggetti.Oggetto2D;
 
 public class Player {
 	Socket giocatore;

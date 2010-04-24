@@ -3,8 +3,8 @@ package shared.azioni;
 import java.io.Serializable;
 
 import server.Player;
-import shared.Oggetto2D;
 import shared.PhysicWorld;
+import shared.oggetti.Oggetto2D;
 
 public class SelectShip extends Action implements Serializable {
 

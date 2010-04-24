@@ -4,6 +4,8 @@ import org.jbox2d.dynamics.ContactListener;
 import org.jbox2d.dynamics.contacts.ContactPoint;
 import org.jbox2d.dynamics.contacts.ContactResult;
 
+import shared.oggetti.Oggetto2D;
+
 
 public class PhysicWorldListener implements ContactListener {
 	

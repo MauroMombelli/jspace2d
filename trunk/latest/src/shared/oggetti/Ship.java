@@ -1,9 +1,11 @@
-package shared;
+package shared.oggetti;
 
 import java.io.Serializable;
 
 import org.jbox2d.collision.shapes.CircleDef;
 import org.jbox2d.dynamics.Body;
+
+import shared.GLOBAL_VARIABLE;
 
 public class Ship extends Oggetto2D implements Serializable{
 
@@ -15,15 +17,15 @@ public class Ship extends Oggetto2D implements Serializable{
 	public Ship(int id) {
 		super(id);
 		modelName="Cone";
-		radius=GLOBAL_VARIABLE.convertToPhysicEngineUnit( 4 );
-		density = 20;
+		forma.clear();
+		forma.add( new SharedShape(4, SharedShape.Forme.CIRCLE, 20, 0) );
 	}
 	
 	public Ship(Ship o) {
 		super(o);
 		modelName="Cone";
-		radius=GLOBAL_VARIABLE.convertToPhysicEngineUnit( 4 );
-		density = 20;
+		forma.clear();
+		forma.add( new SharedShape(4, SharedShape.Forme.CIRCLE, 20, 0) );
 	}
 
 	@Override

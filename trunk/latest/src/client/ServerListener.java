@@ -6,10 +6,10 @@ import java.net.Socket;
 import java.net.UnknownHostException;
 import java.util.Timer;
 
-import shared.InputReader;
 import shared.Login;
-import shared.OutputWriter;
 import shared.TurnDuration;
+import shared.net.InputReader;
+import shared.net.OutputWriter;
 
 public class ServerListener extends Thread{
 	Socket s;

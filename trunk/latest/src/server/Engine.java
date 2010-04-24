@@ -5,14 +5,15 @@ import java.util.LinkedList;
 import java.util.TimerTask;
 
 import shared.AllMap;
+import shared.Login;
 import shared.PhysicWorldListener;
 import shared.GLOBAL_VARIABLE;
 import shared.NewTurn;
-import shared.Oggetto2D;
 import shared.PhysicWorld;
 import shared.TurnDuration;
 import shared.azioni.Action;
 import shared.azioni.CreateShip;
+import shared.oggetti.Oggetto2D;
 
 public class Engine extends TimerTask{
 
@@ -24,6 +25,8 @@ public class Engine extends TimerTask{
 	static final int MAX_NEW = 1;
 	LinkedList<Player> unloggedPlayer = new LinkedList<Player>();
 	ArrayList<Player> observerPlayer = new ArrayList<Player>();
+	
+	ArrayList<Login> loginUsed = new ArrayList<Login>();
 
 	ArrayList<Player> players = new ArrayList<Player>();
 	
@@ -208,13 +211,20 @@ public class Engine extends TimerTask{
 						tP.close();
 					}
 				}else{
-					System.out.println( "new player logged: "+tP.myself );
-					tP.write( new TurnDuration(ServerMain.TURN_DURATION, world.actualTurn) );
-					newObserver.add(tP);
+					if ( loginUsed.contains(tP.myself) ){
+						System.out.println( "Tryng to double login: "+tP.myself+" ip:"+tP.getIP() );
+					}else{
+						System.out.println( "new player logged: "+tP.myself );
+						tP.write( new TurnDuration(ServerMain.TURN_DURATION, world.actualTurn) );
+						newObserver.add(tP);
+						loginUsed.add(tP.myself);
+					}
 				}
 			}else{
 				System.out.println( "Connection lost: "+tP.getIP() );
 				tP.close();
+				if (tP.myself!=null)
+					loginUsed.remove(tP.myself);
 			}
 		}
 		
@@ -227,6 +237,8 @@ public class Engine extends TimerTask{
 			if ( t.isClosed() ){
 				t.close();
 				removedObserver.add(t);
+				if (t.myself!=null)
+					loginUsed.remove(t.myself);
 			}else{
 				t.update(world, allChanges);
 				if ( ( tempA=t.peekMyActions() ) != null ){
@@ -241,10 +253,14 @@ public class Engine extends TimerTask{
 						}else{
 							System.out.println( "Error observer request an existing ship, disconnecting! "+t.getLogin() );
 							t.close();
+							if (t.myself!=null)
+								loginUsed.remove(t.myself);
 						}
 					}else{
 						System.out.println( "Error observer request an action witouth a ship, disconnecting! "+t.getLogin() );
 						t.close();
+						if (t.myself!=null)
+							loginUsed.remove(t.myself);
 					}
 				}
 			}
@@ -262,6 +278,8 @@ public class Engine extends TimerTask{
 			if ( t.isClosed() ){
 				t.close();
 				removedPlayer.add(t);
+				if (t.myself!=null)
+					loginUsed.remove(t.myself);
 			}else{
 				
 				t.update(world, allChanges); //read all changes

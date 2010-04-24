@@ -16,8 +16,24 @@ public class Login implements Serializable{
 		this.name = name;
 		this.pass = pass;
 	}
-
+	
+	@Override
 	public String toString(){
 		return name+" "+pass;
+	}
+	
+	@Override
+	public boolean equals(Object o){
+		if (o instanceof Login){
+			Login t = (Login)o;
+			if ( t.name.equals(name) )
+				return true;
+		}
+		return false; 
+	}
+	
+	@Override
+	public int hashCode(){
+		return name.hashCode();
 	}
 }

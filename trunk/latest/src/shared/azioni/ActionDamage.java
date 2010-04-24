@@ -1,8 +1,8 @@
 package shared.azioni;
 
 import server.Player;
-import shared.Oggetto2D;
 import shared.PhysicWorld;
+import shared.oggetti.Oggetto2D;
 
 public class ActionDamage extends Action {
 

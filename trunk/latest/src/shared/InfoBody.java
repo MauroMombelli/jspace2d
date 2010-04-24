@@ -7,6 +7,9 @@ import org.jbox2d.common.Sweep;
 import org.jbox2d.common.Vec2;
 import org.jbox2d.common.XForm;
 
+import shared.oggetti.Oggetto2D;
+
+
 public class InfoBody implements Serializable{
 
 	/**

@@ -11,6 +11,10 @@ import org.jbox2d.dynamics.BodyDef;
 import org.jbox2d.dynamics.ContactListener;
 import org.jbox2d.dynamics.World;
 
+import shared.oggetti.Oggetto2D;
+import shared.oggetti.OggettoBullet;
+import shared.oggetti.Ship;
+
 
 public class PhysicWorld {
 	private static final float TIMESTEP = 1.0f/60.0f;

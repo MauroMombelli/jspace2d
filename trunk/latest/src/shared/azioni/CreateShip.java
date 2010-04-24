@@ -4,9 +4,9 @@ import java.io.Serializable;
 
 import server.Player;
 import shared.GLOBAL_VARIABLE;
-import shared.Oggetto2D;
 import shared.PhysicWorld;
-import shared.Ship;
+import shared.oggetti.Oggetto2D;
+import shared.oggetti.Ship;
 
 public class CreateShip extends Action implements Serializable{
 

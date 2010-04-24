@@ -3,9 +3,9 @@ package shared.azioni;
 import com.jme.math.FastMath;
 
 import server.Player;
-import shared.Oggetto2D;
-import shared.OggettoBullet;
 import shared.PhysicWorld;
+import shared.oggetti.Oggetto2D;
+import shared.oggetti.OggettoBullet;
 
 public class ActionLightShot extends Action {
 

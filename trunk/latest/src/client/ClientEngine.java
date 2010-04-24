@@ -16,7 +16,6 @@ import com.jme.math.FastMath;
 import shared.AllMap;
 import shared.InfoBody;
 import shared.NewTurn;
-import shared.Oggetto2D;
 import shared.PhysicWorld;
 import shared.PhysicWorldListener;
 import shared.azioni.Action;
@@ -24,6 +23,7 @@ import shared.azioni.ActionEngine;
 import shared.azioni.ActionLightShot;
 import shared.azioni.CreateShip;
 import shared.azioni.SelectShip;
+import shared.oggetti.Oggetto2D;
 
 public class ClientEngine extends TimerTask{
 

@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.LinkedList;
 
 import shared.azioni.Action;
+import shared.oggetti.Oggetto2D;
 
 public class NewTurn implements Serializable{
 	

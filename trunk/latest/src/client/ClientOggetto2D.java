@@ -8,7 +8,7 @@ import com.jme.scene.Node;
 
 import client.gameState.SetNode;
 import shared.InfoBody;
-import shared.Oggetto2D;
+import shared.oggetti.Oggetto2D;
 
 public class ClientOggetto2D {
 	Oggetto2D obj;

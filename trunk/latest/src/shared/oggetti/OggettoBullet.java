@@ -1,4 +1,4 @@
-package shared;
+package shared.oggetti;
 
 import org.jbox2d.dynamics.Body;
 
@@ -16,15 +16,15 @@ public class OggettoBullet extends Oggetto2D {
 	public OggettoBullet(int id) {
 		super(id);
 		modelName="Bullet1";
-		radius=GLOBAL_VARIABLE.convertToPhysicEngineUnit( 2f );
-		density=20;
+		forma.clear();
+		forma.add( new SharedShape(2, SharedShape.Forme.CIRCLE, 20, 0) );
 	}
 
 	public OggettoBullet(OggettoBullet o) {
 		super(o);
 		modelName="Bullet1";
-		radius=GLOBAL_VARIABLE.convertToPhysicEngineUnit( 2f );
-		density=20;
+		forma.clear();
+		forma.add( new SharedShape(2, SharedShape.Forme.CIRCLE, 20, 0) );
 	}
 	
 	@Override

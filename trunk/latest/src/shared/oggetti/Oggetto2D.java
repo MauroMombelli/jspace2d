@@ -1,4 +1,4 @@
-package shared;
+package shared.oggetti;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -9,6 +9,7 @@ import java.util.LinkedList;
 import org.jbox2d.collision.shapes.CircleDef;
 import org.jbox2d.dynamics.Body;
 
+import shared.InfoBody;
 import shared.azioni.Action;
 import shared.azioni.RemoveShip;
 
@@ -26,29 +27,33 @@ public class Oggetto2D implements Serializable, Comparable<Oggetto2D> {
 	
 	public int ID;
 	String modelName="Sphere";
-	protected float radius=GLOBAL_VARIABLE.convertToPhysicEngineUnit( 4 );
-	protected float density = 1;
-	protected float friction = 0;
-	protected float restitution = 0.8f;
+	
+	LinkedList<SharedShape> forma = new LinkedList<SharedShape>();
+	
 	private LinkedList<Action> myActions = new LinkedList<Action>();
 	
 	private int life = 100;
+
+
+	private float globalRadius=0;
 	
 	public Oggetto2D(int id){
 		this.ID = id;
+		forma.clear();
+		forma.add( new SharedShape(4, SharedShape.Forme.CIRCLE, 1, 0) );
 	}
 	
 	public Oggetto2D(Oggetto2D obj){
 		setOggetto2D(obj);
+		forma.clear();
+		forma.addAll( obj.forma );
 	}
 	
 	public void setOggetto2D(Oggetto2D obj) {
 		this.ID = obj.ID;
 		this.modelName = obj.modelName;
-		this.radius = obj.radius;
-		this.density = obj.density;
-		this.friction = obj.friction;
-		this.restitution = obj.restitution;
+		this.forma.clear();
+		this.forma.addAll( obj.forma );
 		this.life = obj.life;
 		//setInfoPosition(obj.getInfoPosition());
 	}
@@ -60,13 +65,17 @@ public class Oggetto2D implements Serializable, Comparable<Oggetto2D> {
 
 	public void createBody(Body body) {
 		bodyContainer.myBody = body;
-		CircleDef sd = new CircleDef();
-        sd.restitution = restitution;
-        sd.friction = friction ;
-        sd.radius = radius;
-        sd.density = density ;
-        sd.userData = this;
-        bodyContainer.myBody.createShape(sd);
+		for (SharedShape s:forma){
+			CircleDef sd = new CircleDef();
+			sd.restitution = s.restitution;
+			sd.friction = s.friction ;
+			sd.radius = s.radius;
+			sd.density = s.density ;
+			sd.userData = this;
+			bodyContainer.myBody.createShape(sd);
+			if (s.radius > globalRadius)
+				globalRadius = s.radius;
+		}
 	}
 
 	public Body getBody() {
@@ -88,7 +97,7 @@ public class Oggetto2D implements Serializable, Comparable<Oggetto2D> {
 	}
 	
 	public float getRadius(){
-		return radius;
+		return globalRadius;
 	}
 
 	public String getModelName() {
