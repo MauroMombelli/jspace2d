@@ -13,7 +13,7 @@ import shared.Oggetto2D;
 public class ClientOggetto2D {
 	Oggetto2D obj;
 	SetNode graphicPosition;
-	private Node myNode;
+	Node myNode;
 	
 	public ClientOggetto2D(Oggetto2D obj){
 		this.obj = obj;

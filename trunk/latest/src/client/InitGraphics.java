@@ -2,6 +2,7 @@ package client;
 
 import java.util.LinkedList;
 
+import client.gameState.GuiAction;
 import client.gameState.PosFPSGameState;
 import client.gameState.PosTextGameState;
 import client.gameState.WorldGameState;
@@ -104,5 +105,9 @@ public class InitGraphics {
 
 	public void setLife(String string) {
 		life.setText(string);
+	}
+
+	public void setActions(LinkedList<GuiAction> indipendetActions) {
+		guiWorld.setGuiActions(indipendetActions);
 	}
 }

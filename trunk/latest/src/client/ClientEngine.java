@@ -7,6 +7,9 @@ import java.util.TreeSet;
 
 import org.jbox2d.common.Vec2;
 
+import client.gameState.GuiAction;
+import client.gameState.RemoveNode;
+
 import com.jme.input.KeyBindingManager;
 import com.jme.math.FastMath;
 
@@ -39,6 +42,7 @@ public class ClientEngine extends TimerTask{
 	
 	LinkedList<ClientOggetto2D> allOggetto2D = new LinkedList<ClientOggetto2D>();
 	LinkedList<ClientOggetto2D> tempAllOggetto2D = new LinkedList<ClientOggetto2D>();
+	LinkedList<GuiAction> indipendetActions = new LinkedList<GuiAction>();
 	
 	TreeMap< Long, LinkedList<Action> > myActions = new TreeMap<Long, LinkedList<Action> >();
 	long lastMyActionClear;
@@ -131,6 +135,7 @@ public class ClientEngine extends TimerTask{
 			for (ClientOggetto2D temp:allOggetto2D)
 				temp.update();
 		}
+		gui.setActions(indipendetActions);
 		time = System.nanoTime()-time;
 		System.out.println( "GUI update obj time: "+time);
 		
@@ -401,6 +406,7 @@ public class ClientEngine extends TimerTask{
 		LinkedList<ClientOggetto2D> all = new LinkedList<ClientOggetto2D>();
 		Oggetto2D o;
 		boolean deleteThisObj = false;
+		LinkedList<ClientOggetto2D> removedOggetto = new LinkedList<ClientOggetto2D>();
 		while( (o = tempW.poll()) != null ){
 			
 			a = tempAllOggetto2D.poll();
@@ -408,6 +414,7 @@ public class ClientEngine extends TimerTask{
 			
 			while ( a!=null && a.getID() < o.ID){
 				asincroniusWorld.removeBody(a.obj.getBody(), a.obj.ID);
+				removedOggetto.add(a);
 				a = tempAllOggetto2D.poll();
 			}
 			
@@ -445,41 +452,13 @@ public class ClientEngine extends TimerTask{
 		
 		while( (a = tempAllOggetto2D.poll() ) != null ){
 			//remove inexistent obj
+			removedOggetto.add(a);
 			asincroniusWorld.removeBody(a.obj.getBody(), a.obj.ID);
 		}
-		/*
-		for (Oggetto2D o:temp){
-			a = tempAllOggetto2D.poll();
-			//for (ClientOggetto2D o2:tempAllOggetto2D){
-				if ( a!=null && o.ID == a.getID() ){
-					System.out.println("Same id:"+o.ID);
-					
-					a.set( o );
-					a.setInfoPosition(o.getInfoPosition());
-					
-					all.add(a);
-				}else{
-					
-					if (a == null){
-						System.out.println("Created id:"+o.ID);
-						pos = o.getInfoPosition().getPos();
-						
-						tempCopy = asincroniusWorld.addCopy( o, pos.x, pos.y, o.getInfoPosition().getAngle() );
-						tempCopy.setInfoPosition( o.getInfoPosition() );
-					
-						all.add( new ClientOggetto2D(tempCopy) );
-					}else{
-						System.out.println("Unexpected error: "+o.ID+" "+a.getID());
-						close();
-					}
-				}
-				
-				if (IDmyShip==o.ID)
-					myShip = o;
-				
-			//}
+		for (ClientOggetto2D obj:removedOggetto){
+			indipendetActions.add( new RemoveNode(obj.myNode, obj.getID()) );
 		}
-		*/
+
 		tempAllOggetto2D.addAll(all);
 		
 		time = System.nanoTime() - time;

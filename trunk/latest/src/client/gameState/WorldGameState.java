@@ -19,8 +19,6 @@ import com.jmex.game.state.BasicGameState;
 public class WorldGameState extends BasicGameState{
 
 	HashMap<Integer, Node> visibleObject = new HashMap<Integer, Node>();
-	
-	//LinkedList<GuiAction> objMod = new LinkedList<GuiAction>();
 
 	LightState lightState;
 	PointLight light;
@@ -31,6 +29,8 @@ public class WorldGameState extends BasicGameState{
 	private Integer cameraID=-1;
 	
 	LinkedList<ClientOggetto2D> allOggetto2D;
+
+	private LinkedList<GuiAction> objMod = new LinkedList<GuiAction>();
 	
 	public WorldGameState(String arg0, LinkedList<ClientOggetto2D> allOggetto2D) {
 		super(arg0);
@@ -92,10 +92,17 @@ public class WorldGameState extends BasicGameState{
 			}
 		}
 		
+		for(GuiAction a:objMod){
+			a.run(visibleObject, rootNode, null);			
+		}
+		
+		objMod.clear();
+		
 		Node t=null;
 		synchronized (cameraID) {
 			t = visibleObject.get(cameraID);
 		}
+		
 		if (t!=null){
 			cameraX = t.getLocalTranslation().x;
 			cameraY = t.getLocalTranslation().y;
@@ -158,11 +165,11 @@ public class WorldGameState extends BasicGameState{
 			objMod.addAll(listaAzioni);
 		}
 	}
-*//*
+*/
 	public void setGuiActions(LinkedList<GuiAction> listaAzioni) {
 		synchronized (objMod) {
 			objMod = listaAzioni;
 		}
 	}
-	*/
+
 }

@@ -78,59 +78,21 @@ public class Player {
 			if (myself == null){ //first of all read login
 				login(t);
 			}else{
-				//if (activeShip == -1){ //don't accept action without ship
-					//setFirstShip(t);
-				//}else{
-					if (t instanceof Action){
+				if (t instanceof Action){						
+					System.out.println("Executing action");
+					a = ((Action)t);
 						
-						System.out.println("Executing action");
-						a = ((Action)t);
-						
-						if (a.shipOwnerID == -1 || myPossessoin.containsKey( a.shipOwnerID ) ){ //if is an action on new object(actually only new obj request), or on a possesed obj 
-							myActions.add(a);
-						}else{
-							System.out.println("Disconnecting player because request action on exiting object not owned: "+myself);
-							close();
-						}
-						/*
-						if ( a.run( myPossessoin.get(a.ownerID), w, this ) ){
-							synchronized (myActions) {
-								
-								LinkedList<Action> actionAtTurn = myActions.get( a.getExecTime() );
-								if (actionAtTurn!=null){
-									actionAtTurn.add(a);
-								}else{
-									actionAtTurn = new LinkedList<Action>();
-									actionAtTurn.add(a);
-									myActions.put(a.getExecTime(), actionAtTurn);
-								}
-								
-							}
-						}else{
-							//hacking?!?!
-							System.out.println("Action returned false");
-							close();
-						}
-						*/
+					if (a.shipOwnerID == -1 || myPossessoin.containsKey( a.shipOwnerID ) ){ //if is an action on new object(actually only new obj request), or on a possesed obj 
+						myActions.add(a);
+					}else{
+						System.out.println("Player request action on object not owned: "+myself+" "+a.shipOwnerID);
+						//close();
 					}
-				//}
+				}
 			}
 		}
 	}
-/*
-	private void setFirstShip(Object t) {
-		if (t instanceof ShipRequest){
-			System.out.println("Ship request arrived");
-			ShipRequest a = (ShipRequest)t;
-			createOggettiActions.add( a );
-			myActions.add(a);
-		}else{
-			//Action without a ship, probably an hacking attempt
-			System.out.print("PLAYER ERROR: Player:"+myself+" send action without ship selected, ip:"+giocatore.getRemoteSocketAddress() );
-			close();
-		}
-	}
-*/
+
 	private void login(Object t) {
 		if (t instanceof Login){
 			myself = (Login)t;
