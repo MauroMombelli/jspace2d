@@ -109,14 +109,6 @@ public class ClientEngine extends TimerTask{
 		}
 	}
 	
-	private void executeAsincAct() {
-		for (Oggetto2D o:asincroniusWorld.getOggetti()){
-			for (Action a:o.getActions()){
-				a.run(asincroniusWorld);
-			}
-				
-		}
-	}
 
 	//GUI PURPOISE
 	private void copyWorldForPaint() {
@@ -575,6 +567,15 @@ public class ClientEngine extends TimerTask{
 					my.addAll(temp);
 				}
 			}
+		}
+	}
+	
+	private void executeAsincAct() {
+		for (Oggetto2D o:asincroniusWorld.getOggetti()){
+			for (Action a:o.getActions()){
+				a.run(asincroniusWorld);
+			}
+				
 		}
 	}
 

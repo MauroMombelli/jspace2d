@@ -168,6 +168,12 @@ public class PhysicWorld {
 		if (o instanceof Oggetto2D)
 			copy = new Oggetto2D(o);
 		
+		if (o instanceof OggettoBullet)
+			copy = new OggettoBullet( (OggettoBullet)o );
+		
+		if (o instanceof Ship)
+			copy = new Ship( (Ship)o );
+		
 		if ( copy!=null && copy.isValid() ){
 			
 			BodyDef bd = new BodyDef();
@@ -201,7 +207,9 @@ public class PhysicWorld {
 
 	public void removeBody(Body body, int id) {
 		//newOggetti2D.remove(id);
-		sortedOggetto2D.remove( allOggetto2D.remove(id) );
+		Oggetto2D del = allOggetto2D.remove(id);
+		if (del!=null)
+			sortedOggetto2D.remove( del );
 		//sortedNewOggetti2D.remove(id);
 		
 		physicWorld.destroyBody(body);

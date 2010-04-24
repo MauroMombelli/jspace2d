@@ -2,6 +2,7 @@ package shared;
 
 import org.jbox2d.dynamics.Body;
 
+import shared.azioni.ActionDamage;
 import shared.azioni.RemoveShip;
 
 public class OggettoBullet extends Oggetto2D {
@@ -36,7 +37,8 @@ public class OggettoBullet extends Oggetto2D {
 	public void collide(Oggetto2D obj1) {
 		if (obj1!=null){ //null == wall
 			System.out.println("Bullet "+ID+" is colliding with:"+obj1.ID);
-			obj1.subLife(bulletDamage);
+			addAction( new ActionDamage(obj1.ID, bulletDamage) );
+			//obj1.subLife(bulletDamage);
 		}
 		//addAction( new ActionLightShot(ID) );
 		addAction( new RemoveShip(ID) );

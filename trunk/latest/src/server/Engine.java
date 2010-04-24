@@ -110,7 +110,7 @@ public class Engine extends TimerTask{
 			writeNewTurn();
 			
 			//every 1000 turn send all maps, otherwise send NewTurn
-			if (world.actualTurn%100==0)
+			if (world.actualTurn%1000==0)
 				writeAllMaps();
 			
 			//add the new observer to observerPlayer
