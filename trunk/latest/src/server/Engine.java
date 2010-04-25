@@ -241,7 +241,7 @@ public class Engine extends TimerTask{
 					loginUsed.remove(t.myself);
 			}else{
 				t.update(world, allChanges);
-				if ( ( tempA=t.peekMyActions() ) != null ){
+				if ( ( tempA=t.pollMyActions() ) != null ){
 					if (tempA instanceof CreateShip){
 						objToCreate = (CreateShip)tempA;
 						System.out.println("creating ship1");

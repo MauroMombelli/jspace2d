@@ -64,7 +64,7 @@ public class ClientEngine extends TimerTask{
 		world.actualTurn = actualTurn;
 		//world.setCollisionListener(worldList);
 		asincroniusWorld.actualTurn=actualTurn;
-		asincroniusWorld.setCollisionListener(asincList);
+		//asincroniusWorld.setCollisionListener(asincList);
 		lastMyActionClear = actualTurn;
 		
 		MAX_TURN_DURATION = turnDuration;

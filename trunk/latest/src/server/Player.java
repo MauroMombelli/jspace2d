@@ -53,7 +53,7 @@ public class Player {
 	public void update(PhysicWorld w, LinkedList<Action> allChanges){
 		update++;
 
-		myActions.clear();
+		//myActions.clear();
 //		createOggettiActions.clear();
 //		removeOggettiActions.clear();
 		//read and execute client request
@@ -180,9 +180,9 @@ public class Player {
 		return ris;
 	}
 	
-	public Action peekMyActions() {
+	public Action pollMyActions() {
 		synchronized (myActions) {
-			return myActions.peek();
+			return myActions.poll();
 		}
 	}
 	
