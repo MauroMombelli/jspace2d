@@ -66,6 +66,7 @@ public class ActionLightShot extends Action {
 			if (w.addNew(b, x, y, a) != null){
 				if (p!=null)
 					p.addOggetto(b);
+				System.out.println("created bullet");
 				x = -bulletSpeed*cosA+o.getBody().getLinearVelocity().x;
 				y = -bulletSpeed*sinA+o.getBody().getLinearVelocity().y;
 				ActionEngine tAct = new ActionEngine(b.ID, x, y, a);
@@ -78,6 +79,7 @@ public class ActionLightShot extends Action {
 					System.out.println("error moving the bullet!");
 					return false;
 				}
+				System.out.println("moved bullet");
 				return true;
 			}else{
 				System.out.println("error creating the bullet in the world");

@@ -27,7 +27,7 @@ public class RemoveShip extends Action implements Serializable{
 			p.removeOggetto(shipOwnerID);
 			return true;
 		}else{
-			System.out.println("Player "+p.getLogin()+" tryed to delete not owned ship, disconnectiong! "+shipOwnerID);
+			System.out.println("Player "+p.getLogin()+" tryed to delete not owned ship! "+shipOwnerID);
 			//p.close();
 			return false;
 		}

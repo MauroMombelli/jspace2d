@@ -35,10 +35,10 @@ public class ClientEngine extends TimerTask{
 	long MAX_TURN_DURATION;
 	
 	PhysicWorld world = new PhysicWorld();
-	PhysicWorldListener worldList = new PhysicWorldListener();
+	//PhysicWorldListener worldList = new PhysicWorldListener();
 	
 	PhysicWorld asincroniusWorld = new PhysicWorld();
-	PhysicWorldListener asincList = new PhysicWorldListener();
+	//PhysicWorldListener asincList = new PhysicWorldListener();
 	
 	LinkedList<ClientOggetto2D> allOggetto2D = new LinkedList<ClientOggetto2D>();
 	LinkedList<ClientOggetto2D> tempAllOggetto2D = new LinkedList<ClientOggetto2D>();
@@ -580,7 +580,7 @@ public class ClientEngine extends TimerTask{
 	private void executeAsincAct() {
 		TreeSet<Oggetto2D> t = new TreeSet<Oggetto2D>( asincroniusWorld.getOggetti() );
 		for (Oggetto2D o:t){
-			for (Action a:o.getActions()){
+			for ( Action a:o.getAndDestroyActions() ){
 				a.run(asincroniusWorld);
 			}
 				

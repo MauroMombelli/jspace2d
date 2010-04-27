@@ -140,8 +140,11 @@ public class Oggetto2D implements Serializable, Comparable<Oggetto2D> {
 		return ID-o.ID;
 	}
 
-	public LinkedList<Action> getActions() {
-		return myActions;
+	public LinkedList<Action> getAndDestroyActions() {
+		LinkedList<Action> ris = new LinkedList<Action>();
+		ris.addAll(myActions);
+		myActions.clear();
+		return ris;
 	}
 	
 	public void addAction(Action act) {

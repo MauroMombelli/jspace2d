@@ -29,11 +29,11 @@ public class ActionEngine extends Action implements Serializable{
 		Oggetto2D o = w.get(shipOwnerID);
 		if (o != null){
 			if (o.getBody() != null){
-				System.out.println("executing action: "+x+" "+y+" "+alpha);
-				System.out.println( "before: "+o.getInfoPosition() +" torque:"+ o.getBody().m_torque );
+				System.out.println("executing impulse: "+x+" "+y+" "+alpha);
+				//System.out.println( "before: "+o.getInfoPosition() +" torque:"+ o.getBody().m_torque );
 				o.getBody().applyImpulse( new Vec2(x,y), o.getBody().getWorldCenter() );
 				o.getBody().applyTorque( alpha );
-				System.out.println( "after: "+o.getInfoPosition() +" torque:"+ o.getBody().m_torque );
+				//System.out.println( "after: "+o.getInfoPosition() +" torque:"+ o.getBody().m_torque );
 				return true;
 			}else{
 				System.out.println("error executing action, null body");

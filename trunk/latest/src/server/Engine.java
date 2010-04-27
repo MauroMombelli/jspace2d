@@ -202,7 +202,7 @@ public class Engine extends TimerTask{
 		for (int i =0; i < unloggedPlayer.size(); i++){
 			tP = unloggedPlayer.poll();
 			if ( !tP.isClosed() ){
-				tP.update(world, allChanges);
+				tP.updateInput();
 				if (tP.getLogin() == null){
 					if (tP.getUpdate() < TIMEOUT_LOGIN  ){
 						unloggedPlayer.add(tP);
@@ -240,8 +240,8 @@ public class Engine extends TimerTask{
 				if (t.myself!=null)
 					loginUsed.remove(t.myself);
 			}else{
-				t.update(world, allChanges);
-				if ( ( tempA=t.pollMyActions() ) != null ){
+				t.updateInput();
+				if ( ( tempA=t.pollPendingActions() ) != null ){
 					if (tempA instanceof CreateShip){
 						objToCreate = (CreateShip)tempA;
 						System.out.println("creating ship1");
@@ -273,7 +273,7 @@ public class Engine extends TimerTask{
 		 * control if action requests is arrived for the player and execute it. Also delete disconnected player
 		 */
 		LinkedList<Player> removedPlayer = new LinkedList<Player>();
-		LinkedList<Action> tempAct;
+		Action tempAct;
 		for (Player t:players){
 			if ( t.isClosed() ){
 				t.close();
@@ -282,18 +282,18 @@ public class Engine extends TimerTask{
 					loginUsed.remove(t.myself);
 			}else{
 				
-				t.update(world, allChanges); //read all changes
+				t.updateInput(); //read all changes
 				
-				while( ( tempAct = t.getMyActions() ).size() > 0 ){ //because some action can generate other action (like bullet) we must b sure to execute them all
+				while( ( tempAct = t.pollPendingActions() ) != null ){ //because some action can generate other action (like bullet) we must b sure to execute them all
 					
-					for (Action tA:tempAct){
-						if ( tA.run(world, t) ){
-							allChanges.add(tA);
-						}else{
-							System.out.println("Error executing request ation:"+tA);
-							//t.close();
-						}
-					}	
+					if ( tempAct.run(world, t) ){
+							allChanges.add(tempAct);
+							t.addExecutedAction(tempAct);
+							t.updatePendingAction();//look if this action triggen new actions
+					}else{
+						System.out.println("Error executing request ation:"+tempAct);
+						//t.close();
+					}
 				}
 				
 			}

@@ -34,6 +34,7 @@ public class ActionDamage extends Action {
 		Oggetto2D a = w.get( shipOwnerID );
 		if (a!= null){
 			a.subLife(damage);
+			System.out.println("Dameged "+a.ID+" for:"+damage);
 			return true;
 		}else{
 			return false;

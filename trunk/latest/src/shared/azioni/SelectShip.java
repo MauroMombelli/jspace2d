@@ -37,6 +37,7 @@ public class SelectShip extends Action implements Serializable {
 		Oggetto2D a = p.getShip(shipOwnerID);
 		if (a != null){
 			p.setActiveShip(shipOwnerID);
+			System.out.println(p.getLogin()+" selected ship:"+shipOwnerID);
 			return true;
 		}
 		System.out.println("Error:"+p.getLogin()+" selected a ship not owned or unexistent");

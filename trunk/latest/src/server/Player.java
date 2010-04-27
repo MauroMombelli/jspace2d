@@ -6,7 +6,6 @@ import java.util.HashMap;
 import java.util.LinkedList;
 
 import shared.Login;
-import shared.PhysicWorld;
 import shared.azioni.Action;
 import shared.azioni.SelectShip;
 import shared.net.InputReader;
@@ -26,7 +25,8 @@ public class Player {
 	
 	HashMap<Integer, Oggetto2D> myPossessoin = new HashMap<Integer, Oggetto2D>();
 	
-	LinkedList<Action> myActions = new LinkedList<Action>();
+	LinkedList<Action> myPendingAction = new LinkedList<Action>();
+	LinkedList<Action> myExecutedAction = new LinkedList<Action>();
 	//TODO: 
 //	LinkedList<RemoveShip> removeOggettiActions = new LinkedList<RemoveShip>();
 	//end todo
@@ -50,7 +50,13 @@ public class Player {
 		}
 	}
 	
-	public void update(PhysicWorld w, LinkedList<Action> allChanges){
+	public void updatePendingAction(){
+		for (Oggetto2D o : myPossessoin.values()){
+			myPendingAction.addAll( o.getAndDestroyActions() );
+		}
+	}
+	
+	public void updateInput(){
 		update++;
 
 		//myActions.clear();
@@ -62,9 +68,7 @@ public class Player {
 		Action a;
 		int actionThisTurn=0;
 		
-		for (Oggetto2D o : myPossessoin.values()){
-			myActions.addAll( o.getActions() );
-		}
+		updatePendingAction();
 		
 		while( ( t=inR.poll() )!=null){ //until there is input
 			
@@ -83,7 +87,7 @@ public class Player {
 					a = ((Action)t);
 						
 					if (a.shipOwnerID == -1 || myPossessoin.containsKey( a.shipOwnerID ) ){ //if is an action on new object(actually only new obj request), or on a possesed obj 
-						myActions.add(a);
+						myPendingAction.add(a);
 					}else{
 						System.out.println("Player request action on object not owned: "+myself+" "+a.shipOwnerID);
 						//close();
@@ -170,28 +174,26 @@ public class Player {
 	public ShipRequest getCreateShip() {
 		return createOggettiActions.poll();
 	}
-*/
+*//*
 	public LinkedList<Action> getMyActions() {
 		LinkedList<Action> ris = new LinkedList<Action>();
-		synchronized (myActions) {
-			ris.addAll(myActions);
-			myActions.clear();
+		synchronized (myExecutedAction) {
+			ris.addAll(myExecutedAction);
+			myExecutedAction.clear();
 		}
 		return ris;
 	}
-	
-	public Action pollMyActions() {
-		synchronized (myActions) {
-			return myActions.poll();
-		}
+	*/
+	public Action pollPendingActions() {
+		return myPendingAction.poll();
 	}
 	
 	public String getIP(){
 		return giocatore.getRemoteSocketAddress().toString();
 	}
 
-	public void addAction(Action tAct) {
-		myActions.add(tAct);
+	public void addExecutedAction(Action tAct) {
+		myExecutedAction.add(tAct);
 	}
 
 }
