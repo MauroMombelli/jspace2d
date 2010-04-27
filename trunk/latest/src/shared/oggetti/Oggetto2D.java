@@ -5,6 +5,7 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.LinkedList;
+import java.util.TreeSet;
 
 import org.jbox2d.collision.shapes.CircleDef;
 import org.jbox2d.dynamics.Body;
@@ -36,6 +37,11 @@ public class Oggetto2D implements Serializable, Comparable<Oggetto2D> {
 
 
 	protected float globalRadius;
+
+
+	private TreeSet<Oggetto2D> newOnRadar = new TreeSet<Oggetto2D>();
+	private TreeSet<Oggetto2D> radar = new TreeSet<Oggetto2D>();
+	private TreeSet<Oggetto2D> outRadar = new TreeSet<Oggetto2D>();
 	
 	public Oggetto2D(int id){
 		this.ID = id;
@@ -106,8 +112,8 @@ public class Oggetto2D implements Serializable, Comparable<Oggetto2D> {
 	}
 
 	public void see(Oggetto2D obj1) {
-		// TODO Vedo obj1
-		
+		newOnRadar.add(obj1);
+		radar.add(obj1);
 	}
 	
 	public void isSee(Oggetto2D obj1) {
@@ -116,8 +122,9 @@ public class Oggetto2D implements Serializable, Comparable<Oggetto2D> {
 	}
 
 	public void notSee(Oggetto2D obj1) {
-		// TODO Non vedo più obj1
-		
+		newOnRadar.remove(obj1);
+		radar.remove(obj1);
+		outRadar.add(obj1);
 	}
 	
 	public void isNotSee(Oggetto2D obj1) {
@@ -165,6 +172,31 @@ public class Oggetto2D implements Serializable, Comparable<Oggetto2D> {
 
 	public int getLife() {
 		return life;
+	}
+
+	public LinkedList<Action> getActions() {
+		return myActions;
+	}
+
+	public void clearActions() {
+		myActions.clear();
+	}
+
+	public TreeSet<Oggetto2D> getNewOnRadar() {
+		return newOnRadar;
+	}
+
+	public TreeSet<Oggetto2D> getRadar() {
+		return radar;
+	}
+
+	public void updateRadar() {
+		newOnRadar.clear();
+		outRadar.clear();
+	}
+
+	public TreeSet<Oggetto2D> getOutOfRadar() {
+		return outRadar;
 	}
 
 }

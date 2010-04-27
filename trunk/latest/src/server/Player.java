@@ -6,7 +6,9 @@ import java.util.HashMap;
 import java.util.LinkedList;
 
 import shared.Login;
+import shared.NewTurn;
 import shared.azioni.Action;
+import shared.azioni.RemoveShip;
 import shared.azioni.SelectShip;
 import shared.net.InputReader;
 import shared.net.OutputWriter;
@@ -23,14 +25,12 @@ public class Player {
 	
 	int update= 0;
 	
-	HashMap<Integer, Oggetto2D> myPossessoin = new HashMap<Integer, Oggetto2D>();
+	HashMap<Integer, Oggetto2D> myPossession = new HashMap<Integer, Oggetto2D>();
 	
 	LinkedList<Action> myPendingAction = new LinkedList<Action>();
 	LinkedList<Action> myExecutedAction = new LinkedList<Action>();
-	//TODO: 
-//	LinkedList<RemoveShip> removeOggettiActions = new LinkedList<RemoveShip>();
-	//end todo
-//	LinkedList<ShipRequest> createOggettiActions = new LinkedList<ShipRequest>();
+
+	private HashMap<Integer, Oggetto2D> myNewPossession = new HashMap<Integer, Oggetto2D>();
 	
 	public Player(Socket t) {
 		giocatore = t;
@@ -51,7 +51,7 @@ public class Player {
 	}
 	
 	public void updatePendingAction(){
-		for (Oggetto2D o : myPossessoin.values()){
+		for (Oggetto2D o : myPossession.values()){
 			myPendingAction.addAll( o.getAndDestroyActions() );
 		}
 	}
@@ -86,7 +86,7 @@ public class Player {
 					System.out.println("Executing action");
 					a = ((Action)t);
 						
-					if (a.shipOwnerID == -1 || myPossessoin.containsKey( a.shipOwnerID ) ){ //if is an action on new object(actually only new obj request), or on a possesed obj 
+					if (a.shipOwnerID == -1 || myPossession.containsKey( a.shipOwnerID ) ){ //if is an action on new object(actually only new obj request), or on a possesed obj 
 						myPendingAction.add(a);
 					}else{
 						System.out.println("Player request action on object not owned: "+myself+" "+a.shipOwnerID);
@@ -149,16 +149,17 @@ public class Player {
 	}
 
 	public void addOggetto(Oggetto2D s) {
-		Oggetto2D old = myPossessoin.put(s.ID, s);
+		Oggetto2D old = myPossession.put(s.ID, s);
+		myNewPossession.put(s.ID, s);
 		if (old!=null){
 			System.out.println("PLAYER ERROR: creating a new existent ship");
-			//removeOggettiActions.add( new RemoveShip(old.ID) );
+			//myPendingAction.add( new RemoveShip(old.ID) );
 			close();
 		}
 	}
 
 	public Oggetto2D getShip(int iD) {
-		return myPossessoin.get(iD);
+		return myPossession.get(iD);
 	}
 
 	public void setActiveShip(int iD) {
@@ -168,22 +169,42 @@ public class Player {
 	}
 
 	public void removeOggetto(int id) {
-		myPossessoin.remove(id);
+		myPossession.remove(id);
 	}
-/*
-	public ShipRequest getCreateShip() {
-		return createOggettiActions.poll();
-	}
-*//*
-	public LinkedList<Action> getMyActions() {
-		LinkedList<Action> ris = new LinkedList<Action>();
-		synchronized (myExecutedAction) {
-			ris.addAll(myExecutedAction);
-			myExecutedAction.clear();
+	
+	public void writeNewTurn(long actualTurn){
+		NewTurn n = new NewTurn(actualTurn);
+		
+		n.addAll(myExecutedAction);//personal actions
+		myExecutedAction.clear();
+		
+		for ( Oggetto2D myShip : myNewPossession.values() ){
+			n.add( myShip, myShip.getInfoPosition() );
 		}
-		return ris;
+		myNewPossession.clear();
+		
+		
+		for ( Oggetto2D myShip : myPossession.values() ){
+			n.addAll( myShip.getActions() );
+			
+			for ( Oggetto2D o : myShip.getOutOfRadar() ){
+				n.add( new RemoveShip(o.ID) );
+			}
+			for ( Oggetto2D o : myShip.getNewOnRadar() ){
+				n.add( o, o.getInfoPosition() );
+			}
+			/*
+			for ( Oggetto2D o : myShip.getRadar() ){
+				n.addAll( o.getActions() );
+			}
+			*/
+			myShip.clearActions();
+			myShip.updateRadar();
+		}
+		
+		write(n);
 	}
-	*/
+	
 	public Action pollPendingActions() {
 		return myPendingAction.poll();
 	}
@@ -194,6 +215,22 @@ public class Player {
 
 	public void addExecutedAction(Action tAct) {
 		myExecutedAction.add(tAct);
+		
+	}
+
+	public void setExecutedActionToOggetti() {
+		Oggetto2D o = null;
+		Action tAct = null;
+		LinkedList<Action> personalAction = new LinkedList<Action>();
+		while ( (tAct=myExecutedAction.poll())!=null ){
+			o= myPossession.get( tAct.shipOwnerID );
+			if (o!=null){
+				o.addAction(tAct);
+			}else{
+				personalAction.add(tAct);
+			}
+		}
+		myExecutedAction.addAll(personalAction);
 	}
 
 }

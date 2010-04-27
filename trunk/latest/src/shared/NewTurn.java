@@ -33,6 +33,10 @@ public class NewTurn implements Serializable{
 		nuoveAzioni.addAll(allChanges);
 	}
 	
+	public void add(Action act) {
+		nuoveAzioni.add(act);
+	}
+	
 	public Oggetto2D pollNewObj(){
 		return nuoviOggetti.poll();
 	}

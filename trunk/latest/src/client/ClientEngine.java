@@ -17,7 +17,6 @@ import shared.AllMap;
 import shared.InfoBody;
 import shared.NewTurn;
 import shared.PhysicWorld;
-import shared.PhysicWorldListener;
 import shared.azioni.Action;
 import shared.azioni.ActionEngine;
 import shared.azioni.ActionLightShot;
@@ -35,10 +34,9 @@ public class ClientEngine extends TimerTask{
 	long MAX_TURN_DURATION;
 	
 	PhysicWorld world = new PhysicWorld();
-	//PhysicWorldListener worldList = new PhysicWorldListener();
 	
 	PhysicWorld asincroniusWorld = new PhysicWorld();
-	//PhysicWorldListener asincList = new PhysicWorldListener();
+	//PhysicWorldListener asincList = new PhysicWorldListener(); this will be useful with lag
 	
 	LinkedList<ClientOggetto2D> allOggetto2D = new LinkedList<ClientOggetto2D>();
 	LinkedList<ClientOggetto2D> tempAllOggetto2D = new LinkedList<ClientOggetto2D>();
@@ -62,7 +60,7 @@ public class ClientEngine extends TimerTask{
 		server = serverListener;
 		
 		world.actualTurn = actualTurn;
-		//world.setCollisionListener(worldList);
+
 		asincroniusWorld.actualTurn=actualTurn;
 		//asincroniusWorld.setCollisionListener(asincList);
 		lastMyActionClear = actualTurn;

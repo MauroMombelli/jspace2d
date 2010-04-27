@@ -11,6 +11,7 @@ public class PhysicWorldListener implements ContactListener {
 	
 	@Override
 	public void add(ContactPoint point) {
+		//System.out.println("contact: "+point.shape1.getUserData()+" "+point.shape2.getUserData());
 		if ( point.shape1.isSensor() && !point.shape2.isSensor() ){
 			//radar della shape 1 vede shape 2
 			Oggetto2D obj1 = (Oggetto2D)point.shape1.getUserData();
@@ -20,6 +21,7 @@ public class PhysicWorldListener implements ContactListener {
 				obj2.isSee(obj1);
 				System.out.println(obj1.ID+" see "+obj2.ID);
 			}else{
+				System.out.println("Wall collision");
 				//wall collision
 			}
 		}
@@ -32,6 +34,7 @@ public class PhysicWorldListener implements ContactListener {
 				obj1.isSee(obj2);
 				System.out.println(obj2.ID+" see "+obj1.ID);
 			}else{
+				System.out.println("Wall collision");
 				//wall collision
 			}
 		}
@@ -42,15 +45,18 @@ public class PhysicWorldListener implements ContactListener {
 			Oggetto2D obj2 = (Oggetto2D)point.shape2.getUserData();
 			if (obj1!=null){
 				obj1.collide(obj2);
+				System.out.println("obj1 not null");
 			}
 			if (obj2!=null){
 				obj2.collide(obj1);
+				System.out.println("obj1 not null");
 			}
 			if (obj1!=null && obj2!=null){
 				System.out.println(obj1.ID+" collide "+obj2.ID);
 				//allPhisicCollision.add(obj1.getInfoPosition());
 				//allPhisicCollision.add(obj2.getInfoPosition());
 			}else{
+				System.out.println("Wall collision");
 				//wall collision
 			}
 		}
@@ -65,7 +71,7 @@ public class PhysicWorldListener implements ContactListener {
 			if (obj1!=null && obj2!=null){
 				obj1.continueCollide(obj2);
 				obj2.continueCollide(obj1);
-				//System.out.println(obj1.ID+" continue to collide "+obj2.ID);
+				System.out.println(obj1.ID+" continue to collide "+obj2.ID);
 				//allPhisicCollision.add(obj1.getInfoPosition());
 				//allPhisicCollision.add(obj2.getInfoPosition());
 			}else{

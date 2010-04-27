@@ -8,7 +8,6 @@ import shared.AllMap;
 import shared.Login;
 import shared.PhysicWorldListener;
 import shared.GLOBAL_VARIABLE;
-import shared.NewTurn;
 import shared.PhysicWorld;
 import shared.TurnDuration;
 import shared.azioni.Action;
@@ -150,6 +149,7 @@ public class Engine extends TimerTask{
 	}
 
 	private void writeNewTurn() {
+		/*
 		//add all map to new observer NewTurn
 		NewTurn nNewObserver = new NewTurn(world.actualTurn);
 		
@@ -158,13 +158,6 @@ public class Engine extends TimerTask{
 		}
 		
 		NewTurn n = new NewTurn(world.actualTurn);
-		/*
-		//add all new object to observer and new observer NewTurn
-		for ( Oggetto2D t:world.getNewOggetti() ){
-			nNewObserver.add( t, t.getInfoPosition() );
-			n.add( t, t.getInfoPosition() );
-		}
-		*/
 		
 		//add all changes to observer and new observer
 		nNewObserver.addAll( allChanges );
@@ -177,20 +170,25 @@ public class Engine extends TimerTask{
 			for (Player p:observerPlayer){
 				p.write(n);
 			}
-			
-			///* THIS IS NOT NECESSARY, PLAYER USE RADAR OF THEIR SHIP
-			//send NewTurn to all player
-			for (Player p:players){
-				p.write(n);
-			}
-			//*/
+
 		}
 		
 		//send NewTurn + allWorld to all new observer
 		for (Player p:newObserver){
 			p.write(nNewObserver);
 		}
+		*/
 		
+		/* THIS IS NOT NECESSARY, PLAYER USE RADAR OF THEIR SHIP
+		//send NewTurn to all player
+		for (Player p:players){
+			p.write(n);
+		}
+		*/
+		
+		for (Player p:players){
+			p.writeNewTurn(world.actualTurn);
+		}
 	}
 
 	private void updatePlayer() {
@@ -295,6 +293,7 @@ public class Engine extends TimerTask{
 						//t.close();
 					}
 				}
+				t.setExecutedActionToOggetti();
 				
 			}
 		}
