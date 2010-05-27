@@ -601,7 +601,10 @@ public class ClientEngine extends TimerTask{
 		InfoBody a;
 		
 		TreeSet<Oggetto2D> tempWord = world.getOggetti();
+		System.out.println( "\t\tSize of client world: "+tempWord.size()+" size of server world: "+lastAllMap.size() );
+		int i=0;
 		for (Oggetto2D t:tempWord){
+			i++;
 			a=lastAllMap.poll();
 			if (a == null){
 				System.out.println( "\t\t\tClient world has more obj than server! first occurence id:"+t.ID );
@@ -611,7 +614,7 @@ public class ClientEngine extends TimerTask{
 			if (t.ID == a.ID){
 				t.setInfoPosition(a);
 			}else{
-				System.out.println( "\t\t\tExpected ID: "+a.ID+" found: "+t.ID );
+				System.out.println( "\t\t\tExpected ID: "+a.ID+" found: "+t.ID+" iteration number:"+i );
 				close();
 			}
 		}

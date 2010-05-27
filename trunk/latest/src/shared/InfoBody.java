@@ -10,7 +10,7 @@ import org.jbox2d.common.XForm;
 import shared.oggetti.Oggetto2D;
 
 
-public class InfoBody implements Serializable{
+public class InfoBody implements Serializable, Comparable<InfoBody>{
 
 	/**
 	 * 
@@ -167,5 +167,10 @@ public class InfoBody implements Serializable{
 		ris.localCenter.y = sLy;
 		ris.t0 = t0;
 		return ris;
+	}
+
+	@Override
+	public int compareTo(InfoBody arg0) {
+		return arg0.ID-ID;
 	}
 }
