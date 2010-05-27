@@ -5,6 +5,7 @@ import java.net.Socket;
 import java.util.HashMap;
 import java.util.LinkedList;
 
+import shared.AllMap;
 import shared.Login;
 import shared.NewTurn;
 import shared.azioni.Action;
@@ -231,6 +232,20 @@ public class Player {
 			}
 		}
 		myExecutedAction.addAll(personalAction);
+	}
+
+	public void writeAllMap(long actualTurn) {
+		AllMap n = new AllMap(actualTurn);
+		
+		for ( Oggetto2D myShip : myPossession.values() ){
+			n.add( myShip.getInfoPosition() );
+			
+			for ( Oggetto2D o : myShip.getRadar() ){
+				n.add( o.getInfoPosition() );
+			}
+		}
+		write(n);
+
 	}
 
 }

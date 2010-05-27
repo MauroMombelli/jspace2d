@@ -144,7 +144,7 @@ public class Engine extends TimerTask{
 		
 		//re-elaborate to send only radar map
 		for (Player p:players){
-			p.write(n);
+			p.writeAllMap(world.actualTurn);
 		}
 	}
 
