@@ -214,7 +214,7 @@ public class ClientEngine extends TimerTask{
 			
 			if (o instanceof SelectShip){
 				used = true;
-				IDmyShip = ((SelectShip)o).shipOwnerID;
+				IDmyShip = ((SelectShip)o).shipID;
 				gui.setCameraID(IDmyShip);
 				myShip = world.get(IDmyShip);
 				System.out.println( "\tSelect ship received, id:"+IDmyShip);
@@ -223,7 +223,7 @@ public class ClientEngine extends TimerTask{
 			if (o instanceof NewTurn){
 				used = true;
 				newTurnToElaborate.add( (NewTurn)o );
-				System.out.println( "\tNew turn received");
+				System.out.println( "\tNew turn received, time: "+ ((NewTurn)o).actualTurn );
 			}
 			
 			if (o instanceof AllMap){
@@ -233,7 +233,7 @@ public class ClientEngine extends TimerTask{
 				
 				oldTurnToElaborate.addAll(newTurnToElaborate);
 				newTurnToElaborate.clear();
-				System.out.println( "\tAllMap received" );
+				System.out.println( "\tAllMap received, time: "+((AllMap)o).turn );
 				//break;
 			}
 			
@@ -482,9 +482,9 @@ public class ClientEngine extends TimerTask{
 		LinkedList<Action> myActionDefinetlyExecuted = new LinkedList<Action>();
 		while ( (newAct=t.pollActions())!=null ){
 			newAct.run( world );
-			System.out.println( "action setted for object:"+newAct.shipOwnerID+" at turn:"+t.actualTurn );
+			System.out.println( "action setted for object:"+newAct.shipID+" at turn:"+t.actualTurn );
 			
-			if ( newAct.shipOwnerID==IDmyShip ){
+			if ( newAct.shipID==IDmyShip ){
 				myActionDefinetlyExecuted.add(newAct);
 			}
 			
@@ -497,7 +497,7 @@ public class ClientEngine extends TimerTask{
 			*/
 			
 		}
-		
+		System.out.println( "End action set");
 		synchronized (myActions) {
 			/*
 			for (long id:myActions.keySet()){
@@ -535,7 +535,7 @@ public class ClientEngine extends TimerTask{
 					for (int i=0; i < my.size(); i++){
 						t = my.poll();
 						t.run( asincroniusWorld );
-						System.out.println( "\t\tAsin action setted for object:"+t.shipOwnerID+" at turn:"+asincroniusWorld.actualTurn );
+						System.out.println( "\t\tAsin action setted for object:"+t.shipID+" at turn:"+asincroniusWorld.actualTurn );
 						temp.add(t);
 					}
 					my.addAll(temp);
