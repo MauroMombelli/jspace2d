@@ -26,7 +26,7 @@ public class ActionEngine extends Action implements Serializable{
 	
 	@Override
 	public boolean run(PhysicWorld w){
-		Oggetto2D o = w.get(shipOwnerID);
+		Oggetto2D o = w.get(shipID);
 		if (o != null){
 			if (o.getBody() != null){
 				System.out.println("executing impulse: "+x+" "+y+" "+alpha);
@@ -48,7 +48,7 @@ public class ActionEngine extends Action implements Serializable{
 	public boolean equals(Object obj) {
 		if (obj instanceof ActionEngine){
 			ActionEngine a = (ActionEngine)obj;
-			if (a.shipOwnerID == shipOwnerID)
+			if (a.shipID == shipID)
 				if (a.alpha == alpha)
 					if (a.x == x)
 						if (a.y == y)
@@ -59,7 +59,7 @@ public class ActionEngine extends Action implements Serializable{
 
 	@Override
 	public boolean run(PhysicWorld w, Player p) {
-		Oggetto2D o = p.getShip(shipOwnerID);
+		Oggetto2D o = p.getShip(shipID);
 		if (o != null){
 			if (o.getBody() != null){
 				System.out.println("executing impulse: "+x+" "+y+" "+alpha);

@@ -87,10 +87,10 @@ public class Player {
 					System.out.println("Executing action");
 					a = ((Action)t);
 						
-					if (a.shipOwnerID == -1 || myPossession.containsKey( a.shipOwnerID ) ){ //if is an action on new object(actually only new obj request), or on a possesed obj 
+					if (a.shipID == -1 || myPossession.containsKey( a.shipID ) ){ //if is an action on new object(actually only new obj request), or on a possesed obj 
 						myPendingAction.add(a);
 					}else{
-						System.out.println("Player request action on object not owned: "+myself+" "+a.shipOwnerID);
+						System.out.println("Player request action on object not owned: "+myself+" "+a.shipID);
 						//close();
 					}
 				}
@@ -179,20 +179,33 @@ public class Player {
 		n.addAll(myExecutedAction);//personal actions
 		myExecutedAction.clear();
 		
+		
 		for ( Oggetto2D myShip : myNewPossession.values() ){
-			n.add( myShip, myShip.getInfoPosition() );
+			if (activeShip == myShip.ID){
+				n.add( myShip, myShip.getInfoPosition() );
+				System.out.println("New obj in my possession, id: "+myShip.ID);
+			}
 		}
+		/*
+		if (activeShip!=-1)
+			n.add(myPossession.get(activeShip), myPossession.get(activeShip).getInfoPosition());
+		*/
 		myNewPossession.clear();
 		
 		
 		for ( Oggetto2D myShip : myPossession.values() ){
-			n.addAll( myShip.getActions() );
+			if (activeShip == myShip.ID)
+				n.addAll( myShip.getActions() );
+			
 			
 			for ( Oggetto2D o : myShip.getOutOfRadar() ){
-				n.add( new RemoveShip(o.ID) );
+				if ( !myPossession.containsKey(o.ID) )
+					n.add( new RemoveShip(o.ID) );
 			}
+			
 			for ( Oggetto2D o : myShip.getNewOnRadar() ){
 				n.add( o, o.getInfoPosition() );
+				System.out.println("New obj on radar, id: "+o.ID);
 			}
 			/*
 			for ( Oggetto2D o : myShip.getRadar() ){
@@ -224,7 +237,7 @@ public class Player {
 		Action tAct = null;
 		LinkedList<Action> personalAction = new LinkedList<Action>();
 		while ( (tAct=myExecutedAction.poll())!=null ){
-			o= myPossession.get( tAct.shipOwnerID );
+			o= myPossession.get( tAct.shipID );
 			if (o!=null){
 				o.addAction(tAct);
 			}else{

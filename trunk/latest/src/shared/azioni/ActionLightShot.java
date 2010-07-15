@@ -23,7 +23,7 @@ public class ActionLightShot extends Action {
 	public boolean equals(Object obj) {
 		if (obj instanceof ActionEngine){
 			ActionEngine a = (ActionEngine)obj;
-			if (a.shipOwnerID == shipOwnerID)
+			if (a.shipID == shipID)
 				return true;
 		}
 		return false;
@@ -32,15 +32,16 @@ public class ActionLightShot extends Action {
 	@Override
 	public boolean run(PhysicWorld w) {
 		
-		Oggetto2D o = w.get(shipOwnerID);
+		//Oggetto2D o = w.get(shipID);
 		
-		return createShot(o, w, null);
+		//return createShot(o, w, null);
+		return true;
 	}
 
 	@Override
 	public boolean run(PhysicWorld w, Player p) {
 		if (p!=null){
-			Oggetto2D o = p.getShip(shipOwnerID);
+			Oggetto2D o = p.getShip(shipID);
 			return createShot(o, w, p);
 		}else{
 			System.out.println("Error, non existent player tryed to shot");
@@ -66,7 +67,7 @@ public class ActionLightShot extends Action {
 			if (w.addNew(b, x, y, a) != null){
 				if (p!=null)
 					p.addOggetto(b);
-				System.out.println("created bullet");
+				System.out.println("created bullet, id:"+b.ID);
 				x = -bulletSpeed*cosA+o.getBody().getLinearVelocity().x;
 				y = -bulletSpeed*sinA+o.getBody().getLinearVelocity().y;
 				ActionEngine tAct = new ActionEngine(b.ID, x, y, a);

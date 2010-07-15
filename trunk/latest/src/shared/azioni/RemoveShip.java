@@ -20,14 +20,14 @@ public class RemoveShip extends Action implements Serializable{
 	
 	@Override
 	public boolean run(PhysicWorld w, Player p) {
-		Oggetto2D o = p.getShip(shipOwnerID); 
+		Oggetto2D o = p.getShip(shipID); 
 		if (o != null){
-			System.out.println("Removing obj:"+shipOwnerID);
-			w.removeBody( o.getBody(), shipOwnerID );
-			p.removeOggetto(shipOwnerID);
+			System.out.println("Removing obj:"+shipID);
+			w.removeBody( o.getBody(), shipID );
+			p.removeOggetto(shipID);
 			return true;
 		}else{
-			System.out.println("Player "+p.getLogin()+" tryed to delete not owned ship! "+shipOwnerID);
+			System.out.println("Player "+p.getLogin()+" tryed to delete not owned ship! "+shipID);
 			//p.close();
 			return false;
 		}
@@ -37,7 +37,7 @@ public class RemoveShip extends Action implements Serializable{
 	public boolean equals(Object obj) {
 		if (obj instanceof ActionEngine){
 			ActionEngine a = (ActionEngine)obj;
-			if (a.shipOwnerID == shipOwnerID)
+			if (a.shipID == shipID)
 				return true;
 		}
 		return false;
@@ -45,9 +45,12 @@ public class RemoveShip extends Action implements Serializable{
 
 	@Override
 	public boolean run(PhysicWorld w) {
-		System.out.println("Removing obj:"+shipOwnerID);
-		Oggetto2D o = w.get(shipOwnerID);
-		w.removeBody( o.getBody(), shipOwnerID );
+		System.out.println("Removing obj:"+shipID);
+		Oggetto2D o = w.get(shipID);
+		//if (o != null)
+			w.removeBody( o.getBody(), shipID );
+		//else
+			//System.out.println("Removing obj was null");
 		return true;
 	}
 

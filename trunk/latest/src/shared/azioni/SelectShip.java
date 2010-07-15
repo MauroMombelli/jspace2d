@@ -20,7 +20,7 @@ public class SelectShip extends Action implements Serializable {
 	@Override
 	public boolean equals(Object obj) {
 		if (obj instanceof SelectShip){
-			if ( ((SelectShip) obj).shipOwnerID==shipOwnerID )
+			if ( ((SelectShip) obj).shipID==shipID )
 				return true;
 		}
 		return false;
@@ -34,10 +34,10 @@ public class SelectShip extends Action implements Serializable {
 
 	@Override
 	public boolean run(PhysicWorld w, Player p) {
-		Oggetto2D a = p.getShip(shipOwnerID);
+		Oggetto2D a = p.getShip(shipID);
 		if (a != null){
-			p.setActiveShip(shipOwnerID);
-			System.out.println(p.getLogin()+" selected ship:"+shipOwnerID);
+			p.setActiveShip(shipID);
+			System.out.println(p.getLogin()+" selected ship:"+shipID);
 			return true;
 		}
 		System.out.println("Error:"+p.getLogin()+" selected a ship not owned or unexistent");

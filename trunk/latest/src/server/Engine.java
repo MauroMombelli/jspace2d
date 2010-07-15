@@ -112,7 +112,7 @@ public class Engine extends TimerTask{
 			writeNewTurn();
 			
 			//every 1000 turn send all maps, otherwise send NewTurn
-			if (world.actualTurn%1000==0)
+			if (world.actualTurn%100==0)
 				writeAllMaps();
 			
 			//add the new observer to observerPlayer
@@ -244,7 +244,7 @@ public class Engine extends TimerTask{
 						objToCreate = (CreateShip)tempA;
 						System.out.println("creating ship1");
 						removedObserver.add(t);
-						if (objToCreate.shipOwnerID == -1){
+						if (objToCreate.shipID == -1){
 							objToCreate.run(world, t);
 							players.add(t);
 							allChanges.add(objToCreate);

@@ -25,9 +25,14 @@ public class CreateShip extends Action implements Serializable{
 
 	@Override
 	public boolean run(PhysicWorld w, Player p) {
-		Oggetto2D o = p.getShip(shipOwnerID);
+		Oggetto2D o = null;
+		if (shipID!= -1)
+			o = p.getShip(shipID);
+		else
+			shipID = w.getNextIndex();
+		
 		if (o==null){
-			Ship s = new Ship( w.getNextIndex() );
+			Ship s = new Ship( shipID );
 			if ( w.addNew( s, GLOBAL_VARIABLE.convertToPhysicEngineUnit( 0.1f ), GLOBAL_VARIABLE.convertToPhysicEngineUnit( 100 ), 0 ) == null ){
 				System.out.println("Error, world hasn't created ship "+s.ID+" for player: "+p.getLogin().toString());
 				return false;
@@ -38,9 +43,9 @@ public class CreateShip extends Action implements Serializable{
 			//set the ship as player possession
 			p.setActiveShip(s.ID);
 			
-			shipOwnerID = s.ID;
+			shipID = s.ID;
 		}else{
-			System.out.println( "Ship "+shipOwnerID+" actually exist!" );
+			System.out.println( "Ship "+shipID+" actually exist!" );
 			return false;
 			/*
 			if ( p.getShip(shipOwnerID) != null ){
@@ -60,7 +65,7 @@ public class CreateShip extends Action implements Serializable{
 	public boolean equals(Object obj) {
 		if (obj instanceof ActionEngine){
 			ActionEngine a = (ActionEngine)obj;
-			if (a.shipOwnerID == shipOwnerID)
+			if (a.shipID == shipID)
 				return true;
 		}
 		return false;
@@ -68,10 +73,12 @@ public class CreateShip extends Action implements Serializable{
 
 	@Override
 	public boolean run(PhysicWorld w) {
-		Oggetto2D o = w.get(shipOwnerID);
+		Oggetto2D o = w.get(shipID);
 		if (o==null){
-			Ship s = new Ship( w.getNextIndex() );
+			Ship s = new Ship( shipID );
 			w.addNew( s, GLOBAL_VARIABLE.convertToPhysicEngineUnit( 0.1f ), GLOBAL_VARIABLE.convertToPhysicEngineUnit( 100 ), 0 );
+		}else{
+			System.out.println( "Ship "+shipID+" actually exist!" );
 		}
 		return true;
 	}

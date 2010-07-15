@@ -22,7 +22,7 @@ public class ActionDamage extends Action {
 	public boolean equals(Object obj) {
 		if (obj instanceof ActionDamage){
 			ActionDamage a = (ActionDamage)obj;
-			if (a.shipOwnerID == shipOwnerID)
+			if (a.shipID == shipID)
 				if (a.damage == damage)
 					return true;
 		}
@@ -31,7 +31,7 @@ public class ActionDamage extends Action {
 
 	@Override
 	public boolean run(PhysicWorld w) {
-		Oggetto2D a = w.get( shipOwnerID );
+		Oggetto2D a = w.get( shipID );
 		if (a!= null){
 			a.subLife(damage);
 			System.out.println("Dameged "+a.ID+" for:"+damage);

@@ -12,11 +12,11 @@ public abstract class Action implements Serializable {
 	 */
 	private static final long serialVersionUID = 4252933575712164693L;
 
-	public int shipOwnerID;
+	public int shipID;
 	long time;
 	
 	public Action(int ID){
-		this.shipOwnerID = ID;
+		this.shipID = ID;
 	}
 	
 	public abstract boolean run(PhysicWorld w); //return true if action is executed with success
@@ -34,6 +34,6 @@ public abstract class Action implements Serializable {
 	public abstract boolean equals(Object obj);
 
 	public int hashCode(){
-		return shipOwnerID;
+		return shipID;
 	}
 }
