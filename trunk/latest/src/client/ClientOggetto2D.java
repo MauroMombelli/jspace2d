@@ -14,6 +14,8 @@ public class ClientOggetto2D {
 	Oggetto2D obj;
 	SetNode graphicPosition;
 	Node myNode;
+	boolean visible = false;
+	boolean deleted = false;
 	
 	public ClientOggetto2D(Oggetto2D obj){
 		this.obj = obj;
@@ -21,19 +23,24 @@ public class ClientOggetto2D {
 	}
 
 	public void update() {
-		if (graphicPosition != null){ //obj has been deleted
-			graphicPosition.set( new Vec2( obj.getBody().getPosition() ) , obj.getBody().getAngle() );
-		}else{
-			graphicPosition = null;
-		}
+		graphicPosition.set( new Vec2( obj.getBody().getPosition() ) , obj.getBody().getAngle() );
 	}
 
 	public void run(HashMap<Integer, Node> visibleObject, Node rootNode) {
-		if (graphicPosition != null){
+		
+		if (visible){
+			deleted = false;
 			if (myNode==null)
 				myNode = visibleObject.get(obj.ID);
 			
 			graphicPosition.run(visibleObject, rootNode, myNode);
+		}else{
+			if (!deleted){
+				rootNode.detachChild(myNode);
+				visibleObject.remove(obj.ID);
+				myNode=null;
+				deleted = true;
+			}
 		}
 	}
 
@@ -47,5 +54,9 @@ public class ClientOggetto2D {
 
 	public int getID() {
 		return obj.ID;
+	}
+
+	public void setVisible(boolean b) {
+		visible=b;
 	}
 }

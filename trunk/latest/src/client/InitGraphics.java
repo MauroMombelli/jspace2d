@@ -1,6 +1,7 @@
 package client;
 
 import java.util.LinkedList;
+import java.util.TreeMap;
 
 import client.gameState.GuiAction;
 import client.gameState.PosFPSGameState;
@@ -27,7 +28,7 @@ public class InitGraphics {
 	StandardGame game;
 	
 	
-	public InitGraphics(LinkedList<ClientOggetto2D> allOggetto2D){
+	public InitGraphics(TreeMap<Integer, ClientOggetto2D> allOggetto2D){
 		game = new StandardGame("Client test");
 		game.setBackgroundColor(ColorRGBA.white);
 		

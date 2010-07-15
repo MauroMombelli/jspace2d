@@ -2,6 +2,7 @@ package client.gameState;
 
 import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.TreeMap;
 
 import client.ClientOggetto2D;
 
@@ -28,11 +29,11 @@ public class WorldGameState extends BasicGameState{
 
 	private Integer cameraID=-1;
 	
-	LinkedList<ClientOggetto2D> allOggetto2D;
+	TreeMap<Integer, ClientOggetto2D> allOggetto2D;
 
 	private LinkedList<GuiAction> objMod = new LinkedList<GuiAction>();
 	
-	public WorldGameState(String arg0, LinkedList<ClientOggetto2D> allOggetto2D) {
+	public WorldGameState(String arg0, TreeMap<Integer, ClientOggetto2D> allOggetto2D) {
 		super(arg0);
 		this.allOggetto2D = allOggetto2D;
 		// Lighting
@@ -68,7 +69,8 @@ public class WorldGameState extends BasicGameState{
         rootNode.updateWorldBound();
         rootNode.updateGeometricState(0.0f, true);
 	}
-/*	
+
+	/*	
 	public void addAction(GuiAction a){
 		synchronized (objMod) {
 			objMod.add(a);
@@ -87,7 +89,7 @@ public class WorldGameState extends BasicGameState{
 		long time = System.nanoTime();
 		
 		synchronized (allOggetto2D) {
-			for (ClientOggetto2D t:allOggetto2D){
+			for (ClientOggetto2D t:allOggetto2D.values()){
 				t.run( visibleObject, rootNode );
 			}
 		}

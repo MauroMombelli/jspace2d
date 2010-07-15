@@ -5,10 +5,11 @@ import java.util.TimerTask;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
+import javax.swing.JOptionPane;
+
 import org.jbox2d.common.Vec2;
 
 import client.gameState.GuiAction;
-import client.gameState.RemoveNode;
 
 import com.jme.input.KeyBindingManager;
 import com.jme.math.FastMath;
@@ -38,8 +39,9 @@ public class ClientEngine extends TimerTask{
 	PhysicWorld asincroniusWorld = new PhysicWorld();
 	//PhysicWorldListener asincList = new PhysicWorldListener(); this will be useful with lag
 	
-	LinkedList<ClientOggetto2D> allOggetto2D = new LinkedList<ClientOggetto2D>();
-	LinkedList<ClientOggetto2D> tempAllOggetto2D = new LinkedList<ClientOggetto2D>();
+	
+	TreeMap<Integer, ClientOggetto2D> reallyAllOggetto2D = new TreeMap<Integer, ClientOggetto2D>();
+
 	LinkedList<GuiAction> indipendetActions = new LinkedList<GuiAction>();
 	
 	TreeMap< Long, LinkedList<Action> > myActions = new TreeMap<Long, LinkedList<Action> >();
@@ -67,7 +69,7 @@ public class ClientEngine extends TimerTask{
 		
 		MAX_TURN_DURATION = turnDuration;
 		
-		gui = new InitGraphics( allOggetto2D );
+		gui = new InitGraphics( reallyAllOggetto2D );
 		
 		server.write( new CreateShip() );
 		System.out.println("Creation ship request send, starting turn:"+actualTurn);
@@ -115,31 +117,14 @@ public class ClientEngine extends TimerTask{
 		
 		long time = System.nanoTime();
 		
-		synchronized (allOggetto2D) {
-			if (tempAllOggetto2D.size()!=0){
-				allOggetto2D.clear();
-				allOggetto2D.addAll(tempAllOggetto2D);
-				//tempAllOggetto2D.clear();
-			}
-				
-			for (ClientOggetto2D temp:allOggetto2D)
+		synchronized (reallyAllOggetto2D) {
+			for (ClientOggetto2D temp:reallyAllOggetto2D.values())
 				temp.update();
 		}
+	
 		gui.setActions(indipendetActions);
 		time = System.nanoTime()-time;
 		System.out.println( "GUI update obj time: "+time);
-		
-		/*
-		time = System.nanoTime();
-		
-		LinkedList<GuiAction> ris = new LinkedList<GuiAction>();
-		//eventually add here other action
-		//ris.addAll( listaAzioniGUI.values() );
-		gui.getWorldGUI().setGuiActions(ris);
-		
-		time = System.nanoTime()-time;
-		System.out.println( "GUI preparation time: "+time);
-		*/
 		
 		time2 = System.nanoTime()-time2;
 		System.out.println( "GUI set time: "+time2);
@@ -254,6 +239,7 @@ public class ClientEngine extends TimerTask{
 			
 			if (!used){
 				System.out.println("\tWrong packet!: "+o);
+				JOptionPane.showMessageDialog(null,"Error, wrong packet");
 				close();
 			}
 
@@ -272,6 +258,7 @@ public class ClientEngine extends TimerTask{
 			for (NewTurn t:oldTurnToElaborate){
 				if (t.actualTurn<world.actualTurn){
 					System.out.println("\tWrong NewTurn");
+					JOptionPane.showMessageDialog(null,"Error, wrong newturn1");
 					close();
 				}
 				updateWorld(t);
@@ -289,6 +276,7 @@ public class ClientEngine extends TimerTask{
 			
 			if (lastAllMap.turn < world.actualTurn){
 				System.out.println("\tWrong allmap: "+lastAllMap.turn+" "+world.actualTurn);
+				JOptionPane.showMessageDialog(null,"Error, wrong allmap");
 				close();
 			}
 			
@@ -313,6 +301,7 @@ public class ClientEngine extends TimerTask{
 			for (NewTurn t:newTurnToElaborate){
 				if (t.actualTurn<world.actualTurn){
 					System.out.println("Wrong NewTurn");
+					JOptionPane.showMessageDialog(null,"Error, wrong newturn2");
 					close();
 				}
 				updateWorld(t);
@@ -394,70 +383,49 @@ public class ClientEngine extends TimerTask{
 		gui.setInfo("Number of obj in world:"+tempW.size());
 		
 		ClientOggetto2D a;
-		LinkedList<ClientOggetto2D> all = new LinkedList<ClientOggetto2D>();
 		Oggetto2D o;
-		boolean deleteThisObj = false;
-		LinkedList<ClientOggetto2D> removedOggetto = new LinkedList<ClientOggetto2D>();
+
+		synchronized (reallyAllOggetto2D) {
+			
+		for (ClientOggetto2D tempObj:reallyAllOggetto2D.values()){
+			tempObj.setVisible(false);
+		}
+		
 		while( (o = tempW.poll()) != null ){
 			
-			a = tempAllOggetto2D.poll();
+			a = reallyAllOggetto2D.get(o.ID);
 			
-			
-			while ( a!=null && a.getID() < o.ID){
-				asincroniusWorld.removeBody(a.obj.getBody(), a.obj.ID);
-				removedOggetto.add(a);
-				a = tempAllOggetto2D.poll();
-			}
-			
-			if ( a!=null && !deleteThisObj ){
+			if ( a!=null ){
 				//updating old obj
-				System.out.println("Same id:"+o.ID);
+				//System.out.println("Same id:"+o.ID);
 				
 				a.set( o );
 				a.setInfoPosition(o.getInfoPosition());
-				
-				all.add(a);
+				a.setVisible(true);
 				
 				if (a.getID() == IDmyShip){
 					myShip = a.obj;
 				}
 			}else{
-			
-				if (a == null){
-					//creatin new obj
-					System.out.println("Created id:"+o.ID);
-					pos = o.getInfoPosition().getPos();
+				//creatin new obj
+				System.out.println("Created id:"+o.ID);
+				pos = o.getInfoPosition().getPos();
 				
-					tempCopy = asincroniusWorld.addCopy( o, pos.x, pos.y, o.getInfoPosition().getAngle() );
-					tempCopy.setInfoPosition( o.getInfoPosition() );
+				tempCopy = asincroniusWorld.addCopy( o, pos.x, pos.y, o.getInfoPosition().getAngle() );
+				tempCopy.setInfoPosition( o.getInfoPosition() );
 			
-					a = new ClientOggetto2D(tempCopy);
+				a = new ClientOggetto2D(tempCopy);
+				a.setVisible(true);
+				
+				reallyAllOggetto2D.put( o.ID, a );
 					
-					all.add( a );
-					
-					if (a.getID() == IDmyShip){
-						myShip = a.obj;
-					}
-				}else{
-					if (!deleteThisObj){
-						System.out.println("Unexpected error: "+o.ID+" "+a.getID());
-						close();
-					}
+				if (a.getID() == IDmyShip){
+					myShip = a.obj;
 				}
 			}
 		}
 		
-		while( (a = tempAllOggetto2D.poll() ) != null ){
-			//remove inexistent obj
-			removedOggetto.add(a);
-			asincroniusWorld.removeBody(a.obj.getBody(), a.obj.ID);
-		}
-		for (ClientOggetto2D obj:removedOggetto){
-			indipendetActions.add( new RemoveNode(obj.myNode, obj.getID()) );
-		}
-
-		tempAllOggetto2D.addAll(all);
-		
+		}		
 		time = System.nanoTime() - time;
 		System.out.println( "Population time: "+time );
 		asincroniusWorld.actualTurn = world.actualTurn+1;
@@ -498,6 +466,7 @@ public class ClientEngine extends TimerTask{
 			System.out.println( "created object:"+newObj.getInfoPosition().compare(newObjPos)+" ID "+newObj.ID );
 			if (newObj.getInfoPosition().compare(newObjPos) != 0){
 				System.out.println( "Error creation isn't perfect");
+				JOptionPane.showMessageDialog(null,"Error, creation imperfection");
 				close();
 			}
 			
@@ -608,6 +577,7 @@ public class ClientEngine extends TimerTask{
 			a=lastAllMap.poll();
 			if (a == null){
 				System.out.println( "\t\t\tClient world has more obj than server! first occurence id:"+t.ID );
+				JOptionPane.showMessageDialog(null,"Error, Client world has more obj");
 				close();
 				break;
 			}
@@ -615,6 +585,7 @@ public class ClientEngine extends TimerTask{
 				t.setInfoPosition(a);
 			}else{
 				System.out.println( "\t\t\tExpected ID: "+a.ID+" found: "+t.ID+" iteration number:"+i );
+				JOptionPane.showMessageDialog(null,"Error, ID are inequal");
 				close();
 			}
 		}
@@ -624,6 +595,7 @@ public class ClientEngine extends TimerTask{
 			System.out.println( "\t\t\tServer world has more obj than client! ids:"+a.ID );
 			while ( (a=lastAllMap.poll()) != null )
 				System.out.println( a.ID );
+			JOptionPane.showMessageDialog(null,"Error, Server world has more obj");
 			close();
 		}
 		world.actualTurn = lastAllMap.turn;
