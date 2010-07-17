@@ -45,7 +45,7 @@ public class ClientOggetto2D {
 	}
 
 	public void set(Oggetto2D o) {
-		obj.setOggetto2D(o);
+		obj=o;
 	}
 
 	public void setInfoPosition(InfoBody infoPosition) {

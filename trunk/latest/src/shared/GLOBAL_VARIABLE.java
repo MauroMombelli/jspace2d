@@ -13,4 +13,11 @@ public class GLOBAL_VARIABLE {
 		return number;	
 	}
 
+	
+	public static void trace() {
+		Thread currentThread = Thread.currentThread();
+		StackTraceElement[] sts = currentThread.getStackTrace();
+		for (int i=sts.length-1;i >= 3; i--)
+			System.out.println(sts[i]);
+	}
 }

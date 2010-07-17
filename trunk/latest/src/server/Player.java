@@ -199,7 +199,7 @@ public class Player {
 			
 			
 			for ( Oggetto2D o : myShip.getOutOfRadar() ){
-				if ( !myPossession.containsKey(o.ID) )
+				if ( o.getLife()>0 && !myPossession.containsKey(o.ID) )
 					n.add( new RemoveShip(o.ID) );
 			}
 			
@@ -215,8 +215,8 @@ public class Player {
 			myShip.clearActions();
 			myShip.updateRadar();
 		}
-		
-		write(n);
+		if ( !n.isEmpty() )
+			write(n);
 	}
 	
 	public Action pollPendingActions() {

@@ -99,6 +99,7 @@ public class Oggetto2D implements Serializable, Comparable<Oggetto2D> {
 		bodyContainer.myBody.setLinearVelocity( ad.getPosVel() );
 		bodyContainer.myBody.applyTorque( ad.getTorque()-bodyContainer.myBody.m_torque );
 		bodyContainer.myBody.m_sweep = ad.getSweep();
+		//bodyContainer.myBody.s = ad.getForce();
 		setLife(ad.getLife());
 		//bodyContainer.myBody.m_torque=ad.getTorque();
 	}

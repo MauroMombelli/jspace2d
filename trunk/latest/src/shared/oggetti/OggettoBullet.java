@@ -43,6 +43,7 @@ public class OggettoBullet extends Oggetto2D {
 		}
 		//addAction( new ActionLightShot(ID) );
 		addAction( new RemoveShip(ID) );
+		setLife(0);
 	}
 /*	
 	@Override

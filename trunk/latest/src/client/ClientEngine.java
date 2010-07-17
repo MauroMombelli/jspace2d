@@ -223,7 +223,7 @@ public class ClientEngine extends TimerTask{
 			if (o instanceof NewTurn){
 				used = true;
 				newTurnToElaborate.add( (NewTurn)o );
-				System.out.println( "\tNew turn received, time: "+ ((NewTurn)o).actualTurn );
+				System.out.println( "\tNew turn received, time: "+ ((NewTurn)o).actualTurn+" "+((NewTurn)o).isEmpty() );
 			}
 			
 			if (o instanceof AllMap){
@@ -332,7 +332,7 @@ public class ClientEngine extends TimerTask{
 			gui.setLag(actionLag, allMapLag);
 			
 			if (!allMapArrived){
-				actionLag = asincTurn-world.actualTurn;
+				actionLag = asincTurn-world.actualTurn+newTurnToElaborate.size();
 			}
 			
 			System.out.println( "\tRilevated action LAG: "+actionLag+" to ms: "+(actionLag*MAX_TURN_DURATION) );
@@ -374,7 +374,6 @@ public class ClientEngine extends TimerTask{
 		System.out.println( "Clear time: "+time );
 		
 		time = System.nanoTime();
-		Oggetto2D tempCopy;
 		Vec2 pos;
 		
 		LinkedList<Oggetto2D> tempW = new LinkedList<Oggetto2D>();
@@ -382,53 +381,50 @@ public class ClientEngine extends TimerTask{
 
 		gui.setInfo("Number of obj in world:"+tempW.size());
 		
-		ClientOggetto2D a;
+		Oggetto2D b;
 		Oggetto2D o;
-
-		synchronized (reallyAllOggetto2D) {
-			
-		for (ClientOggetto2D tempObj:reallyAllOggetto2D.values()){
-			tempObj.setVisible(false);
-		}
+		ClientOggetto2D a;
+		//asincroniusWorld.clear();
+		
+		TreeSet<Integer> idToRemove = new TreeSet<Integer>();
+		
+		idToRemove.addAll( asincroniusWorld.getMapOggetti().keySet() );
 		
 		while( (o = tempW.poll()) != null ){
-			
-			a = reallyAllOggetto2D.get(o.ID);
-			
-			if ( a!=null ){
-				//updating old obj
-				//System.out.println("Same id:"+o.ID);
-				
-				a.set( o );
-				a.setInfoPosition(o.getInfoPosition());
-				a.setVisible(true);
-				
-				if (a.getID() == IDmyShip){
-					myShip = a.obj;
-				}
+			b = asincroniusWorld.get(o.ID);
+			idToRemove.remove(o.ID);
+			if ( b!=null ){
+				b.setInfoPosition(o.getInfoPosition());
 			}else{
 				//creatin new obj
 				System.out.println("Created id:"+o.ID);
 				pos = o.getInfoPosition().getPos();
 				
-				tempCopy = asincroniusWorld.addCopy( o, pos.x, pos.y, o.getInfoPosition().getAngle() );
-				tempCopy.setInfoPosition( o.getInfoPosition() );
-			
-				a = new ClientOggetto2D(tempCopy);
-				a.setVisible(true);
+				b = asincroniusWorld.addCopy( o, pos.x, pos.y, o.getInfoPosition().getAngle() );
+				b.setInfoPosition( o.getInfoPosition() );
 				
-				reallyAllOggetto2D.put( o.ID, a );
-					
-				if (a.getID() == IDmyShip){
-					myShip = a.obj;
-				}
+			}
+			
+			synchronized (reallyAllOggetto2D) {
+				a = reallyAllOggetto2D.get(b.ID);
+				a.set( b ); //a must be not null
+				a.setInfoPosition(b.getInfoPosition());
+				a.setVisible(true);
 			}
 		}
 		
-		}		
+		for (Integer id:idToRemove){
+			synchronized (reallyAllOggetto2D) {
+				a = reallyAllOggetto2D.get(id);
+				a.setVisible(false);
+			}
+			System.out.println( "removing id: "+id );
+			asincroniusWorld.removeBody(id);
+		}
+		
 		time = System.nanoTime() - time;
 		System.out.println( "Population time: "+time );
-		asincroniusWorld.actualTurn = world.actualTurn+1;
+		asincroniusWorld.actualTurn = world.actualTurn;
 	}
 
 	private void updateWorld(long turn) {
@@ -457,19 +453,36 @@ public class ClientEngine extends TimerTask{
 		Vec2 pos;
 		time = System.nanoTime();
 		//add the new obj and set their position
+		
+		ClientOggetto2D a;
+		//Oggetto2D b;
+		
+		
 		while ( (newObj=t.pollNewObj())!=null ){
+				
 			newObjPos = t.pollPosObj();
 			pos = newObjPos.getPos();
 			world.addNew( newObj, pos.x, pos.y, newObjPos.getAngle() );
 			newObj.setInfoPosition( newObjPos );
 			
+			synchronized (reallyAllOggetto2D) {
+				a = reallyAllOggetto2D.get(newObj.ID);
+				if (a==null){
+					a = new ClientOggetto2D( newObj );
+					a.setVisible(true);
+					reallyAllOggetto2D.put(a.getID(), a);
+				}
+				if (a.getID() == IDmyShip){
+					myShip = a.obj;
+				}
+			}
 			System.out.println( "created object:"+newObj.getInfoPosition().compare(newObjPos)+" ID "+newObj.ID );
 			if (newObj.getInfoPosition().compare(newObjPos) != 0){
 				System.out.println( "Error creation isn't perfect");
 				JOptionPane.showMessageDialog(null,"Error, creation imperfection");
 				close();
 			}
-			
+		
 			if (IDmyShip==newObj.ID){//executed only at the first creation time
 				myShip = newObj;
 			}
@@ -524,9 +537,10 @@ public class ClientEngine extends TimerTask{
 			asincroniusWorld.update();
 			//execute world action
 			//time2 = System.nanoTime();
-			executeAsincAct();
+			//executeAsincAct();
 			//time2 = System.nanoTime()-time2;
 			//System.out.println( "Asinc action time: "+time2);
+			
 			//execute my actions
 			synchronized (myActions) {
 				my = myActions.get(asincroniusWorld.actualTurn);
@@ -541,6 +555,7 @@ public class ClientEngine extends TimerTask{
 					my.addAll(temp);
 				}
 			}
+			
 		}
 	}
 	

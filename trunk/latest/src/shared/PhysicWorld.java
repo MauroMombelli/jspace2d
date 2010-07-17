@@ -249,5 +249,14 @@ public class PhysicWorld {
 			objIndex++;
 		return objIndex;
 	}
+
+	public void removeBody(Integer id) {
+		Oggetto2D del = allOggetto2D.remove(id);
+		if (del!=null)
+			sortedOggetto2D.remove( del );
+		//sortedNewOggetti2D.remove(id);
+		
+		physicWorld.destroyBody( del.getBody() );
+	}
 	
 }

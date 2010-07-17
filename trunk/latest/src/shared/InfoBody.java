@@ -173,4 +173,8 @@ public class InfoBody implements Serializable, Comparable<InfoBody>{
 	public int compareTo(InfoBody arg0) {
 		return arg0.ID-ID;
 	}
+
+	public Vec2 getForce() {
+		return new Vec2(xF, yF);
+	}
 }

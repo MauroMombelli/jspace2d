@@ -19,6 +19,8 @@ public class NewTurn implements Serializable{
 	LinkedList<InfoBody> posizioneOggetti = new LinkedList<InfoBody>();
 	
 	LinkedList<Action> nuoveAzioni = new LinkedList<Action>();
+
+	private boolean empty = true;
 	
 	public NewTurn(long actualTurn){
 		this.actualTurn = actualTurn;
@@ -27,14 +29,18 @@ public class NewTurn implements Serializable{
 	public void add(Oggetto2D t, InfoBody infoPosition) {
 		nuoviOggetti.add(t);
 		posizioneOggetti.add(infoPosition);
+		empty=false;
 	}
 
 	public void addAll(LinkedList<Action> allChanges) {
 		nuoveAzioni.addAll(allChanges);
+		if (allChanges.size()>0)
+			empty=false;
 	}
 	
 	public void add(Action act) {
 		nuoveAzioni.add(act);
+		empty=false;
 	}
 	
 	public Oggetto2D pollNewObj(){
@@ -55,5 +61,9 @@ public class NewTurn implements Serializable{
 
 	public int newObjSize() {
 		return nuoviOggetti.size();
+	}
+
+	public boolean isEmpty() {
+		return empty ;
 	}
 }

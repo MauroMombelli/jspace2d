@@ -4,6 +4,7 @@ import java.io.Serializable;
 
 import server.Player;
 
+import shared.GLOBAL_VARIABLE;
 import shared.PhysicWorld;
 import shared.oggetti.Oggetto2D;
 
@@ -16,6 +17,8 @@ public class RemoveShip extends Action implements Serializable{
 	
 	public RemoveShip(int ID) {
 		super(ID);
+		System.out.println("Creating remove action, id: "+ID);
+		GLOBAL_VARIABLE.trace();
 	}
 	
 	@Override
