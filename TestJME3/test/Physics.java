@@ -3,18 +3,15 @@
  * and open the template in the editor.
  */
 
-package TestAPIjme3Jbullet;
+
 
 import TestAPIjme3Jbullet.actions.PhysicActions;
 import TestAPIjme3Jbullet.serializable.ObjectInfo;
 import com.jme3.bullet.BulletAppState;
-import com.jme3.bullet.collision.PhysicsCollisionEvent;
-import com.jme3.bullet.collision.PhysicsCollisionListener;
 import com.jme3.bullet.collision.PhysicsSweepTestResult;
 import com.jme3.bullet.control.RigidBodyControl;
 import com.jme3.math.Transform;
 import com.jme3.math.Vector3f;
-import com.jme3.renderer.RenderManager;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.TreeMap;
@@ -66,7 +63,13 @@ public class Physics extends BulletAppState{
 */
     @Override
     public void update(float tpf){
-
+/*
+        if (l == null){
+            l = new CollisionList();
+            getPhysicsSpace().addCollisionListener(l);
+            getPhysicsSpace().setContactAddedCallback();
+        }
+*/
         ObjectInfo tempInfo;
         PhysicActions tempAction;
         synchronized(waitingPhysic){

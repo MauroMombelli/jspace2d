@@ -13,12 +13,13 @@ import java.io.Externalizable;
 import java.io.IOException;
 import java.io.ObjectInput;
 import java.io.ObjectOutput;
+import java.util.Observable;
 
 /**
  *
  * @author mauro
  */
-public class ObjectInfo implements Externalizable{
+public class ObjectInfo extends Observable implements Externalizable{
     long ID; //unique id used for identification
 
     String modelName; //name of the model, used for loading graphic AND physic. MUST be one line only
