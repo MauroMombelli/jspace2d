@@ -13,6 +13,11 @@ import java.util.LinkedList;
 class WorldCopy {
 
     LinkedList<SerializableBody> list = new LinkedList<SerializableBody>();
+    private final int stepN;
+
+    WorldCopy(int actualStep) {
+        stepN = actualStep;
+    }
     
     void add(SerializableBody info) {
         list.add(info);
@@ -20,6 +25,10 @@ class WorldCopy {
     
     SerializableBody poll(){
         return list.poll();
+    }
+
+    int getStepNumber() {
+        return stepN;
     }
     
 }

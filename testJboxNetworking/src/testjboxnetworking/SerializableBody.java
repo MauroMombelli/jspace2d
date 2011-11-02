@@ -16,16 +16,18 @@ class SerializableBody {
     Vec2 pos;
     float a;
     SerializableBody(Body body) {
-        pos = body.getPosition();
+        pos = body.getPosition().clone();
         a = body.getAngle();
     }
 
     //return true if check is ok
     boolean check(Body body) {
         if ( !pos.equals(body.getPosition()) ){
+            System.out.println( "POS FAIL:"+body.getPosition()+" "+pos );
             return false;
         }
         if ( a!= body.getAngle() ){
+            System.out.println( "ANGLE FAIL:"+body.getAngle()+" "+a );
             return false;
         }
         return true;

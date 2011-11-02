@@ -15,9 +15,11 @@ import java.util.LinkedList;
 class ActionsContainer {
     LinkedList<CreationAction> cA = new LinkedList<CreationAction>();
     private final boolean step;
-    
-    public ActionsContainer(boolean shouldStep){
-        step= shouldStep;
+    private final int stepN;
+
+    ActionsContainer(boolean b, int actualStep) {
+        step= b;
+        stepN = actualStep;
     }
     
     LinkedList<CreationAction> getCreationsAction() {
@@ -30,6 +32,10 @@ class ActionsContainer {
 
     boolean getStep() {
         return step;
+    }
+
+    int getStepNumber() {
+        return stepN;
     }
     
 }

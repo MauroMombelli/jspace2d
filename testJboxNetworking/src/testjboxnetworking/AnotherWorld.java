@@ -20,7 +20,7 @@ import org.jbox2d.dynamics.World;
  * @author Daniel Boy
  */
 public class AnotherWorld extends Thread{
-
+    int stepNumber=0;
     float hz = 60;
     World mondo2d;
     float timeStep = hz > 0f ? 1f / hz : 0;
@@ -41,11 +41,19 @@ public class AnotherWorld extends Thread{
                 waitToken.take();
                 if (actionList.size()>0){
                     ActionsContainer container = actionList.get(0);
+                    int step = container.getStepNumber();
+                    if (step!=stepNumber){
+                        System.out.println("Wrong step action: "+step+" "+stepNumber);
+                    }
                     actionList.remove(0);
                     addActionAndStep(container);
                 }
                 if (worldCopy.size()>0){
                     WorldCopy c = worldCopy.get(0);
+                    int step = c.getStepNumber();
+                    if (step!=stepNumber){
+                        System.out.println("Wrong step copy: "+step+" "+stepNumber);
+                    }
                     worldCopy.remove(0);
                     checkWorld(c);
                 }
@@ -63,17 +71,22 @@ public class AnotherWorld extends Thread{
         worldCopy.add(copy);
     }
 
+
     private void checkWorld(WorldCopy c) {
         WorldCopy copy = c;
         SerializableBody b;
-        System.out.println("W2 checking:");
+        System.out.println("W2 checking step:"+stepNumber);
         System.out.println( "W2 body count:"+mondo2d.getBodyCount() );
         for (Body body = mondo2d.getBodyList(); body != null; body = body.getNext()) {
             b = copy.poll();
             if (b==null){
                 System.out.println("W2 determinism FAIL!!, b is null");
+                System.exit(0);
             }else if ( !b.check(body) ){
                 System.out.println("W2 determinism FAIL!!");
+                System.exit(0);
+                //System.out.println( "corpo1:"+body.getPosition()+" "+body.getAngle() );
+                //System.out.println( "corpo2:"+b.getPosition()+" "+b.getAngle() );
             }
             //System.out.println( "corpo:"+body.getPosition()+" "+body.getAngle() );
         }
@@ -86,7 +99,8 @@ public class AnotherWorld extends Thread{
             c.make(mondo2d);
         }
         if (container.getStep()){
-            mondo2d.step(hz, 3, 8);
+            stepNumber++;
+            mondo2d.step(timeStep, 3, 8);
         }
     }
 
