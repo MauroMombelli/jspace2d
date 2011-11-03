@@ -42,7 +42,7 @@ public class AnotherWorld extends Thread{
                 if (actionList.size()>0){
                     ActionsContainer container = actionList.get(0);
                     int step = container.getStepNumber();
-                    if (step!=stepNumber){
+                    if (step!=stepNumber+1){
                         System.out.println("Wrong step action: "+step+" "+stepNumber);
                     }
                     actionList.remove(0);
