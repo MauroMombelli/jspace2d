@@ -1,0 +1,21 @@
+# What's new on code #
+
+Welcome to the jspace2d wiki, here we can talk about this great(?) game.
+It use JBOX2D for physic and JAVA MONKEY ENGINE for 3d graphics.
+
+
+# Details #
+
+Actually still in development, here some implemented features
+  * Realistic physic 2d
+  * 3d graphics
+  * Movement
+  * Shot
+  * Ship editor on development
+
+And here what I'm going to add
+  * Collision damage
+  * Bullet damage
+  * Good anti-lag algorithm
+
+Then we will be out with the first beta, so stay tuned!
