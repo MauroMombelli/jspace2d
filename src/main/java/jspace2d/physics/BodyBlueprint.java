@@ -4,24 +4,18 @@ import org.jbox2d.common.Vec2;
 
 public class BodyBlueprint {
 
-	private final Vec2 pos;
-	private final float angle;
 	private final float density;
 	private final float friction;
 	private final Vec2 size;
 	private final boolean isDynamic;
+	private final float restitution;
 	
-	public BodyBlueprint(Vec2 pos, float angle, float density, float friction, Vec2 size, boolean isDynamic){
-		this.pos = pos;
-		this.angle = angle;
+	public BodyBlueprint(Vec2 size, boolean isDynamic, float restitution, float density, float friction){
 		this.density = density;
 		this.friction = friction;
 		this.size = size;
 		this.isDynamic = isDynamic;
-	}
-	
-	public Vec2 getPos() {
-		return pos;
+		this.restitution = restitution;
 	}
 
 	public boolean isDynamic() {
@@ -40,8 +34,8 @@ public class BodyBlueprint {
 		return friction;
 	}
 
-	public float getAngle() {
-		return angle;
+	public float getRestitution() {
+		return restitution;
 	}
 
 }

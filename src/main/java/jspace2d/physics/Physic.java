@@ -28,12 +28,12 @@ public class Physic {
 		
 	}
 
-	public Body add(BodyBlueprint e) {
+	public Body add(BodyBlueprint e, Vec2 pos, float angle) {
 		
 		BodyDef bodyDef = new BodyDef();
 		
-		bodyDef.position.set(e.getPos().x, e.getPos().y);
-		bodyDef.angle = e.getAngle();
+		bodyDef.position.set(pos.x, pos.y);
+		bodyDef.angle = angle;
 		
 		if ( e.isDynamic() ){
 			bodyDef.type = BodyType.DYNAMIC;
@@ -48,6 +48,7 @@ public class Physic {
 		fixtureDef.shape=dynamicBox;
 		fixtureDef.density=e.getDensity();
 		fixtureDef.friction=e.getFriction();
+		fixtureDef.restitution=e.getRestitution();
 		
 		Body body = world.createBody(bodyDef);
 		body.createFixture(fixtureDef);
@@ -59,5 +60,9 @@ public class Physic {
 
 	public void step(){
 		world.step(timeStep, velocityIterations, positionIterations);
+	}
+
+	public void remove(Body body) {
+		world.destroyBody(body);
 	}
 }
