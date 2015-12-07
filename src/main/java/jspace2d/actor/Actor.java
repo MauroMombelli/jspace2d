@@ -6,10 +6,10 @@ import jspace2d.gui.ActorGui;
 
 public class Actor {
 
-	final long id;
-	final Blueprint blue;
-	final Body body;
-	final ActorGui graphic;
+	public final long id;
+	public final Blueprint blue;
+	public final Body body;
+	public final ActorGui graphic;
 
 	public Actor(long id, Blueprint blue, Body body, ActorGui graphic) {
 		this.id = id;

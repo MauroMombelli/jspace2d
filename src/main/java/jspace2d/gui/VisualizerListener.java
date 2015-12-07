@@ -4,6 +4,4 @@ public interface VisualizerListener {
 
 	void close();
 
-	void preRender();
-
 }

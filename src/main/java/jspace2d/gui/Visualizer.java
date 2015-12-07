@@ -1,13 +1,10 @@
 package jspace2d.gui;
 
 import java.nio.IntBuffer;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import org.lwjgl.BufferUtils;
-import org.lwjgl.Version;
 import org.lwjgl.glfw.GLFW;
 import org.lwjgl.glfw.GLFWErrorCallback;
 import org.lwjgl.glfw.GLFWKeyCallback;
@@ -27,17 +24,30 @@ public class Visualizer implements Runnable {
 	// The window handle
 	private long window;
 	private VisualizerListener listener;
-	private List<ActorGui> actors = new ArrayList<>();
 
 	int WIDTH = 600;
 	int HEIGHT = 600;
 
 	private float zoom = 1f / 100f;
 
+	private final String title;
+	
+	private Camera camera;
+
+	public volatile boolean runnig = false;
+	
+	private boolean shouldClose = false;
+
+	public Visualizer(String title) {
+		if (title != null)
+			this.title = title;
+		else
+			this.title = "Untitled";
+	}
+
 	@Override
 	public void run() {
-		System.out.println("Hello LWJGL " + Version.getVersion() + "!");
-
+		runnig = true;
 		try {
 			init();
 			loop();
@@ -49,8 +59,19 @@ public class Visualizer implements Runnable {
 			// Terminate GLFW and release the GLFWErrorCallback
 			GLFW.glfwTerminate();
 			errorCallback.release();
-			listener.close();
+			if (listener != null)
+				listener.close();
+			
+			runnig = false;
 		}
+	}
+	
+	public void setListener(VisualizerListener v) {
+		this.listener = v;
+	}
+
+	public void setCamera(Camera camera) {
+		this.camera = camera;
 	}
 
 	private void init() {
@@ -68,7 +89,7 @@ public class Visualizer implements Runnable {
 		GLFW.glfwWindowHint(GLFW.GLFW_RESIZABLE, GLFW.GLFW_TRUE); // the window will be resizable
 
 		// Create the window
-		window = GLFW.glfwCreateWindow(WIDTH, HEIGHT, "Hello World!", MemoryUtil.NULL, MemoryUtil.NULL);
+		window = GLFW.glfwCreateWindow(WIDTH, HEIGHT, title, MemoryUtil.NULL, MemoryUtil.NULL);
 		if (window == MemoryUtil.NULL)
 			throw new RuntimeException("Failed to create the GLFW window");
 
@@ -122,7 +143,7 @@ public class Visualizer implements Runnable {
 		long loopCount = 0;
 		// Run the rendering loop until the user has attempted to close
 		// the window or has pressed the ESCAPE key.
-		while (GLFW.glfwWindowShouldClose(window) == GLFW.GLFW_FALSE) {
+		while (GLFW.glfwWindowShouldClose(window) == GLFW.GLFW_FALSE || shouldClose) {
 
 			if (System.currentTimeMillis() - startMs >= 1000) {
 				startMs = System.currentTimeMillis();
@@ -140,12 +161,6 @@ public class Visualizer implements Runnable {
 			int h = height.get();
 			
 			ratio = w / (float) h;
-			
-			//zoom = (10f) / w;
-			
-			if (listener != null) {
-				listener.preRender();
-			}
 
 			/* Set viewport and clear screen */
 			GL11.glViewport(0, 0, w, h);
@@ -164,14 +179,16 @@ public class Visualizer implements Runnable {
 			height.flip();
 
 		}
-		if (listener != null) {
-			listener.close();
-		}
 	}
 
 	private void render(float ratio) {
-		for (ActorGui a : actors) {
-
+		if (camera == null){
+			log.log(Level.INFO, "No camera, turning off visualizer");
+			shouldClose = true;
+			return;
+		}
+		for ( ActorGui a : camera.getToPrint() ) {
+			
 			GL11.glColor3f(0.1f, 0.1f, 0.1f);
 
 			GL11.glPushMatrix();
@@ -192,14 +209,5 @@ public class Visualizer implements Runnable {
 			}
 			GL11.glPopMatrix();
 		}
-	}
-
-	public void setListener(VisualizerListener v) {
-		this.listener = v;
-	}
-
-	public void set(List<ActorGui> toPrint) {
-		this.actors.clear();
-		this.actors.addAll(toPrint);
 	}
 }

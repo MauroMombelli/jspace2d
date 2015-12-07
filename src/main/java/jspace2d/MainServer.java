@@ -7,13 +7,13 @@ import java.util.logging.Logger;
 import org.jbox2d.common.Vec2;
 
 import jspace2d.actions.CreateActor;
+import jspace2d.actions.CreateCallback;
 import jspace2d.actor.ActorManager;
-import jspace2d.actor.ActorManagerListener;
 import jspace2d.actor.Blueprint;
 import jspace2d.gui.GraphicBlueprint;
 import jspace2d.physics.BodyBlueprint;
 
-public class MainServer implements ActorManagerListener{
+public class MainServer{
 	private static final Logger log = Logger.getLogger(MainServer.class.getName());
 
 	public static void main(String[] args) {
@@ -26,16 +26,16 @@ public class MainServer implements ActorManagerListener{
 
 	public MainServer(){
 		System.out.println("ciao");
-		ActorManager m = new ActorManager();
+		final ActorManager m = new ActorManager();
 		
-		m.setListener(this);
+		//m.setListener(this);
 		
 		//terrain
 		final Vec2 size = new Vec2(50, 1);
-		BodyBlueprint terrainBody = new BodyBlueprint(size, false, 0, 1, 0.3f);
+		BodyBlueprint terrainBody = new BodyBlueprint(size, false, 0.5f, 1, 0.3f);
 		GraphicBlueprint terrainGraphic = new GraphicBlueprint( size );
 		Blueprint terrain = new Blueprint(terrainBody, terrainGraphic);
-		CreateActor createTerrain = new CreateActor(terrain, new Vec2(0f,0f), 0f);
+		CreateActor createTerrain = new CreateActor(-1, terrain, new Vec2(1f,1f), (float)Math.toRadians(0), null);
 		
 		m.add(createTerrain);
 		
@@ -44,7 +44,12 @@ public class MainServer implements ActorManagerListener{
 		BodyBlueprint fallingBody = new BodyBlueprint(size2, true, 0.5f, 1, 0.3f);
 		GraphicBlueprint fallingGraphic = new GraphicBlueprint( size2 );
 		Blueprint falling = new Blueprint(fallingBody, fallingGraphic);
-		CreateActor createFallingBox = new CreateActor(falling, new Vec2(0f, 10f), 0.1f);
+		CreateActor createFallingBox = new CreateActor(-1, falling, new Vec2(0f, 100f), (float)Math.toRadians(40), new CreateCallback(){
+			@Override
+			public void created(long id){
+				m.setCamera(id);
+			}
+		});
 		
 		m.add(createFallingBox);
 		
@@ -66,10 +71,5 @@ public class MainServer implements ActorManagerListener{
 				e.printStackTrace();
 			}
 		}
-	}
-
-	@Override
-	public void eventClose() {
-		this.run = false;
 	}
 }
