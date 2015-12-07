@@ -1,11 +1,11 @@
 package jspace2d.gui;
 
 import java.nio.IntBuffer;
-import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import org.jbox2d.common.Vec2;
 import org.lwjgl.BufferUtils;
 import org.lwjgl.Version;
 import org.lwjgl.glfw.GLFW;
@@ -27,12 +27,12 @@ public class Visualizer implements Runnable {
 	// The window handle
 	private long window;
 	private VisualizerListener listener;
-	private HashMap<Long, ActorGui> actors = new HashMap<Long, ActorGui>();
+	private List<ActorGui> actors = new ArrayList<>();
 
 	int WIDTH = 600;
 	int HEIGHT = 600;
 
-	private float zoom = 1f/10f;
+	private float zoom = 1f / 100f;
 
 	@Override
 	public void run() {
@@ -96,7 +96,7 @@ public class Visualizer implements Runnable {
 	}
 
 	private void loop() {
-		
+
 		// This line is critical for LWJGL's interoperation with GLFW's
 		// OpenGL context, or any context that is managed externally.
 		// LWJGL detects the context that is current in the current thread,
@@ -110,14 +110,13 @@ public class Visualizer implements Runnable {
 		/* Declare buffers for using inside the loop */
 		IntBuffer width = BufferUtils.createIntBuffer(1);
 		IntBuffer height = BufferUtils.createIntBuffer(1);
-		
+
 		/* Set ortographic projection */
 		GL11.glMatrixMode(GL11.GL_PROJECTION);
 		GL11.glLoadIdentity();
 		GL11.glOrtho(-1f, 1f, -1f, 1f, 0f, 1f);
 		GL11.glMatrixMode(GL11.GL_MODELVIEW);
 		GL11.glLoadIdentity();
-		
 
 		long startMs = System.currentTimeMillis();
 		long loopCount = 0;
@@ -125,31 +124,33 @@ public class Visualizer implements Runnable {
 		// the window or has pressed the ESCAPE key.
 		while (GLFW.glfwWindowShouldClose(window) == GLFW.GLFW_FALSE) {
 
-			if (System.currentTimeMillis() - startMs >= 1000){
+			if (System.currentTimeMillis() - startMs >= 1000) {
 				startMs = System.currentTimeMillis();
-				log.log(Level.INFO, "FPS GUI: "+loopCount);
+				log.log(Level.INFO, "FPS GUI: " + loopCount);
 				loopCount = 0;
 			}
 			loopCount++;
-			
-			if (listener != null) {
-				listener.preRender();
-			}
 
 			float ratio;
 
 			/* Get width and height to calcualte the ratio */
 			GLFW.glfwGetFramebufferSize(window, width, height);
-			ratio = width.get() / (float) height.get();
-
-			/* Rewind buffers for next get */
-			width.rewind();
-			height.rewind();
+			
+			int w = width.get();
+			int h = height.get();
+			
+			ratio = w / (float) h;
+			
+			//zoom = (10f) / w;
+			
+			if (listener != null) {
+				listener.preRender();
+			}
 
 			/* Set viewport and clear screen */
-			GL11.glViewport(0, 0, width.get(), height.get());
+			GL11.glViewport(0, 0, w, h);
 			GL11.glClear(GL11.GL_COLOR_BUFFER_BIT | GL11.GL_DEPTH_BUFFER_BIT); // clear the framebuffer
-			
+
 			render(ratio);
 
 			GLFW.glfwSwapBuffers(window); // swap the color buffers
@@ -169,48 +170,36 @@ public class Visualizer implements Runnable {
 	}
 
 	private void render(float ratio) {
-		//synchronized (actors) {
-			for (ActorGui a : actors.values()) {
-				
-				GL11.glColor3f(0.1f, 0.1f, 0.1f);
+		for (ActorGui a : actors) {
 
-				GL11.glPushMatrix();
+			GL11.glColor3f(0.1f, 0.1f, 0.1f);
+
+			GL11.glPushMatrix();
+			{
+				GL11.glTranslatef(a.pos.x * zoom, a.pos.y * zoom, 0);
+				GL11.glRotatef((float) Math.toDegrees(a.angle), 0f, 0f, 1f);
+
+				GL11.glBegin(GL11.GL_POLYGON);
 				{
-					GL11.glTranslatef(a.pos.x * zoom, a.pos.y * zoom, 0);
-					GL11.glRotatef((float) Math.toDegrees(a.angle), 0f, 0f, 1f);
-
-					GL11.glBegin(GL11.GL_POLYGON);
-					{
-						float halfX = (a.size.x / 2) * zoom;
-						float halfY = (a.size.y / 2) * zoom;
-						GL11.glVertex2f(-halfX, -halfY);
-						GL11.glVertex2f(halfX, -halfY);
-						GL11.glVertex2f(halfX, halfY);
-						GL11.glVertex2f(-halfX, halfY);
-					}
-					GL11.glEnd();
+					float halfX = (a.size.x / 2) * zoom;
+					float halfY = (a.size.y / 2) * zoom;
+					GL11.glVertex2f(-halfX, -halfY);
+					GL11.glVertex2f(halfX, -halfY);
+					GL11.glVertex2f(halfX, halfY);
+					GL11.glVertex2f(-halfX, halfY);
 				}
-				GL11.glPopMatrix();
+				GL11.glEnd();
 			}
-		//}
+			GL11.glPopMatrix();
+		}
 	}
 
 	public void setListener(VisualizerListener v) {
 		this.listener = v;
 	}
 
-	public ActorGui add(long id, GraphicBlueprint graphicBlueprint, Vec2 pos, float angle) {
-		ActorGui ris = new ActorGui(pos, angle, graphicBlueprint.getSize());
-		synchronized (actors) {
-			actors.put(id, ris);
-			log.log(Level.INFO, "Created ActorGui");
-		}
-		return ris;
-	}
-
-	public void remove(long id) {
-		synchronized (actors) {
-			actors.remove(id);
-		}
+	public void set(List<ActorGui> toPrint) {
+		this.actors.clear();
+		this.actors.addAll(toPrint);
 	}
 }

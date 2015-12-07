@@ -9,7 +9,11 @@ import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import org.jbox2d.callbacks.QueryCallback;
+import org.jbox2d.collision.AABB;
+import org.jbox2d.common.Vec2;
 import org.jbox2d.dynamics.Body;
+import org.jbox2d.dynamics.Fixture;
 
 import jspace2d.actions.Action;
 import jspace2d.actions.CreateActor;
@@ -38,11 +42,18 @@ public class ActorManager implements VisualizerListener{
 
 	private ActorManagerListener listener;
 	
+	private final AABB queryAABB = new AABB();
+	CameraCallback queryCallback = new CameraCallback();
+	private Actor camera;
+
+	private float half_camera_height = 50;
+	private float half_camera_width = 50;
+	
 	public ActorManager(){
 		v.setListener(this);
 		new Thread(v).start();
 	}
-	
+
 	public void setListener(ActorManagerListener l){
 		listener = l;		
 	}
@@ -97,13 +108,14 @@ public class ActorManager implements VisualizerListener{
 		}
 		
 		p.remove(removed.body);
-		v.remove(removed.id);
 	}
 
 	void addActor(CreateActor a) {
-		Body body = p.add( a.blueprint.getBodyBlueprint(), a.pos, a.angle );
-		ActorGui graphic = v.add( actorId, a.blueprint.getGraphicBlueprint(), a.pos, a.angle );
-		actors.put( actorId, new Actor(actorId, a.blueprint, body, graphic) );
+		Body body = p.add( a.blueprint.getBodyBlueprint(), a.pos, a.angle ); 
+		ActorGui graphic = new ActorGui( a.pos, a.angle, a.blueprint.getGraphicBlueprint().getSize() );
+		Actor actor = new Actor(actorId, a.blueprint, body, graphic);
+		body.m_userData = actor;
+		actors.put( actorId, actor );
 		actorId++;
 	}
 	
@@ -123,14 +135,24 @@ public class ActorManager implements VisualizerListener{
 	public void preRender() {
 		synchronized(toUpdate){
 			if (toUpdate.getAndSet(false)){
-				
-				/* just the the actual body position and angle and set it to the graphic counterpart */
-				for ( Actor a:actors.values() ){
-					a.graphic.pos.x = a.body.getPosition().x;
-					a.graphic.pos.y = a.body.getPosition().y;
-
-					a.graphic.angle = a.body.getAngle();
+				Vec2 center;
+				float angle;
+				if (camera != null){
+					center = camera.body.getPosition();
+					angle = camera.body.getAngle();
+				}else{
+					center = new Vec2(0,0);
+					angle = 0;
 				}
+				
+				queryAABB.lowerBound.set(center.x - half_camera_width, center.y - half_camera_height);
+                queryAABB.upperBound.set(center.x + half_camera_width, center.y + half_camera_height);
+                
+                queryCallback.reset( center, angle );
+                
+				p.queryAABB(queryCallback, queryAABB);
+				
+				v.set(queryCallback.getToPrint());
 			}
 		}
 	}
@@ -139,5 +161,35 @@ public class ActorManager implements VisualizerListener{
 	public void close() {
 		if (listener != null)
 			listener.eventClose();
+	}
+	
+	private class CameraCallback implements QueryCallback{
+
+		private Vec2 center = new Vec2();
+		private float angle;
+		private final List<ActorGui> toPrint = new ArrayList<>();
+
+		@Override
+		public boolean reportFixture(Fixture fixture) {
+			Actor a = (Actor)fixture.m_body.m_userData;
+			a.graphic.pos.x = a.body.getPosition().x - center.x;
+			a.graphic.pos.y = a.body.getPosition().y - center.y;
+
+			a.graphic.angle = a.body.getAngle() - angle;
+			
+			toPrint.add(a.graphic);
+			return true;
+		}
+
+		public List<ActorGui> getToPrint() {
+			return toPrint;
+		}
+
+		public void reset(Vec2 position, float angle) {
+			this.center  = position;
+			this.angle = angle;
+			toPrint.clear();
+		}
+		
 	}
 }

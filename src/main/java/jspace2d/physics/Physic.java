@@ -3,6 +3,8 @@ package jspace2d.physics;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import org.jbox2d.callbacks.QueryCallback;
+import org.jbox2d.collision.AABB;
 import org.jbox2d.collision.shapes.PolygonShape;
 import org.jbox2d.common.Vec2;
 import org.jbox2d.dynamics.Body;
@@ -64,5 +66,9 @@ public class Physic {
 
 	public void remove(Body body) {
 		world.destroyBody(body);
+	}
+
+	public void queryAABB(QueryCallback callback, AABB aabb) {
+		world.queryAABB(callback, aabb);
 	}
 }

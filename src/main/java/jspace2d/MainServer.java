@@ -31,11 +31,11 @@ public class MainServer implements ActorManagerListener{
 		m.setListener(this);
 		
 		//terrain
-		final Vec2 size = new Vec2(5, 1);
+		final Vec2 size = new Vec2(50, 1);
 		BodyBlueprint terrainBody = new BodyBlueprint(size, false, 0, 1, 0.3f);
 		GraphicBlueprint terrainGraphic = new GraphicBlueprint( size );
 		Blueprint terrain = new Blueprint(terrainBody, terrainGraphic);
-		CreateActor createTerrain = new CreateActor(terrain, new Vec2(0f,0f), 0);
+		CreateActor createTerrain = new CreateActor(terrain, new Vec2(0f,0f), 0f);
 		
 		m.add(createTerrain);
 		
@@ -44,7 +44,7 @@ public class MainServer implements ActorManagerListener{
 		BodyBlueprint fallingBody = new BodyBlueprint(size2, true, 0.5f, 1, 0.3f);
 		GraphicBlueprint fallingGraphic = new GraphicBlueprint( size2 );
 		Blueprint falling = new Blueprint(fallingBody, fallingGraphic);
-		CreateActor createFallingBox = new CreateActor(falling, new Vec2(0f, 10f), 0f);
+		CreateActor createFallingBox = new CreateActor(falling, new Vec2(0f, 10f), 0.1f);
 		
 		m.add(createFallingBox);
 		
