@@ -18,6 +18,7 @@ import jspace2d.actions.CreateActor;
 import jspace2d.actions.MoveActor;
 import jspace2d.actions.RemoveActor;
 import jspace2d.gui.ActorGui;
+import jspace2d.gui.ActorGuiRectangle;
 import jspace2d.gui.Camera;
 import jspace2d.gui.Visualizer;
 import jspace2d.physics.Physic;
@@ -85,7 +86,7 @@ public class ActorManager {
 			actorId++;
 		}
 		Body body = p.add(a.blueprint.getBodyBlueprint(), a.pos, a.angle);
-		ActorGui graphic = new ActorGui(a.id, a.pos, a.angle, a.blueprint.getGraphicBlueprint().getSize());
+		ActorGui graphic = new ActorGuiRectangle(a.id, a.pos, a.angle, a.blueprint.getGraphicBlueprint().getSize());
 		Actor actor = new Actor(a.id, a.blueprint, body, graphic);
 		body.m_userData = actor;
 		actors.put(a.id, actor);

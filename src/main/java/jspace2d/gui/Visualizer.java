@@ -28,14 +28,14 @@ public class Visualizer implements Runnable {
 	int WIDTH = 600;
 	int HEIGHT = 600;
 
-	private float zoom = 1f / 100f;
+	private float zoom = 0.01f;
 
 	private final String title;
-	
+
 	private Camera camera;
 
 	public volatile boolean runnig = false;
-	
+
 	private boolean shouldClose = false;
 
 	public Visualizer(String title) {
@@ -61,11 +61,11 @@ public class Visualizer implements Runnable {
 			errorCallback.release();
 			if (listener != null)
 				listener.close();
-			
+
 			runnig = false;
 		}
 	}
-	
+
 	public void setListener(VisualizerListener v) {
 		this.listener = v;
 	}
@@ -141,6 +141,9 @@ public class Visualizer implements Runnable {
 
 		long startMs = System.currentTimeMillis();
 		long loopCount = 0;
+		
+		GL11.glScalef(zoom, zoom, 1);
+		
 		// Run the rendering loop until the user has attempted to close
 		// the window or has pressed the ESCAPE key.
 		while (GLFW.glfwWindowShouldClose(window) == GLFW.GLFW_FALSE || shouldClose) {
@@ -156,16 +159,16 @@ public class Visualizer implements Runnable {
 
 			/* Get width and height to calcualte the ratio */
 			GLFW.glfwGetFramebufferSize(window, width, height);
-			
+
 			int w = width.get();
 			int h = height.get();
-			
+
 			ratio = w / (float) h;
 
 			/* Set viewport and clear screen */
 			GL11.glViewport(0, 0, w, h);
-			GL11.glClear(GL11.GL_COLOR_BUFFER_BIT | GL11.GL_DEPTH_BUFFER_BIT); // clear the framebuffer
-
+			GL11.glClear(GL11.GL_COLOR_BUFFER_BIT | GL11.GL_DEPTH_BUFFER_BIT); // clear the framebuffer	
+			
 			render(ratio);
 
 			GLFW.glfwSwapBuffers(window); // swap the color buffers
@@ -182,32 +185,15 @@ public class Visualizer implements Runnable {
 	}
 
 	private void render(float ratio) {
-		if (camera == null){
+		if (camera == null) {
 			log.log(Level.INFO, "No camera, turning off visualizer");
 			shouldClose = true;
 			return;
 		}
-		for ( ActorGui a : camera.getToPrint() ) {
-			
-			GL11.glColor3f(0.1f, 0.1f, 0.1f);
-
-			GL11.glPushMatrix();
-			{
-				GL11.glTranslatef(a.pos.x * zoom, a.pos.y * zoom, 0);
-				GL11.glRotatef((float) Math.toDegrees(a.angle), 0f, 0f, 1f);
-
-				GL11.glBegin(GL11.GL_POLYGON);
-				{
-					float halfX = (a.size.x / 2) * zoom;
-					float halfY = (a.size.y / 2) * zoom;
-					GL11.glVertex2f(-halfX, -halfY);
-					GL11.glVertex2f(halfX, -halfY);
-					GL11.glVertex2f(halfX, halfY);
-					GL11.glVertex2f(-halfX, halfY);
-				}
-				GL11.glEnd();
-			}
-			GL11.glPopMatrix();
+		
+		GL11.glColor3f(0.1f, 0.1f, 0.1f);
+		for (ActorGui a : camera.getToPrint()) {
+			a.draw();
 		}
 	}
 }

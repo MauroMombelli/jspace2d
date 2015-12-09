@@ -1,41 +1,27 @@
 package jspace2d.physics;
 
-import org.jbox2d.common.Vec2;
-
 public class BodyBlueprint {
-
-	private final float density;
-	private final float friction;
-	private final Vec2 size;
 	private final boolean isDynamic;
-	private final float restitution;
+	private final boolean isBullet;
 	
-	public BodyBlueprint(Vec2 size, boolean isDynamic, float restitution, float density, float friction){
-		this.density = density;
-		this.friction = friction;
-		this.size = size;
+	private final FixtureBlueprint fixture[];
+	
+	public BodyBlueprint(boolean isDynamic, boolean isBullet, FixtureBlueprint fixture[]){
 		this.isDynamic = isDynamic;
-		this.restitution = restitution;
+		this.isBullet = isBullet;
+		this.fixture = fixture; 
 	}
 
 	public boolean isDynamic() {
 		return isDynamic;
 	}
-
-	public Vec2 getSize() {
-		return size;
+	
+	public boolean isBullet() {
+		return isBullet;
 	}
 
-	public float getDensity() {
-		return density;
-	}
-
-	public float getFriction() {
-		return friction;
-	}
-
-	public float getRestitution() {
-		return restitution;
+	public FixtureBlueprint[] getFixture() {
+		return fixture;
 	}
 
 }

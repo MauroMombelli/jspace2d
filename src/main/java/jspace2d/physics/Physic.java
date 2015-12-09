@@ -5,12 +5,10 @@ import java.util.logging.Logger;
 
 import org.jbox2d.callbacks.QueryCallback;
 import org.jbox2d.collision.AABB;
-import org.jbox2d.collision.shapes.PolygonShape;
 import org.jbox2d.common.Vec2;
 import org.jbox2d.dynamics.Body;
 import org.jbox2d.dynamics.BodyDef;
 import org.jbox2d.dynamics.BodyType;
-import org.jbox2d.dynamics.FixtureDef;
 import org.jbox2d.dynamics.World;
 
 public class Physic {
@@ -43,17 +41,11 @@ public class Physic {
 			bodyDef.type = BodyType.STATIC;
 		}
 		
-		PolygonShape dynamicBox = new PolygonShape();
-		dynamicBox.setAsBox(e.getSize().x/2, e.getSize().y/2);
-		
-		FixtureDef fixtureDef = new FixtureDef();
-		fixtureDef.shape=dynamicBox;
-		fixtureDef.density=e.getDensity();
-		fixtureDef.friction=e.getFriction();
-		fixtureDef.restitution=e.getRestitution();
-		
 		Body body = world.createBody(bodyDef);
-		body.createFixture(fixtureDef);
+		
+		for (FixtureBlueprint f : e.getFixture()){
+			body.createFixture( f.getFixture() );
+		}
 		
 		log.log(Level.INFO, "Created body");
 		
