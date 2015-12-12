@@ -8,6 +8,11 @@ public class FixtureRectangle extends FixtureBlueprint {
 
 	private final Vec2 size;
 
+	@SuppressWarnings("unused") //needed fo jackson serialization
+	private FixtureRectangle(){
+		size = null;
+	}
+	
 	public FixtureRectangle(boolean isSensor, float restitution, float density, float friction, Vec2 size) {
 		super(isSensor, restitution, density, friction);
 		

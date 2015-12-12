@@ -1,0 +1,23 @@
+{
+  "bodyBlueprint" : {
+    "isDynamic" : false,
+    "isBullet" : false,
+    "fixture" : [ {
+      "@classType" : ".FixtureRectangle",
+      "restitution" : 0.5,
+      "density" : 1.0,
+      "friction" : 0.3,
+      "isSensor" : false,
+      "size" : {
+        "x" : 50.0,
+        "y" : 1.0
+      }
+    } ]
+  },
+  "graphicBlueprint" : {
+    "size" : {
+      "x" : 50.0,
+      "y" : 1.0
+    }
+  }
+}

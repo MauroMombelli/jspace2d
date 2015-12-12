@@ -1,0 +1,20 @@
+{
+  "bodyBlueprint" : {
+    "isDynamic" : true,
+    "isBullet" : false,
+    "fixture" : [ {
+      "@classType" : ".FixtureCircle",
+      "restitution" : 0.5,
+      "density" : 1.0,
+      "friction" : 0.3,
+      "isSensor" : false,
+      "radius" : 2.0
+    } ]
+  },
+  "graphicBlueprint" : {
+    "size" : {
+      "x" : 2.0,
+      "y" : 2.0
+    }
+  }
+}

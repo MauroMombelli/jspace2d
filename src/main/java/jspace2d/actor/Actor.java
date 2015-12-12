@@ -2,6 +2,7 @@ package jspace2d.actor;
 
 import org.jbox2d.dynamics.Body;
 
+import jspace2d.blueprint.Blueprint;
 import jspace2d.gui.ActorGui;
 
 public class Actor {

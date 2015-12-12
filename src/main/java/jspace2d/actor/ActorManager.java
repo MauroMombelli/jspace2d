@@ -1,5 +1,6 @@
 package jspace2d.actor;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -17,6 +18,8 @@ import jspace2d.actions.Action;
 import jspace2d.actions.CreateActor;
 import jspace2d.actions.MoveActor;
 import jspace2d.actions.RemoveActor;
+import jspace2d.blueprint.Blueprint;
+import jspace2d.blueprint.BlueprintFactory;
 import jspace2d.gui.ActorGui;
 import jspace2d.gui.ActorGuiRectangle;
 import jspace2d.gui.Camera;
@@ -81,20 +84,35 @@ public class ActorManager {
 	}
 
 	public void addActor(CreateActor a) {
-		if (a.id < 0) {
-			a.id = actorId;
+		
+		Blueprint blueprint;
+		try {
+			blueprint = BlueprintFactory.get(a.blueprintName);
+		} catch (IOException e) {
+			log.log(Level.INFO, "Impossible create actor id " + a.id);
+			e.printStackTrace();
+			return;
+		}
+		
+		final long id;
+		if (a.id > 0) {
+			id = a.id;
+		}else{
+			id = actorId;
 			actorId++;
 		}
-		Body body = p.add(a.blueprint.getBodyBlueprint(), a.pos, a.angle);
-		ActorGui graphic = new ActorGuiRectangle(a.id, a.pos, a.angle, a.blueprint.getGraphicBlueprint().getSize());
-		Actor actor = new Actor(a.id, a.blueprint, body, graphic);
-		body.m_userData = actor;
-		actors.put(a.id, actor);
 		
-		log.log(Level.INFO, "Created actor id " + a.id);
+		Body body = p.add(blueprint.getBodyBlueprint(), a.pos, a.angle);
+		ActorGui graphic = new ActorGuiRectangle(id, a.pos, a.angle, blueprint.getGraphicBlueprint().getSize());
+		Actor actor = new Actor(id, blueprint, body, graphic);
+		body.m_userData = actor;
+		
+		actors.put(id, actor);
+		
+		log.log(Level.INFO, "Created actor id " + id);
 		
 		if (a.callback != null) {
-			a.callback.created(a.id);
+			a.callback.created(id);
 		}
 	}
 
